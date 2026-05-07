@@ -1,35 +1,35 @@
 import './Features.css'
 
-const services = [
+const features = [
   {
-    icon: '🎨',
-    title: 'Brand & Design',
-    desc: 'Visual identities, UI/UX design, and brand systems that make lasting first impressions.',
+    icon: '🚀',
+    title: 'Record-Breaking Scale',
+    desc: 'The largest student-built rocket ever launched in Australia, engineered from the ground up by our team.',
   },
   {
-    icon: '💻',
-    title: 'Web Development',
-    desc: 'Fast, accessible, and scalable web apps built with modern frameworks and best practices.',
+    icon: '🌤️',
+    title: 'Stratospheric Reach',
+    desc: 'Designed to reach 30km altitude — deep into the stratosphere where weather balloons currently operate.',
   },
   {
-    icon: '📈',
-    title: 'Growth Marketing',
-    desc: 'SEO, paid media, and conversion optimization strategies that turn traffic into revenue.',
+    icon: '📡',
+    title: 'Atmospheric Sensing',
+    desc: 'Onboard sensors collect temperature, pressure, humidity, and wind data throughout ascent and descent.',
   },
   {
-    icon: '📱',
-    title: 'Mobile Apps',
-    desc: 'Native and cross-platform mobile experiences that users love to come back to.',
+    icon: '💰',
+    title: 'Cost-Effective Alternative',
+    desc: 'A reusable rocket platform that can semi-replace single-use weather balloons at lower long-term cost.',
   },
   {
-    icon: '⚙️',
-    title: 'Strategy & Consulting',
-    desc: 'Roadmaps, audits, and competitive analysis to make confident product decisions.',
+    icon: '🔬',
+    title: 'Student-Led R&D',
+    desc: 'Every system — propulsion, avionics, recovery, and payload — is designed and built by students.',
   },
   {
-    icon: '🔒',
-    title: 'Security & Performance',
-    desc: 'End-to-end hardening, load testing, and monitoring so your platform never lets you down.',
+    icon: '🌏',
+    title: 'Australian Innovation',
+    desc: 'Proudly Australian, pushing the boundaries of what student aerospace teams can achieve.',
   },
 ]
 
@@ -38,18 +38,18 @@ export default function Features() {
     <section id="features" className="features">
       <div className="features-inner">
         <div className="section-header">
-          <div className="section-tag">What We Do</div>
-          <h2 className="section-heading">Services Built Around Your Goals</h2>
+          <div className="section-tag">What We're Building</div>
+          <h2 className="section-heading">Technology That Reaches New Heights</h2>
           <p className="section-sub">
-            From first pixel to post-launch growth, we cover every stage of the digital journey.
+            From propulsion to payload, every part of the rocket is designed with one goal — reaching 30km and returning data.
           </p>
         </div>
         <div className="cards">
-          {services.map((s) => (
-            <div className="card" key={s.title}>
-              <div className="card-icon">{s.icon}</div>
-              <h3>{s.title}</h3>
-              <p>{s.desc}</p>
+          {features.map((f) => (
+            <div className="card" key={f.title}>
+              <div className="card-icon">{f.icon}</div>
+              <h3>{f.title}</h3>
+              <p>{f.desc}</p>
             </div>
           ))}
         </div>

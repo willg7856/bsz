@@ -5,13 +5,13 @@ export default function Footer() {
     <footer id="contact" className="footer">
       <div className="footer-inner">
         <div className="footer-cta">
-          <h2>Ready to Build Something Great?</h2>
-          <p>Let's talk about your next project. No pressure, just a conversation.</p>
-          <a href="mailto:hello@apexagency.com" className="btn btn-white">hello@apexagency.com</a>
+          <h2>Want to Be Part of This?</h2>
+          <p>Whether you're a student, engineer, sponsor, or just excited about rockets — we'd love to hear from you.</p>
+          <a href="mailto:hello@beyondstagehero.com" className="btn btn-white">Get in Touch</a>
         </div>
         <div className="footer-bottom">
-          <span className="footer-logo">Apex Agency</span>
-          <span>© {new Date().getFullYear()} Apex Agency. All rights reserved.</span>
+          <span className="footer-logo">Beyond Stage Zero</span>
+          <span>© {new Date().getFullYear()} Beyond Stage Zero. All rights reserved.</span>
         </div>
       </div>
     </footer>

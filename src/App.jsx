@@ -8,10 +8,11 @@ export default function App() {
     <>
       <header className="nav">
         <div className="nav-inner">
-          <span className="logo">Apex Agency</span>
+          <span className="logo">Beyond Stage Zero</span>
           <nav>
-            <a href="#features">Services</a>
-            <a href="#contact" className="btn-primary">Get in Touch</a>
+            <a href="#mission">Mission</a>
+            <a href="#features">Technology</a>
+            <a href="#contact" className="btn-primary">Get Involved</a>
           </nav>
         </div>
       </header>
