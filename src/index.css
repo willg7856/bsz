@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: sans-serif;
   background: #000;
   color: #fff;
   height: 100vh;
@@ -28,9 +28,14 @@ body {
 }
 
 h1 {
+  font-family: 'JetBrains Mono', monospace;
   font-size: clamp(2.5rem, 8vw, 6rem);
   font-weight: 700;
   margin-bottom: 1.5rem;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .tagline {
