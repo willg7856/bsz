@@ -3,7 +3,7 @@ export default function App() {
     <div className="page">
       <div className="stars" />
       <div className="content">
-        <div className="eyebrow">Est. 2024 — Australia</div>
+        <div className="eyebrow">Est. 2025 — Australia</div>
         <h1>Beyond Stage Zero</h1>
         <div className="divider" />
         <p className="tagline">
