@@ -1,8 +1,8 @@
 export default function App() {
   return (
-    <div>
+    <div className="page">
       <h1>Beyond Stage Zero</h1>
-      <p>We build digital experiences that drive growth.</p>
+      <p>Building Australia's Largest Student Rocket</p>
       <a href="mailto:beyondstagezero@gmail.com">beyondstagezero@gmail.com</a>
     </div>
   )
