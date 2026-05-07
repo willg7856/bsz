@@ -47,7 +47,7 @@ export default function App() {
     <div className="page">
       <Stars />
       <div className="content">
-        <div className="eyebrow">Est. 2025 — Australia</div>
+        <div className="eyebrow">Founded 2025 — Australia</div>
         <h1>Beyond Stage Zero</h1>
         <div className="divider" />
         <p className="tagline">
