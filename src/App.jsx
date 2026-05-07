@@ -1,9 +1,9 @@
 export default function App() {
   return (
     <div>
-      <h1>Apex Agency</h1>
+      <h1>Beyond Stage Zero</h1>
       <p>We build digital experiences that drive growth.</p>
-      <a href="mailto:hello@apexagency.com">hello@apexagency.com</a>
+      <a href="mailto:beyondstagezero@gmail.com">beyondstagezero@gmail.com</a>
     </div>
   )
 }
