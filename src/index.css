@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+:root {
+  --accent: #e8530a;
 }
 
 body {
@@ -11,6 +15,42 @@ body {
   background: #000;
   color: #fff;
   height: 100vh;
+  overflow: hidden;
+}
+
+/* Star field */
+.stars {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 85% 35%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 20% 85%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 50%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 40% 40%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75% 55%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 15% 50%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 90%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(2px 2px at 25% 25%, rgba(255,255,255,0.15) 0%, transparent 100%),
+    radial-gradient(2px 2px at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Subtle glow from below */
+.page::after {
+  content: '';
+  position: fixed;
+  bottom: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(232, 83, 10, 0.12) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .page {
@@ -21,42 +61,71 @@ body {
   justify-content: center;
   text-align: center;
   padding: 0 24px;
+  position: relative;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 1.5rem;
 }
 
 .content {
-  margin-top: 15vh;
+  margin-top: 12vh;
 }
 
 h1 {
   font-family: 'JetBrains Mono', monospace;
-  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-size: clamp(2.8rem, 9vw, 7rem);
   font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
   margin-bottom: 1.5rem;
+}
+
+.divider {
+  width: 48px;
+  height: 2px;
+  background: var(--accent);
+  margin: 0 auto 1.5rem;
+}
+
+.tagline {
+  font-size: clamp(1rem, 2.5vw, 1.45rem);
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
 }
 
 .mono {
   font-family: 'JetBrains Mono', monospace;
 }
 
-.tagline {
-  font-size: clamp(1.1rem, 2.8vw, 1.6rem);
-  margin-bottom: 1rem;
+.accent {
+  color: var(--accent);
 }
 
 .coming-soon {
-  font-size: clamp(0.85rem, 2vw, 1.1rem);
-  opacity: 0.5;
-  flex: 1;
-  margin-bottom: 3rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  margin-bottom: 4rem;
 }
 
-a {
-  font-size: 0.95rem;
-  color: #fff;
+.email {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.45);
   text-decoration: none;
+  letter-spacing: 0.05em;
   padding-bottom: 40px;
+  transition: color 0.2s;
+  border-bottom: 1px solid transparent;
 }
 
-a:hover {
-  text-decoration: underline;
+.email:hover {
+  color: #fff;
+  border-bottom-color: var(--accent);
 }

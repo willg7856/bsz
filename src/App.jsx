@@ -1,12 +1,20 @@
 export default function App() {
   return (
     <div className="page">
+      <div className="stars" />
       <div className="content">
+        <div className="eyebrow">Est. 2024 — Australia</div>
         <h1>Beyond Stage Zero</h1>
-        <p className="tagline">Building Australia's Largest Student Rocket, <span className="mono">STRAVOX</span>.</p>
+        <div className="divider" />
+        <p className="tagline">
+          Building Australia's Largest Student Rocket,{' '}
+          <span className="mono accent">STRAVOX</span>.
+        </p>
         <p className="coming-soon">Full website coming soon</p>
       </div>
-      <a href="mailto:beyondstagezero@gmail.com">beyondstagezero@gmail.com</a>
+      <a className="email" href="mailto:beyondstagezero@gmail.com">
+        beyondstagezero@gmail.com
+      </a>
     </div>
   )
 }
