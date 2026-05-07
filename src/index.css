@@ -29,20 +29,12 @@ body {
   position: absolute;
   border-radius: 50%;
   background: #fff;
-  animation:
-    twinkle var(--twinkle-duration) var(--twinkle-delay) ease-in-out infinite alternate,
-    drift var(--drift-duration) var(--drift-delay) ease-in-out infinite alternate;
 }
 
 @keyframes twinkle {
   0%   { opacity: 0.15; }
   50%  { opacity: 0.9; }
   100% { opacity: 0.2; }
-}
-
-@keyframes drift {
-  from { transform: translate(0, 0); }
-  to   { transform: translate(var(--drift-x), var(--drift-y)); }
 }
 
 /* Subtle glow from below */

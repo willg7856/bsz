@@ -8,31 +8,40 @@ function Stars() {
     twinkleDelay: Math.random() * 6,
     driftDuration: Math.random() * 40 + 30,
     driftDelay: Math.random() * -30,
-    driftX: (Math.random() - 0.5) * 3,
-    driftY: (Math.random() - 0.5) * 3,
+    driftX: ((Math.random() - 0.5) * 3).toFixed(2),
+    driftY: ((Math.random() - 0.5) * 3).toFixed(2),
   }))
 
+  const keyframes = stars
+    .map(
+      (s) => `
+        @keyframes drift-${s.id} {
+          from { transform: translate(0, 0); }
+          to   { transform: translate(${s.driftX}vw, ${s.driftY}vh); }
+        }
+      `
+    )
+    .join('')
+
   return (
-    <div className="stars">
-      {stars.map((s) => (
-        <div
-          key={s.id}
-          className="star"
-          style={{
-            left: `${s.x}%`,
-            top: `${s.y}%`,
-            width: s.size,
-            height: s.size,
-            '--twinkle-duration': `${s.twinkleDuration}s`,
-            '--twinkle-delay': `${s.twinkleDelay}s`,
-            '--drift-duration': `${s.driftDuration}s`,
-            '--drift-delay': `${s.driftDelay}s`,
-            '--drift-x': `${s.driftX}vw`,
-            '--drift-y': `${s.driftY}vh`,
-          }}
-        />
-      ))}
-    </div>
+    <>
+      <style>{keyframes}</style>
+      <div className="stars">
+        {stars.map((s) => (
+          <div
+            key={s.id}
+            className="star"
+            style={{
+              left: `${s.x}%`,
+              top: `${s.y}%`,
+              width: s.size,
+              height: s.size,
+              animation: `twinkle ${s.twinkleDuration}s ${s.twinkleDelay}s ease-in-out infinite alternate, drift-${s.id} ${s.driftDuration}s ${s.driftDelay}s ease-in-out infinite alternate`,
+            }}
+          />
+        ))}
+      </div>
+    </>
   )
 }
 
