@@ -23,14 +23,24 @@ body {
   padding: 0 24px;
 }
 
+.content {
+  margin-top: 15vh;
+}
+
 h1 {
   font-size: clamp(2.5rem, 8vw, 6rem);
   font-weight: 700;
   margin-bottom: 1.5rem;
 }
 
-p {
-  font-size: clamp(1rem, 2.5vw, 1.4rem);
+.tagline {
+  font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+  margin-bottom: 1rem;
+}
+
+.coming-soon {
+  font-size: clamp(0.85rem, 2vw, 1.1rem);
+  opacity: 0.5;
   flex: 1;
 }
 
