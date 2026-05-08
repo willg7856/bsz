@@ -1,59 +1,9 @@
 .rocket-diagram {
-  display: flex;
-  align-items: center;
-  gap: 48px;
-  padding: 48px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.02);
-  margin-bottom: 64px;
   user-select: none;
 }
 
 .rocket-svg {
-  width: 140px;
-  flex-shrink: 0;
+  width: 160px;
+  display: block;
   filter: drop-shadow(0 0 24px rgba(232, 83, 10, 0.15));
-}
-
-.rocket-tooltip {
-  flex: 1;
-  min-height: 80px;
-  transition: opacity 0.2s;
-}
-
-.tooltip-hint {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.2);
-  letter-spacing: 0.05em;
-}
-
-.tooltip-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #e8530a;
-  margin-bottom: 10px;
-}
-
-.tooltip-info {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.7;
-}
-
-@media (max-width: 600px) {
-  .rocket-diagram {
-    flex-direction: column;
-    padding: 32px 24px;
-    gap: 32px;
-  }
-
-  .rocket-svg {
-    width: 100px;
-  }
-
-  .rocket-tooltip {
-    text-align: center;
-  }
 }

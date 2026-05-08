@@ -4,40 +4,33 @@ import RocketDiagram, { PARTS } from '../components/RocketDiagram'
 import './Stravox.css'
 
 const specs = [
-  { label: 'Height', value: '2.6 m', partId: 'body' },
-  { label: 'Diameter', value: '200 mm', partId: 'body' },
-  { label: 'Target Altitude', value: '30 km', partId: 'motor' },
-  { label: 'Classification', value: 'High Power Rocket', partId: null },
-  { label: 'Country', value: 'Australia', partId: null },
-  { label: 'Team', value: 'Beyond Stage Zero', partId: null },
-  { label: 'Status', value: 'In Development', partId: null },
+  { label: 'Height', value: '2.6 m' },
+  { label: 'Diameter', value: '200 mm' },
+  { label: 'Target Altitude', value: '30 km' },
+  { label: 'Classification', value: 'High Power Rocket' },
+  { label: 'Country', value: 'Australia' },
+  { label: 'Team', value: 'Beyond Stage Zero' },
+  { label: 'Status', value: 'In Development' },
 ]
 
-function useActiveSection(ids) {
-  const [active, setActive] = useState(null)
-  const refs = useRef({})
+export default function Stravox() {
+  const [activePart, setActivePart] = useState(null)
+  const sectionRefs = useRef({})
 
   useEffect(() => {
     const observers = []
-    ids.forEach((id) => {
-      const el = refs.current[id]
+    PARTS.forEach((part) => {
+      const el = sectionRefs.current[part.id]
       if (!el) return
       const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActive(id) },
-        { threshold: 0.6 }
+        ([entry]) => { if (entry.isIntersecting) setActivePart(part.id) },
+        { threshold: 0.5 }
       )
       obs.observe(el)
       observers.push(obs)
     })
     return () => observers.forEach((o) => o.disconnect())
-  }, [ids])
-
-  return { active, refs }
-}
-
-export default function Stravox() {
-  const partIds = PARTS.map((p) => p.id)
-  const { active: scrollActive, refs } = useActiveSection(partIds)
+  }, [])
 
   return (
     <div className="stravox">
@@ -49,19 +42,24 @@ export default function Stravox() {
         </p>
       </div>
 
-      <RocketDiagram activePart={scrollActive} />
+      <div className="stravox-split">
+        <div className="stravox-sticky">
+          <RocketDiagram activePart={activePart} onHover={setActivePart} />
+        </div>
 
-      <div className="stravox-sections">
-        {PARTS.map((part) => (
-          <div
-            key={part.id}
-            className="stravox-section"
-            ref={(el) => { refs.current[part.id] = el }}
-          >
-            <h3>{part.label}</h3>
-            <p>{part.info}</p>
-          </div>
-        ))}
+        <div className="stravox-descriptions">
+          {PARTS.map((part) => (
+            <div
+              key={part.id}
+              className={`stravox-desc ${activePart === part.id ? 'active' : ''}`}
+              ref={(el) => { sectionRefs.current[part.id] = el }}
+              onMouseEnter={() => setActivePart(part.id)}
+            >
+              <h3>{part.label}</h3>
+              <p>{part.info}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="stravox-specs">

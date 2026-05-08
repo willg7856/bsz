@@ -46,13 +46,12 @@ export const PARTS = [
   },
 ]
 
-export default function RocketDiagram({ activePart: externalActive }) {
+export default function RocketDiagram({ activePart: externalActive, onHover }) {
   const [hovered, setHovered] = useState(null)
   const containerRef = useRef(null)
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
 
   const active = hovered ?? externalActive ?? null
-  const activePart = PARTS.find((p) => p.id === active)
 
   function handleMouseMove(e) {
     const rect = containerRef.current.getBoundingClientRect()
@@ -64,6 +63,12 @@ export default function RocketDiagram({ activePart: externalActive }) {
   function handleMouseLeave() {
     setTilt({ x: 0, y: 0 })
     setHovered(null)
+    onHover?.(null)
+  }
+
+  function handlePartEnter(id) {
+    setHovered(id)
+    onHover?.(id)
   }
 
   return (
@@ -76,42 +81,25 @@ export default function RocketDiagram({ activePart: externalActive }) {
           transition: tilt.x === 0 && tilt.y === 0 ? 'transform 0.6s ease' : 'transform 0.08s ease',
         }}
       >
-        {/* Centre axis */}
         <line x1="100" y1="30" x2="100" y2="524" stroke="rgba(255,255,255,0.07)" strokeWidth="1" strokeDasharray="5,4" />
-
-        {/* Section dividers */}
         <line x1="68" y1="215" x2="132" y2="215" stroke="rgba(255,255,255,0.12)" strokeWidth="1" strokeDasharray="4,3" />
         <line x1="68" y1="405" x2="132" y2="405" stroke="rgba(255,255,255,0.12)" strokeWidth="1" strokeDasharray="4,3" />
 
         {PARTS.map((part) => {
           const isActive = active === part.id
-          const fill = isActive ? 'rgba(232,83,10,0.35)' : 'rgba(255,255,255,0.05)'
-          const stroke = isActive ? '#e8530a' : 'rgba(255,255,255,0.18)'
           const props = {
             key: part.id,
-            fill,
-            stroke,
+            fill: isActive ? 'rgba(232,83,10,0.35)' : 'rgba(255,255,255,0.05)',
+            stroke: isActive ? '#e8530a' : 'rgba(255,255,255,0.18)',
             strokeWidth: isActive ? 1.5 : 1,
-            onMouseEnter: () => setHovered(part.id),
-            style: { cursor: 'pointer', transition: 'fill 0.2s, stroke 0.2s, stroke-width 0.2s' },
+            onMouseEnter: () => handlePartEnter(part.id),
+            style: { cursor: 'pointer', transition: 'fill 0.25s, stroke 0.25s' },
           }
           return part.shape === 'path'
             ? <path key={part.id} {...props} d={part.d} />
             : <rect key={part.id} {...props} x={part.x} y={part.y} width={part.width} height={part.height} />
         })}
       </svg>
-
-      <div className={`rocket-tooltip ${activePart ? 'visible' : ''}`}>
-        {activePart && (
-          <>
-            <div className="tooltip-label">{activePart.label}</div>
-            <div className="tooltip-info">{activePart.info}</div>
-          </>
-        )}
-        {!activePart && (
-          <div className="tooltip-hint">Hover over a section</div>
-        )}
-      </div>
     </div>
   )
 }
