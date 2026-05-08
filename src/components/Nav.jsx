@@ -6,7 +6,9 @@ export default function Nav() {
 
   return (
     <nav className="nav">
-      <Link className="nav-logo" to="/">Beyond Stage Zero</Link>
+      <Link className="nav-logo" to="/">
+        <img src="/logo.svg" alt="Beyond Stage Zero" className="nav-logo-img" />
+      </Link>
       <div className="nav-links">
         <Link className={pathname === '/' ? 'active' : ''} to="/">Home</Link>
         <Link className={pathname === '/about' ? 'active' : ''} to="/about">About</Link>

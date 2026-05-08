@@ -14,13 +14,10 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.nav-logo {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 700;
-  font-size: 1rem;
-  color: #fff;
-  text-decoration: none;
-  letter-spacing: -0.01em;
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
