@@ -25,9 +25,26 @@
   align-items: flex-start;
 }
 
+.rocket-img-stack {
+  position: relative;
+  width: 100%;
+}
+
 .stravox-model-img {
   width: 100%;
   height: auto;
+  display: block;
+}
+
+.stravox-model-img.overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.stravox-model-img.overlay.visible {
+  opacity: 1;
 }
 
 /* Section descriptions */

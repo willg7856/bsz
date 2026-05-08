@@ -1,7 +1,16 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import RocketDiagram, { PARTS } from '../components/RocketDiagram'
+import { PARTS } from '../components/RocketDiagram'
 import './Stravox.css'
+
+const PART_IMAGE = {
+  nose:     '/stravox-nose.png',
+  avionics: '/stravox-avionics.png',
+  body:     '/stravox-body.png',
+  motor:    '/stravox-motor.png',
+  fins:     '/stravox-fins.png',
+  nozzle:   '/stravox-nozzle.png',
+}
 
 const specs = [
   { label: 'Height',          value: '2.6 m' },
@@ -44,7 +53,19 @@ export default function Stravox() {
 
       <div className="stravox-split">
         <div className="stravox-sticky">
-          <RocketDiagram activePart={activePart} onHover={setActivePart} />
+          <div className="rocket-img-stack">
+            {/* Base render always underneath */}
+            <img src="/stravox-render.png" alt="STRAVOX" className="stravox-model-img base" />
+            {/* Section highlights fade in on top */}
+            {Object.entries(PART_IMAGE).map(([part, src]) => (
+              <img
+                key={part}
+                src={src}
+                alt={`STRAVOX ${part}`}
+                className={`stravox-model-img overlay ${activePart === part ? 'visible' : ''}`}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="stravox-descriptions">
