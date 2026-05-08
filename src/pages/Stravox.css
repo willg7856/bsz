@@ -11,7 +11,7 @@
 /* Two-column sticky layout */
 .stravox-split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 2fr;
   gap: 64px;
   align-items: start;
   margin-bottom: 100px;
@@ -22,13 +22,13 @@
   top: 84px;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .stravox-model-img {
   width: 100%;
-  max-width: 520px;
   height: auto;
-  transition: opacity 0.3s ease;
+  transition: src 0s, opacity 0.25s ease;
 }
 
 /* Section descriptions */
