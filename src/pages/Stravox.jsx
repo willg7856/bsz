@@ -3,14 +3,23 @@ import { Link } from 'react-router-dom'
 import { PARTS } from '../components/RocketDiagram'
 import './Stravox.css'
 
+const PART_IMAGE = {
+  nose:      '/stravox-nose.png',
+  avionics:  '/stravox-avionics.png',
+  body:      '/stravox-body.png',
+  motor:     '/stravox-motor.png',
+  fins:      '/stravox-fins.png',
+  nozzle:    '/stravox-nozzle.png',
+}
+
 const specs = [
-  { label: 'Height', value: '2.6 m' },
-  { label: 'Diameter', value: '200 mm' },
-  { label: 'Target Altitude', value: '30 km' },
+  { label: 'Height',         value: '2.6 m' },
+  { label: 'Diameter',       value: '200 mm' },
+  { label: 'Target Altitude',value: '30 km' },
   { label: 'Classification', value: 'High Power Rocket' },
-  { label: 'Country', value: 'Australia' },
-  { label: 'Team', value: 'Beyond Stage Zero' },
-  { label: 'Status', value: 'In Development' },
+  { label: 'Country',        value: 'Australia' },
+  { label: 'Team',           value: 'Beyond Stage Zero' },
+  { label: 'Status',         value: 'In Development' },
 ]
 
 export default function Stravox() {
@@ -32,6 +41,8 @@ export default function Stravox() {
     return () => observers.forEach((o) => o.disconnect())
   }, [])
 
+  const imgSrc = activePart ? (PART_IMAGE[activePart] ?? '/stravox-render.png') : '/stravox-render.png'
+
   return (
     <div className="stravox">
       <div className="page-header">
@@ -44,7 +55,11 @@ export default function Stravox() {
 
       <div className="stravox-split">
         <div className="stravox-sticky">
-          <img src="/stravox-render.png" alt="STRAVOX CAD render" className="stravox-model-img" />
+          <img
+            src={imgSrc}
+            alt="STRAVOX CAD render"
+            className="stravox-model-img"
+          />
         </div>
 
         <div className="stravox-descriptions">
@@ -54,6 +69,7 @@ export default function Stravox() {
               className={`stravox-desc ${activePart === part.id ? 'active' : ''}`}
               ref={(el) => { sectionRefs.current[part.id] = el }}
               onMouseEnter={() => setActivePart(part.id)}
+              onMouseLeave={() => setActivePart(null)}
             >
               <h3>{part.label}</h3>
               <p>{part.info}</p>

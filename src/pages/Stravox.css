@@ -28,6 +28,7 @@
   width: 100%;
   max-width: 520px;
   height: auto;
+  transition: opacity 0.3s ease;
 }
 
 /* Section descriptions */
