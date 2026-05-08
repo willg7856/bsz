@@ -1,17 +1,44 @@
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import RocketDiagram, { PARTS } from '../components/RocketDiagram'
 import './Stravox.css'
 
 const specs = [
-  { label: 'Height', value: '2.6 m' },
-  { label: 'Diameter', value: '200 mm' },
-  { label: 'Target Altitude', value: '30 km' },
-  { label: 'Classification', value: 'High Power Rocket' },
-  { label: 'Country', value: 'Australia' },
-  { label: 'Team', value: 'Beyond Stage Zero' },
-  { label: 'Status', value: 'In Development' },
+  { label: 'Height', value: '2.6 m', partId: 'body' },
+  { label: 'Diameter', value: '200 mm', partId: 'body' },
+  { label: 'Target Altitude', value: '30 km', partId: 'motor' },
+  { label: 'Classification', value: 'High Power Rocket', partId: null },
+  { label: 'Country', value: 'Australia', partId: null },
+  { label: 'Team', value: 'Beyond Stage Zero', partId: null },
+  { label: 'Status', value: 'In Development', partId: null },
 ]
 
+function useActiveSection(ids) {
+  const [active, setActive] = useState(null)
+  const refs = useRef({})
+
+  useEffect(() => {
+    const observers = []
+    ids.forEach((id) => {
+      const el = refs.current[id]
+      if (!el) return
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActive(id) },
+        { threshold: 0.6 }
+      )
+      obs.observe(el)
+      observers.push(obs)
+    })
+    return () => observers.forEach((o) => o.disconnect())
+  }, [ids])
+
+  return { active, refs }
+}
+
 export default function Stravox() {
+  const partIds = PARTS.map((p) => p.id)
+  const { active: scrollActive, refs } = useActiveSection(partIds)
+
   return (
     <div className="stravox">
       <div className="page-header">
@@ -20,6 +47,21 @@ export default function Stravox() {
         <p className="page-sub">
           Australia's largest student-built rocket, designed and constructed entirely by the Beyond Stage Zero team.
         </p>
+      </div>
+
+      <RocketDiagram activePart={scrollActive} />
+
+      <div className="stravox-sections">
+        {PARTS.map((part) => (
+          <div
+            key={part.id}
+            className="stravox-section"
+            ref={(el) => { refs.current[part.id] = el }}
+          >
+            <h3>{part.label}</h3>
+            <p>{part.info}</p>
+          </div>
+        ))}
       </div>
 
       <div className="stravox-specs">
@@ -36,7 +78,7 @@ export default function Stravox() {
 
       <div className="stravox-cta">
         <h2>Want to know more?</h2>
-        <p>We'll be publishing updates on our progress as the build continues. Reach out to us directly to stay in the loop.</p>
+        <p>We'll be publishing updates on our progress as the build continues. Reach out to stay in the loop.</p>
         <Link className="btn btn-primary" to="/contact">Contact Us</Link>
       </div>
     </div>
