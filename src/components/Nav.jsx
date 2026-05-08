@@ -1,5 +1,4 @@
 import { Link, useLocation } from 'react-router-dom'
-import Logo from './Logo'
 import './Nav.css'
 
 export default function Nav() {
@@ -8,9 +7,7 @@ export default function Nav() {
 
   return (
     <nav className="nav">
-      <Link className="nav-logo" to="/">
-        <Logo height={34} />
-      </Link>
+      <Link className="nav-logo" to="/">Beyond Stage Zero</Link>
       <div className="nav-links">
         <Link className={link('/')} to="/">Home</Link>
         <Link className={link('/about')} to="/about">About</Link>
