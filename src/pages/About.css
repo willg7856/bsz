@@ -1,0 +1,57 @@
+.about {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 120px 40px 80px;
+}
+
+.about-mission {
+  margin-bottom: 64px;
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.about-mission h2 {
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+  color: #e8530a;
+}
+
+.about-mission p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.about-values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.value-card {
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.value-card:hover {
+  border-color: rgba(232, 83, 10, 0.4);
+  background: rgba(232, 83, 10, 0.04);
+}
+
+.value-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.value-card p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+}

@@ -1,0 +1,64 @@
+.home {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-hero {
+  position: relative;
+  z-index: 1;
+  padding: 0 24px;
+  margin-top: 64px;
+}
+
+.home-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 1.5rem;
+}
+
+.home h1 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(2.8rem, 9vw, 7rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+.home-divider {
+  width: 48px;
+  height: 2px;
+  background: #e8530a;
+  margin: 0 auto 1.5rem;
+}
+
+.home-tagline {
+  font-size: clamp(1rem, 2.5vw, 1.45rem);
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 2.5rem;
+}
+
+.home-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.home-glow {
+  position: absolute;
+  bottom: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(232, 83, 10, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}

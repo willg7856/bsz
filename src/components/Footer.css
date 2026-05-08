@@ -1,0 +1,41 @@
+.footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 40px;
+}
+
+.footer-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-copy {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.8rem;
+}
