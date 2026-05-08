@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom'
 import './Stravox.css'
 
 const specs = [
+  { label: 'Height', value: '2.6 m' },
+  { label: 'Diameter', value: '200 mm' },
+  { label: 'Target Altitude', value: '30 km' },
   { label: 'Classification', value: 'High Power Rocket' },
   { label: 'Country', value: 'Australia' },
   { label: 'Team', value: 'Beyond Stage Zero' },
