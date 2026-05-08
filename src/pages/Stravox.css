@@ -25,34 +25,6 @@
   align-items: flex-start;
 }
 
-.crossfade-wrap {
-  position: relative;
-  width: 100%;
-}
-
-.crossfade-wrap img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.crossfade-wrap .cf-fade-out {
-  opacity: 0;
-  transition: opacity 0.22s ease;
-}
-
-.crossfade-wrap .cf-fade-in {
-  position: absolute;
-  inset: 0;
-  opacity: 1;
-  animation: cf-in 0.22s ease forwards;
-}
-
-@keyframes cf-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
 .stravox-model-img {
   width: 100%;
   height: auto;

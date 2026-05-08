@@ -1,16 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { PARTS } from '../components/RocketDiagram'
+import RocketDiagram, { PARTS } from '../components/RocketDiagram'
 import './Stravox.css'
-
-const PART_IMAGE = {
-  nose:      '/stravox-nose.png',
-  avionics:  '/stravox-avionics.png',
-  body:      '/stravox-body.png',
-  motor:     '/stravox-motor.png',
-  fins:      '/stravox-fins.png',
-  nozzle:    '/stravox-nozzle.png',
-}
 
 const specs = [
   { label: 'Height',          value: '2.6 m' },
@@ -21,35 +12,6 @@ const specs = [
   { label: 'Team',            value: 'Beyond Stage Zero' },
   { label: 'Status',          value: 'In Development' },
 ]
-
-function CrossfadeImage({ src, alt, className }) {
-  const [shownSrc, setShownSrc]       = useState(src)
-  const [nextSrc, setNextSrc]         = useState(null)
-  const [fading, setFading]           = useState(false)
-  const timerRef                      = useRef(null)
-
-  useEffect(() => {
-    if (src === shownSrc) return
-    clearTimeout(timerRef.current)
-    setNextSrc(src)
-    setFading(true)
-    timerRef.current = setTimeout(() => {
-      setShownSrc(src)
-      setNextSrc(null)
-      setFading(false)
-    }, 220)
-    return () => clearTimeout(timerRef.current)
-  }, [src])
-
-  return (
-    <div className="crossfade-wrap">
-      <img src={shownSrc} alt={alt} className={`${className} ${fading ? 'cf-fade-out' : ''}`} />
-      {nextSrc && (
-        <img src={nextSrc} alt={alt} className={`${className} cf-fade-in`} />
-      )}
-    </div>
-  )
-}
 
 export default function Stravox() {
   const [activePart, setActivePart] = useState(null)
@@ -70,8 +32,6 @@ export default function Stravox() {
     return () => observers.forEach((o) => o.disconnect())
   }, [])
 
-  const imgSrc = activePart ? (PART_IMAGE[activePart] ?? '/stravox-render.png') : '/stravox-render.png'
-
   return (
     <div className="stravox">
       <div className="page-header">
@@ -84,11 +44,7 @@ export default function Stravox() {
 
       <div className="stravox-split">
         <div className="stravox-sticky">
-          <CrossfadeImage
-            src={imgSrc}
-            alt="STRAVOX CAD render"
-            className="stravox-model-img"
-          />
+          <RocketDiagram activePart={activePart} onHover={setActivePart} />
         </div>
 
         <div className="stravox-descriptions">
