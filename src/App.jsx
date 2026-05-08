@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Stravox from './pages/Stravox'
 import Contact from './pages/Contact'
+import News from './pages/News'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/stravox" element={<Stravox />} />
+        <Route path="/news" element={<News />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />

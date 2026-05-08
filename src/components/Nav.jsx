@@ -1,18 +1,21 @@
 import { Link, useLocation } from 'react-router-dom'
+import Logo from './Logo'
 import './Nav.css'
 
 export default function Nav() {
   const { pathname } = useLocation()
+  const link = (path) => `nav-link${pathname === path ? ' active' : ''}`
 
   return (
     <nav className="nav">
       <Link className="nav-logo" to="/">
-        <img src="/logo.svg" alt="Beyond Stage Zero" className="nav-logo-img" />
+        <Logo height={34} />
       </Link>
       <div className="nav-links">
-        <Link className={pathname === '/' ? 'active' : ''} to="/">Home</Link>
-        <Link className={pathname === '/about' ? 'active' : ''} to="/about">About</Link>
-        <Link className={pathname === '/stravox' ? 'active' : ''} to="/stravox">STRAVOX</Link>
+        <Link className={link('/')} to="/">Home</Link>
+        <Link className={link('/about')} to="/about">About</Link>
+        <Link className={link('/stravox')} to="/stravox">STRAVOX</Link>
+        <Link className={link('/news')} to="/news">News</Link>
         <Link className="nav-cta" to="/contact">Contact</Link>
       </div>
     </nav>
