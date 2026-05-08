@@ -1,51 +1,50 @@
 export default function Logo({ height = 38 }) {
-  const w = 800
-  const h = 200
   return (
     <svg
-      viewBox={`0 0 ${w} ${h}`}
+      viewBox="0 0 900 220"
       height={height}
-      width="auto"
-      style={{ display: 'block' }}
+      style={{ display: 'block', width: 'auto' }}
       xmlns="http://www.w3.org/2000/svg"
     >
+      {/* Main body — nose on left, angled tail on right, hex collar center-left */}
       <path
         fill="white"
         d="
-          M 40,100
-          L 115,62
-          L 218,62
-          L 228,30
-          L 248,14
-          L 318,14
-          L 338,30
-          L 348,62
-          L 692,62
-          L 726,34
-          L 768,34
-          L 788,100
-          L 768,166
-          L 726,166
-          L 692,138
-          L 348,138
-          L 338,170
-          L 318,186
-          L 248,186
-          L 228,170
-          L 218,138
-          L 115,138
+          M 38,110
+          L 130,65
+          L 235,65
+          L 248,35
+          L 268,18
+          L 345,18
+          L 365,35
+          L 378,65
+          L 740,65
+          L 768,38
+          L 820,38
+          L 848,110
+          L 820,182
+          L 768,182
+          L 740,155
+          L 378,155
+          L 365,185
+          L 345,202
+          L 268,202
+          L 248,185
+          L 235,155
+          L 130,155
           Z
         "
       />
+      {/* Text sits right of the collar */}
       <text
-        x="480"
-        y="118"
+        x="618"
+        y="124"
         textAnchor="middle"
         fontFamily="'JetBrains Mono', monospace"
         fontWeight="700"
-        fontSize="64"
+        fontSize="68"
         fill="black"
-        letterSpacing="-1"
+        letterSpacing="0"
       >
         Beyond Stage Zero
       </text>

@@ -1,6 +1,8 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, Suspense } from 'react'
 import { Link } from 'react-router-dom'
 import RocketDiagram, { PARTS } from '../components/RocketDiagram'
+import { lazy } from 'react'
+const StravoxViewer = lazy(() => import('../components/StravoxViewer'))
 import './Stravox.css'
 
 const specs = [
@@ -60,6 +62,13 @@ export default function Stravox() {
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="stravox-3d">
+        <h2>3D Model</h2>
+        <Suspense fallback={<div className="stl-loading">Loading model…</div>}>
+          <StravoxViewer />
+        </Suspense>
       </div>
 
       <div className="stravox-specs">
