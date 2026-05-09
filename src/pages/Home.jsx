@@ -24,8 +24,8 @@ export default function Home() {
             <span className="home-stat-label">Apogee</span>
           </div>
           <div className="home-stat">
-            <span className="home-stat-num">200 mm</span>
-            <span className="home-stat-label">Diameter</span>
+            <span className="home-stat-num">1.4 t</span>
+            <span className="home-stat-label">Thrust</span>
           </div>
         </div>
         <div className="home-actions">
