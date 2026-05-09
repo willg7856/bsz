@@ -7,9 +7,9 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  text-align: center;
+  text-align: left;
   position: relative;
   padding: 80px 40px 0;
   overflow: hidden;
@@ -53,12 +53,12 @@
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.8;
   max-width: 520px;
-  margin: 0 auto 48px;
+  margin: 0 0 48px;
 }
 
 .about-hero-stats {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .about-hero-stat {
@@ -67,6 +67,10 @@
   align-items: center;
   padding: 0 28px;
   border-right: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.about-hero-stat:first-child {
+  padding-left: 0;
 }
 
 .about-hero-stat:last-child {
