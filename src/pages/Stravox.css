@@ -140,7 +140,7 @@
 .stravox-sticky::before {
   content: '';
   position: absolute;
-  inset: -60px -80px;
+  inset: -120px -140px;
   background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.11) 0%, transparent 65%);
   pointer-events: none;
 }
