@@ -207,9 +207,6 @@
 }
 
 .home-rocket-img-wrap {
-  /* Clip to a reasonable viewport height so it doesn't dominate */
-  max-height: 70vh;
-  overflow: hidden;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -235,7 +232,6 @@
 
   .home-rocket-img-wrap {
     order: -1;
-    max-height: 50vh;
   }
 
   .home-rocket-img {
