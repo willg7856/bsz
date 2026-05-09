@@ -25,26 +25,10 @@
   align-items: flex-start;
 }
 
-.rocket-img-stack {
-  position: relative;
-  width: 100%;
-}
-
 .stravox-model-img {
   width: 100%;
   height: auto;
   display: block;
-}
-
-.stravox-model-img.overlay {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-
-.stravox-model-img.overlay.visible {
-  opacity: 1;
 }
 
 /* Section descriptions */
@@ -64,9 +48,6 @@
   cursor: default;
 }
 
-.stravox-desc.active {
-  border-left-color: #e8530a;
-}
 
 .stravox-desc h3 {
   font-size: clamp(1.6rem, 3vw, 2.4rem);
@@ -76,9 +57,6 @@
   transition: color 0.3s;
 }
 
-.stravox-desc.active h3 {
-  color: #fff;
-}
 
 .stravox-desc p {
   font-size: 1rem;
@@ -88,9 +66,6 @@
   transition: color 0.3s;
 }
 
-.stravox-desc.active p {
-  color: rgba(255, 255, 255, 0.7);
-}
 
 /* Specs table */
 .stravox-specs {

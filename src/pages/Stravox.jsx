@@ -1,16 +1,5 @@
-import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { PARTS } from '../components/RocketDiagram'
 import './Stravox.css'
-
-const PART_IMAGE = {
-  nose:     '/stravox-nose.png',
-  avionics: '/stravox-avionics.png',
-  body:     '/stravox-body.png',
-  motor:    '/stravox-motor.png',
-  fins:     '/stravox-fins.png',
-  nozzle:   '/stravox-nozzle.png',
-}
 
 const specs = [
   { label: 'Height',          value: '2.6 m' },
@@ -22,25 +11,16 @@ const specs = [
   { label: 'Status',          value: 'In Development' },
 ]
 
+const sections = [
+  { label: 'Nose Cone',    info: 'Ogive profile optimised for supersonic flight through the upper atmosphere.' },
+  { label: 'Avionics Bay', info: 'Flight computer, altimeter, GPS, and recovery electronics packed into a compact bay.' },
+  { label: 'Airframe',     info: '200 mm diameter airframe — 2.6 m total vehicle height.' },
+  { label: 'Motor',        info: 'High-power solid rocket motor designed to propel STRAVOX to a 30 km apogee.' },
+  { label: 'Fins',         info: 'Trapezoidal fins providing aerodynamic stability through transonic and supersonic regimes.' },
+  { label: 'Nozzle',       info: 'Exhaust nozzle converting combustion energy into thrust for the ascent to 30 km.' },
+]
+
 export default function Stravox() {
-  const [activePart, setActivePart] = useState(null)
-  const sectionRefs = useRef({})
-
-  useEffect(() => {
-    const observers = []
-    PARTS.forEach((part) => {
-      const el = sectionRefs.current[part.id]
-      if (!el) return
-      const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActivePart(part.id) },
-        { threshold: 0.5 }
-      )
-      obs.observe(el)
-      observers.push(obs)
-    })
-    return () => observers.forEach((o) => o.disconnect())
-  }, [])
-
   return (
     <div className="stravox">
       <div className="page-header">
@@ -53,30 +33,14 @@ export default function Stravox() {
 
       <div className="stravox-split">
         <div className="stravox-sticky">
-          <div className="rocket-img-stack">
-            {/* Base render always underneath */}
-            <img src="/stravox-render.png" alt="STRAVOX" className="stravox-model-img base" />
-            {/* Section highlights fade in on top */}
-            {Object.entries(PART_IMAGE).map(([part, src]) => (
-              <img
-                key={part}
-                src={src}
-                alt={`STRAVOX ${part}`}
-                className={`stravox-model-img overlay ${activePart === part ? 'visible' : ''}`}
-              />
-            ))}
-          </div>
+          <img src="/stravox-render.png" alt="STRAVOX CAD render" className="stravox-model-img" />
         </div>
 
         <div className="stravox-descriptions">
-          {PARTS.map((part) => (
-            <div
-              key={part.id}
-              className={`stravox-desc ${activePart === part.id ? 'active' : ''}`}
-              ref={(el) => { sectionRefs.current[part.id] = el }}
-            >
-              <h3>{part.label}</h3>
-              <p>{part.info}</p>
+          {sections.map((s) => (
+            <div key={s.label} className="stravox-desc">
+              <h3>{s.label}</h3>
+              <p>{s.info}</p>
             </div>
           ))}
         </div>
