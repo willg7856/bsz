@@ -27,7 +27,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 48px;
+  gap: 24px;
   flex-wrap: wrap;
   overflow-x: auto;
   padding-bottom: 8px;
@@ -41,6 +41,30 @@
   align-items: center;
   gap: 12px;
   flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 3px solid transparent;
+  border-radius: 10px;
+  padding: 24px 20px 28px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.mission-view:hover {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Phase accent colors on top border */
+.mission-views .mission-view:nth-child(1) {
+  border-top-color: #ff6200;
+}
+
+.mission-views .mission-view:nth-child(2) {
+  border-top-color: #00d4ff;
+}
+
+.mission-views .mission-view:nth-child(3) {
+  border-top-color: #00e87a;
 }
 
 .mission-view-label {
@@ -68,18 +92,22 @@
 .mission-view-stats {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 0;
   width: 100%;
   max-width: 200px;
-  margin-top: 4px;
+  margin-top: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 .mission-view-stat {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: 5px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 7px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.015);
 }
 
 .mission-view-stat:last-child {
@@ -87,10 +115,10 @@
 }
 
 .mission-view-stat-label {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.22);
   font-weight: 500;
 }
 
@@ -98,16 +126,16 @@
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.72rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .mission-view-desc {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.32);
   line-height: 1.7;
   text-align: left;
   max-width: 200px;
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .mission-key {
@@ -127,7 +155,7 @@
   align-items: center;
   gap: 8px;
   font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .mission-key-dot {

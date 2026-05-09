@@ -21,9 +21,9 @@
   top: -80px;
   left: 50%;
   transform: translateX(-50%);
-  width: 800px;
-  height: 400px;
-  background: radial-gradient(ellipse, rgba(10, 126, 255, 0.07) 0%, transparent 70%);
+  width: 900px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(10, 126, 255, 0.11) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -140,6 +140,7 @@
   width: 100%;
   height: auto;
   display: block;
+  filter: drop-shadow(0 0 60px rgba(10, 126, 255, 0.22));
 }
 
 /* Section descriptions */
@@ -149,26 +150,31 @@
 }
 
 .stravox-desc {
-  min-height: 38vh;
+  min-height: 220px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 40px 0 40px 36px;
-  border-left: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 36px 0 36px 32px;
+  border-left: 2px solid rgba(255, 255, 255, 0.06);
+  transition: border-color 0.25s;
+}
+
+.stravox-desc:hover {
+  border-left-color: rgba(10, 126, 255, 0.35);
 }
 
 .stravox-desc h3 {
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
   font-weight: 700;
-  letter-spacing: -0.025em;
-  margin-bottom: 14px;
-  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .stravox-desc p {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.38);
-  line-height: 1.8;
+  font-size: 0.93rem;
+  color: rgba(255, 255, 255, 0.42);
+  line-height: 1.85;
   max-width: 400px;
 }
 
@@ -206,7 +212,7 @@
 }
 
 .spec-item:hover {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(10, 126, 255, 0.035);
 }
 
 .spec-label {

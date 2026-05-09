@@ -18,10 +18,15 @@
 .nav-logo {
   font-family: 'JetBrains Mono', monospace;
   font-weight: 700;
-  font-size: 0.95rem;
-  color: #fff;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   letter-spacing: -0.01em;
+  transition: color 0.18s;
+}
+
+.nav-logo:hover {
+  color: #fff;
 }
 
 .nav-links {

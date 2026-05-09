@@ -49,9 +49,9 @@ a {
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(10, 126, 255, 0.7);
   margin-bottom: 14px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .page-header h1 {
@@ -122,4 +122,11 @@ a {
   0%   { opacity: 0.15; }
   50%  { opacity: 0.9; }
   100% { opacity: 0.2; }
+}
+
+@keyframes scroll-dot {
+  0%   { opacity: 1;   transform: translateY(0); }
+  60%  { opacity: 0;   transform: translateY(10px); }
+  61%  { opacity: 0;   transform: translateY(0); }
+  100% { opacity: 1;   transform: translateY(0); }
 }
