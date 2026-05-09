@@ -15,6 +15,7 @@
   padding: 80px 24px 0;
 }
 
+/* Top ambient glow */
 .home-hero::before {
   content: '';
   position: absolute;
@@ -23,10 +24,11 @@
   transform: translateX(-50%);
   width: 900px;
   height: 500px;
-  background: radial-gradient(ellipse, rgba(10, 126, 255, 0.08) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(10, 126, 255, 0.11) 0%, transparent 70%);
   pointer-events: none;
 }
 
+/* Bottom glow */
 .home-hero::after {
   content: '';
   position: absolute;
@@ -35,7 +37,7 @@
   transform: translateX(-50%);
   width: 700px;
   height: 500px;
-  background: radial-gradient(ellipse, rgba(10, 126, 255, 0.06) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(10, 126, 255, 0.12) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -55,7 +57,6 @@
   letter-spacing: -0.02em;
   line-height: 1.05;
   margin-bottom: 1.5rem;
-  color: #0c0d14;
 }
 
 .home-divider {
@@ -68,7 +69,7 @@
 
 .home-tagline {
   font-size: clamp(1rem, 2.5vw, 1.35rem);
-  color: rgba(12, 13, 20, 0.55);
+  color: rgba(255, 255, 255, 0.6);
   margin-bottom: 2.4rem;
   font-weight: 400;
   line-height: 1.6;
@@ -79,8 +80,8 @@
   display: flex;
   justify-content: center;
   margin-bottom: 2.8rem;
-  background: rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -90,7 +91,7 @@
   flex-direction: column;
   align-items: center;
   padding: 18px 32px;
-  border-right: 1px solid rgba(0, 0, 0, 0.07);
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .home-stat:last-child {
@@ -101,7 +102,7 @@
   font-family: 'JetBrains Mono', monospace;
   font-size: clamp(1.15rem, 2.8vw, 1.6rem);
   font-weight: 700;
-  color: #0c0d14;
+  color: #fff;
   letter-spacing: -0.02em;
   line-height: 1.15;
 }
@@ -110,7 +111,7 @@
   font-size: 0.63rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(12, 13, 20, 0.30);
+  color: rgba(255, 255, 255, 0.25);
   margin-top: 5px;
   font-weight: 500;
 }
@@ -122,7 +123,7 @@
   flex-wrap: wrap;
 }
 
-/* Scroll hint */
+/* Scroll hint — animated pill */
 .home-scroll-hint {
   position: absolute;
   bottom: 32px;
@@ -130,7 +131,7 @@
   transform: translateX(-50%);
   width: 24px;
   height: 38px;
-  border: 1.5px solid rgba(0, 0, 0, 0.18);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
   border-radius: 12px;
   display: flex;
   justify-content: center;
@@ -141,16 +142,23 @@
   display: block;
   width: 3px;
   height: 7px;
-  background: rgba(12, 13, 20, 0.35);
+  background: rgba(255, 255, 255, 0.4);
   border-radius: 2px;
   animation: scroll-dot 2s ease-in-out infinite;
+}
+
+@keyframes scroll-dot {
+  0%   { opacity: 1;   transform: translateY(0); }
+  60%  { opacity: 0;   transform: translateY(10px); }
+  61%  { opacity: 0;   transform: translateY(0); }
+  100% { opacity: 1;   transform: translateY(0); }
 }
 
 /* ── Partners ─────────────────────────────────────── */
 .home-partners {
   position: relative;
   z-index: 1;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
   padding: 56px 40px;
 }
 
@@ -167,7 +175,7 @@
   font-size: 0.68rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(12, 13, 20, 0.28);
+  color: rgba(255, 255, 255, 0.25);
   font-weight: 500;
 }
 
@@ -197,12 +205,12 @@
   height: 80px;
   width: auto;
   display: block;
-  filter: grayscale(1) brightness(0.5);
+  filter: grayscale(1) brightness(1.4);
 }
 
 .home-partner span {
   font-size: 0.72rem;
-  color: rgba(12, 13, 20, 0.45);
+  color: rgba(255, 255, 255, 0.45);
   letter-spacing: 0.04em;
   text-align: center;
   max-width: 140px;
@@ -213,7 +221,7 @@
 .home-rocket {
   position: relative;
   z-index: 1;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
   padding: 100px 40px;
 }
 
@@ -240,12 +248,11 @@
   letter-spacing: -0.02em;
   margin-bottom: 20px;
   line-height: 1.05;
-  color: #0c0d14;
 }
 
 .home-rocket-text p {
   font-size: 1rem;
-  color: rgba(12, 13, 20, 0.52);
+  color: rgba(255, 255, 255, 0.5);
   line-height: 1.8;
   margin-bottom: 28px;
 }
@@ -276,7 +283,7 @@
   width: 180px;
   height: auto;
   display: block;
-  filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.18));
+  filter: drop-shadow(0 0 60px rgba(10, 126, 255, 0.28));
 }
 
 /* ── Mobile ───────────────────────────────────────── */
