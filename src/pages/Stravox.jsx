@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import MissionProfile from '../components/MissionProfile'
-import RocketSpinner from '../components/RocketSpinner'
 import './Stravox.css'
 
 const specs = [
@@ -87,7 +86,7 @@ export default function Stravox() {
       <div className="stravox-content">
         <div className="stravox-split">
           <div className="stravox-sticky">
-            <RocketSpinner className="stravox-model-img" />
+            <img src="/stravox-render.png" alt="STRAVOX CAD render" className="stravox-model-img" />
           </div>
 
           <div className="stravox-descriptions">

@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import RocketSpinner from '../components/RocketSpinner'
 import './Home.css'
 
 export default function Home() {
@@ -78,7 +77,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="home-rocket-img-wrap">
-            <RocketSpinner className="home-rocket-img" />
+            <img src="/stravox-render.png" alt="STRAVOX rocket render" className="home-rocket-img" />
           </div>
         </div>
       </section>
