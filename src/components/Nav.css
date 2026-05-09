@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -75,6 +75,10 @@
   cursor: pointer;
   padding: 6px;
   flex-shrink: 0;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  z-index: 9999;
 }
 
 .nav-burger span {
@@ -102,7 +106,7 @@
 .nav-mobile {
   position: fixed;
   inset: 60px 0 0 0;
-  z-index: 99;
+  z-index: 9998;
   background: rgba(7, 7, 12, 0.97);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
