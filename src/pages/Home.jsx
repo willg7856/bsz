@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom'
-import Stars from '../components/Stars'
 import './Home.css'
 
 export default function Home() {
   return (
     <div className="home">
-      <Stars />
-
       <section className="home-hero">
         <p className="home-eyebrow">Founded 2025 — Australia</p>
         <h1>Beyond Stage Zero</h1>
