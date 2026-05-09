@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import MissionProfile from '../components/MissionProfile'
 import './Stravox.css'
 
 const specs = [
@@ -86,6 +87,8 @@ export default function Stravox() {
             ))}
           </div>
         </div>
+
+        <MissionProfile />
 
         <div className="stravox-cta">
           <h2>Want to know more?</h2>
