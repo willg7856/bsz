@@ -44,18 +44,18 @@ export default function Home() {
               href="https://www.crwa.org.au"
               target="_blank"
               rel="noopener noreferrer"
-              title="Creswick Railway Workshops Association"
             >
               <img src="/partner-crwa.svg" alt="Creswick Railway Workshops Association" />
+              <span>Creswick Railway Workshops Association</span>
             </a>
             <a
               className="home-partner"
               href="https://ballarattech.school"
               target="_blank"
               rel="noopener noreferrer"
-              title="Ballarat Tech School"
             >
               <img src="/partner-bts.svg" alt="Ballarat Tech School" />
+              <span>Ballarat Tech School</span>
             </a>
           </div>
         </div>
