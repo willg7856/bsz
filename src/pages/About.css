@@ -202,7 +202,30 @@
     padding: 100px 24px 60px;
   }
 
+  .about-hero {
+    padding: 80px 24px 0;
+  }
+
+  .about-hero-stats {
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .about-hero-stat {
+    border-right: none;
+    padding: 0 16px;
+  }
+
+  .about-content {
+    padding: 60px 24px 60px;
+  }
+
   .about-mission {
     padding: 28px 24px;
+  }
+
+  .about-values {
+    grid-template-columns: 1fr;
   }
 }

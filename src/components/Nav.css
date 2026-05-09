@@ -64,16 +64,107 @@
   color: #fff !important;
 }
 
-@media (max-width: 600px) {
+/* ── Hamburger ────────────────────────────────────── */
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-burger span {
+  display: block;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 2px;
+  transition: transform 0.22s, opacity 0.22s, width 0.22s;
+  transform-origin: center;
+}
+
+.nav-burger.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-burger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-burger.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile overlay ───────────────────────────────── */
+.nav-mobile {
+  display: none;
+  position: fixed;
+  inset: 60px 0 0 0;
+  z-index: 99;
+  background: rgba(7, 7, 12, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.nav-mobile.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-mobile a {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color 0.18s;
+}
+
+.nav-mobile a:hover,
+.nav-mobile a.active {
+  color: #fff;
+}
+
+.nav-cta-mobile {
+  background: var(--accent);
+  color: #fff !important;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem !important;
+  transition: background 0.18s;
+}
+
+.nav-cta-mobile:hover {
+  background: var(--accent-hover);
+}
+
+/* ── Mobile breakpoint ────────────────────────────── */
+@media (max-width: 640px) {
   .nav {
     padding: 0 20px;
   }
 
   .nav-links {
-    gap: 16px;
+    display: none;
   }
 
-  .nav-links a:not(.nav-cta) {
-    display: none;
+  .nav-burger {
+    display: flex;
+  }
+
+  .nav-mobile {
+    display: flex;
   }
 }
