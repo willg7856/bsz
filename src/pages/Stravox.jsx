@@ -3,22 +3,45 @@ import MissionProfile from '../components/MissionProfile'
 import './Stravox.css'
 
 const specs = [
-  { label: 'Height',          value: '2.6 m' },
+  { label: 'Height',          value: '2,633 mm' },
   { label: 'Diameter',        value: '200 mm' },
+  { label: 'Base Fin Span',   value: '520 mm' },
+  { label: 'Upper Fin Span',  value: '340 mm' },
   { label: 'Target Altitude', value: '30 km' },
-  { label: 'Classification',  value: 'High Power Rocket' },
+  { label: 'Max Velocity',    value: 'Mach 2.5' },
+  { label: 'Motor',           value: 'KNSB — 1 m grain' },
+  { label: 'Landing Motors',  value: 'T-Motor U13 II × 4' },
+  { label: 'Landing T/W',     value: '2.05×' },
   { label: 'Country',         value: 'Australia' },
   { label: 'Team',            value: 'Beyond Stage Zero' },
   { label: 'Status',          value: 'In Development' },
 ]
 
 const sections = [
-  { label: 'Nose Cone',    info: 'Ogive profile optimised for supersonic flight through the upper atmosphere.' },
-  { label: 'Avionics Bay', info: 'Flight computer, altimeter, GPS, and recovery electronics packed into a compact bay.' },
-  { label: 'Airframe',     info: '200 mm diameter airframe — 2.6 m total vehicle height.' },
-  { label: 'Motor',        info: 'High-power solid rocket motor designed to propel STRAVOX to a 30 km apogee.' },
-  { label: 'Fins',         info: 'Trapezoidal fins providing aerodynamic stability through transonic and supersonic regimes.' },
-  { label: 'Nozzle',       info: 'Exhaust nozzle converting combustion energy into thrust for the ascent to 30 km.' },
+  {
+    label: 'Split Nosecone',
+    info: 'Clamshell design that opens after burnout to expose a 3.5× larger drag area — passively braking the vehicle from Mach 2.5 down to ~64 m/s for the landing sequence.',
+  },
+  {
+    label: 'Avionics + Battery Bay',
+    info: 'Flight computer, altimeter, GPS, and recovery electronics. Controls nosecone deployment, drone arm extension, and the full propulsive landing sequence.',
+  },
+  {
+    label: 'Airframe',
+    info: '200 mm diameter tube, 2,633 mm total vehicle height. Upper and lower sections joined by a bolted coupler ring. Carries two independent fin sets.',
+  },
+  {
+    label: 'KNSB Motor',
+    info: 'Home-ground potassium nitrate / sorbitol propellant in a 1 m grain. Pushes STRAVOX past Mach 2.5 before burnout at approximately 10 km altitude.',
+  },
+  {
+    label: 'Fins',
+    info: 'Two fin sets: 520 mm-span base fins for boost-phase stability (ejected before landing) and 340 mm-span upper fins for supersonic control throughout flight.',
+  },
+  {
+    label: 'Landing System',
+    info: 'Four T-Motor U13 II motors extend on folding arms at apogee. Deliver 112 kgf of thrust at a 2.05× thrust-to-weight ratio for a controlled vertical touchdown.',
+  },
 ]
 
 export default function Stravox() {
@@ -31,13 +54,13 @@ export default function Stravox() {
           <p className="eyebrow">The Rocket</p>
           <h1 className="mono">STRAVOX</h1>
           <p className="stravox-hero-sub">
-            Australia's largest student-built rocket. A 2.6 m high-power vehicle
-            designed and constructed entirely by the Beyond Stage Zero team,
-            targeting a 30 km apogee on 1.4 tonnes of thrust.
+            Australia's largest student-built rocket. A 2,633 mm high-power vehicle
+            with a split nosecone airbrake and propulsive vertical landing —
+            designed and built entirely by the Beyond Stage Zero team.
           </p>
           <div className="stravox-hero-stats">
             <div className="stravox-hero-stat">
-              <span className="mono">2.6 m</span>
+              <span className="mono">2,633 mm</span>
               <span>Height</span>
             </div>
             <div className="stravox-hero-stat">
@@ -45,12 +68,12 @@ export default function Stravox() {
               <span>Target Apogee</span>
             </div>
             <div className="stravox-hero-stat">
-              <span className="mono">1.4 t</span>
-              <span>Thrust</span>
+              <span className="mono">Mach 2.5</span>
+              <span>Peak Velocity</span>
             </div>
             <div className="stravox-hero-stat">
-              <span className="mono">200 mm</span>
-              <span>Diameter</span>
+              <span className="mono">2.05×</span>
+              <span>Landing T/W</span>
             </div>
           </div>
         </div>

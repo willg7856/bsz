@@ -9,12 +9,12 @@ export default function Home() {
         <h1>Beyond Stage Zero</h1>
         <div className="home-divider" />
         <p className="home-tagline">
-          Building Australia's largest student rocket,{' '}
+          Building Australia's largest student rocket —{' '}
           <span className="mono accent">STRAVOX</span>.
         </p>
         <div className="home-stats">
           <div className="home-stat">
-            <span className="home-stat-num">2.6 m</span>
+            <span className="home-stat-num">2,633 mm</span>
             <span className="home-stat-label">Height</span>
           </div>
           <div className="home-stat">
@@ -22,8 +22,8 @@ export default function Home() {
             <span className="home-stat-label">Apogee</span>
           </div>
           <div className="home-stat">
-            <span className="home-stat-num">1.4 t</span>
-            <span className="home-stat-label">Thrust</span>
+            <span className="home-stat-num">Mach 2.5</span>
+            <span className="home-stat-label">Peak Velocity</span>
           </div>
         </div>
         <div className="home-actions">
@@ -67,9 +67,10 @@ export default function Home() {
             <p className="eyebrow">Currently in development</p>
             <h2 className="mono">STRAVOX</h2>
             <p>
-              Australia's largest student-built rocket. Designed and constructed
-              from scratch by the Beyond Stage Zero team — 2.6 m tall and built
-              to reach a 30 km apogee on 1.4 tonnes of thrust.
+              A 2,633 mm high-power rocket with a split nosecone airbrake and
+              propulsive vertical landing on four folding drone arms. Designed
+              and built from scratch by the Beyond Stage Zero team — targeting
+              a 30 km apogee at Mach 2.5.
             </p>
             <Link className="home-rocket-link" to="/stravox">
               Explore the design <span aria-hidden="true">→</span>
