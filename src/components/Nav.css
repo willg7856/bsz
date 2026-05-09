@@ -29,7 +29,6 @@
   color: #fff;
 }
 
-/* ── Desktop nav links ────────────────────────────── */
 .nav-links {
   display: flex;
   align-items: center;
@@ -64,7 +63,6 @@
   background: var(--accent-hover) !important;
 }
 
-/* ── Hamburger button ─────────────────────────────── */
 .nav-burger {
   display: flex;
   flex-direction: column;
@@ -101,7 +99,6 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ── Mobile overlay ───────────────────────────────── */
 .nav-mobile {
   position: fixed;
   inset: 60px 0 0 0;

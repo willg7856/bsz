@@ -19,7 +19,6 @@ export default function Nav() {
   const link = (path) => `nav-link${pathname === path ? ' active' : ''}`
   const close = () => setOpen(false)
 
-  // Close menu when switching to desktop
   useEffect(() => {
     if (!isMobile) setOpen(false)
   }, [isMobile])
