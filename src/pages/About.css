@@ -1,7 +1,120 @@
 .about {
+  position: relative;
+}
+
+/* ── Hero ─────────────────────────────────────────── */
+.about-hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 80px 40px 0;
+  overflow: hidden;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(10, 126, 255, 0.11) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.about-hero-inner {
+  max-width: 720px;
+}
+
+.about-hero-inner .eyebrow {
+  margin-bottom: 16px;
+}
+
+.about-hero-inner h1 {
+  font-size: clamp(2.8rem, 9vw, 6rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.0;
+  margin-bottom: 28px;
+  color: #fff;
+}
+
+.about-hero-sub {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.8;
+  max-width: 520px;
+  margin: 0 auto 48px;
+}
+
+.about-hero-stats {
+  display: flex;
+  justify-content: center;
+}
+
+.about-hero-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 28px;
+  border-right: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.about-hero-stat:last-child {
+  border-right: none;
+}
+
+.about-hero-stat span:first-child {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.about-hero-stat span:last-child {
+  font-size: 0.67rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+.about-hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 38px;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.about-hero-scroll span {
+  display: block;
+  width: 3px;
+  height: 7px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 2px;
+  animation: scroll-dot 2s ease-in-out infinite;
+}
+
+/* ── Content ──────────────────────────────────────── */
+.about-content {
   max-width: 900px;
   margin: 0 auto;
-  padding: 120px 40px 80px;
+  padding: 100px 40px 80px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .about-mission {

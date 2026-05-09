@@ -1,5 +1,12 @@
 import './About.css'
 
+const stats = [
+  { num: '2025', label: 'Founded' },
+  { num: '30 km', label: 'Target Apogee' },
+  { num: 'Mach 2.5', label: 'Peak Velocity' },
+  { num: 'Australia', label: 'Based In' },
+]
+
 const values = [
   { title: 'Student Led', desc: 'Every part of the project — from design to launch — is driven by students.' },
   { title: 'Ambitious', desc: 'We set out to build the largest student rocket Australia has ever seen.' },
@@ -10,6 +17,29 @@ const values = [
 export default function About() {
   return (
     <div className="about">
+
+      <section className="about-hero">
+        <div className="about-hero-inner">
+          <p className="eyebrow">Who We Are</p>
+          <h1>Beyond Stage Zero</h1>
+          <p className="about-hero-sub">
+            An Australian student rocketry team pushing the limits of what students can design, build, and launch.
+          </p>
+          <div className="about-hero-stats">
+            {stats.map((s) => (
+              <div className="about-hero-stat" key={s.label}>
+                <span className="mono">{s.num}</span>
+                <span>{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="about-hero-scroll">
+          <span />
+        </div>
+      </section>
+
+      <div className="about-content">
       <div className="page-header">
         <p className="eyebrow">Who We Are</p>
         <h1>About Us</h1>
@@ -33,6 +63,7 @@ export default function About() {
             <p>{v.desc}</p>
           </div>
         ))}
+      </div>
       </div>
     </div>
   )
