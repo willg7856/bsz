@@ -20,7 +20,11 @@ export default function About() {
       <section className="about-hero">
         <div className="about-hero-inner">
           <p className="eyebrow">Who We Are</p>
-          <h1>Beyond Stage Zero</h1>
+          <h1>
+            <span>Beyond</span>
+            <span>Stage</span>
+            <span>Zero</span>
+          </h1>
           <p className="about-hero-sub">
             An Australian student rocketry team pushing the limits of what students can design, build, and launch.
           </p>
