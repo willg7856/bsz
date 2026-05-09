@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 40px;
+  padding: 0 20px;
   height: 60px;
   background: rgba(7, 7, 12, 0.75);
   backdrop-filter: blur(16px);
@@ -29,8 +29,9 @@
   color: #fff;
 }
 
+/* Desktop nav links — hidden on mobile by default */
 .nav-links {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 28px;
 }
@@ -61,12 +62,11 @@
 
 .nav-cta:hover {
   background: var(--accent-hover) !important;
-  color: #fff !important;
 }
 
-/* ── Hamburger (always in DOM, hidden on desktop) ─── */
+/* ── Hamburger — visible on mobile by default ─────── */
 .nav-burger {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
@@ -109,11 +109,11 @@
   background: rgba(7, 7, 12, 0.97);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 40px;
-  display: none;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s;
@@ -152,21 +152,21 @@
   background: var(--accent-hover);
 }
 
-/* ── Mobile breakpoint ────────────────────────────── */
-@media (max-width: 768px) {
+/* ── Desktop — switch to full nav bar ─────────────── */
+@media (min-width: 769px) {
   .nav {
-    padding: 0 20px;
+    padding: 0 40px;
   }
 
   .nav-links {
-    display: none;
+    display: flex;
   }
 
   .nav-burger {
-    display: flex;
+    display: none;
   }
 
   .nav-mobile {
-    display: flex;
+    display: none !important;
   }
 }
