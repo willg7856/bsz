@@ -28,10 +28,10 @@
   justify-content: center;
   align-items: flex-start;
   gap: 48px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   overflow-x: auto;
   padding-bottom: 8px;
-  max-width: 1100px;
+  max-width: 960px;
   margin: 0 auto 48px;
 }
 
@@ -41,17 +41,8 @@
   align-items: center;
   gap: 12px;
   flex-shrink: 0;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding-top: 14px;
   border-top: 3px solid transparent;
-  border-radius: 10px;
-  padding: 20px 16px 24px;
-  transition: background 0.2s, border-color 0.2s;
-}
-
-.mission-view:hover {
-  background: rgba(255, 255, 255, 0.035);
-  border-color: rgba(255, 255, 255, 0.12);
 }
 
 /* Phase accent colors on top border */
