@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -7,12 +7,24 @@
 }
 
 :root {
-  --accent: #0a7eff;
+  --accent:       #0a7eff;
+  --accent-hover: #0062d6;
+  --bg:           #07070c;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: sans-serif;
-  background: #000;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(10, 126, 255, 0.35);
   color: #fff;
 }
 
@@ -30,42 +42,46 @@ a {
 
 /* Shared page header */
 .page-header {
-  margin-bottom: 64px;
+  margin-bottom: 72px;
 }
 
 .eyebrow {
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.35);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+  font-weight: 500;
 }
 
 .page-header h1 {
-  font-size: clamp(2rem, 6vw, 4rem);
+  font-size: clamp(2.2rem, 6vw, 4rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 16px;
+  letter-spacing: -0.03em;
+  margin-bottom: 18px;
+  line-height: 1.1;
 }
 
 .page-sub {
   font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.55);
-  max-width: 560px;
-  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 540px;
+  line-height: 1.75;
+  font-weight: 400;
 }
 
 /* Shared buttons */
 .btn {
   display: inline-block;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 0.95rem;
+  padding: 11px 22px;
+  border-radius: 7px;
+  font-size: 0.92rem;
   font-weight: 600;
   cursor: pointer;
   border: none;
-  transition: opacity 0.2s, background 0.2s;
+  transition: background 0.18s, border-color 0.18s, color 0.18s;
   font-family: inherit;
+  letter-spacing: 0.01em;
 }
 
 .btn-primary {
@@ -74,17 +90,18 @@ a {
 }
 
 .btn-primary:hover {
-  background: #cf4708;
+  background: var(--accent-hover);
 }
 
 .btn-outline {
   background: transparent;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .btn-outline:hover {
-  border-color: #fff;
+  border-color: rgba(10, 126, 255, 0.55);
+  color: #0a7eff;
 }
 
 /* Stars */

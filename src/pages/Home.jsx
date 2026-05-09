@@ -11,9 +11,23 @@ export default function Home() {
         <h1>Beyond Stage Zero</h1>
         <div className="home-divider" />
         <p className="home-tagline">
-          Building Australia's Largest Student Rocket,{' '}
+          Building Australia's largest student rocket,{' '}
           <span className="mono accent">STRAVOX</span>.
         </p>
+        <div className="home-stats">
+          <div className="home-stat">
+            <span className="home-stat-num">2.6 m</span>
+            <span className="home-stat-label">Height</span>
+          </div>
+          <div className="home-stat">
+            <span className="home-stat-num">30 km</span>
+            <span className="home-stat-label">Apogee</span>
+          </div>
+          <div className="home-stat">
+            <span className="home-stat-num">200 mm</span>
+            <span className="home-stat-label">Diameter</span>
+          </div>
+        </div>
         <div className="home-actions">
           <Link className="btn btn-primary" to="/stravox">Our Rocket</Link>
           <Link className="btn btn-outline" to="/contact">Get in Touch</Link>

@@ -26,8 +26,9 @@ export default function About() {
       </div>
 
       <div className="about-values">
-        {values.map((v) => (
+        {values.map((v, i) => (
           <div className="value-card" key={v.title}>
+            <span className="value-index mono">0{i + 1}</span>
             <h3>{v.title}</h3>
             <p>{v.desc}</p>
           </div>

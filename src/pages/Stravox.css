@@ -5,7 +5,7 @@
 }
 
 .stravox h1 {
-  color: #0a7eff;
+  color: #fff;
 }
 
 /* Two-column sticky layout */
@@ -19,7 +19,7 @@
 
 .stravox-sticky {
   position: sticky;
-  top: 84px;
+  top: 80px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -38,34 +38,28 @@
 }
 
 .stravox-desc {
-  min-height: 40vh;
+  min-height: 38vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 40px 0 40px 40px;
-  border-left: 2px solid rgba(255, 255, 255, 0.06);
-  transition: border-color 0.3s;
-  cursor: default;
+  padding: 40px 0 40px 36px;
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
 }
-
 
 .stravox-desc h3 {
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
   font-weight: 700;
-  margin-bottom: 16px;
-  color: rgba(255, 255, 255, 0.9);
-  transition: color 0.3s;
+  letter-spacing: -0.025em;
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.92);
 }
-
 
 .stravox-desc p {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.38);
   line-height: 1.8;
-  max-width: 420px;
-  transition: color 0.3s;
+  max-width: 400px;
 }
-
 
 /* Specs table */
 .stravox-specs {
@@ -73,16 +67,17 @@
 }
 
 .stravox-specs h2 {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.35);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 24px;
+  letter-spacing: 0.14em;
+  margin-bottom: 20px;
 }
 
 .specs-grid {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -90,49 +85,65 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 28px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.18s;
 }
 
 .spec-item:last-child {
   border-bottom: none;
 }
 
+.spec-item:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
 .spec-label {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.35);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
 }
 
 .spec-value {
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
   color: #fff;
 }
 
 /* CTA */
 .stravox-cta {
-  padding: 48px;
-  border: 1px solid rgba(10, 126, 255, 0.2);
+  padding: 44px;
+  border: 1px solid rgba(10, 126, 255, 0.18);
   border-radius: 12px;
-  background: rgba(10, 126, 255, 0.04);
+  background: rgba(10, 126, 255, 0.03);
   text-align: center;
 }
 
 .stravox-cta h2 {
-  font-size: 1.6rem;
-  margin-bottom: 12px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
 }
 
 .stravox-cta p {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.45);
   margin-bottom: 28px;
-  font-size: 0.95rem;
-  line-height: 1.7;
+  font-size: 0.93rem;
+  line-height: 1.75;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (max-width: 640px) {
+  .stravox {
+    padding: 100px 24px 60px;
+  }
+
   .stravox-split {
     grid-template-columns: 1fr;
   }
@@ -143,10 +154,15 @@
     justify-content: center;
   }
 
+  .stravox-model-img {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
   .stravox-desc {
     padding-left: 24px;
     min-height: auto;
-    padding-top: 32px;
-    padding-bottom: 32px;
+    padding-top: 28px;
+    padding-bottom: 28px;
   }
 }

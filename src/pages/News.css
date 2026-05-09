@@ -1,5 +1,5 @@
 .news {
-  max-width: 720px;
+  max-width: 680px;
   margin: 0 auto;
   padding: 120px 40px 80px;
 }
@@ -7,7 +7,6 @@
 .news-list {
   display: flex;
   flex-direction: column;
-  gap: 2px;
 }
 
 .news-post {
@@ -15,24 +14,37 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
+.news-post:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
 .news-date {
-  font-size: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: #0a7eff;
+  letter-spacing: 0.12em;
+  color: var(--accent);
   display: block;
   margin-bottom: 12px;
 }
 
 .news-post h2 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
+  letter-spacing: -0.02em;
   margin-bottom: 14px;
   color: #fff;
+  line-height: 1.25;
 }
 
 .news-post p {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.5);
   line-height: 1.8;
+}
+
+@media (max-width: 640px) {
+  .news {
+    padding: 100px 24px 60px;
+  }
 }
