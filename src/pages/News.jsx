@@ -1,5 +1,4 @@
 import './News.css'
-import { Link } from 'react-router-dom'
 
 const posts = [
   {
@@ -27,14 +26,13 @@ const posts = [
     body: 'BSZ completed its first internal Preliminary Design Review (PDR) for STRAVOX. Key decisions on vehicle diameter, fin geometry, and staging were confirmed. Action items from the review are being tracked and closed ahead of the Critical Design Review.',
   },
   {
-    date: 'May 2025',
+    date: 'April 2025',
     tag: 'Founding',
     title: 'Beyond Stage Zero Founded',
     body: 'We officially launched Beyond Stage Zero with one goal: build Australia\'s largest student rocket. The team is assembled, the mission is set, and work on STRAVOX has begun.',
   },
 ]
 
-// Sort newest first
 const sorted = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date))
 const [featured, ...rest] = sorted
 
@@ -44,11 +42,16 @@ export default function News() {
 
       <section className="news-hero">
         <div className="news-hero-inner">
-          <p className="eyebrow">Latest Update</p>
-          <span className="news-hero-tag">{featured.tag}</span>
-          <h1>{featured.title}</h1>
-          <p className="news-hero-body">{featured.body}</p>
-          <span className="news-hero-date mono">{featured.date}</span>
+          <p className="eyebrow">News</p>
+          <p className="news-hero-label">Latest Update</p>
+          <article className="news-featured-card">
+            <div className="news-featured-meta">
+              <span className="news-tag">{featured.tag}</span>
+              <span className="news-date mono">{featured.date}</span>
+            </div>
+            <h2>{featured.title}</h2>
+            <p>{featured.body}</p>
+          </article>
         </div>
         <div className="news-hero-scroll">
           <span />
