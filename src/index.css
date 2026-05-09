@@ -124,11 +124,6 @@ a {
   100% { opacity: 0.2; }
 }
 
-@keyframes rocket-spin {
-  from { transform: rotateY(0deg); }
-  to   { transform: rotateY(360deg); }
-}
-
 @keyframes scroll-dot {
   0%   { opacity: 1;   transform: translateY(0); }
   60%  { opacity: 0;   transform: translateY(10px); }
