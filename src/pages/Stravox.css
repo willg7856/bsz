@@ -267,7 +267,7 @@
 }
 
 /* ── Mobile ───────────────────────────────────────── */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .stravox-hero {
     padding: 80px 24px 0;
   }

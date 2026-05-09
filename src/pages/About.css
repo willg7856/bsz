@@ -197,7 +197,7 @@
   line-height: 1.7;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .about {
     padding: 100px 24px 60px;
   }

@@ -106,7 +106,7 @@
 }
 
 /* ── Mobile ───────────────────────────────────────── */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .news {
     padding: 100px 24px 60px;
   }

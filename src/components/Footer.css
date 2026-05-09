@@ -42,7 +42,7 @@
   font-size: 0.78rem;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .footer {
     padding: 28px 24px;
   }
