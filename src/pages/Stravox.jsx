@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import Stars from '../components/Stars'
 import './Stravox.css'
 
 const specs = [
@@ -23,6 +24,7 @@ const sections = [
 export default function Stravox() {
   return (
     <div className="stravox">
+      <Stars />
       <div className="page-header">
         <p className="eyebrow">The Rocket</p>
         <h1 className="mono">STRAVOX</h1>
