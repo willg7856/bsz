@@ -39,41 +39,40 @@ const [featured, ...rest] = sorted
 export default function News() {
   return (
     <div className="news">
-
-      <section className="news-hero">
-        <div className="news-hero-inner">
-          <p className="eyebrow">News</p>
-          <p className="news-hero-label">Latest Update</p>
-          <article className="news-featured-card">
-            <div className="news-featured-meta">
-              <span className="news-tag">{featured.tag}</span>
-              <span className="news-date mono">{featured.date}</span>
-            </div>
-            <h2>{featured.title}</h2>
-            <p>{featured.body}</p>
-          </article>
-        </div>
-        <div className="news-hero-scroll">
-          <span />
-        </div>
-      </section>
-
-      <div className="news-archive">
-        <p className="news-archive-label eyebrow">Previous Updates</p>
-        <div className="news-list">
-          {rest.map((post) => (
-            <article className="news-post" key={post.title}>
-              <div className="news-post-meta">
-                <span className="news-date mono">{post.date}</span>
-                <span className="news-tag">{post.tag}</span>
-              </div>
-              <h2>{post.title}</h2>
-              <p>{post.body}</p>
-            </article>
-          ))}
-        </div>
+      <div className="page-header">
+        <p className="eyebrow">Latest Updates</p>
+        <h1>News</h1>
+        <p className="page-sub">
+          Follow our progress as we design, build, and launch STRAVOX.
+        </p>
       </div>
 
+      <div className="news-body">
+        <article className="news-featured">
+          <div className="news-featured-meta">
+            <span className="news-tag">{featured.tag}</span>
+            <span className="news-date mono">{featured.date}</span>
+          </div>
+          <h2>{featured.title}</h2>
+          <p>{featured.body}</p>
+        </article>
+
+        <div className="news-archive">
+          <p className="news-archive-label">Previous Updates</p>
+          <div className="news-list">
+            {rest.map((post) => (
+              <article className="news-post" key={post.title}>
+                <div className="news-post-meta">
+                  <span className="news-date mono">{post.date}</span>
+                  <span className="news-tag">{post.tag}</span>
+                </div>
+                <h2>{post.title}</h2>
+                <p>{post.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
