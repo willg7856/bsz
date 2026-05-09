@@ -141,7 +141,29 @@ export default function MissionProfile() {
             <line x1="7"  y1="565" x2="13" y2="565" stroke="#162030" strokeWidth="0.6"/>
             <text x="5" y="300" fontSize="5.5" fill="#2a4050" fontFamily="monospace" transform="rotate(-90,5,300)">2,633mm</text>
           </svg>
-          <p className="mission-view-sub">KNSB burning · all systems stowed<br/>Mach 2.5 at burnout</p>
+          <div className="mission-view-stats">
+            <div className="mission-view-stat">
+              <span className="mission-view-stat-label">Motor</span>
+              <span className="mission-view-stat-value">KNSB</span>
+            </div>
+            <div className="mission-view-stat">
+              <span className="mission-view-stat-label">Grain length</span>
+              <span className="mission-view-stat-value">1,000 mm</span>
+            </div>
+            <div className="mission-view-stat">
+              <span className="mission-view-stat-label">Peak velocity</span>
+              <span className="mission-view-stat-value">Mach 2.5</span>
+            </div>
+            <div className="mission-view-stat">
+              <span className="mission-view-stat-label">Target apogee</span>
+              <span className="mission-view-stat-value">30 km</span>
+            </div>
+          </div>
+          <p className="mission-view-desc">
+            All systems stowed for minimum drag. Base fins provide boost-phase
+            stability; upper fins maintain control through transonic and
+            supersonic regimes until burnout.
+          </p>
         </div>
 
         {/* ── AIRBRAKE ── */}
@@ -235,7 +257,29 @@ export default function MissionProfile() {
             <text x="120" y="596" textAnchor="middle" fontSize="5" fill="rgba(168,85,247,0.35)" fontFamily="monospace">fins ejected ↙↘</text>
             <text x="120" y="8"  textAnchor="middle" fontSize="6" fill="rgba(0,200,160,0.6)" fontFamily="monospace">← 3.5× DRAG AREA →</text>
           </svg>
-          <p className="mission-view-sub">Nosecone open · drag braking<br/>Arms grid-finning · 64 m/s</p>
+          <div className="mission-view-stats">
+            <div className="mission-view-stat">
+              <span className="mission-view-stat-label">Drag increase</span>
+              <span className="mission-view-stat-value">3.5×</span>
+            </div>
+            <div className="mission-view-stat">
+              <span className="mission-view-stat-label">Braked speed</span>
+              <span className="mission-view-stat-value">~64 m/s</span>
+            </div>
+            <div className="mission-view-stat">
+              <span className="mission-view-stat-label">Base fins</span>
+              <span className="mission-view-stat-value">Ejected</span>
+            </div>
+            <div className="mission-view-stat">
+              <span className="mission-view-stat-label">Arms</span>
+              <span className="mission-view-stat-value">Grid-finning</span>
+            </div>
+          </div>
+          <p className="mission-view-desc">
+            Clamshell nosecone splits open to expose a 3.5× greater drag area.
+            Folding drone arms extend and act as grid fins, passively stabilising
+            the vehicle during descent — no parachute required.
+          </p>
         </div>
 
         {/* ── LANDING ── */}
@@ -343,7 +387,29 @@ export default function MissionProfile() {
             <path d="M 93 545 Q 91 552 88 558 L 132 558 Q 129 552 127 545 Z" fill="url(#engM3)" stroke="#1a2030" strokeWidth="0.7"/>
             <text x="110" y="248" textAnchor="middle" fontSize="5.5" fill="rgba(0,232,122,0.4)" fontFamily="monospace">112 kgf · T/W 2.05×</text>
           </svg>
-          <p className="mission-view-sub">Motors firing · legs deployed<br/>Nosecone open · touchdown</p>
+          <div className="mission-view-stats">
+            <div className="mission-view-stat">
+              <span className="mission-view-stat-label">Motors</span>
+              <span className="mission-view-stat-value">U13 II × 4</span>
+            </div>
+            <div className="mission-view-stat">
+              <span className="mission-view-stat-label">Thrust</span>
+              <span className="mission-view-stat-value">112 kgf</span>
+            </div>
+            <div className="mission-view-stat">
+              <span className="mission-view-stat-label">T/W ratio</span>
+              <span className="mission-view-stat-value">2.05×</span>
+            </div>
+            <div className="mission-view-stat">
+              <span className="mission-view-stat-label">Leg footprint</span>
+              <span className="mission-view-stat-value">~180 cm</span>
+            </div>
+          </div>
+          <p className="mission-view-desc">
+            Four T-Motor U13 II motors fire on extending arms for a propulsive
+            vertical landing. Four legs deploy to a 180 cm footprint.
+            Nosecone remains open throughout descent and touchdown.
+          </p>
         </div>
 
       </div>

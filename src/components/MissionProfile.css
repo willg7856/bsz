@@ -26,7 +26,7 @@
 .mission-views {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 48px;
   flex-wrap: wrap;
   overflow-x: auto;
@@ -62,7 +62,52 @@
   text-align: center;
   line-height: 1.6;
   letter-spacing: 0.02em;
-  max-width: 180px;
+  max-width: 200px;
+}
+
+.mission-view-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  max-width: 200px;
+  margin-top: 4px;
+}
+
+.mission-view-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mission-view-stat:last-child {
+  border-bottom: none;
+}
+
+.mission-view-stat-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.25);
+  font-weight: 500;
+}
+
+.mission-view-stat-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.mission-view-desc {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.35);
+  line-height: 1.7;
+  text-align: left;
+  max-width: 200px;
+  margin-top: 8px;
 }
 
 .mission-key {
