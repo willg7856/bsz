@@ -22,7 +22,7 @@
 .contact-email {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.9rem;
-  color: #e8530a;
+  color: #0a7eff;
   text-decoration: none;
   word-break: break-all;
   transition: opacity 0.2s;
@@ -67,7 +67,7 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #e8530a;
+  border-color: #0a7eff;
 }
 
 @media (max-width: 640px) {

@@ -113,8 +113,8 @@ export default function RocketDiagram({ activePart: externalActive, onHover }) {
         {PARTS.map((part) => {
           const isActive = active === part.id
           const shapeProps = {
-            fill:        isActive ? 'rgba(232,83,10,0.35)' : 'rgba(255,255,255,0.06)',
-            stroke:      isActive ? '#e8530a'              : 'rgba(255,255,255,0.20)',
+            fill:        isActive ? 'rgba(10,126,255,0.35)' : 'rgba(255,255,255,0.06)',
+            stroke:      isActive ? '#0a7eff'              : 'rgba(255,255,255,0.20)',
             strokeWidth: isActive ? 1.5 : 1,
             onMouseEnter: () => handlePartEnter(part.id),
             style: { cursor: 'pointer', transition: 'fill 0.25s, stroke 0.25s' },

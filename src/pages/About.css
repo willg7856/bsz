@@ -15,7 +15,7 @@
 .about-mission h2 {
   font-size: 1.4rem;
   margin-bottom: 16px;
-  color: #e8530a;
+  color: #0a7eff;
 }
 
 .about-mission p {
@@ -39,8 +39,8 @@
 }
 
 .value-card:hover {
-  border-color: rgba(232, 83, 10, 0.4);
-  background: rgba(232, 83, 10, 0.04);
+  border-color: rgba(10, 126, 255, 0.4);
+  background: rgba(10, 126, 255, 0.04);
 }
 
 .value-card h3 {
