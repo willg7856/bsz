@@ -1,73 +1,53 @@
 .footer {
-  background: #111827;
-  color: #fff;
-  padding: 80px 24px 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 32px 40px;
 }
 
 .footer-inner {
-  max-width: 1100px;
+  max-width: 960px;
   margin: 0 auto;
-}
-
-.footer-cta {
-  text-align: center;
-  margin-bottom: 64px;
-}
-
-.footer-cta h2 {
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  margin: 0 0 12px;
-}
-
-.footer-cta p {
-  color: #9ca3af;
-  font-size: 1.05rem;
-  margin: 0 0 28px;
-}
-
-.btn-white {
-  display: inline-block;
-  background: #fff;
-  color: #111827;
-  padding: 13px 28px;
-  border-radius: 10px;
-  font-size: 1rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.15s, box-shadow 0.2s;
-}
-
-.btn-white:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
-}
-
-.footer-bottom {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #1f2937;
-  padding-top: 24px;
-  font-size: 0.875rem;
-  color: #6b7280;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 16px;
 }
 
 .footer-logo {
+  font-family: 'JetBrains Mono', monospace;
   font-weight: 700;
-  color: #f9fafb;
-  font-size: 1rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
 }
 
-@media (max-width: 600px) {
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  font-size: 0.83rem;
+  font-weight: 500;
+  transition: color 0.18s;
+}
+
+.footer-links a:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-copy {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.78rem;
+}
+
+@media (max-width: 768px) {
   .footer {
-    padding: 56px 16px 24px;
+    padding: 28px 24px;
   }
-  .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
+
+  .footer-links {
+    gap: 16px;
   }
 }

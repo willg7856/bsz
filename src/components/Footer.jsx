@@ -1,18 +1,19 @@
+import { Link } from 'react-router-dom'
 import './Footer.css'
 
 export default function Footer() {
   return (
-    <footer id="contact" className="footer">
+    <footer className="footer">
       <div className="footer-inner">
-        <div className="footer-cta">
-          <h2>Want to Be Part of This?</h2>
-          <p>Whether you're a student, engineer, sponsor, or just excited about rockets — we'd love to hear from you.</p>
-          <a href="mailto:hello@beyondstagehero.com" className="btn btn-white">Get in Touch</a>
+        <span className="footer-logo">Beyond Stage Zero</span>
+        <div className="footer-links">
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/stravox">STRAVOX</Link>
+          <Link to="/news">News</Link>
+          <Link to="/contact">Contact</Link>
         </div>
-        <div className="footer-bottom">
-          <span className="footer-logo">Beyond Stage Zero</span>
-          <span>© {new Date().getFullYear()} Beyond Stage Zero. All rights reserved.</span>
-        </div>
+        <span className="footer-copy">© {new Date().getFullYear()} Beyond Stage Zero. Founded 2025.</span>
       </div>
     </footer>
   )

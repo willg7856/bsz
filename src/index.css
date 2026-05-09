@@ -1,41 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
 *, *::before, *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 :root {
-  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #111827;
-  background: #fff;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --accent:       #0a7eff;
+  --accent-hover: #0062d6;
+  --bg:           #07070c;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
 }
 
-#root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-main {
-  flex: 1;
-}
-
-h1, h2, h3, h4 {
-  margin: 0;
-}
-
-p {
-  margin: 0;
+::selection {
+  background: rgba(10, 126, 255, 0.35);
+  color: #fff;
 }
 
 a {
   text-decoration: none;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+/* Shared page header */
+.page-header {
+  margin-bottom: 72px;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(10, 126, 255, 0.7);
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.page-header h1 {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 18px;
+  line-height: 1.1;
+}
+
+.page-sub {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 540px;
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+/* Shared buttons */
+.btn {
+  display: inline-block;
+  padding: 11px 22px;
+  border-radius: 7px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background 0.18s, border-color 0.18s, color 0.18s;
+  font-family: inherit;
+  letter-spacing: 0.01em;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.btn-outline {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.btn-outline:hover {
+  border-color: rgba(10, 126, 255, 0.55);
+  color: #0a7eff;
+}
+
+/* Stars */
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+}
+
+@keyframes twinkle {
+  0%   { opacity: 0.15; }
+  50%  { opacity: 0.9; }
+  100% { opacity: 0.2; }
+}
+
+@keyframes scroll-dot {
+  0%   { opacity: 1;   transform: translateY(0); }
+  60%  { opacity: 0;   transform: translateY(10px); }
+  61%  { opacity: 0;   transform: translateY(0); }
+  100% { opacity: 1;   transform: translateY(0); }
 }

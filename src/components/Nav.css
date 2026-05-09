@@ -1,0 +1,172 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 60px;
+  background: rgba(7, 7, 12, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.nav-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color 0.18s;
+}
+
+.nav-logo:hover {
+  color: #fff;
+}
+
+/* Desktop nav links — hidden on mobile by default */
+.nav-links {
+  display: none;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links a,
+.nav-link {
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: color 0.18s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #fff;
+}
+
+.nav-cta {
+  background: var(--accent) !important;
+  color: #fff !important;
+  padding: 7px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem !important;
+  transition: background 0.18s !important;
+}
+
+.nav-cta:hover {
+  background: var(--accent-hover) !important;
+}
+
+/* ── Hamburger — visible on mobile by default ─────── */
+.nav-burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  flex-shrink: 0;
+}
+
+.nav-burger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 2px;
+  transition: transform 0.22s, opacity 0.22s;
+  transform-origin: center;
+}
+
+.nav-burger.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-burger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-burger.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile overlay ───────────────────────────────── */
+.nav-mobile {
+  position: fixed;
+  inset: 60px 0 0 0;
+  z-index: 99;
+  background: rgba(7, 7, 12, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.nav-mobile.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-mobile a {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color 0.18s;
+}
+
+.nav-mobile a:hover,
+.nav-mobile a.active {
+  color: #fff;
+}
+
+.nav-cta-mobile {
+  background: var(--accent);
+  color: #fff !important;
+  padding: 12px 36px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem !important;
+  transition: background 0.18s;
+}
+
+.nav-cta-mobile:hover {
+  background: var(--accent-hover);
+}
+
+/* ── Desktop — switch to full nav bar ─────────────── */
+@media (min-width: 769px) {
+  .nav {
+    padding: 0 40px;
+  }
+
+  .nav-links {
+    display: flex;
+  }
+
+  .nav-burger {
+    display: none;
+  }
+
+  .nav-mobile {
+    display: none !important;
+  }
+}
