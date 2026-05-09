@@ -2,9 +2,8 @@ import './About.css'
 
 const stats = [
   { num: '2025', label: 'Founded' },
-  { num: '30 km', label: 'Target Apogee' },
-  { num: 'Mach 2.5', label: 'Peak Velocity' },
-  { num: 'Australia', label: 'Based In' },
+  { num: '12', label: 'Team Members' },
+  { num: 'Creswick, VIC', label: 'Based In' },
 ]
 
 const values = [
