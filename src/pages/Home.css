@@ -216,7 +216,6 @@
   width: 180px;
   height: auto;
   display: block;
-  mix-blend-mode: screen;
   filter: drop-shadow(0 0 48px rgba(10, 126, 255, 0.18));
 }
 
