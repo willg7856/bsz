@@ -7,7 +7,7 @@
 .about-mission {
   margin-bottom: 64px;
   padding: 36px 40px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-left: 3px solid var(--accent);
   border-radius: 0 10px 10px 0;
   background: rgba(10, 126, 255, 0.03);
@@ -25,17 +25,17 @@
 .about-mission p {
   font-size: 1.05rem;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(12, 13, 20, 0.70);
 }
 
 .about-values {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .value-card {
@@ -45,7 +45,7 @@
 }
 
 .value-card:hover {
-  background: rgba(10, 126, 255, 0.05);
+  background: rgba(10, 126, 255, 0.04);
 }
 
 .value-index {
@@ -60,13 +60,13 @@
   font-size: 1.05rem;
   font-weight: 700;
   margin-bottom: 10px;
-  color: rgba(255, 255, 255, 0.95);
+  color: #0c0d14;
   letter-spacing: -0.015em;
 }
 
 .value-card p {
   font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(12, 13, 20, 0.48);
   line-height: 1.7;
 }
 

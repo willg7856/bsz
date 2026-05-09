@@ -11,11 +11,11 @@
 
 .news-post {
   padding: 40px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .news-post:first-child {
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .news-date {
@@ -33,13 +33,13 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   margin-bottom: 14px;
-  color: #fff;
+  color: #0c0d14;
   line-height: 1.25;
 }
 
 .news-post p {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(12, 13, 20, 0.52);
   line-height: 1.8;
 }
 

@@ -9,7 +9,7 @@
 :root {
   --accent:       #0a7eff;
   --accent-hover: #0062d6;
-  --bg:           #07070c;
+  --bg:           #f4f5f9;
 }
 
 html {
@@ -19,13 +19,13 @@ html {
 body {
   font-family: 'Inter', sans-serif;
   background: var(--bg);
-  color: #fff;
+  color: #0c0d14;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: rgba(10, 126, 255, 0.35);
-  color: #fff;
+  background: rgba(10, 126, 255, 0.18);
+  color: #0c0d14;
 }
 
 a {
@@ -64,7 +64,7 @@ a {
 
 .page-sub {
   font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(12, 13, 20, 0.52);
   max-width: 540px;
   line-height: 1.75;
   font-weight: 400;
@@ -95,33 +95,13 @@ a {
 
 .btn-outline {
   background: transparent;
-  color: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(12, 13, 20, 0.65);
+  border: 1px solid rgba(0, 0, 0, 0.18);
 }
 
 .btn-outline:hover {
-  border-color: rgba(10, 126, 255, 0.55);
+  border-color: rgba(10, 126, 255, 0.5);
   color: #0a7eff;
-}
-
-/* Stars */
-.stars {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.star {
-  position: absolute;
-  border-radius: 50%;
-  background: #fff;
-}
-
-@keyframes twinkle {
-  0%   { opacity: 0.15; }
-  50%  { opacity: 0.9; }
-  100% { opacity: 0.2; }
 }
 
 @keyframes scroll-dot {

@@ -9,24 +9,24 @@
   justify-content: space-between;
   padding: 0 40px;
   height: 60px;
-  background: rgba(7, 7, 12, 0.75);
+  background: rgba(244, 245, 249, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .nav-logo {
   font-family: 'JetBrains Mono', monospace;
   font-weight: 700;
   font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: #0c0d14;
   text-decoration: none;
   letter-spacing: -0.01em;
   transition: color 0.18s;
 }
 
 .nav-logo:hover {
-  color: #fff;
+  color: var(--accent);
 }
 
 .nav-links {
@@ -37,7 +37,7 @@
 
 .nav-links a,
 .nav-link {
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(12, 13, 20, 0.50);
   text-decoration: none;
   font-size: 0.88rem;
   font-weight: 500;
@@ -46,7 +46,7 @@
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: #fff;
+  color: #0c0d14;
 }
 
 .nav-cta {

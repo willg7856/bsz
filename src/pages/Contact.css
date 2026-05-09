@@ -14,7 +14,7 @@
 .contact-info h2 {
   font-size: 0.72rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(12, 13, 20, 0.40);
   text-transform: uppercase;
   letter-spacing: 0.14em;
   margin-bottom: 14px;
@@ -39,6 +39,7 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   margin-bottom: 24px;
+  color: #0c0d14;
 }
 
 .form-group {
@@ -53,16 +54,16 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(12, 13, 20, 0.40);
 }
 
 .form-group input,
 .form-group textarea {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 7px;
   padding: 11px 15px;
-  color: #fff;
+  color: #0c0d14;
   font-size: 0.93rem;
   font-family: inherit;
   outline: none;
@@ -72,13 +73,13 @@
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(12, 13, 20, 0.28);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: var(--accent);
-  background: rgba(10, 126, 255, 0.04);
+  background: rgba(10, 126, 255, 0.03);
 }
 
 .btn:disabled {
@@ -88,7 +89,7 @@
 
 .contact-error {
   font-size: 0.85rem;
-  color: #ff6b6b;
+  color: #d93025;
   margin-bottom: 16px;
 }
 
@@ -113,11 +114,12 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   margin-bottom: 8px;
+  color: #0c0d14;
 }
 
 .contact-success p {
   font-size: 0.93rem;
-  color: rgba(255, 255, 255, 0.48);
+  color: rgba(12, 13, 20, 0.50);
   line-height: 1.7;
   margin-bottom: 28px;
 }
