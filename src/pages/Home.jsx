@@ -48,6 +48,15 @@ export default function Home() {
             >
               <img src="/partner-crwa.svg" alt="Creswick Railway Workshops Association" />
             </a>
+            <a
+              className="home-partner"
+              href="https://ballarattech.school"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Ballarat Tech School"
+            >
+              <img src="/partner-bts.svg" alt="Ballarat Tech School" />
+            </a>
           </div>
         </div>
       </section>
