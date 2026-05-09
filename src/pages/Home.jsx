@@ -35,6 +35,23 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="home-partners">
+        <div className="home-partners-inner">
+          <p className="home-partners-label">Partners &amp; Supporters</p>
+          <div className="home-partners-logos">
+            <a
+              className="home-partner"
+              href="https://www.crwa.org.au"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Creswick Railway Workshops Association"
+            >
+              <img src="/partner-crwa.svg" alt="Creswick Railway Workshops Association" />
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section className="home-rocket">
         <div className="home-rocket-inner">
           <div className="home-rocket-text">
