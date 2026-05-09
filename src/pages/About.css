@@ -44,7 +44,10 @@
   line-height: 1.0;
   margin-bottom: 28px;
   color: #fff;
-  text-align: center;
+  text-align: left;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about-hero-inner h1 span {
