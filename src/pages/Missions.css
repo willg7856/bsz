@@ -1,0 +1,310 @@
+/* ── Hero ─────────────────────────────────────────── */
+.missions-hero {
+  background: var(--ink-900);
+  color: var(--paper-100);
+  padding: 80px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.missions-hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--ink-700) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ink-700) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.22;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse at 30% 50%, #000 30%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 30% 50%, #000 30%, transparent 70%);
+}
+
+.missions-hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  padding-bottom: 72px;
+  position: relative;
+}
+
+.missions-hero-h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  margin: 0 0 28px;
+  color: var(--paper-100);
+}
+
+.missions-hero-sub {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--ink-400);
+  max-width: 52ch;
+}
+
+.missions-hero-stat-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--ink-700);
+  border-bottom: 1px solid var(--ink-700);
+  padding: 24px 0;
+  align-self: end;
+}
+
+.missions-hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 0;
+  border-bottom: 1px dashed var(--ink-700);
+}
+.missions-hero-stat:last-child { border-bottom: 0; padding-bottom: 0; }
+.missions-hero-stat:first-child { padding-top: 0; }
+
+.missions-hero-stat-val {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--paper-100);
+  font-variant-numeric: tabular-nums;
+}
+
+.missions-hero-stat-lbl {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.missions-tick { margin: 0; }
+
+/* ── Mission card ─────────────────────────────────── */
+.missions-card-section { border-bottom: 1px solid var(--line); }
+
+.missions-card {
+  border: 1px solid var(--line);
+  background: var(--paper-100);
+}
+
+.missions-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 32px 32px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.missions-card-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  margin: 12px 0 8px;
+  color: var(--fg);
+}
+
+.missions-card-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--fg-muted);
+  letter-spacing: 0.02em;
+}
+
+.missions-status {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: var(--r-2);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.missions-status--amber {
+  background: rgba(255, 196, 0, 0.12);
+  color: var(--telemetry-amber);
+  border: 1px solid rgba(255, 196, 0, 0.3);
+}
+.missions-status--green {
+  background: rgba(24, 169, 87, 0.12);
+  color: var(--telemetry-green);
+  border: 1px solid rgba(24, 169, 87, 0.3);
+}
+
+.missions-card-body {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 0;
+}
+
+.missions-card-left {
+  padding: 32px;
+  border-right: 1px solid var(--line);
+}
+
+.missions-desc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--fg-muted);
+  margin-bottom: 32px;
+}
+
+.missions-objectives-label {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin-bottom: 16px;
+}
+
+.missions-obj-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 0.9375rem;
+  color: var(--fg-muted);
+}
+.missions-obj-row:last-child { border-bottom: 0; }
+.missions-obj-row.done { color: var(--fg); }
+
+.missions-obj-icon {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--fg-muted);
+  flex-shrink: 0;
+  width: 16px;
+}
+.missions-obj-row.done .missions-obj-icon { color: var(--telemetry-green); }
+
+/* Specs column */
+.missions-card-specs {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.missions-spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--line);
+  gap: 16px;
+}
+.missions-spec-row:last-child { border-bottom: 0; }
+
+.missions-spec-lbl {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  flex-shrink: 0;
+}
+
+.missions-spec-val {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--fg);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Upcoming ─────────────────────────────────────── */
+.missions-upcoming {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border: 1px solid var(--line);
+  margin-top: 40px;
+}
+
+.missions-upcoming-card {
+  padding: 32px;
+  border-right: 1px solid var(--line);
+}
+.missions-upcoming-card:last-child { border-right: 0; }
+
+.missions-upcoming-id {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin-bottom: 8px;
+}
+
+.missions-upcoming-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  margin-bottom: 12px;
+}
+
+.missions-upcoming-note {
+  font-size: 0.9375rem;
+  color: var(--fg-muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.missions-upcoming-year {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--fg-muted);
+  letter-spacing: 0.04em;
+}
+
+/* ── Mobile ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .missions-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-bottom: 48px;
+  }
+
+  .missions-hero-stat-row { border-bottom: none; }
+
+  .missions-card-head {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .missions-card-body {
+    grid-template-columns: 1fr;
+  }
+
+  .missions-card-left { border-right: 0; border-bottom: 1px solid var(--line); }
+
+  .missions-upcoming {
+    grid-template-columns: 1fr;
+  }
+
+  .missions-upcoming-card {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .missions-upcoming-card:last-child { border-bottom: 0; }
+}
