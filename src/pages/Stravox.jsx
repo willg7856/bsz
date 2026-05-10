@@ -29,7 +29,7 @@ const numbers = [
   { lbl: 'Landing thrust',  val: '112',   unit: 'kgf',  note: 'T-Motor U13 II × 4, combined.' },
   { lbl: 'Landing T/W',     val: '2.05',  unit: '×',    note: 'Thrust-to-weight at touchdown.' },
   { lbl: 'Engine grain',    val: '1,000', unit: 'mm',   note: 'KNSB propellant grain length.' },
-  { lbl: 'Launch mass',     val: '54.8',  unit: 'kg',   note: 'Full vehicle mass at liftoff.' },
+  { lbl: 'Launch mass',     val: '104.8', unit: 'kg',   note: 'Full vehicle mass at liftoff, including propellant.' },
 ]
 
 const stages = [
