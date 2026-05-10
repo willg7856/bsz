@@ -10,16 +10,26 @@ const engineBatches = [
 
 const campaigns = [
   {
+    id: 'C-02',
+    date: '26 Apr 2025',
+    engine: 'Mk II',
+    objective: 'Comparative KNO₃ grade test — technical vs fertiliser grade in redesigned Mk II casing.',
+  },
+  {
     id: 'C-01',
     date: '18 Feb 2025',
     engine: 'Mk I',
     objective: 'Comparative KNO₃ grade test — technical vs fertiliser grade at Mk I scale.',
   },
+]
+
+const upcoming = [
   {
-    id: 'C-02',
-    date: '26 Apr 2025',
-    engine: 'Mk II',
-    objective: 'Comparative KNO₃ grade test — technical vs fertiliser grade in redesigned Mk II casing.',
+    id: 'C-03',
+    label: 'Campaign 3 — B1M engine static fires',
+    engine: 'B1M — 550 mm × 80 mm',
+    note: 'First firing of the B1M engine series. 3 engines in production, each targeting ≥2 firings. Campaign will continue propellant characterisation with technical vs fertiliser grade KNO₃ and validate the motor before flight.',
+    status: 'IN BUILD',
   },
 ]
 
@@ -168,6 +178,30 @@ export default function Tests() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Up next ──────────────────────────────────── */}
+      <section className="section" style={{ background: 'var(--ink-900)' }}>
+        <div className="container">
+          <div className="tests-upnext-head">
+            <span className="eyebrow" style={{ color: 'var(--ink-400)' }}>[ Up next ]</span>
+            <h2 className="tests-upnext-title">Next test campaign.</h2>
+          </div>
+          {upcoming.map(u => (
+            <div key={u.id} className="tests-upnext-card">
+              <div className="tests-upnext-card-left">
+                <div className="tests-upnext-id">{u.id}</div>
+                <div className="tests-upnext-label">{u.label}</div>
+                <p className="tests-upnext-note">{u.note}</p>
+              </div>
+              <div className="tests-upnext-card-right">
+                <div className="tests-upnext-engine-lbl">Engine</div>
+                <div className="tests-upnext-engine-val">{u.engine}</div>
+                <div className={`tests-upnext-status`}>{u.status}</div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

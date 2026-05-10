@@ -162,6 +162,99 @@
   color: var(--fg-muted);
 }
 
+/* ── Up next ──────────────────────────────────────── */
+.tests-upnext-head {
+  margin-bottom: 32px;
+}
+
+.tests-upnext-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: var(--paper-100);
+  margin-top: 12px;
+}
+
+.tests-upnext-card {
+  border: 1px solid var(--ink-700);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0;
+}
+
+.tests-upnext-card-left {
+  padding: 28px 32px;
+  border-right: 1px solid var(--ink-700);
+}
+
+.tests-upnext-id {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+  margin-bottom: 8px;
+}
+
+.tests-upnext-label {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--paper-100);
+  margin-bottom: 14px;
+}
+
+.tests-upnext-note {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--ink-400);
+  max-width: 64ch;
+}
+
+.tests-upnext-card-right {
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 200px;
+}
+
+.tests-upnext-engine-lbl {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+  margin-bottom: 6px;
+}
+
+.tests-upnext-engine-val {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--paper-100);
+}
+
+.tests-upnext-status {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--telemetry-amber);
+  background: rgba(255, 196, 0, 0.1);
+  border: 1px solid rgba(255, 196, 0, 0.25);
+  padding: 6px 12px;
+  border-radius: var(--r-2);
+  display: inline-block;
+  align-self: flex-start;
+}
+
 /* ── Campaign grouping ────────────────────────────── */
 .tests-campaign {
   margin-bottom: 48px;
@@ -385,4 +478,10 @@
     border-right: 0;
     border-bottom: 1px solid var(--line);
   }
+
+  .tests-upnext-card {
+    grid-template-columns: 1fr;
+  }
+
+  .tests-upnext-card-left { border-right: 0; border-bottom: 1px solid var(--ink-700); }
 }
