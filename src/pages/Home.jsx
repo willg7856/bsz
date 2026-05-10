@@ -12,13 +12,15 @@ const BUILD_STAGES = [
   { num: '06', label: 'Launch',      status: 'future' },
 ]
 
+const STATUS_LABEL = { done: 'Complete', active: 'Active', future: '—' }
+
 const STATS = [
-  { value: '30',    unit: 'km',    label: 'Target apogee'   },
-  { value: '2,633', unit: 'mm',    label: 'Rocket length'   },
-  { value: '2.5',   unit: 'Mach',  label: 'Peak velocity'   },
-  { value: '54.8',  unit: 'kg',    label: 'Launch mass'     },
-  { value: '4',     unit: '×',     label: 'Landing motors'  },
-  { value: '1,000', unit: 'mm',    label: 'Engine grain'    },
+  { label: 'Launch mass',    value: '54.8 kg'    },
+  { label: 'Diameter',       value: '200 mm'     },
+  { label: 'Base fin span',  value: '520 mm'     },
+  { label: 'Upper fin span', value: '340 mm'     },
+  { label: 'Landing thrust', value: '112 kgf'    },
+  { label: 'Landing T/W',    value: '2.05×'      },
 ]
 
 export default function Home() {
@@ -95,19 +97,20 @@ export default function Home() {
       <section className="section dark home-stages">
         <div className="home-stages-grid-bg" aria-hidden="true" />
         <div className="container home-stages-inner">
-          <p className="eyebrow" style={{ color: 'var(--ignition-400)', marginBottom: '2.5rem' }}>Build Progress</p>
-          <div className="home-stages-track">
-            {BUILD_STAGES.map((stage, i) => (
-              <div className={`home-stage home-stage--${stage.status}`} key={stage.num}>
-                <div className="home-stage-node">
-                  <span className="home-stage-num mono">{stage.num}</span>
-                  {stage.status === 'done' && <span className="home-stage-check">✓</span>}
-                  {stage.status === 'active' && <span className="home-stage-pulse" />}
-                </div>
-                <span className="home-stage-label">{stage.label}</span>
-                {i < BUILD_STAGES.length - 1 && (
-                  <div className={`home-stage-connector${stage.status === 'done' ? ' home-stage-connector--done' : ''}`} />
-                )}
+          <div className="home-stages-header">
+            <p className="eyebrow" style={{ color: 'var(--ignition-400)' }}>Build Progress</p>
+            <p className="home-stages-sub">Six stages from concept to launch. Currently in Stage 02.</p>
+          </div>
+          <div className="home-stages-rows">
+            {BUILD_STAGES.map(stage => (
+              <div className={`home-spec-row home-stage-row home-stage-row--${stage.status}`} key={stage.num}>
+                <span className="home-spec-lbl">
+                  <span className="mono" style={{ marginRight: 10 }}>{stage.num}</span>
+                  {stage.label}
+                </span>
+                <span className={`home-spec-val home-stage-status--${stage.status}`}>
+                  {STATUS_LABEL[stage.status]}
+                </span>
               </div>
             ))}
           </div>
@@ -116,16 +119,16 @@ export default function Home() {
 
       {/* ── Numbers ─────────────────────────────────── */}
       <section className="section home-numbers">
-        <div className="container">
-          <p className="eyebrow" style={{ marginBottom: '2.5rem' }}>By the numbers</p>
-          <div className="home-numbers-grid">
+        <div className="container home-numbers-inner">
+          <div className="home-numbers-header">
+            <p className="eyebrow" style={{ marginBottom: '0.5rem' }}>By the numbers</p>
+            <p className="home-numbers-sub">Hard specs, not vibes.</p>
+          </div>
+          <div className="home-numbers-rows">
             {STATS.map(s => (
-              <div className="home-number-card" key={s.label}>
-                <div className="home-number-val">
-                  <span className="home-number-figure mono">{s.value}</span>
-                  <span className="home-number-unit mono">{s.unit}</span>
-                </div>
-                <span className="home-number-label">{s.label}</span>
+              <div className="home-spec-row" key={s.label}>
+                <span className="home-spec-lbl">{s.label}</span>
+                <span className="home-spec-val">{s.value}</span>
               </div>
             ))}
           </div>
