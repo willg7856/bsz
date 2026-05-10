@@ -130,6 +130,37 @@
   color: var(--fg-muted);
 }
 
+/* ── Campaign grouping ────────────────────────────── */
+.tests-campaign {
+  margin-bottom: 48px;
+}
+.tests-campaign:last-child { margin-bottom: 0; }
+
+.tests-campaign-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--fg);
+  margin-bottom: 0;
+}
+
+.tests-campaign-date {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--fg-muted);
+  margin-top: 6px;
+}
+
+.tests-campaign-objective {
+  font-size: 0.9375rem;
+  color: var(--fg-muted);
+  line-height: 1.55;
+  max-width: 52ch;
+  text-align: right;
+}
+
 /* ── Fire log ─────────────────────────────────────── */
 .tests-log {
   display: flex;
@@ -172,6 +203,18 @@
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   color: var(--fg-muted);
+}
+
+.tests-fire-grade {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  border: 1px solid var(--line);
+  padding: 3px 8px;
+  border-radius: var(--r-2);
 }
 
 /* Result badges */
