@@ -89,6 +89,38 @@
 
 .tests-tick { margin: 0; }
 
+/* ── Engine summary ───────────────────────────────── */
+.tests-engine-summary {
+  display: flex;
+  gap: 48px;
+  margin-bottom: 32px;
+}
+
+.tests-engine-summary-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tests-engine-summary-val {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+}
+
+.tests-engine-summary-lbl {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
 /* ── Engine batches ───────────────────────────────── */
 .tests-batches {
   display: grid;

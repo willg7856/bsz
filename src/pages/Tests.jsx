@@ -149,6 +149,16 @@ export default function Tests() {
       {/* ── Engine batches ───────────────────────────── */}
       <section className="section" style={{ background: 'var(--paper-200)', borderBottom: '1px solid var(--line)' }}>
         <div className="container">
+          <div className="tests-engine-summary">
+            <div className="tests-engine-summary-stat">
+              <span className="tests-engine-summary-val">9</span>
+              <span className="tests-engine-summary-lbl">Total engines built</span>
+            </div>
+            <div className="tests-engine-summary-stat">
+              <span className="tests-engine-summary-val">3</span>
+              <span className="tests-engine-summary-lbl">In production</span>
+            </div>
+          </div>
           <div className="tests-batches">
             {engineBatches.map(b => (
               <div key={b.label} className="tests-batch-card">
