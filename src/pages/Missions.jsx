@@ -4,15 +4,15 @@ const TICK = Array.from({ length: 40 })
 
 const missions = [
   {
-    id: 'STRAVOX-01',
+    id: 'STRAVOX-B1M-01',
     num: 'Mission 01',
-    name: 'STRAVOX-01',
-    status: 'IN DEVELOPMENT',
-    statusColor: 'amber',
+    name: 'STRAVOX B1M-01',
+    status: 'PLANNED',
+    statusColor: 'cyan',
     year: '2026',
     tagline: 'First flight. 30 km apogee. Propulsive landing.',
     description:
-      'STRAVOX-01 is the inaugural flight of the Beyond Stage Zero programme — a full-stack mission from liftoff to propulsive vertical touchdown. The vehicle will boost past Mach 2.5 on a KNSB solid motor, deploy its split nosecone airbrake at apogee, then extend four folding drone arms and fire four T-Motor U13 II motors for a controlled vertical landing.',
+      'STRAVOX B1M-01 is the inaugural flight of the Beyond Stage Zero programme — a full-stack mission from liftoff to propulsive vertical touchdown. The vehicle will boost past Mach 2.5 on a KNSB solid motor, deploy its split nosecone airbrake at apogee, then extend four folding drone arms and fire four T-Motor U13 II motors for a controlled vertical landing.',
     objectives: [
       { label: 'Reach 30 km apogee', done: false },
       { label: 'Supersonic flight past Mach 2.5', done: false },
@@ -28,7 +28,7 @@ const missions = [
       ['Motor', 'KNSB — 1 m grain'],
       ['Landing system', 'T-Motor U13 II × 4'],
       ['Launch site', 'Victoria, AUS'],
-      ['Status', 'IN DEVELOPMENT'],
+      ['Status', 'PLANNED'],
       ['Target date', '2026'],
     ],
   },
@@ -36,9 +36,9 @@ const missions = [
 
 const upcoming = [
   {
-    id: 'STRAVOX-02',
-    name: 'STRAVOX-02',
-    note: 'Extended-range mission. Details TBD after STRAVOX-01.',
+    id: 'STRAVOX-B1M-02',
+    name: 'STRAVOX B1M-02',
+    note: 'Extended-range mission. Details TBD after B1M-01.',
     year: 'TBD',
   },
   {
@@ -70,8 +70,8 @@ export default function Missions() {
           </div>
           <div className="missions-hero-stat-row">
             <div className="missions-hero-stat">
-              <span className="missions-hero-stat-val">1</span>
-              <span className="missions-hero-stat-lbl">Active mission</span>
+              <span className="missions-hero-stat-val">0</span>
+              <span className="missions-hero-stat-lbl">Active missions</span>
             </div>
             <div className="missions-hero-stat">
               <span className="missions-hero-stat-val">0</span>
@@ -88,7 +88,7 @@ export default function Missions() {
         </div>
       </section>
 
-      {/* ── Active missions ──────────────────────────── */}
+      {/* ── Planned missions ─────────────────────────── */}
       {missions.map(m => (
         <section key={m.id} className="section missions-card-section">
           <div className="container">
@@ -142,7 +142,7 @@ export default function Missions() {
               <h2>On the horizon.</h2>
             </div>
             <p className="lead">
-              Future missions are subject to learnings from STRAVOX-01. Nothing here
+              Future missions are subject to learnings from B1M-01. Nothing here
               is locked in — we plan by what the data tells us.
             </p>
           </div>

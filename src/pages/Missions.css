@@ -141,6 +141,11 @@
   color: var(--telemetry-green);
   border: 1px solid rgba(24, 169, 87, 0.3);
 }
+.missions-status--cyan {
+  background: rgba(45, 194, 217, 0.1);
+  color: var(--telemetry-cyan);
+  border: 1px solid rgba(45, 194, 217, 0.3);
+}
 
 .missions-card-body {
   display: grid;
