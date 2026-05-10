@@ -21,6 +21,19 @@ const missions = [
       { label: 'Collect full flight telemetry', done: false },
       { label: 'CASA range clearance', done: false },
     ],
+    milestones: [
+      { label: 'Propellant R&D',          status: 'done',    note: '4 static fires completed across Mk I and Mk II engines.' },
+      { label: 'B1M engine design',        status: 'active',  note: '550 mm × 80 mm casing, 1.2 kg KNO₃/Sorbitol 70:30.' },
+      { label: 'B1M engine build',         status: 'active',  note: '3 engines in production, targeting ≥2 firings each.' },
+      { label: 'B1M engine static fires',  status: 'upcoming', note: 'Ground firing campaign to validate B1M motor before flight.' },
+      { label: 'Vehicle design',           status: 'upcoming', note: 'Airframe, fins, and recovery bay sized for B1M engine.' },
+      { label: 'Vehicle fabrication',      status: 'upcoming', note: 'Airframe construction and component manufacture.' },
+      { label: 'Avionics integration',     status: 'upcoming', note: 'Flight computer, altimeter, GPS, and recovery electronics.' },
+      { label: 'Ground systems test',      status: 'upcoming', note: 'Full vehicle systems check on the pad before flight.' },
+      { label: 'CASA range clearance',     status: 'upcoming', note: 'Regulatory approval for launch at a CASA-cleared site in Victoria.' },
+      { label: 'Launch readiness review',  status: 'upcoming', note: 'Final internal review before committing to launch day.' },
+      { label: 'STRAVOX B1M-01 launch',   status: 'upcoming', note: '4 km apogee. Full flight telemetry. Recover and review.' },
+    ],
     specs: [
       ['Vehicle', 'STRAVOX B1M'],
       ['Role', 'Sub-scale test vehicle'],
@@ -130,6 +143,29 @@ export default function Missions() {
                   ))}
                 </div>
               </div>
+
+              {m.milestones && (
+                <div className="missions-milestones">
+                  <p className="missions-milestones-label">Pre-flight milestones</p>
+                  <div className="missions-milestone-list">
+                    {m.milestones.map((ms, idx) => (
+                      <div key={ms.label} className={`missions-milestone missions-milestone--${ms.status}`}>
+                        <div className="missions-milestone-marker">
+                          <span className="missions-milestone-dot" />
+                          {idx < m.milestones.length - 1 && <span className="missions-milestone-line" />}
+                        </div>
+                        <div className="missions-milestone-content">
+                          <div className="missions-milestone-head">
+                            <span className="missions-milestone-name">{ms.label}</span>
+                            <span className="missions-milestone-tag">{ms.status}</span>
+                          </div>
+                          <p className="missions-milestone-note">{ms.note}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </section>
