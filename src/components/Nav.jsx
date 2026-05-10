@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import Logo from './Logo'
 import './Nav.css'
 
 function useIsMobile() {
@@ -12,11 +13,18 @@ function useIsMobile() {
   return isMobile
 }
 
+const navLinks = [
+  { label: 'Mission',  href: '/#mission' },
+  { label: 'Rocket',   href: '/#rocket' },
+  { label: 'Stages',   href: '/#stages' },
+  { label: 'Team',     href: '/#team' },
+  { label: 'Sponsors', href: '/#sponsors' },
+]
+
 export default function Nav() {
   const { pathname } = useLocation()
   const [open, setOpen] = useState(false)
   const isMobile = useIsMobile()
-  const link = (path) => `nav-link${pathname === path ? ' active' : ''}`
   const close = () => setOpen(false)
 
   useEffect(() => {
@@ -26,7 +34,9 @@ export default function Nav() {
   return (
     <>
       <nav className="nav">
-        <Link className="nav-logo" to="/" onClick={close}>Beyond Stage Zero</Link>
+        <a className="nav-logo" href="/#mission" onClick={close}>
+          <Logo height={28} />
+        </a>
 
         {isMobile ? (
           <button
@@ -38,22 +48,33 @@ export default function Nav() {
           </button>
         ) : (
           <div className="nav-links">
-            <Link className={link('/')} to="/">Mission</Link>
-            <Link className={link('/stravox')} to="/stravox">Rocket</Link>
-            <Link className={link('/about')} to="/about">Team</Link>
-            <Link className={link('/news')} to="/news">Press</Link>
-            <Link className="nav-cta" to="/contact">Sponsor →</Link>
+            {navLinks.map((l) => (
+              <a key={l.label} className="nav-link" href={l.href}>{l.label}</a>
+            ))}
+            <Link
+              className={`nav-link${pathname === '/news' ? ' active' : ''}`}
+              to="/news"
+            >
+              Press
+            </Link>
+            <a className="nav-cta" href="#contact">Sponsor →</a>
           </div>
         )}
       </nav>
 
       {isMobile && (
         <div className={`nav-mobile${open ? ' is-open' : ''}`}>
-          <Link className={link('/')} to="/" onClick={close}>Mission</Link>
-          <Link className={link('/stravox')} to="/stravox" onClick={close}>Rocket</Link>
-          <Link className={link('/about')} to="/about" onClick={close}>Team</Link>
-          <Link className={link('/news')} to="/news" onClick={close}>Press</Link>
-          <Link className="nav-cta-mobile" to="/contact" onClick={close}>Sponsor →</Link>
+          {navLinks.map((l) => (
+            <a key={l.label} className="nav-link" href={l.href} onClick={close}>{l.label}</a>
+          ))}
+          <Link
+            className={`nav-link${pathname === '/news' ? ' active' : ''}`}
+            to="/news"
+            onClick={close}
+          >
+            Press
+          </Link>
+          <a className="nav-cta-mobile" href="/#contact" onClick={close}>Sponsor →</a>
         </div>
       )}
     </>

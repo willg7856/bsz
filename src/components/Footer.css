@@ -28,8 +28,10 @@
 .footer-links a {
   color: rgba(255, 255, 255, 0.3);
   text-decoration: none;
-  font-size: 0.83rem;
-  font-weight: 500;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   transition: color 0.18s;
 }
 
