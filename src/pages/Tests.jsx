@@ -11,13 +11,13 @@ const engineBatches = [
 const campaigns = [
   {
     id: 'C-02',
-    date: '26 Apr 2025',
+    date: '26 Apr 2026',
     engine: 'Mk II',
     objective: 'Comparative KNO₃ grade test — technical vs fertiliser grade in redesigned Mk II casing.',
   },
   {
     id: 'C-01',
-    date: '18 Feb 2025',
+    date: '18 Feb 2026',
     engine: 'Mk I',
     objective: 'Comparative KNO₃ grade test — technical vs fertiliser grade at Mk I scale.',
   },
@@ -37,7 +37,7 @@ const fires = [
   {
     id: 'SF-01',
     campaign: 'C-01',
-    date: '18 Feb 2025',
+    date: '18 Feb 2026',
     engine: 'Mk I — 250 mm × 32 mm',
     kno3Grade: 'Technical grade',
     propellant: 'KNO₃ / Sucrose — 70:30',
@@ -56,7 +56,7 @@ const fires = [
   {
     id: 'SF-02',
     campaign: 'C-01',
-    date: '18 Feb 2025',
+    date: '18 Feb 2026',
     engine: 'Mk I — 250 mm × 32 mm',
     kno3Grade: 'Fertiliser grade',
     propellant: 'KNO₃ / Sucrose — 70:30',
@@ -75,7 +75,7 @@ const fires = [
   {
     id: 'SF-03',
     campaign: 'C-02',
-    date: '26 Apr 2025',
+    date: '26 Apr 2026',
     engine: 'Mk II — 300 mm × 30 mm',
     kno3Grade: 'Fertiliser grade',
     propellant: 'KNO₃ / Sucrose — 70:30',
@@ -95,7 +95,7 @@ const fires = [
   {
     id: 'SF-04',
     campaign: 'C-02',
-    date: '26 Apr 2025',
+    date: '26 Apr 2026',
     engine: 'Mk II — 300 mm × 30 mm',
     kno3Grade: 'Technical grade',
     propellant: 'KNO₃ / Sucrose — 70:30',

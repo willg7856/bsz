@@ -16,8 +16,8 @@ const posts = [
     body: 'Our first planned mission is STRAVOX B1M-01 — a sub-scale flight to 4 km apogee on a BSZ-built KNSB engine. B1M is our systems validation vehicle: it lets us test avionics, recovery, and propulsion in real flight conditions before committing to the full 30 km STRAVOX programme. We are targeting launch in 2026 from a CASA-cleared site in Victoria.',
   },
   {
-    date: '2025-04-26',
-    display: '26 April 2025',
+    date: '2026-04-26',
+    display: '26 April 2026',
     tag: 'Testing',
     title: 'Campaign 2: Mk II engine static fires — SF-03 and SF-04',
     body: 'We ran two more static fires on April 26th with our redesigned Mk II engine — 300 mm tall and 30 mm wide, loaded with 400 g of KNO₃/Sorbitol. SF-03 returned our first meaningful thrust data at 6.8 kgf peak, but showed an uneven burn rate and minor burn-throughs on the nozzle and forward closure. SF-04 suffered a case rupture, destroying our ground infrastructure. Both fires were comparative KNO₃ grade tests — SF-03 used fertiliser grade, SF-04 technical grade. Design work on the forward closure and casing continues.',
@@ -30,8 +30,8 @@ const posts = [
     body: 'Beyond Stage Zero was founded in April 2025 in Creswick, Victoria, with one goal: design, build, and fly Australia\'s largest student rocket to 30 km apogee with a propulsive vertical landing. Our first rocket is STRAVOX — a 2,633 mm vehicle with a split nosecone airbrake and four folding drone arms for touchdown. The programme starts here.',
   },
   {
-    date: '2025-02-18',
-    display: '18 February 2025',
+    date: '2026-02-18',
+    display: '18 February 2026',
     tag: 'Testing',
     title: 'Campaign 1: first static fires — SF-01 and SF-02',
     body: 'We conducted our first two static fires on February 18th, testing Mk I engines — 250 mm long, 32 mm wide, loaded with approximately 300 g of KNO₃/Sucrose. SF-01 used technical grade KNO₃ and burned for 28 seconds, but we lost all thrust data and the nozzle ejected, destroying ground equipment. SF-02 used fertiliser grade — it burned twice as fast (14 s), produced a 4.6 kgf peak thrust before nozzle ejection, and accidentally generated a sonic boom. Both fires confirmed nozzle retention as the critical fix for the next design iteration.',
