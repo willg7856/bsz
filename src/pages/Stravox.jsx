@@ -124,32 +124,12 @@ export default function Stravox() {
       </section>
 
       {/* ── Specs ───────────────────────────────────── */}
-      <section className="section dark stravox-specs-section">
+      <section className="section stravox-specs-section">
         <div className="container">
           <div className="section-head">
             <div>
-              <p className="eyebrow" style={{ color: 'var(--ink-400)' }}>Technical</p>
+              <span className="eyebrow accent">[ Technical ]</span>
               <h2>Specifications</h2>
-            </div>
-          </div>
-          <div className="stravox-specs-grid">
-            {specs.map((s) => (
-              <div className="stravox-spec-cell" key={s.label}>
-                <span className="stravox-spec-lbl">{s.label}</span>
-                <span className="stravox-spec-val mono">{s.value}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Numbers ─────────────────────────────────── */}
-      <section className="section home-numbers">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow accent">[ Mission ]</span>
-              <h2>Numbers, not vibes.</h2>
             </div>
             <p className="lead">
               Every figure on this page comes from a simulated or tested subsystem.
@@ -162,6 +142,14 @@ export default function Stravox() {
                 <div className="lbl">{c.lbl}</div>
                 <div className="val">{c.val}<small>{c.unit}</small></div>
                 <div className="note">{c.note}</div>
+              </div>
+            ))}
+          </div>
+          <div className="stravox-specs-grid" style={{ marginTop: '2px' }}>
+            {specs.map((s) => (
+              <div className="stravox-spec-cell" key={s.label}>
+                <span className="stravox-spec-lbl">{s.label}</span>
+                <span className="stravox-spec-val mono">{s.value}</span>
               </div>
             ))}
           </div>
