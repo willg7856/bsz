@@ -56,13 +56,13 @@ export default function Home() {
               <span className="home-hero-live">ACTIVE</span>
             </div>
             <h1 className="home-hero-h1">
-              Australia's<br />
-              largest student<br />
-              <span className="home-hero-accent">rocket.</span>
+              Beyond<br />
+              Stage<br />
+              <span className="home-hero-accent">Zero.</span>
             </h1>
             <p className="home-hero-sub">
-              Beyond Stage Zero is an Australian student rocketry team designing,
-              building, and flying <span className="mono">STRAVOX</span> to 30 km apogee.
+              An Australian student rocketry team designing, building, and flying
+              the country's largest student rocket — <span className="mono">STRAVOX</span> — to 30 km apogee.
             </p>
             <div className="home-hero-actions">
               <Link className="btn btn-primary" to="/stravox">Explore the rocket →</Link>
