@@ -3,6 +3,24 @@ import './Home.css'
 
 const TICK = Array.from({ length: 40 })
 
+const BUILD_STAGES = [
+  { num: '01', label: 'Concept',     status: 'done'   },
+  { num: '02', label: 'Design',      status: 'active' },
+  { num: '03', label: 'Fabrication', status: 'future' },
+  { num: '04', label: 'Assembly',    status: 'future' },
+  { num: '05', label: 'Ground Test', status: 'future' },
+  { num: '06', label: 'Launch',      status: 'future' },
+]
+
+const STATS = [
+  { value: '30',    unit: 'km',    label: 'Target apogee'   },
+  { value: '2,633', unit: 'mm',    label: 'Rocket length'   },
+  { value: '2.5',   unit: 'Mach',  label: 'Peak velocity'   },
+  { value: '54.8',  unit: 'kg',    label: 'Launch mass'     },
+  { value: '4',     unit: '×',     label: 'Landing motors'  },
+  { value: '1,000', unit: 'mm',    label: 'Engine grain'    },
+]
+
 export default function Home() {
   return (
     <main className="home">
@@ -69,6 +87,47 @@ export default function Home() {
               <img src="/partner-bts.svg" alt="Ballarat Tech School" />
               <span>Ballarat Tech School</span>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Build stages ────────────────────────────── */}
+      <section className="section dark home-stages">
+        <div className="home-stages-grid-bg" aria-hidden="true" />
+        <div className="container home-stages-inner">
+          <p className="eyebrow" style={{ color: 'var(--ignition-400)', marginBottom: '2.5rem' }}>Build Progress</p>
+          <div className="home-stages-track">
+            {BUILD_STAGES.map((stage, i) => (
+              <div className={`home-stage home-stage--${stage.status}`} key={stage.num}>
+                <div className="home-stage-node">
+                  <span className="home-stage-num mono">{stage.num}</span>
+                  {stage.status === 'done' && <span className="home-stage-check">✓</span>}
+                  {stage.status === 'active' && <span className="home-stage-pulse" />}
+                </div>
+                <span className="home-stage-label">{stage.label}</span>
+                {i < BUILD_STAGES.length - 1 && (
+                  <div className={`home-stage-connector${stage.status === 'done' ? ' home-stage-connector--done' : ''}`} />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Numbers ─────────────────────────────────── */}
+      <section className="section home-numbers">
+        <div className="container">
+          <p className="eyebrow" style={{ marginBottom: '2.5rem' }}>By the numbers</p>
+          <div className="home-numbers-grid">
+            {STATS.map(s => (
+              <div className="home-number-card" key={s.label}>
+                <div className="home-number-val">
+                  <span className="home-number-figure mono">{s.value}</span>
+                  <span className="home-number-unit mono">{s.unit}</span>
+                </div>
+                <span className="home-number-label">{s.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>

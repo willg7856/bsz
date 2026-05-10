@@ -213,6 +213,166 @@
   filter: drop-shadow(0 0 32px rgba(255, 255, 255, 0.2));
 }
 
+/* ── Build stages ─────────────────────────────────── */
+.home-stages { position: relative; overflow: hidden; }
+
+.home-stages-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--ink-700) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ink-700) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.14;
+  pointer-events: none;
+}
+
+.home-stages-inner { position: relative; }
+
+.home-stages-track {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.home-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 100px;
+  position: relative;
+}
+
+.home-stage-node {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--ink-700);
+  border-radius: var(--r-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink-800);
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.home-stage--done .home-stage-node {
+  border-color: var(--ink-500);
+  background: var(--ink-700);
+}
+
+.home-stage--active .home-stage-node {
+  border-color: var(--ignition-500);
+  background: rgba(255, 90, 31, 0.08);
+  box-shadow: 0 0 0 1px var(--ignition-500);
+}
+
+.home-stage-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink-500);
+}
+
+.home-stage--done .home-stage-num { display: none; }
+
+.home-stage--active .home-stage-num {
+  color: var(--ignition-500);
+}
+
+.home-stage-check {
+  font-size: 1rem;
+  color: var(--telemetry-green);
+}
+
+.home-stage-pulse {
+  position: absolute;
+  inset: -4px;
+  border-radius: var(--r-2);
+  border: 1px solid var(--ignition-500);
+  opacity: 0.4;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.home-stage-label {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+  text-align: center;
+}
+
+.home-stage--done .home-stage-label { color: var(--ink-400); }
+.home-stage--active .home-stage-label { color: var(--ignition-400); }
+
+.home-stage-connector {
+  position: absolute;
+  top: 24px;
+  left: calc(50% + 24px);
+  width: calc(100% - 48px);
+  height: 1px;
+  background: var(--ink-700);
+}
+
+.home-stage-connector--done { background: var(--ink-500); }
+
+/* ── Numbers ──────────────────────────────────────── */
+.home-numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--line);
+  border-radius: var(--r-2);
+  overflow: hidden;
+}
+
+.home-number-card {
+  padding: 32px 28px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.home-number-card:nth-child(3n) { border-right: none; }
+.home-number-card:nth-last-child(-n+3) { border-bottom: none; }
+
+.home-number-val {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.home-number-figure {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--fg);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.home-number-unit {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ignition-500);
+  letter-spacing: 0.04em;
+}
+
+.home-number-label {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
 /* ── Mobile ───────────────────────────────────────── */
 @media (max-width: 768px) {
   .home-hero-inner {
@@ -230,4 +390,15 @@
 
   .home-rocket-img-wrap { order: -1; }
   .home-rocket-img { width: 140px; margin: 0 auto; }
+
+  .home-numbers-grid { grid-template-columns: repeat(2, 1fr); }
+  .home-number-card:nth-child(3n) { border-right: 1px solid var(--line); }
+  .home-number-card:nth-child(2n) { border-right: none; }
+  .home-number-card:nth-last-child(-n+3) { border-bottom: 1px solid var(--line); }
+  .home-number-card:nth-last-child(-n+2) { border-bottom: none; }
+
+  .home-stages-track { gap: 0; }
+  .home-stage { min-width: 72px; }
+  .home-stage-node { width: 36px; height: 36px; }
+  .home-stage-connector { top: 18px; left: calc(50% + 18px); width: calc(100% - 36px); }
 }
