@@ -5,6 +5,7 @@ const TICK = Array.from({ length: 40 })
 const engineBatches = [
   { label: 'Mk I engines built', val: '3', sub: '250 mm × 32 mm — 2 fired, 1 held' },
   { label: 'Mk II engines built', val: '6', sub: '300 mm × 30 mm — 2 fired, 4 remaining' },
+  { label: 'B1M engines planned', val: '—', sub: '550 mm × 80 mm — flight motor for STRAVOX B1M' },
 ]
 
 const campaigns = [

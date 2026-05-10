@@ -25,7 +25,7 @@ const missions = [
       ['Vehicle', 'STRAVOX B1M'],
       ['Role', 'Sub-scale test vehicle'],
       ['Target apogee', '4 km'],
-      ['Motor', 'KNSB — BSZ built'],
+      ['Motor', 'KNSB B1M — 550 mm × 80 mm'],
       ['Purpose', 'Systems validation'],
       ['Launch site', 'Victoria, AUS'],
       ['Status', 'PLANNED'],
