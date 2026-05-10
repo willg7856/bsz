@@ -105,9 +105,7 @@ export default function Stravox() {
       </section>
 
       {/* ── Mission profile ──────────────────────────── */}
-      <section className="section dark">
-        <MissionProfile />
-      </section>
+      <MissionProfile />
 
       {/* ── CTA ─────────────────────────────────────── */}
       <section className="section stravox-cta-section">

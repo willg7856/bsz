@@ -1,5 +1,6 @@
 .mission-profile {
-  padding: 0 40px;
+  padding: var(--s-9) 40px;
+  border-top: 1px solid var(--line);
 }
 
 .mission-header {
@@ -15,12 +16,12 @@
   text-transform: uppercase;
   margin-bottom: 12px;
   margin-top: 14px;
-  color: var(--paper-100);
+  color: var(--fg);
 }
 
 .mission-sub {
   font-size: 0.95rem;
-  color: var(--ink-400);
+  color: var(--fg-muted);
   line-height: 1.75;
   max-width: 520px;
 }
@@ -71,7 +72,7 @@
   width: 100%;
   max-width: 200px;
   margin-top: 8px;
-  border: 1px solid var(--ink-700);
+  border: 1px solid var(--line);
   border-radius: var(--r-2);
   overflow: hidden;
 }
@@ -81,8 +82,8 @@
   justify-content: space-between;
   align-items: baseline;
   padding: 7px 10px;
-  border-bottom: 1px solid var(--ink-700);
-  background: rgba(255, 255, 255, 0.015);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-elev);
 }
 
 .mission-view-stat:last-child { border-bottom: none; }
@@ -91,7 +92,7 @@
   font-size: 0.62rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--ink-500);
+  color: var(--fg-muted);
   font-weight: 500;
 }
 
@@ -99,12 +100,12 @@
   font-family: var(--font-display);
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--paper-100);
+  color: var(--fg);
 }
 
 .mission-view-desc {
   font-size: 0.78rem;
-  color: var(--ink-400);
+  color: var(--fg-muted);
   line-height: 1.7;
   text-align: left;
   max-width: 200px;
@@ -118,9 +119,9 @@
   max-width: 700px;
   margin: 0 auto;
   padding: 20px 24px;
-  border: 1px solid var(--ink-700);
+  border: 1px solid var(--line);
   border-radius: var(--r-2);
-  background: rgba(255, 255, 255, 0.01);
+  background: var(--bg-elev);
 }
 
 .mission-key-item {
@@ -128,7 +129,7 @@
   align-items: center;
   gap: 8px;
   font-size: 0.72rem;
-  color: var(--ink-400);
+  color: var(--fg-muted);
 }
 
 .mission-key-dot {
@@ -139,7 +140,7 @@
 }
 
 @media (max-width: 768px) {
-  .mission-profile { padding: 0 24px; }
+  .mission-profile { padding: var(--s-9) 24px; }
   .mission-views { justify-content: flex-start; }
   .mission-key { grid-template-columns: repeat(2, 1fr); }
 }
