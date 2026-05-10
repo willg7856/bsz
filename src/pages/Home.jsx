@@ -68,6 +68,12 @@ export default function Home() {
               <Link className="btn btn-primary" to="/stravox">Explore the rocket →</Link>
               <Link className="btn btn-ghost-dark" to="/contact">Get involved</Link>
             </div>
+            <div className="home-hero-space">
+              <a href="https://beyondstagezero.space" target="_blank" rel="noopener noreferrer">
+                <span className="home-hero-space-label">Mission log &amp; live updates</span>
+                <span className="home-hero-space-url">beyondstagezero.space ↗</span>
+              </a>
+            </div>
           </div>
 
           <div className="home-hero-spec">
