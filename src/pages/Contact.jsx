@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './Contact.css'
 
+const TICK = Array.from({ length: 40 })
+
 export default function Contact() {
   const [status, setStatus] = useState('idle')
 
@@ -21,21 +23,41 @@ export default function Contact() {
 
   return (
     <main className="contact">
-      <div className="container">
-        <div className="page-header">
-          <p className="eyebrow">Get In Touch</p>
-          <h1>Contact Us</h1>
-          <p className="page-sub">
-            Have a question, want to collaborate, or just want to follow our journey?
-          </p>
-        </div>
 
-        <div className="contact-body">
-          <div className="contact-info">
-            <p className="contact-info-label eyebrow">Direct</p>
-            <a className="contact-email mono" href="mailto:beyondstagezero@gmail.com">
+      {/* ── Hero ─────────────────────────────────────── */}
+      <section className="contact-hero">
+        <div className="contact-hero-grid-bg" aria-hidden="true" />
+        <div className="container contact-hero-inner">
+          <div>
+            <p className="eyebrow" style={{ color: 'var(--ink-400)', marginBottom: '24px' }}>[ Get in touch ]</p>
+            <h1 className="contact-hero-h1">Contact.</h1>
+            <p className="contact-hero-sub">
+              Want to collaborate, sponsor, or just follow the journey?
+              We'd love to hear from you.
+            </p>
+          </div>
+          <div className="contact-hero-direct">
+            <p className="contact-hero-direct-lbl">Direct email</p>
+            <a className="contact-hero-email" href="mailto:beyondstagezero@gmail.com">
               beyondstagezero@gmail.com
             </a>
+          </div>
+        </div>
+        <div className="tick-rule contact-tick">
+          {TICK.map((_, i) => <span key={i} />)}
+        </div>
+      </section>
+
+      {/* ── Form ─────────────────────────────────────── */}
+      <section className="section">
+        <div className="container contact-body">
+          <div className="contact-info">
+            <p className="eyebrow" style={{ marginBottom: '20px' }}>Reasons to reach out</p>
+            <div className="contact-reasons">
+              {['Sponsorship or partnership', 'Joining the team', 'Media enquiries', 'General questions'].map(r => (
+                <div key={r} className="contact-reason">{r}</div>
+              ))}
+            </div>
           </div>
 
           {status === 'success' ? (
@@ -49,14 +71,16 @@ export default function Contact() {
             </div>
           ) : (
             <form className="contact-form" onSubmit={handleSubmit}>
-              <h2>Send a Message</h2>
-              <div className="form-group">
-                <label htmlFor="name">Name</label>
-                <input id="name" name="name" type="text" placeholder="Your name" required />
-              </div>
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="your@email.com" required />
+              <h2>Send a message</h2>
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="name">Name</label>
+                  <input id="name" name="name" type="text" placeholder="Your name" required />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="your@email.com" required />
+                </div>
               </div>
               <div className="form-group">
                 <label htmlFor="subject">Subject</label>
@@ -64,7 +88,7 @@ export default function Contact() {
               </div>
               <div className="form-group">
                 <label htmlFor="message">Message</label>
-                <textarea id="message" name="message" rows={5} placeholder="Your message..." required />
+                <textarea id="message" name="message" rows={6} placeholder="Your message..." required />
               </div>
               {status === 'error' && (
                 <p className="contact-error">Something went wrong — please try again or email us directly.</p>
@@ -75,7 +99,8 @@ export default function Contact() {
             </form>
           )}
         </div>
-      </div>
+      </section>
+
     </main>
   )
 }

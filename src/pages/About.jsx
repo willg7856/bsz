@@ -62,6 +62,23 @@ export default function About() {
               the sky — and to inspire the next generation of Australian aerospace engineers.
             </p>
           </div>
+          <div className="about-mission-body">
+            <blockquote className="about-mission-quote">
+              Stage Zero is the ground.<br />Everything beyond it is what we're building toward.
+            </blockquote>
+            <div className="about-mission-detail">
+              <p>
+                Beyond Stage Zero started with a simple question: why can't Australian students
+                build something that competes with the best rocketry programmes in the world?
+                We didn't have a good answer, so we started building.
+              </p>
+              <p>
+                We're based in Creswick, Victoria — machining our own motor casings, casting
+                our own propellant, writing our own flight software, and learning everything
+                the hard way. Every failure is logged. Every test is published.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
