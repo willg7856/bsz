@@ -1,11 +1,9 @@
 export default function Nav({ active = 'mission' }) {
   const links = [
     ['mission', 'Mission'],
-    ['rocket', 'Rocket'],
-    ['stages', 'Stages'],
+    ['stravox', 'STRAVOX'],
     ['team', 'Team'],
     ['sponsors', 'Sponsors'],
-    ['press', 'Press'],
   ];
   return (
     <header className="nav">

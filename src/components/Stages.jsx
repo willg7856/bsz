@@ -28,7 +28,7 @@ export default function Stages() {
   const s = stages[selected];
 
   return (
-    <section className="section" id="stages" style={{ background: 'var(--paper-200)' }}>
+    <section className="section" id="stravox" style={{ background: 'var(--paper-200)' }}>
       <div className="container">
         <div className="section-head">
           <div>

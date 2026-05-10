@@ -96,7 +96,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 .hero {
   background: var(--ink-900);
   color: var(--paper-100);
-  padding: 80px 0 100px;
+  padding: 80px 0 0;
   position: relative;
   overflow: hidden;
 }
@@ -107,16 +107,30 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
     linear-gradient(var(--ink-700) 1px, transparent 1px),
     linear-gradient(90deg, var(--ink-700) 1px, transparent 1px);
   background-size: 64px 64px;
-  opacity: 0.25;
+  opacity: 0.18;
   pointer-events: none;
-  mask-image: radial-gradient(ellipse at 70% 40%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse at 60% 50%, #000 20%, transparent 70%);
 }
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 64px;
-  align-items: end;
+.hero-stars {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+.hero-body {
+  max-width: 780px;
+  padding-bottom: 72px;
   position: relative;
+}
+.hero-rocket-tag {
+  font-family: var(--font-display);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ignition-500);
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-bottom: 18px;
+}
+.hero-rocket-tag::before {
+  content: ""; width: 20px; height: 1px; background: var(--ignition-500);
 }
 .hero-eyebrow-row {
   display: flex; gap: 16px; align-items: center;
@@ -154,26 +168,41 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
-.hero-spec {
+/* Stat bar — full-width strip at bottom of hero */
+.hero-statbar {
   border-top: 1px solid var(--ink-700);
-  border-bottom: 1px solid var(--ink-700);
-  padding: 24px 0;
+  position: relative;
+}
+.hero-statbar-inner {
   display: grid;
-  grid-template-rows: repeat(4, auto);
-  gap: 14px;
+  grid-template-columns: repeat(4, 1fr);
 }
-.hero-spec .row {
-  display: flex; justify-content: space-between; align-items: baseline;
-  font-family: var(--font-mono);
-  font-size: 13px;
+.hero-stat {
+  padding: 22px 28px;
+  border-right: 1px solid var(--ink-700);
+}
+.hero-stat:last-child { border-right: 0; }
+.hero-stat-top {
+  display: flex; align-items: baseline; gap: 5px;
+  margin-bottom: 6px;
+}
+.hero-stat-val {
+  font-family: var(--font-display);
   font-variant-numeric: tabular-nums;
-  border-bottom: 1px dashed var(--ink-700);
-  padding-bottom: 12px;
+  font-size: 26px; font-weight: 700;
+  line-height: 1; letter-spacing: -0.02em;
+  color: var(--paper-100);
 }
-.hero-spec .row:last-child { border-bottom: 0; padding-bottom: 0; }
-.hero-spec .lbl { color: var(--ink-400); letter-spacing: 0.1em; text-transform: uppercase; font-size: 11px; }
-.hero-spec .val { color: var(--paper-100); font-weight: 600; }
-.hero-spec .val.accent { color: var(--ignition-500); }
+.hero-stat-unit {
+  font-family: var(--font-mono);
+  font-size: 12px; color: var(--ink-400);
+}
+.hero-stat-lbl {
+  font-family: var(--font-display);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-500);
+}
 
 /* ---------- Tick rule ---------- */
 .tick-rule {
