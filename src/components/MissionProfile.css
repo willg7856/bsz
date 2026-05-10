@@ -1,6 +1,6 @@
 .mission-profile {
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-  padding: 80px 40px;
+  padding: var(--s-9) 40px;
+  border-top: 1px solid var(--line);
 }
 
 .mission-header {
@@ -9,16 +9,19 @@
 }
 
 .mission-header h2 {
+  font-family: var(--font-display);
   font-size: clamp(1.6rem, 4vw, 2.4rem);
   font-weight: 700;
   letter-spacing: -0.025em;
+  text-transform: uppercase;
   margin-bottom: 12px;
   margin-top: 14px;
+  color: var(--fg);
 }
 
 .mission-sub {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--fg-muted);
   line-height: 1.75;
   max-width: 520px;
 }
@@ -45,21 +48,12 @@
   border-top: 3px solid transparent;
 }
 
-/* Phase accent colors on top border */
-.mission-views .mission-view:nth-child(1) {
-  border-top-color: #ff6200;
-}
-
-.mission-views .mission-view:nth-child(2) {
-  border-top-color: #00d4ff;
-}
-
-.mission-views .mission-view:nth-child(3) {
-  border-top-color: #00e87a;
-}
+.mission-views .mission-view:nth-child(1) { border-top-color: var(--ignition-500); }
+.mission-views .mission-view:nth-child(2) { border-top-color: var(--telemetry-cyan); }
+.mission-views .mission-view:nth-child(3) { border-top-color: var(--telemetry-green); }
 
 .mission-view-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-display);
   font-size: 0.65rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -71,15 +65,6 @@
   opacity: 0.9;
 }
 
-.mission-view-sub {
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.28);
-  text-align: center;
-  line-height: 1.6;
-  letter-spacing: 0.02em;
-  max-width: 200px;
-}
-
 .mission-view-stats {
   display: flex;
   flex-direction: column;
@@ -87,8 +72,8 @@
   width: 100%;
   max-width: 200px;
   margin-top: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 6px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-2);
   overflow: hidden;
 }
 
@@ -97,32 +82,30 @@
   justify-content: space-between;
   align-items: baseline;
   padding: 7px 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-  background: rgba(255, 255, 255, 0.015);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-elev);
 }
 
-.mission-view-stat:last-child {
-  border-bottom: none;
-}
+.mission-view-stat:last-child { border-bottom: none; }
 
 .mission-view-stat-label {
   font-size: 0.62rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.22);
+  color: var(--fg-muted);
   font-weight: 500;
 }
 
 .mission-view-stat-value {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-display);
   font-size: 0.72rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--fg);
 }
 
 .mission-view-desc {
   font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.32);
+  color: var(--fg-muted);
   line-height: 1.7;
   text-align: left;
   max-width: 200px;
@@ -136,9 +119,9 @@
   max-width: 700px;
   margin: 0 auto;
   padding: 20px 24px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--line);
+  border-radius: var(--r-2);
+  background: var(--bg-elev);
 }
 
 .mission-key-item {
@@ -146,7 +129,7 @@
   align-items: center;
   gap: 8px;
   font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--fg-muted);
 }
 
 .mission-key-dot {
@@ -157,15 +140,7 @@
 }
 
 @media (max-width: 768px) {
-  .mission-profile {
-    padding: 60px 24px;
-  }
-
-  .mission-views {
-    justify-content: flex-start;
-  }
-
-  .mission-key {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .mission-profile { padding: var(--s-9) 24px; }
+  .mission-views { justify-content: flex-start; }
+  .mission-key { grid-template-columns: repeat(2, 1fr); }
 }
