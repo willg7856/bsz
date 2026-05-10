@@ -2,15 +2,15 @@ import './News.css'
 
 const posts = [
   {
-    date: '2025-05-01',
-    display: 'May 2025',
+    date: '2026-05-01',
+    display: 'May 2026',
     tag: 'Programme',
     title: 'B1M engines in production',
     body: 'We have begun building three B1M engines — 550 mm tall, 80 mm wide, loaded with 1.2 kg of KNO₃/Sorbitol at a 70:30 ratio. We are targeting approximately 50 kgf of thrust for 7 seconds per firing, and aiming to reuse each casing for at least two static fires. These are the motors that will fly on STRAVOX B1M-01.',
   },
   {
-    date: '2025-05-01',
-    display: 'May 2025',
+    date: '2026-05-01',
+    display: 'May 2026',
     tag: 'Programme',
     title: 'STRAVOX B1M-01 announced',
     body: 'Our first planned mission is STRAVOX B1M-01 — a sub-scale flight to 4 km apogee on a BSZ-built KNSB engine. B1M is our systems validation vehicle: it lets us test avionics, recovery, and propulsion in real flight conditions before committing to the full 30 km STRAVOX programme. We are targeting launch in 2026 from a CASA-cleared site in Victoria.',
