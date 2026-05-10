@@ -19,33 +19,36 @@ export default function Nav() {
   const link = (path) => `nav-link${pathname === path ? ' active' : ''}`
   const close = () => setOpen(false)
 
-  useEffect(() => {
-    if (!isMobile) setOpen(false)
-  }, [isMobile])
+  useEffect(() => { if (!isMobile) setOpen(false) }, [isMobile])
 
   return (
     <>
-      <nav className="nav">
-        <Link className="nav-logo" to="/" onClick={close}>Beyond Stage Zero</Link>
+      <header className="nav">
+        <div className="container nav-inner">
+          <Link className="nav-brand" to="/" onClick={close}>
+            <img src="/logo-banner.png" alt="Beyond Stage Zero" />
+          </Link>
 
-        {isMobile ? (
-          <button
-            className={`nav-burger${open ? ' is-open' : ''}`}
-            onClick={() => setOpen(o => !o)}
-            aria-label="Toggle menu"
-          >
-            <span /><span /><span />
-          </button>
-        ) : (
-          <div className="nav-links">
-            <Link className={link('/')} to="/">Home</Link>
-            <Link className={link('/about')} to="/about">About</Link>
-            <Link className={link('/stravox')} to="/stravox">STRAVOX</Link>
-            <Link className={link('/news')} to="/news">News</Link>
-            <Link className="nav-cta" to="/contact">Contact</Link>
-          </div>
-        )}
-      </nav>
+          {isMobile ? (
+            <button
+              className={`nav-burger${open ? ' is-open' : ''}`}
+              onClick={() => setOpen(o => !o)}
+              aria-label="Toggle menu"
+              style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
+            >
+              <span /><span /><span />
+            </button>
+          ) : (
+            <nav className="nav-links">
+              <Link className={link('/')} to="/">Home</Link>
+              <Link className={link('/about')} to="/about">About</Link>
+              <Link className={link('/stravox')} to="/stravox">STRAVOX</Link>
+              <Link className={link('/news')} to="/news">News</Link>
+              <Link className="nav-cta" to="/contact">Contact →</Link>
+            </nav>
+          )}
+        </div>
+      </header>
 
       {isMobile && (
         <div className={`nav-mobile${open ? ' is-open' : ''}`}>
@@ -53,7 +56,7 @@ export default function Nav() {
           <Link className={link('/about')} to="/about" onClick={close}>About</Link>
           <Link className={link('/stravox')} to="/stravox" onClick={close}>STRAVOX</Link>
           <Link className={link('/news')} to="/news" onClick={close}>News</Link>
-          <Link className="nav-cta-mobile" to="/contact" onClick={close}>Contact</Link>
+          <Link className="nav-cta-mobile" to="/contact" onClick={close}>Contact →</Link>
         </div>
       )}
     </>
