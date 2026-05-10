@@ -44,6 +44,7 @@ export default function Nav() {
               <Link className={link('/about')} to="/about">About</Link>
               <Link className={link('/stravox')} to="/stravox">STRAVOX</Link>
               <Link className={link('/missions')} to="/missions">Missions</Link>
+              <Link className={link('/tests')} to="/tests">Tests</Link>
               <Link className={link('/news')} to="/news">News</Link>
               <Link className="nav-cta" to="/contact">Contact →</Link>
             </nav>
@@ -57,6 +58,7 @@ export default function Nav() {
           <Link className={link('/about')} to="/about" onClick={close}>About</Link>
           <Link className={link('/stravox')} to="/stravox" onClick={close}>STRAVOX</Link>
           <Link className={link('/missions')} to="/missions" onClick={close}>Missions</Link>
+          <Link className={link('/tests')} to="/tests" onClick={close}>Tests</Link>
           <Link className={link('/news')} to="/news" onClick={close}>News</Link>
           <Link className="nav-cta-mobile" to="/contact" onClick={close}>Contact →</Link>
         </div>
