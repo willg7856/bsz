@@ -26,6 +26,8 @@ const missions = [
       ['Role', 'Sub-scale test vehicle'],
       ['Target apogee', '4 km'],
       ['Motor', 'KNSB B1M — 550 mm × 80 mm'],
+      ['Propellant mass', '1.2 kg KNO₃/Sorbitol 70:30'],
+      ['Expected thrust', '~50 kgf for 7 s'],
       ['Purpose', 'Systems validation'],
       ['Launch site', 'Victoria, AUS'],
       ['Status', 'PLANNED'],
