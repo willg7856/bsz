@@ -38,22 +38,22 @@ export default function Nav() {
           </button>
         ) : (
           <div className="nav-links">
-            <Link className={link('/')} to="/">Home</Link>
-            <Link className={link('/about')} to="/about">About</Link>
-            <Link className={link('/stravox')} to="/stravox">STRAVOX</Link>
-            <Link className={link('/news')} to="/news">News</Link>
-            <Link className="nav-cta" to="/contact">Contact</Link>
+            <Link className={link('/')} to="/">Mission</Link>
+            <Link className={link('/stravox')} to="/stravox">Rocket</Link>
+            <Link className={link('/about')} to="/about">Team</Link>
+            <Link className={link('/news')} to="/news">Press</Link>
+            <Link className="nav-cta" to="/contact">Sponsor →</Link>
           </div>
         )}
       </nav>
 
       {isMobile && (
         <div className={`nav-mobile${open ? ' is-open' : ''}`}>
-          <Link className={link('/')} to="/" onClick={close}>Home</Link>
-          <Link className={link('/about')} to="/about" onClick={close}>About</Link>
-          <Link className={link('/stravox')} to="/stravox" onClick={close}>STRAVOX</Link>
-          <Link className={link('/news')} to="/news" onClick={close}>News</Link>
-          <Link className="nav-cta-mobile" to="/contact" onClick={close}>Contact</Link>
+          <Link className={link('/')} to="/" onClick={close}>Mission</Link>
+          <Link className={link('/stravox')} to="/stravox" onClick={close}>Rocket</Link>
+          <Link className={link('/about')} to="/about" onClick={close}>Team</Link>
+          <Link className={link('/news')} to="/news" onClick={close}>Press</Link>
+          <Link className="nav-cta-mobile" to="/contact" onClick={close}>Sponsor →</Link>
         </div>
       )}
     </>
