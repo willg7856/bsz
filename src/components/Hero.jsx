@@ -14,7 +14,7 @@ export default function Hero() {
             <span className="accent">rocket.</span>
           </h1>
           <p className="hero-sub">
-            Beyond Stage Zero is forty-eight engineering students designing, building, and flying a hybrid-propellant rocket to 30 km apogee. First flight August 2026.
+            Beyond Stage Zero is forty-eight engineering students designing, building, and flying a KNSB solid-propellant rocket to 30 km apogee. First flight August 2026.
           </p>
           <div className="hero-actions">
             <a className="btn btn--primary" href="#sponsors">Sponsor a stage <span>&rarr;</span></a>
@@ -23,9 +23,9 @@ export default function Hero() {
         </div>
         <div className="hero-spec">
           <div className="row"><span className="lbl">Apogee target</span><span className="val accent">30.0 km</span></div>
-          <div className="row"><span className="lbl">Length</span><span className="val">4.20 m</span></div>
-          <div className="row"><span className="lbl">Wet mass</span><span className="val">38.6 kg</span></div>
-          <div className="row"><span className="lbl">Propulsion</span><span className="val">Hybrid &middot; N&#8322;O / HTPB</span></div>
+          <div className="row"><span className="lbl">Length</span><span className="val">2,633 mm</span></div>
+          <div className="row"><span className="lbl">Diameter</span><span className="val">200 mm</span></div>
+          <div className="row"><span className="lbl">Propulsion</span><span className="val">KNSB &middot; Solid</span></div>
         </div>
       </div>
     </section>

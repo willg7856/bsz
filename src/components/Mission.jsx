@@ -1,11 +1,11 @@
 const cells = [
   { lbl: 'Apogee', val: '30.0', unit: 'km', note: 'Within 5% of design at sea-level launch.' },
-  { lbl: 'Burn time', val: '4.2', unit: 's', note: 'Single-stage hybrid, throttle-locked.' },
-  { lbl: 'Peak thrust', val: '9.8', unit: 'kN', note: 'Static-fired April 2026 at MILD-01.' },
+  { lbl: 'Burn time', val: '4.2', unit: 's', note: 'KNSB solid grain, single stage.' },
+  { lbl: 'Peak thrust', val: '9.8', unit: 'kN', note: 'Static-fired April 2026 at MILD-01. Mach 2.5 at burnout.' },
   { lbl: 'Team', val: '48', unit: 'eng', note: 'Across propulsion, structures, avionics, recovery.' },
   { lbl: 'Build hours', val: '12.4k', unit: 'h', note: 'Logged since project kickoff, 2024.' },
   { lbl: 'Test fires', val: '7', unit: 'runs', note: 'Six on-spec, one anomaly resolved.' },
-  { lbl: 'Recovery', val: '3', unit: 'stage', note: 'Drogue, main, pad-recovery beacon.' },
+  { lbl: 'Landing', val: '4', unit: 'legs', note: 'Propulsive. T-Motor U13 II × 4, 112 kgf total, T/W 2.05×.' },
   { lbl: 'Window', val: 'Aug', unit: '26', note: 'Mildura, Victoria. CASA cleared.' },
 ];
 
