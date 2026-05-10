@@ -20,14 +20,16 @@ const specs = [
 ]
 
 const numbers = [
-  { lbl: 'Apogee',         val: '30',    unit: 'km',   note: 'Target altitude above sea level.' },
-  { lbl: 'Peak velocity',  val: '2.5',   unit: 'Mach', note: 'At motor burnout, ~10 km AGL.' },
-  { lbl: 'Length',         val: '2,633', unit: 'mm',   note: 'Full vehicle height, fins included.' },
-  { lbl: 'Diameter',       val: '200',   unit: 'mm',   note: 'Airframe outer diameter.' },
-  { lbl: 'Landing thrust', val: '112',   unit: 'kgf',  note: 'T-Motor U13 II × 4, combined.' },
-  { lbl: 'Landing T/W',    val: '2.05',  unit: '×',    note: 'Thrust-to-weight at touchdown.' },
-  { lbl: 'Engine grain',   val: '1,000', unit: 'mm',   note: 'KNSB propellant grain length.' },
-  { lbl: 'Launch mass',    val: '54.8',  unit: 'kg',   note: 'Full vehicle mass at liftoff.' },
+  { lbl: 'Apogee',          val: '30',    unit: 'km',   note: 'Target altitude above sea level.' },
+  { lbl: 'Peak velocity',   val: '2.5',   unit: 'Mach', note: 'At motor burnout, ~10 km AGL.' },
+  { lbl: 'Length',          val: '2,633', unit: 'mm',   note: 'Full vehicle height, fins included.' },
+  { lbl: 'Diameter',        val: '200',   unit: 'mm',   note: 'Airframe outer diameter.' },
+  { lbl: 'Base fin span',   val: '520',   unit: 'mm',   note: 'Boost-phase stability fins.' },
+  { lbl: 'Upper fin span',  val: '340',   unit: 'mm',   note: 'Supersonic control fins.' },
+  { lbl: 'Landing thrust',  val: '112',   unit: 'kgf',  note: 'T-Motor U13 II × 4, combined.' },
+  { lbl: 'Landing T/W',     val: '2.05',  unit: '×',    note: 'Thrust-to-weight at touchdown.' },
+  { lbl: 'Engine grain',    val: '1,000', unit: 'mm',   note: 'KNSB propellant grain length.' },
+  { lbl: 'Launch mass',     val: '54.8',  unit: 'kg',   note: 'Full vehicle mass at liftoff.' },
 ]
 
 const stages = [
@@ -136,20 +138,12 @@ export default function Stravox() {
               We update them after every design revision and every ground test.
             </p>
           </div>
-          <div className="spec-grid">
+          <div className="stravox-numbers-grid">
             {numbers.map(c => (
               <div className="spec-cell" key={c.lbl}>
                 <div className="lbl">{c.lbl}</div>
                 <div className="val">{c.val}<small>{c.unit}</small></div>
                 <div className="note">{c.note}</div>
-              </div>
-            ))}
-          </div>
-          <div className="stravox-specs-grid" style={{ marginTop: '2px' }}>
-            {specs.map((s) => (
-              <div className="stravox-spec-cell" key={s.label}>
-                <span className="stravox-spec-lbl">{s.label}</span>
-                <span className="stravox-spec-val mono">{s.value}</span>
               </div>
             ))}
           </div>

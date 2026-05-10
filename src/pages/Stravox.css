@@ -117,38 +117,15 @@
 }
 
 /* ── Specs ────────────────────────────────────────── */
-.stravox-specs-grid {
+.stravox-numbers-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   border: 1px solid var(--line);
-  border-top: 0;
 }
 
-.stravox-spec-cell {
-  padding: 24px 20px;
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-.stravox-spec-cell:nth-child(5n) { border-right: none; }
-.stravox-spec-cell:nth-last-child(-n+5) { border-bottom: none; }
-
-.stravox-spec-lbl {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 0.6875rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--fg-muted);
-  margin-bottom: 10px;
-}
-
-.stravox-spec-val {
-  display: block;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--fg);
-  font-variant-numeric: tabular-nums;
-}
+.stravox-numbers-grid .spec-cell { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.stravox-numbers-grid .spec-cell:nth-child(5n) { border-right: 0; }
+.stravox-numbers-grid .spec-cell:nth-last-child(-n+5) { border-bottom: 0; }
 
 /* ── CTA ──────────────────────────────────────────── */
 .stravox-cta-inner {
@@ -174,9 +151,11 @@
   .stravox-split { grid-template-columns: 1fr; gap: 40px; }
   .stravox-img-col { position: static; }
   .stravox-model-img { max-width: 160px; margin: 0 auto; }
-  .stravox-specs-grid { grid-template-columns: repeat(2, 1fr); }
-  .stravox-spec-cell:nth-child(5n) { border-right: 1px solid var(--line); }
-  .stravox-spec-cell:nth-child(2n) { border-right: none; }
+  .stravox-numbers-grid { grid-template-columns: repeat(2, 1fr); }
+  .stravox-numbers-grid .spec-cell:nth-child(5n) { border-right: 1px solid var(--line); }
+  .stravox-numbers-grid .spec-cell:nth-child(2n) { border-right: 0; }
+  .stravox-numbers-grid .spec-cell:nth-last-child(-n+5) { border-bottom: 1px solid var(--line); }
+  .stravox-numbers-grid .spec-cell:nth-last-child(-n+2) { border-bottom: 0; }
   .section-head { grid-template-columns: 1fr; }
   .stravox-cta-inner { flex-direction: column; align-items: flex-start; }
 }
