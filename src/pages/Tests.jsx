@@ -5,7 +5,7 @@ const TICK = Array.from({ length: 40 })
 const engineBatches = [
   { label: 'Mk I engines built', val: '3', sub: '250 mm × 32 mm — 2 fired, 1 held' },
   { label: 'Mk II engines built', val: '6', sub: '300 mm × 30 mm — 2 fired, 4 remaining' },
-  { label: 'B1M engines planned', val: '—', sub: '550 mm × 80 mm · 1.2 kg KNO₃/Sorbitol 70:30 · ~50 kgf for 7 s' },
+  { label: 'B1M engines in build', val: '3', sub: '550 mm × 80 mm · 1.2 kg KNO₃/Sorbitol 70:30 · ~50 kgf for 7 s · targeting ≥2 firings each' },
 ]
 
 const campaigns = [
