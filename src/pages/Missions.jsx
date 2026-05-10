@@ -22,7 +22,7 @@ const missions = [
       { label: 'CASA range clearance', done: false },
     ],
     milestones: [
-      { label: 'Propellant R&D',          status: 'done',    note: '4 static fires completed across Mk I and Mk II engines.' },
+      { label: 'Propellant R&D',          status: 'active',  note: 'Ongoing — 4 static fires completed but insufficient data. B1M engine campaign will continue propellant characterisation.' },
       { label: 'B1M engine design',        status: 'active',  note: '550 mm × 80 mm casing, 1.2 kg KNO₃/Sorbitol 70:30.' },
       { label: 'B1M engine build',         status: 'active',  note: '3 engines in production, targeting ≥2 firings each.' },
       { label: 'B1M engine static fires',  status: 'upcoming', note: 'Ground firing campaign to validate B1M motor before flight.' },
