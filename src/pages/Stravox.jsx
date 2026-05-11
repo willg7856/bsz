@@ -33,25 +33,33 @@ const numbers = [
 ]
 
 const stages = [
-  { id: 0, num: 'STAGE 00', name: 'Concept', when: '2025-Q1', state: 'done',
+  { id: 0, num: 'STAGE 00', name: 'Concept', when: '2025-Q3', state: 'done',
     headline: 'From whiteboard to mission spec.',
     body: 'Trade studies across propulsion, airframe, and recovery systems. Settled on a KNSB solid motor, 30 km target apogee, and propulsive vertical landing as the core mission profile.',
-    readout: [['Design revs', '8'], ['Trade studies', '4'], ['Sign-off', '2025-04']] },
-  { id: 1, num: 'STAGE 01', name: 'Design', when: '2025-Q2', state: 'now',
-    headline: 'Full vehicle design underway.',
-    body: 'Aerodynamic modelling, structural analysis, and avionics architecture in progress. Defining the split nosecone airbrake geometry and propulsive landing motor placement on folding arms.',
-    readout: [['CAD revision', 'Rev 4'], ['Simulations run', '23'], ['CDR target', '2025-Q3']] },
-  { id: 2, num: 'STAGE 02', name: 'Fabrication', when: '2025-Q4', state: 'next',
-    headline: 'Airframe, fins, and motor casing.',
-    body: 'Manufacturing the 200 mm diameter airframe, CNC-cutting both fin sets, and assembling the KNSB motor with a 1 m propellant grain.',
-    readout: [['Airframe length', '2,633 mm'], ['Motor grain', '1,000 mm'], ['Status', 'UPCOMING']] },
-  { id: 3, num: 'STAGE 03', name: 'Testing', when: '2026-Q1', state: 'next',
-    headline: 'Static fire and systems qualification.',
-    body: 'Ground static fire of the KNSB motor, landing system deployment tests, avionics integration, and a full vehicle systems review before flight clearance.',
-    readout: [['Static fires', '0 / 3'], ['Avionics', 'PENDING'], ['Status', 'UPCOMING']] },
-  { id: 4, num: 'STAGE 04', name: 'Launch', when: '2026', state: 'next',
-    headline: 'First flight to 30 km apogee.',
-    body: 'Vertical propulsive landing demonstration at a CASA-cleared range in Victoria. A full mission — boost, airbrake descent, and controlled touchdown on four landing legs.',
+    readout: [['Design revs', '8'], ['Trade studies', '4'], ['Sign-off', '2025-Q3']] },
+  { id: 1, num: 'STAGE 01', name: 'Design', when: '2025-Q4', state: 'done',
+    headline: 'Full vehicle design completed.',
+    body: 'Aerodynamic modelling, structural analysis, and avionics architecture completed. Split nosecone airbrake geometry and propulsive landing motor placement on folding arms defined.',
+    readout: [['CAD revision', 'Rev 4'], ['Simulations run', '23'], ['Sign-off', '2025-Q4']] },
+  { id: 2, num: 'STAGE 02', name: 'Engine Dev.', when: '2026-Q1 — Q2', state: 'now',
+    headline: 'Engine development and static fire campaign.',
+    body: 'Development and testing of KNSB propulsion across three engine generations. Comparative KNO₃ grade testing, B1M engine build, and a full static fire campaign to validate propellant and casing design before flight.',
+    readout: [['Static fires', '4 completed'], ['B1M engines', '3 in build'], ['Status', 'ACTIVE']] },
+  { id: 3, num: 'STAGE 03', name: 'Avionics', when: '2026-Q3', state: 'next',
+    headline: 'Fabrication and integrated avionics testing.',
+    body: 'Building and qualifying all avionics systems — flight computer, altimeter, GPS, and recovery electronics. Full bench integration and validation of the avionics stack before airframe integration.',
+    readout: [['Flight computer', 'PENDING'], ['Recovery sys.', 'PENDING'], ['Status', 'UPCOMING']] },
+  { id: 4, num: 'STAGE 04', name: 'Fabrication', when: '2026-Q4', state: 'next',
+    headline: 'Full scale STRAVOX flight hardware.',
+    body: 'Manufacturing the 200 mm diameter airframe, CNC-cutting both fin sets, assembling the KNSB motor with a 1 m propellant grain, and integrating all vehicle systems into the complete STRAVOX stack.',
+    readout: [['Airframe', '2,633 mm'], ['Motor grain', '1,000 mm'], ['Status', 'UPCOMING']] },
+  { id: 5, num: 'STAGE 05', name: 'Testing', when: '2027-Q1', state: 'next',
+    headline: 'Integrated full stack testing.',
+    body: 'Full vehicle systems review with all hardware integrated. Landing system deployment tests, end-to-end avionics check, and launch readiness review before CASA range clearance is sought.',
+    readout: [['Systems review', 'PENDING'], ['Range clearance', 'PENDING'], ['Status', 'UPCOMING']] },
+  { id: 6, num: 'STAGE 06', name: 'Launch', when: '2027-Q2', state: 'next',
+    headline: 'Full scale 30 km flight.',
+    body: 'Vertical propulsive landing demonstration at a CASA-cleared range in Victoria. A full mission — boost to 30 km, airbrake descent, and controlled touchdown on four landing legs.',
     readout: [['Target apogee', '30 km'], ['Peak velocity', 'Mach 2.5'], ['Status', 'PLANNING']] },
 ]
 
@@ -65,7 +73,7 @@ const sections = [
 ]
 
 export default function Stravox() {
-  const [selected, setSelected] = useState(1)
+  const [selected, setSelected] = useState(2)
   const s = stages[selected]
 
   return (
