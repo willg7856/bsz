@@ -1,0 +1,137 @@
+/* =========================================================================
+   Beyond Stage Zero — Foundations
+   Colors, type, spacing, motion. Import this into any artifact.
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,200&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 200;
+  font-display: swap;
+  src: url('/fonts/JetBrainsMono-ExtraLightItalic.woff2') format('woff2');
+}
+
+:root {
+  /* ===== COLOR — Core ===================================================== */
+  --ink-1000: #000000;
+  --ink-900:  #0B0D0F;
+  --ink-800:  #14181C;
+  --ink-700:  #1E242B;
+  --ink-600:  #2A323B;
+  --ink-500:  #4A535D;
+  --ink-400:  #7B8590;
+  --ink-300:  #B8BFC7;
+
+  --paper-100: #FAFAF7;
+  --paper-200: #F1F1EC;
+  --paper-300: #E4E4DD;
+  --paper-50:  #FFFFFF;
+
+  --ignition-500: #FF5A1F;
+  --ignition-600: #E64613;
+  --ignition-400: #FF7A47;
+  --ignition-100: #FFE4D7;
+
+  --telemetry-amber:  #FFC400;
+  --telemetry-green:  #18A957;
+  --telemetry-red:    #E33636;
+  --telemetry-cyan:   #2DC2D9;
+
+  /* ===== COLOR — Semantic ================================================= */
+  --bg:          var(--paper-100);
+  --bg-elev:     var(--paper-200);
+  --bg-inverse:  var(--ink-900);
+  --bg-chrome:   var(--ink-700);
+
+  --fg:          var(--ink-900);
+  --fg-muted:    var(--ink-500);
+  --fg-faint:    var(--ink-400);
+  --fg-inverse:  var(--paper-100);
+  --fg-inverse-muted: var(--ink-400);
+
+  --line:        var(--ink-300);
+  --line-strong: var(--ink-700);
+  --line-inverse:var(--ink-600);
+
+  --accent:        var(--ignition-500);
+  --accent-hover:  var(--ignition-600);
+  --accent-tint:   var(--ignition-100);
+  --accent-fg:     var(--paper-50);
+
+  --status-go:    var(--telemetry-green);
+  --status-hold:  var(--telemetry-amber);
+  --status-abort: var(--telemetry-red);
+  --status-live:  var(--telemetry-cyan);
+
+  /* ===== TYPE ============================================================= */
+  --font-display: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  --font-body:    'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono:    'IBM Plex Mono', 'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  --w-regular: 400;
+  --w-medium:  500;
+  --w-semi:    600;
+  --w-bold:    700;
+  --w-black:   800;
+
+  --fs-xs:   0.75rem;
+  --fs-sm:   0.8125rem;
+  --fs-base: 1rem;
+  --fs-md:   1.125rem;
+  --fs-lg:   1.5rem;
+  --fs-xl:   2rem;
+  --fs-2xl:  2.75rem;
+  --fs-3xl:  4rem;
+  --fs-4xl:  6rem;
+  --fs-5xl:  9rem;
+
+  --lh-tight:   1.0;
+  --lh-snug:    1.15;
+  --lh-normal:  1.5;
+  --lh-relaxed: 1.65;
+
+  --tr-tight:   -0.02em;
+  --tr-normal:  0;
+  --tr-wide:    0.08em;
+  --tr-wider:   0.16em;
+
+  /* ===== SPACING (4px base) =============================================== */
+  --s-0:  0;
+  --s-1:  0.25rem;
+  --s-2:  0.5rem;
+  --s-3:  0.75rem;
+  --s-4:  1rem;
+  --s-5:  1.5rem;
+  --s-6:  2rem;
+  --s-7:  3rem;
+  --s-8:  4rem;
+  --s-9:  6rem;
+  --s-10: 8rem;
+
+  /* ===== RADIUS =========================================================== */
+  --r-0:    0;
+  --r-1:    2px;
+  --r-2:    4px;
+  --r-pill: 999px;
+
+  /* ===== ELEVATION ======================================================== */
+  --shadow-0: none;
+  --shadow-1: 0 1px 0 0 var(--line);
+  --shadow-2: 0 8px 24px -8px rgba(11, 13, 15, 0.18);
+  --shadow-glow: 0 0 0 1px var(--accent), 0 0 24px -4px var(--ignition-400);
+
+  /* ===== MOTION =========================================================== */
+  --dur-instant: 80ms;
+  --dur-fast:    140ms;
+  --dur-base:    220ms;
+  --dur-slow:    420ms;
+  --ease-out:    cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-snap:   cubic-bezier(0.7, 0, 0.2, 1);
+  --ease-in:     cubic-bezier(0.7, 0, 1, 0.6);
+
+  /* ===== LAYOUT =========================================================== */
+  --container-max: 1200px;
+  --container-pad: clamp(1rem, 4vw, 3rem);
+}
