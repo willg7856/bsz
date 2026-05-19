@@ -53,21 +53,6 @@
 }
 .nav-cta:hover { background: var(--ignition-600); }
 
-.nav-space {
-  font-size: 0.6875rem !important;
-  font-weight: 600 !important;
-  color: var(--telemetry-cyan) !important;
-  padding: 5px 10px;
-  border: 1px solid rgba(45, 194, 217, 0.3);
-  border-radius: var(--r-2);
-  transition: background var(--dur-fast), border-color var(--dur-fast) !important;
-}
-.nav-space:hover {
-  background: rgba(45, 194, 217, 0.1) !important;
-  border-color: rgba(45, 194, 217, 0.6);
-  color: var(--paper-100) !important;
-}
-
 /* ── Hamburger ────────────────────────────────────── */
 .nav-burger {
   display: flex;
@@ -135,12 +120,3 @@
   border-radius: var(--r-2);
 }
 .nav-cta-mobile:hover { background: var(--ignition-600) !important; }
-
-.nav-space-mobile {
-  background: rgba(45, 194, 217, 0.1) !important;
-  color: var(--telemetry-cyan) !important;
-  border: 1px solid rgba(45, 194, 217, 0.35);
-  padding: 12px 32px;
-  border-radius: var(--r-2);
-  font-size: 1rem !important;
-}

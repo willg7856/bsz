@@ -7,6 +7,8 @@ import About from './pages/About'
 import Stravox from './pages/Stravox'
 import Contact from './pages/Contact'
 import News from './pages/News'
+import Missions from './pages/Missions'
+import Tests from './pages/Tests'
 
 export default function App() {
   return (
@@ -17,6 +19,8 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/stravox" element={<Stravox />} />
+        <Route path="/missions" element={<Missions />} />
+        <Route path="/tests" element={<Tests />} />
         <Route path="/news" element={<News />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
