@@ -4,7 +4,7 @@ const TICK = Array.from({ length: 40 })
 
 const values = [
   { index: '01', title: 'Student Led', desc: 'Every part of the project — from design to launch — is driven by students.' },
-  { index: '02', title: 'Ambitious', desc: 'We set out to build the largest student rocket Australia has ever seen.' },
+  { index: '02', title: 'Ambitious', desc: 'We set out to build Australia\'s first fully and rapidly reusable launch vehicle.' },
   { index: '03', title: 'Collaborative', desc: 'We bring together engineers, scientists, and builders from across disciplines.' },
   { index: '04', title: 'Open', desc: 'We share our progress, failures, and learnings with the broader community.' },
 ]

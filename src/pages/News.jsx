@@ -36,7 +36,7 @@ const posts = [
     display: 'April 2025',
     tag: 'Founding',
     title: 'Beyond Stage Zero founded',
-    body: 'Beyond Stage Zero was founded in April 2025 in Creswick, Victoria, with one goal: design, build, and fly Australia\'s largest student rocket to 30 km apogee with a propulsive vertical landing. Our first rocket is STRAVOX — a 2,633 mm vehicle with a split nosecone airbrake and four folding drone arms for touchdown. The programme starts here.',
+    body: 'Beyond Stage Zero was founded in April 2025 in Creswick, Victoria, with one goal: design, build, and fly Australia\'s first fully and rapidly reusable launch vehicle to 30 km apogee with a propulsive vertical landing. Our first rocket is STRAVOX — a 2,633 mm vehicle with a split nosecone airbrake and four folding drone arms for touchdown. The programme starts here.',
   },
 ]
 

@@ -87,7 +87,7 @@ export default function Stravox() {
             <p className="eyebrow" style={{ color: 'var(--ink-400)', marginBottom: '24px' }}>The Rocket</p>
             <h1 className="stravox-hero-h1">STRAVOX</h1>
             <p className="stravox-hero-sub">
-              Australia's largest student-built rocket. A 2,633 mm high-power vehicle
+              Australia's first fully and rapidly reusable launch vehicle. A 2,633 mm high-power vehicle
               with a split nosecone airbrake and propulsive vertical landing.
             </p>
           </div>

@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container footer-inner">
         <div className="footer-brand">
           <img src="/logo-banner.png" alt="Beyond Stage Zero" className="footer-logo" />
-          <p>An Australian student rocketry team building the country's largest student rocket.</p>
+          <p>An Australian student rocketry team building Australia's first fully and rapidly reusable launch vehicle.</p>
         </div>
         <div className="footer-col">
           <h4>Pages</h4>
