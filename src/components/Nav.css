@@ -20,7 +20,9 @@
 .nav-brand {
   display: inline-flex;
   align-items: center;
+  align-self: stretch;
   text-decoration: none;
+  overflow: visible;
 }
 
 .nav-links {

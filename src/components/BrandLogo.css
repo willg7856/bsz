@@ -1,12 +1,13 @@
 .brand-logo {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   overflow: visible;
+  line-height: 0;
 }
 
 .brand-logo-mark {
-  height: 26px;
+  height: 40px;
   width: auto;
   display: block;
   flex-shrink: 0;
@@ -16,7 +17,7 @@
 
 .brand-logo-text {
   font-family: var(--font-display);
-  font-size: 0.875rem;
+  font-size: 1.125rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -30,17 +31,17 @@
   letter-spacing: 0.08em;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .brand-logo {
     gap: 10px;
   }
 
   .brand-logo-text {
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
+    font-size: 0.875rem;
+    letter-spacing: 0.07em;
   }
 
   .brand-logo-mark {
-    height: 22px;
+    height: 30px;
   }
 }
