@@ -3,7 +3,23 @@ import './BrandLogo.css'
 export default function BrandLogo() {
   return (
     <span className="brand-logo">
-      <img src="/logo-mark.svg" alt="" className="brand-logo-mark" aria-hidden="true" />
+      <svg
+        className="brand-logo-mark"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 78 32"
+        fill="none"
+        aria-hidden="true"
+      >
+        <circle cx="11" cy="16" r="7.5" fill="currentColor" />
+        <path
+          fill="currentColor"
+          d="M22 4.5H32V9H26.5v14H32v4.5H22V23h4.5V9H22V4.5z"
+        />
+        <path
+          fill="currentColor"
+          d="M40 27.5 48.5 4.5h5.25L45.25 27.5H40zm14.25 0L62.5 4.5h5.25L59.5 27.5h-5.25z"
+        />
+      </svg>
       <span className="brand-logo-text">
         BEYOND <span className="brand-logo-bracket">[STAGE ZERO]</span>
       </span>
