@@ -20,7 +20,7 @@ export default function Home() {
             <h1 className="home-hero-h1">
               Beyond Stage <span className="home-hero-accent">Zero.</span>
               <span className="home-hero-h1-divider" aria-hidden="true" />
-              <span className="home-hero-h1-sub">Australia's largest<br />student rocket.</span>
+              <span className="home-hero-h1-sub">Australia's first fully and<br />rapidly reusable launch vehicle.</span>
             </h1>
             <p className="home-hero-sub">
               An Australian student rocketry team designing, building, and flying
