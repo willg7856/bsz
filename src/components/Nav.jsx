@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import BrandLogo from './BrandLogo'
 import './Nav.css'
 
 function useIsMobile() {
@@ -25,8 +26,8 @@ export default function Nav() {
     <>
       <header className="nav">
         <div className="container nav-inner">
-          <Link className="nav-brand" to="/" onClick={close}>
-            <img src="/logo-banner.png" alt="Beyond Stage Zero" />
+          <Link className="nav-brand" to="/" onClick={close} aria-label="Beyond Stage Zero home">
+            <BrandLogo />
           </Link>
 
           {isMobile ? (
