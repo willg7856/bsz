@@ -17,10 +17,10 @@
   gap: 32px;
 }
 
-.nav-brand img {
-  height: 20px;
-  width: auto;
-  display: block;
+.nav-brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 .nav-links {
