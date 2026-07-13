@@ -6,19 +6,16 @@ export default function BrandLogo() {
       <svg
         className="brand-logo-mark"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 78 32"
-        fill="none"
+        viewBox="0 0 128 64"
+        fill="currentColor"
         aria-hidden="true"
       >
-        <circle cx="11" cy="16" r="7.5" fill="currentColor" />
-        <path
-          fill="currentColor"
-          d="M22 4.5H32V9H26.5v14H32v4.5H22V23h4.5V9H22V4.5z"
-        />
-        <path
-          fill="currentColor"
-          d="M40 27.5 48.5 4.5h5.25L45.25 27.5H40zm14.25 0L62.5 4.5h5.25L59.5 27.5h-5.25z"
-        />
+        <circle cx="20" cy="32" r="11" />
+        <rect x="42" y="16" width="20" height="7" />
+        <rect x="55" y="16" width="7" height="32" />
+        <rect x="42" y="41" width="20" height="7" />
+        <path d="M72 48 L86 16 h8 L80 48 H72z" />
+        <path d="M94 48 L108 16 h8 L102 48 H94z" />
       </svg>
       <span className="brand-logo-text">
         BEYOND <span className="brand-logo-bracket">[STAGE ZERO]</span>
