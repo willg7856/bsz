@@ -265,6 +265,25 @@
   filter: drop-shadow(0 0 32px rgba(255, 255, 255, 0.2));
 }
 
+.home-rocket--light .home-rocket-text h2 {
+  color: var(--fg);
+}
+
+.home-rocket--light .home-rocket-desc {
+  color: var(--fg-muted);
+}
+
+.home-rocket-img-wrap--cad {
+  width: min(100%, 440px);
+  justify-self: end;
+}
+
+.home-rocket-cad {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* ── Project links ────────────────────────────────── */
 .home-project-inner {
   display: grid;
@@ -546,6 +565,11 @@
 
   .home-rocket-img-wrap { order: -1; }
   .home-rocket-img { width: 140px; margin: 0 auto; }
+  .home-rocket-img-wrap--cad {
+    width: min(100%, 360px);
+    margin: 0 auto;
+    justify-self: center;
+  }
 
   .home-project-inner {
     grid-template-columns: 1fr;

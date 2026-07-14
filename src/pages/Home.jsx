@@ -113,6 +113,30 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section home-rocket home-rocket--light">
+        <div className="container home-rocket-inner">
+          <div className="home-rocket-text">
+            <p className="eyebrow accent">Vehicle · Sub-scale</p>
+            <h2>STRAVOX B1M</h2>
+            <p className="home-rocket-desc">
+              Our 3 km systems-validation vehicle — flying a home-built KNSB motor
+              to prove avionics, recovery, and flight systems before full-scale
+              STRAVOX. Engine design complete; build and propellant work in progress.
+            </p>
+            <Link className="home-project-link" to="/b1m">
+              Explore B1M →
+            </Link>
+          </div>
+          <div className="home-rocket-img-wrap home-rocket-img-wrap--cad">
+            <img
+              src="/b1m-cad.png"
+              alt="B1M engine CAD cutaway showing casing, nozzle, and forward closure"
+              className="home-rocket-cad"
+            />
+          </div>
+        </div>
+      </section>
+
       <section className="section home-project">
         <div className="container home-project-inner">
           <div className="home-project-text">
