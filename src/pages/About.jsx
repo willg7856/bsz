@@ -98,7 +98,7 @@ export default function About() {
           </p>
           <div className="about-hero-stats">
             <div className="about-stat">
-              <span className="about-stat-val">12</span>
+              <span className="about-stat-val">17</span>
               <span className="about-stat-lbl">Team Members</span>
             </div>
             <div className="about-stat">
