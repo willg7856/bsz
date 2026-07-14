@@ -200,6 +200,11 @@
   box-shadow: 0 0 0 4px rgba(255, 90, 31, 0.2);
 }
 
+.b1m-milestone--done .b1m-milestone-dot {
+  background: var(--telemetry-green);
+  border-color: var(--telemetry-green);
+}
+
 .b1m-milestone-line {
   flex: 1;
   width: 1px;
@@ -237,6 +242,10 @@
 
 .b1m-milestone--active .b1m-milestone-tag {
   color: var(--ignition-400);
+}
+
+.b1m-milestone--done .b1m-milestone-tag {
+  color: var(--telemetry-green);
 }
 
 .b1m-milestone-note {

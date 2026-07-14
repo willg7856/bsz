@@ -5,7 +5,7 @@ const TICK = Array.from({ length: 40 })
 const engineBatches = [
   { label: 'Mk I engines built', val: '3', sub: '250 mm × 32 mm — 2 fired, 1 held' },
   { label: 'Mk II engines built', val: '6', sub: '300 mm × 30 mm — 2 fired, 4 remaining' },
-  { label: 'B1M engines in build', val: '3', sub: '550 mm × 80 mm · 1.2 kg KNO₃/Sorbitol 70:30 · ~50 kgf for 7 s · targeting ≥2 firings each' },
+  { label: 'B1M engines in build', val: '3', sub: '550 mm × 80 mm · 1.2 kg KNO₃/Sorbitol 70:30 · ~150 kgf for 3.5 s · targeting ≥2 firings each' },
 ]
 
 const campaigns = [
@@ -28,7 +28,7 @@ const upcoming = [
     id: 'C-03',
     label: 'Campaign 3 — B1M engine static fires',
     engine: 'B1M — 550 mm × 80 mm',
-    note: 'First firing of the B1M engine series. 3 engines in production, each targeting ≥2 firings. Campaign will continue propellant characterisation with technical vs fertiliser grade KNO₃ and validate the motor before flight.',
+    note: 'First firing of the B1M engine series. Engines in build; propellant characterisation in progress. Targeting ~150 kgf for a 3.5 s burn, with each casing aimed at ≥2 firings before flight.',
     status: 'IN BUILD',
   },
 ]

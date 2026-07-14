@@ -8,7 +8,7 @@ const specs = [
   ['Target apogee', '3 km'],
   ['Motor', 'KNSB B1M — 550 mm × 80 mm'],
   ['Propellant', '1.2 kg KNO₃/Sorbitol 70:30'],
-  ['Expected thrust', '~50 kgf for 7 s'],
+  ['Expected thrust', '~150 kgf for 3.5 s'],
   ['Purpose', 'Systems validation for STRAVOX'],
   ['Launch site', 'Victoria, AUS'],
   ['Status', 'In development'],
@@ -25,10 +25,10 @@ const objectives = [
 ]
 
 const milestones = [
-  { label: 'Propellant R&D', status: 'active', note: 'Ongoing — early static fires completed. B1M engine campaign continues propellant characterisation.' },
-  { label: 'B1M engine design', status: 'active', note: '550 mm × 80 mm casing, 1.2 kg KNO₃/Sorbitol 70:30.' },
-  { label: 'B1M engine build', status: 'active', note: '3 engines in production, targeting ≥2 firings each.' },
-  { label: 'B1M engine static fires', status: 'upcoming', note: 'Ground firing campaign to validate the motor before flight.' },
+  { label: 'B1M engine design', status: 'done', note: 'Design complete — 550 mm × 80 mm casing, 1.2 kg KNO₃/Sorbitol 70:30.' },
+  { label: 'Propellant characterisation', status: 'active', note: 'In progress — refining burn behaviour and propellant performance ahead of B1M static fires.' },
+  { label: 'B1M engine build', status: 'active', note: 'In progress — engines in production for ground test and flight.' },
+  { label: 'B1M engine static fires', status: 'upcoming', note: 'Ground firing campaign to validate the motor before flight (~150 kgf, 3.5 s burn).' },
   { label: 'Vehicle design & fabrication', status: 'upcoming', note: 'Airframe, fins, and recovery bay sized around the B1M engine.' },
   { label: 'Avionics integration', status: 'upcoming', note: 'Flight computer, altimeter, GPS, and recovery electronics.' },
   { label: 'CASA range clearance', status: 'upcoming', note: 'Regulatory approval for launch at a CASA-cleared site in Victoria.' },
@@ -63,12 +63,12 @@ export default function B1m() {
               <span className="b1m-spec-val accent">3.0 km</span>
             </div>
             <div className="b1m-spec-row">
-              <span className="b1m-spec-lbl">Motor</span>
-              <span className="b1m-spec-val">KNSB B1M</span>
+              <span className="b1m-spec-lbl">Thrust</span>
+              <span className="b1m-spec-val">~150 kgf</span>
             </div>
             <div className="b1m-spec-row">
-              <span className="b1m-spec-lbl">Propellant</span>
-              <span className="b1m-spec-val">1.2 kg KNSB</span>
+              <span className="b1m-spec-lbl">Burn time</span>
+              <span className="b1m-spec-val">3.5 s</span>
             </div>
             <div className="b1m-spec-row">
               <span className="b1m-spec-lbl">First flight</span>
