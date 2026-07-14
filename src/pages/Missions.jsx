@@ -22,7 +22,7 @@ const missions = [
       { label: 'CASA range clearance', done: false },
     ],
     milestones: [
-      { label: 'B1M engine design',        status: 'done',     note: 'Design complete — 550 mm × 80 mm casing, 1.2 kg KNO₃/Sorbitol 70:30.' },
+      { label: 'B1M engine design',        status: 'done',     note: 'Design complete — 550 mm × 80 mm casing, ~2 kg KNO₃/Sorbitol 65:35.' },
       { label: 'Propellant characterisation', status: 'active', note: 'In progress — refining burn behaviour and propellant performance ahead of B1M static fires.' },
       { label: 'B1M engine build',         status: 'active',  note: 'In progress — engines in production for ground test and flight.' },
       { label: 'B1M engine static fires',  status: 'upcoming', note: 'Ground firing campaign to validate B1M motor before flight (~150 kgf, 3.5 s burn).' },
@@ -39,7 +39,7 @@ const missions = [
       ['Role', 'Sub-scale test vehicle'],
       ['Target apogee', '3 km'],
       ['Motor', 'KNSB B1M — 550 mm × 80 mm'],
-      ['Propellant mass', '1.2 kg KNO₃/Sorbitol 70:30'],
+      ['Propellant mass', '~2 kg KNO₃/Sorbitol 65:35'],
       ['Expected thrust', '~150 kgf for 3.5 s'],
       ['Purpose', 'Systems validation'],
       ['Launch site', 'Victoria, AUS'],
