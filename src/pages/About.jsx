@@ -67,6 +67,15 @@ const partners = [
   },
 ]
 
+const roster = [
+  { name: 'Will', role: 'CEO' },
+  { name: 'Seb', role: 'STRAVOX B1M Lead' },
+  { name: 'Jet', role: 'Ceramics Lead' },
+  { name: 'Columbus', role: 'Drone Propulsion Lead' },
+  { name: 'Arnav', role: 'TVC Development' },
+  { name: 'Wave', role: 'Spittership Lead' },
+]
+
 export default function About() {
   return (
     <main className="about">
@@ -207,17 +216,41 @@ export default function About() {
         </div>
       </section>
 
+      {/* ── Roster ──────────────────────────────────── */}
+      <section className="section about-roster-section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">The team</p>
+              <h2>Who leads it.</h2>
+            </div>
+            <p className="lead">
+              Programme leads across vehicles, propulsion, and materials — part of a
+              twelve-person student team building STRAVOX from Creswick.
+            </p>
+          </div>
+          <div className="about-roster">
+            {roster.map((m) => (
+              <div className="about-roster-row" key={m.name}>
+                <span className="about-roster-name">{m.name}</span>
+                <span className="about-roster-role mono">{m.role}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Capabilities ────────────────────────────── */}
       <section className="section about-capabilities-section">
         <div className="container">
           <div className="section-head">
             <div>
-              <p className="eyebrow">The team</p>
+              <p className="eyebrow">Coverage</p>
               <h2>What we cover.</h2>
             </div>
             <p className="lead">
-              Twelve students across the disciplines that make a flight programme real.
-              Named roster and photos come next — the work is already underway.
+              Twelve students across the disciplines that make a flight programme real —
+              from home-built motors to Goods Shed mission ops.
             </p>
           </div>
           <div className="about-capabilities">

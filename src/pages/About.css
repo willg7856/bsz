@@ -224,6 +224,39 @@
   color: var(--fg-muted);
 }
 
+/* ── Roster ───────────────────────────────────────── */
+.about-roster {
+  border-top: 1px solid var(--line);
+}
+
+.about-roster-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+  gap: 24px;
+  align-items: baseline;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.about-roster-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--fg);
+  line-height: 1.1;
+}
+
+.about-roster-role {
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  justify-self: end;
+  text-align: right;
+}
+
 /* ── Capabilities ─────────────────────────────────── */
 .about-capabilities {
   display: grid;
@@ -401,6 +434,14 @@
     border-bottom: 1px solid var(--line);
   }
   .about-partner:last-child { border-bottom: 0; }
+  .about-roster-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .about-roster-role {
+    justify-self: start;
+    text-align: left;
+  }
   .about-capabilities { grid-template-columns: 1fr; }
   .about-capability {
     border-right: 0 !important;
