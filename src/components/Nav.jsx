@@ -3,6 +3,19 @@ import { Link, useLocation } from 'react-router-dom'
 import BrandLogo from './BrandLogo'
 import './Nav.css'
 
+const vehicles = [
+  {
+    path: '/stravox',
+    label: 'STRAVOX',
+    note: 'Full-scale reusable launch vehicle',
+  },
+  {
+    path: '/nozzles',
+    label: 'Ceramic Nozzles',
+    note: 'Ceramic nozzle development programme',
+  },
+]
+
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 769)
   useEffect(() => {
@@ -16,11 +29,21 @@ function useIsMobile() {
 export default function Nav() {
   const { pathname } = useLocation()
   const [open, setOpen] = useState(false)
+  const [vehiclesOpen, setVehiclesOpen] = useState(false)
   const isMobile = useIsMobile()
   const link = (path) => `nav-link${pathname === path ? ' active' : ''}`
-  const close = () => setOpen(false)
+  const vehicleActive = vehicles.some((v) => pathname === v.path)
+  const close = () => {
+    setOpen(false)
+    setVehiclesOpen(false)
+  }
 
-  useEffect(() => { if (!isMobile) setOpen(false) }, [isMobile])
+  useEffect(() => {
+    if (!isMobile) {
+      setOpen(false)
+      setVehiclesOpen(false)
+    }
+  }, [isMobile])
 
   return (
     <>
@@ -33,7 +56,7 @@ export default function Nav() {
           {isMobile ? (
             <button
               className={`nav-burger${open ? ' is-open' : ''}`}
-              onClick={() => setOpen(o => !o)}
+              onClick={() => setOpen((o) => !o)}
               aria-label="Toggle menu"
               style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
             >
@@ -43,10 +66,34 @@ export default function Nav() {
             <nav className="nav-links">
               <Link className={link('/')} to="/">Home</Link>
               <Link className={link('/about')} to="/about">About</Link>
-              <Link className={link('/stravox')} to="/stravox">STRAVOX</Link>
+
+              <div className={`nav-dropdown${vehicleActive ? ' active' : ''}`}>
+                <button
+                  type="button"
+                  className={`nav-dropdown-trigger${vehicleActive ? ' active' : ''}`}
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                >
+                  Vehicles
+                  <span className="nav-dropdown-caret" aria-hidden="true" />
+                </button>
+                <div className="nav-dropdown-menu" role="menu">
+                  {vehicles.map((v) => (
+                    <Link
+                      key={v.path}
+                      className={`nav-dropdown-item${pathname === v.path ? ' active' : ''}`}
+                      to={v.path}
+                      role="menuitem"
+                    >
+                      <span className="nav-dropdown-item-label">{v.label}</span>
+                      <span className="nav-dropdown-item-note">{v.note}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
               <Link className={link('/missions')} to="/missions">Missions</Link>
               <Link className={link('/tests')} to="/tests">Tests</Link>
-              <Link className={link('/nozzles')} to="/nozzles">Nozzles</Link>
               <Link className="nav-cta" to="/contact">Contact →</Link>
             </nav>
           )}
@@ -57,10 +104,35 @@ export default function Nav() {
         <div className={`nav-mobile${open ? ' is-open' : ''}`}>
           <Link className={link('/')} to="/" onClick={close}>Home</Link>
           <Link className={link('/about')} to="/about" onClick={close}>About</Link>
-          <Link className={link('/stravox')} to="/stravox" onClick={close}>STRAVOX</Link>
+
+          <div className={`nav-mobile-group${vehiclesOpen ? ' is-open' : ''}`}>
+            <button
+              type="button"
+              className={`nav-mobile-group-trigger${vehicleActive ? ' active' : ''}`}
+              onClick={() => setVehiclesOpen((o) => !o)}
+              aria-expanded={vehiclesOpen}
+            >
+              Vehicles
+              <span className="nav-dropdown-caret" aria-hidden="true" />
+            </button>
+            {vehiclesOpen && (
+              <div className="nav-mobile-group-links">
+                {vehicles.map((v) => (
+                  <Link
+                    key={v.path}
+                    className={link(v.path)}
+                    to={v.path}
+                    onClick={close}
+                  >
+                    {v.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
           <Link className={link('/missions')} to="/missions" onClick={close}>Missions</Link>
           <Link className={link('/tests')} to="/tests" onClick={close}>Tests</Link>
-          <Link className={link('/nozzles')} to="/nozzles" onClick={close}>Nozzles</Link>
           <Link className="nav-cta-mobile" to="/contact" onClick={close}>Contact →</Link>
         </div>
       )}
