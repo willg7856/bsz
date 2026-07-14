@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import BrandLogo from './BrandLogo'
 import './Footer.css'
 
 export default function Footer() {
@@ -6,7 +7,9 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer-inner">
         <div className="footer-brand">
-          <img src="/logo-banner.png" alt="Beyond Stage Zero" className="footer-logo" />
+          <Link to="/" className="footer-logo" aria-label="Beyond Stage Zero home">
+            <BrandLogo />
+          </Link>
           <p>An Australian student rocketry team building Australia's first fully and rapidly reusable launch vehicle.</p>
         </div>
         <div className="footer-col">
@@ -14,7 +17,7 @@ export default function Footer() {
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/stravox">STRAVOX</Link>
-          <Link to="/news">News</Link>
+          <Link to="/missions">Missions</Link>
           <Link to="/contact">Contact</Link>
         </div>
         <div className="footer-col">
