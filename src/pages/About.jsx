@@ -227,7 +227,7 @@ export default function About() {
             </div>
             <p className="lead">
               Programme leads across vehicles, propulsion, and materials — part of a
-              twelve-person student team building STRAVOX from Creswick.
+              seventeen-person student team building STRAVOX from Creswick.
             </p>
           </div>
           <div className="about-roster">
@@ -250,7 +250,7 @@ export default function About() {
               <h2>What we cover.</h2>
             </div>
             <p className="lead">
-              Twelve students across the disciplines that make a flight programme real —
+              Seventeen students across the disciplines that make a flight programme real —
               from home-built motors to Goods Shed mission ops.
             </p>
           </div>
