@@ -16,34 +16,35 @@ export default function Home() {
             <h1 className="home-hero-h1">
               Beyond Stage <span className="home-hero-accent">Zero.</span>
               <span className="home-hero-h1-divider" aria-hidden="true" />
-              <span className="home-hero-h1-sub">Australia's first fully and<br />rapidly reusable launch vehicle.</span>
+              <span className="home-hero-h1-sub">An Australian student<br />rocketry team.</span>
             </h1>
             <p className="home-hero-sub">
-              An Australian student rocketry team designing, building, and flying
-              <span className="mono"> STRAVOX</span> to 30 km apogee.
+              Sixteen students building toward Australia's first fully and rapidly
+              reusable launch vehicle — designing, machining, and testing from
+              Creswick, Victoria.
             </p>
             <div className="home-hero-actions">
-              <Link className="btn btn-primary" to="/stravox">Explore the rocket →</Link>
-              <Link className="btn btn-ghost-dark" to="/contact">Get involved</Link>
+              <Link className="btn btn-primary" to="/about">About the team →</Link>
+              <Link className="btn btn-ghost-dark" to="/stravox">Explore STRAVOX</Link>
             </div>
           </div>
 
           <div className="home-hero-spec">
             <div className="home-spec-row">
-              <span className="home-spec-lbl">Apogee target</span>
-              <span className="home-spec-val accent">30.0 km</span>
-            </div>
-            <div className="home-spec-row">
-              <span className="home-spec-lbl">Length</span>
-              <span className="home-spec-val">2,633 mm</span>
-            </div>
-            <div className="home-spec-row">
-              <span className="home-spec-lbl">Peak velocity</span>
-              <span className="home-spec-val">Mach 2.5</span>
+              <span className="home-spec-lbl">Team</span>
+              <span className="home-spec-val accent">16 students</span>
             </div>
             <div className="home-spec-row">
               <span className="home-spec-lbl">Founded</span>
-              <span className="home-spec-val">2025 · Creswick VIC</span>
+              <span className="home-spec-val">2025</span>
+            </div>
+            <div className="home-spec-row">
+              <span className="home-spec-lbl">Based in</span>
+              <span className="home-spec-val">Creswick · VIC</span>
+            </div>
+            <div className="home-spec-row">
+              <span className="home-spec-lbl">First flight</span>
+              <span className="home-spec-val">Q4'26–Q1'27</span>
             </div>
           </div>
         </div>
