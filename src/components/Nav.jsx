@@ -99,7 +99,15 @@ export default function Nav() {
 
               <Link className={link('/missions')} to="/missions">Missions</Link>
               <Link className={link('/tests')} to="/tests">Tests</Link>
-              <Link className="nav-cta" to="/contact">Contact →</Link>
+              <Link className={link('/contact')} to="/contact">Contact</Link>
+              <a
+                className="nav-cta"
+                href="https://beyondstagezero.space"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                .space
+              </a>
             </nav>
           )}
         </div>
@@ -138,7 +146,16 @@ export default function Nav() {
 
           <Link className={link('/missions')} to="/missions" onClick={close}>Missions</Link>
           <Link className={link('/tests')} to="/tests" onClick={close}>Tests</Link>
-          <Link className="nav-cta-mobile" to="/contact" onClick={close}>Contact →</Link>
+          <Link className={link('/contact')} to="/contact" onClick={close}>Contact</Link>
+          <a
+            className="nav-cta-mobile"
+            href="https://beyondstagezero.space"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={close}
+          >
+            .space
+          </a>
         </div>
       )}
     </>
