@@ -5,6 +5,7 @@ import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import About from './pages/About'
 import Stravox from './pages/Stravox'
+import B1m from './pages/B1m'
 import Contact from './pages/Contact'
 import Missions from './pages/Missions'
 import Tests from './pages/Tests'
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/stravox" element={<Stravox />} />
+        <Route path="/b1m" element={<B1m />} />
         <Route path="/missions" element={<Missions />} />
         <Route path="/tests" element={<Tests />} />
         <Route path="/nozzles" element={<Nozzles />} />
