@@ -134,7 +134,7 @@ export default function Home() {
             </div>
             <div className="home-project-meta-row">
               <span>Hop test</span>
-              <span>100 m · drone power</span>
+              <span>100 m · Q3–Q4 2026</span>
             </div>
             <div className="home-project-meta-row">
               <span>Full scale</span>

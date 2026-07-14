@@ -53,8 +53,8 @@ const upcoming = [
   {
     id: 'STRAVOX-HOP-01',
     name: 'STRAVOX — 100 m Hop Test',
-    note: 'Low-altitude hop of STRAVOX to roughly 100 m under drone-engine power only — no main motor. Validates propulsive landing, drone-arm deployment, and vehicle handling before higher-energy flights.',
-    year: '2026',
+    note: 'Low-altitude hop of STRAVOX to roughly 100 m under drone-engine power only — no main motor. Validates propulsive landing, drone-arm deployment, and vehicle handling before higher-energy flights. Target window Q3–Q4 2026.',
+    year: 'Q3–Q4 2026',
   },
   {
     id: 'STRAVOX-B1M-02',
