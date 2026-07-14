@@ -68,13 +68,13 @@ const partners = [
 ]
 
 const roster = [
-  { name: 'Will', role: 'CEO' },
-  { name: 'Seb', role: 'STRAVOX B1M Lead' },
-  { name: 'Jet', role: 'Ceramics Lead' },
-  { name: 'Columbus', role: 'Drone Propulsion Lead' },
-  { name: 'Arnav', role: 'TVC Development' },
-  { name: 'Wave', role: 'Spittership Lead' },
-  { name: 'Sage', role: 'Fibreglass Lead' },
+  'Will',
+  'Seb',
+  'Jet',
+  'Columbus',
+  'Arnav',
+  'Wave',
+  'Sage',
 ]
 
 export default function About() {
@@ -223,21 +223,17 @@ export default function About() {
           <div className="section-head">
             <div>
               <p className="eyebrow">The team</p>
-              <h2>Who leads it.</h2>
+              <h2>The people.</h2>
             </div>
             <p className="lead">
-              Programme leads across vehicles, propulsion, and materials — part of a
-              seventeen-person student team building STRAVOX from Creswick.
+              Seventeen students building STRAVOX from Creswick.
             </p>
           </div>
-          <div className="about-roster">
-            {roster.map((m) => (
-              <div className="about-roster-row" key={m.name}>
-                <span className="about-roster-name">{m.name}</span>
-                <span className="about-roster-role mono">{m.role}</span>
-              </div>
+          <ul className="about-roster">
+            {roster.map((name) => (
+              <li className="about-roster-name" key={name}>{name}</li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
