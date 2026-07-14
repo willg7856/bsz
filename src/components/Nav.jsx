@@ -176,7 +176,6 @@ export default function Nav() {
             </button>
           ) : (
             <nav className="nav-links">
-              <Link className={link('/')} to="/">Home</Link>
               <Dropdown
                 label="Projects"
                 items={projects}
