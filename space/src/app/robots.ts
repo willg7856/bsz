@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next";
-import { site } from "@/content";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: `${site.url}/sitemap.xml`,
+    sitemap: "https://beyondstagezero.space/sitemap.xml",
   };
 }

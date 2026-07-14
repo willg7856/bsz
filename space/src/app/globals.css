@@ -1,30 +1,3 @@
-@import "tailwindcss";
-@config "../../tailwind.config.ts";
-
-@theme {
-  --color-dark: #0a0a0c;
-  --color-nav: #121215;
-  --color-panel: #101116;
-  --color-rule: #24262b;
-  --color-light: #fafaf7;
-  --color-light-alt: #efefec;
-  --color-rule-light: #d8d8d2;
-  --color-ink: #12141a;
-  --color-muted: #6e757c;
-  --color-dim: #8e959c;
-  --color-hot: #ff5722;
-  --color-status-partial: #e2b93b;
-  --color-status-failure: #e5484d;
-  --color-status-success: #21b573;
-  --color-airbrake: #22c3d6;
-
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
-  --font-sans: var(--font-archivo), system-ui, sans-serif;
-
-  --radius-machined: 3px;
-  --spacing-container: 1120px;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -43,123 +16,22 @@ html {
   }
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
-  background: var(--color-dark);
-  color: var(--color-light);
-  font-family: var(--font-sans);
-  font-size: 17px;
-  line-height: 1.65;
+  margin: 0;
+  min-height: 100svh;
+  background: #0a0a0c;
+  color: #fafaf7;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--color-hot) 40%, transparent);
-  color: var(--color-light);
-}
-
-:focus-visible {
-  outline: 2px solid var(--color-hot);
-  outline-offset: 3px;
-}
-
-.container-site {
-  width: 100%;
-  max-width: var(--spacing-container);
-  margin-inline: auto;
-  padding-inline: clamp(20px, 4vw, 40px);
-}
-
-.section-pad {
-  padding-block: clamp(64px, 9vw, 120px);
-}
-
-.type-hero {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  font-style: italic;
-  font-size: clamp(52px, 9vw, 96px);
-  line-height: 0.94;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-}
-
-.type-section {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-style: italic;
-  font-size: clamp(30px, 5vw, 56px);
-  line-height: 1.05;
-  text-transform: uppercase;
-}
-
-.type-subhead {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-style: italic;
-  font-size: clamp(22px, 3.4vw, 40px);
-  line-height: 1.15;
-  text-transform: uppercase;
-  color: var(--color-muted);
-}
-
-.type-label {
-  font-family: var(--font-mono);
-  font-weight: 400;
-  font-style: italic;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.type-stat {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-style: italic;
-}
-
-.type-body {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-style: normal;
-  font-size: 17px;
-  line-height: 1.65;
-  max-width: 56ch;
-}
-
-.grid-auto {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
-}
-
-.spec-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding-block: 0.75rem;
-  border-bottom: 1px dashed var(--color-rule);
-}
-
-.spec-row-light {
-  border-bottom-color: var(--color-rule-light);
-}
-
-.fade-in {
-  animation: fade-up 0.6s ease-out both;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .fade-in {
-    animation: none;
-  }
-}
-
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  background: color-mix(in srgb, #ff5722 40%, transparent);
+  color: #fafaf7;
 }

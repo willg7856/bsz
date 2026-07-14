@@ -5,7 +5,7 @@ Monorepo for both public sites:
 | Domain | App | Folder | Stack |
 |--------|-----|--------|-------|
 | [beyondstagezero.com](https://beyondstagezero.com) | Main site | repo root | Vite + React |
-| [beyondstagezero.space](https://beyondstagezero.space) | Companion site | [`space/`](./space) | Next.js |
+| [beyondstagezero.space](https://beyondstagezero.space) | Minimal brand page | [`space/`](./space) | Next.js |
 
 ## beyondstagezero.com (root)
 
