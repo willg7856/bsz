@@ -12,11 +12,6 @@ export default function Home() {
         <div className="home-hero-grid-bg" aria-hidden="true" />
         <div className="container home-hero-inner">
           <div className="home-hero-left">
-            <div className="home-hero-eyebrow">
-              <span>[ STAGE 01 / DESIGN ]</span>
-              <span>·</span>
-              <span className="home-hero-live">ACTIVE</span>
-            </div>
             <h1 className="home-hero-h1">
               Beyond Stage <span className="home-hero-accent">Zero.</span>
               <span className="home-hero-h1-divider" aria-hidden="true" />
