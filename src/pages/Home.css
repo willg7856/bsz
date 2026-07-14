@@ -29,33 +29,6 @@
   position: relative;
 }
 
-.home-hero-eyebrow {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 32px;
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-400);
-}
-
-.home-hero-live {
-  color: var(--telemetry-cyan);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.home-hero-live::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  background: currentColor;
-  border-radius: 50%;
-  animation: pulse 1.4s ease-in-out infinite;
-}
-
 .home-hero-h1 {
   font-family: var(--font-display);
   font-weight: 800;
