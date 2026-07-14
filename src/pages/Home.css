@@ -265,6 +265,104 @@
   filter: drop-shadow(0 0 32px rgba(255, 255, 255, 0.2));
 }
 
+/* ── Project links ────────────────────────────────── */
+.home-project-inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.home-project-text .eyebrow { margin-bottom: 16px; }
+
+.home-project-text h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  margin: 16px 0 20px;
+  color: var(--fg);
+}
+
+.home-project--dark .home-project-text h2 {
+  color: var(--paper-100);
+}
+
+.home-project-desc {
+  font-size: 1rem;
+  color: var(--fg-muted);
+  line-height: 1.75;
+  margin-bottom: 28px;
+  max-width: 52ch;
+}
+
+.home-project--dark .home-project-desc {
+  color: var(--ink-400);
+}
+
+.home-project-link {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ignition-500);
+  transition: color var(--dur-fast);
+}
+.home-project-link:hover { color: var(--ignition-600); }
+
+.home-project-meta {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-project-meta--dark {
+  border-color: var(--ink-700);
+}
+
+.home-project-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px dashed var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+}
+.home-project-meta-row:last-child { border-bottom: 0; }
+
+.home-project-meta--dark .home-project-meta-row {
+  border-bottom-color: var(--ink-700);
+}
+
+.home-project-meta-row span:first-child {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.home-project-meta--dark .home-project-meta-row span:first-child {
+  color: var(--ink-400);
+}
+
+.home-project-meta-row span:last-child {
+  color: var(--fg);
+  font-weight: 600;
+  text-align: right;
+}
+
+.home-project-meta--dark .home-project-meta-row span:last-child {
+  color: var(--paper-100);
+}
+
 /* ── Numbers / spec grid ──────────────────────────── */
 .spec-grid {
   display: grid;
@@ -448,6 +546,11 @@
 
   .home-rocket-img-wrap { order: -1; }
   .home-rocket-img { width: 140px; margin: 0 auto; }
+
+  .home-project-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 
   .section-head { grid-template-columns: 1fr; gap: 16px; }
   .spec-grid { grid-template-columns: repeat(2, 1fr); }
