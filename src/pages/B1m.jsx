@@ -12,7 +12,7 @@ const specs = [
   ['Purpose', 'Systems validation for STRAVOX'],
   ['Launch site', 'Victoria, AUS'],
   ['Status', 'In development'],
-  ['First flight', '2026 — B1M-01'],
+  ['First flight', 'Q4 2026 – Q1 2027 — B1M-01'],
 ]
 
 const objectives = [
@@ -32,7 +32,7 @@ const milestones = [
   { label: 'Vehicle design & fabrication', status: 'upcoming', note: 'Airframe, fins, and recovery bay sized around the B1M engine.' },
   { label: 'Avionics integration', status: 'upcoming', note: 'Flight computer, altimeter, GPS, and recovery electronics.' },
   { label: 'CASA range clearance', status: 'upcoming', note: 'Regulatory approval for launch at a CASA-cleared site in Victoria.' },
-  { label: 'STRAVOX B1M-01 launch', status: 'upcoming', note: '3 km apogee. Full flight telemetry. Recover and review.' },
+  { label: 'STRAVOX B1M-01 launch', status: 'upcoming', note: 'Target window Q4 2026 – Q1 2027. 3 km apogee. Full flight telemetry. Recover and review.' },
 ]
 
 export default function B1m() {
@@ -72,7 +72,7 @@ export default function B1m() {
             </div>
             <div className="b1m-spec-row">
               <span className="b1m-spec-lbl">First flight</span>
-              <span className="b1m-spec-val">2026</span>
+              <span className="b1m-spec-val">Q4'26–Q1'27</span>
             </div>
           </div>
         </div>

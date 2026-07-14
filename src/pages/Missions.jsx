@@ -9,7 +9,7 @@ const missions = [
     name: 'STRAVOX B1M-01',
     status: 'PLANNED',
     statusColor: 'cyan',
-    year: '2026',
+    year: 'Q4 2026 – Q1 2027',
     tagline: 'Sub-scale test flight. 3 km apogee. Real-world flight data.',
     description:
       'STRAVOX B1M is our sub-scale test vehicle — designed to reach 3 km apogee on one of our own KNSB engines and return real-world flight data before we commit to the full STRAVOX programme. Flying B1M lets us validate avionics, recovery, and vehicle systems at a scale that avoids the regulatory complexity and risk of a 30 km flight. What works on B1M goes on STRAVOX.',
@@ -32,7 +32,7 @@ const missions = [
       { label: 'Ground systems test',      status: 'upcoming', note: 'Full vehicle systems check on the pad before flight.' },
       { label: 'CASA range clearance',     status: 'upcoming', note: 'Regulatory approval for launch at a CASA-cleared site in Victoria.' },
       { label: 'Launch readiness review',  status: 'upcoming', note: 'Final internal review before committing to launch day.' },
-      { label: 'STRAVOX B1M-01 launch',   status: 'upcoming', note: '3 km apogee. Full flight telemetry. Recover and review.' },
+      { label: 'STRAVOX B1M-01 launch',   status: 'upcoming', note: 'Target window Q4 2026 – Q1 2027. 3 km apogee. Full flight telemetry. Recover and review.' },
     ],
     specs: [
       ['Vehicle', 'STRAVOX B1M'],
@@ -44,7 +44,7 @@ const missions = [
       ['Purpose', 'Systems validation'],
       ['Launch site', 'Victoria, AUS'],
       ['Status', 'PLANNED'],
-      ['Target date', '2026'],
+      ['Target date', 'Q4 2026 – Q1 2027'],
     ],
   },
 ]
@@ -99,7 +99,7 @@ export default function Missions() {
               <span className="missions-hero-stat-lbl">Flights completed</span>
             </div>
             <div className="missions-hero-stat">
-              <span className="missions-hero-stat-val">2026</span>
+              <span className="missions-hero-stat-val">Q4'26–Q1'27</span>
               <span className="missions-hero-stat-lbl">First launch target</span>
             </div>
           </div>
