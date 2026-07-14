@@ -3,6 +3,14 @@ import './Contact.css'
 
 const TICK = Array.from({ length: 40 })
 
+const REASONS = [
+  'Sponsorship or partnership',
+  'Joining the team',
+  'Join Spittership',
+  'Media enquiries',
+  'General questions',
+]
+
 export default function Contact() {
   const [status, setStatus] = useState('idle')
 
@@ -54,7 +62,7 @@ export default function Contact() {
           <div className="contact-info">
             <p className="eyebrow" style={{ marginBottom: '20px' }}>Reasons to reach out</p>
             <div className="contact-reasons">
-              {['Sponsorship or partnership', 'Joining the team', 'Media enquiries', 'General questions'].map(r => (
+              {REASONS.map(r => (
                 <div key={r} className="contact-reason">{r}</div>
               ))}
             </div>
@@ -81,6 +89,15 @@ export default function Contact() {
                   <label htmlFor="email">Email</label>
                   <input id="email" name="email" type="email" placeholder="your@email.com" required />
                 </div>
+              </div>
+              <div className="form-group">
+                <label htmlFor="reason">Reason</label>
+                <select id="reason" name="reason" required defaultValue="">
+                  <option value="" disabled>Select a reason</option>
+                  {REASONS.map(r => (
+                    <option key={r} value={r}>{r}</option>
+                  ))}
+                </select>
               </div>
               <div className="form-group">
                 <label htmlFor="subject">Subject</label>

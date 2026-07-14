@@ -95,6 +95,15 @@ export default function B1m() {
             </p>
           </div>
 
+          <div className="b1m-motor-visual">
+            <img
+              src="/b1m-cad.png"
+              alt="B1M engine CAD cutaway showing casing, nozzle, and forward closure"
+              className="b1m-cad-img"
+            />
+            <p className="b1m-motor-caption mono">B1M motor · CAD cutaway · 550 mm × 80 mm</p>
+          </div>
+
           <div className="b1m-body">
             <div className="b1m-objectives">
               <p className="b1m-label">Flight objectives</p>

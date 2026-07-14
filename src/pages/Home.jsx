@@ -127,11 +127,11 @@ export default function Home() {
               Explore B1M →
             </Link>
           </div>
-          <div className="home-rocket-img-wrap home-rocket-img-wrap--cad">
+          <div className="home-rocket-img-wrap">
             <img
-              src="/b1m-cad.png"
-              alt="B1M engine CAD cutaway showing casing, nozzle, and forward closure"
-              className="home-rocket-cad"
+              src="/b1m-external1.png"
+              alt="B1M engine external CAD render"
+              className="home-rocket-img home-rocket-img--b1m"
             />
           </div>
         </div>
