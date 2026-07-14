@@ -8,6 +8,7 @@ import Stravox from './pages/Stravox'
 import Contact from './pages/Contact'
 import Missions from './pages/Missions'
 import Tests from './pages/Tests'
+import Nozzles from './pages/Nozzles'
 
 export default function App() {
   return (
@@ -20,7 +21,8 @@ export default function App() {
         <Route path="/stravox" element={<Stravox />} />
         <Route path="/missions" element={<Missions />} />
         <Route path="/tests" element={<Tests />} />
-<Route path="/contact" element={<Contact />} />
+        <Route path="/nozzles" element={<Nozzles />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </BrowserRouter>

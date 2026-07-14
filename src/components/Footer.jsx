@@ -18,6 +18,8 @@ export default function Footer() {
           <Link to="/about">About</Link>
           <Link to="/stravox">STRAVOX</Link>
           <Link to="/missions">Missions</Link>
+          <Link to="/tests">Tests</Link>
+          <Link to="/nozzles">Nozzles</Link>
           <Link to="/contact">Contact</Link>
         </div>
         <div className="footer-col">
