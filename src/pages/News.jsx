@@ -1,4 +1,5 @@
 import './News.css'
+import { SHOW_SPITTERSHIP } from '../featureFlags'
 
 const TICK = Array.from({ length: 40 })
 
@@ -9,6 +10,7 @@ const posts = [
     tag: 'Community',
     title: 'Project Spittership',
     body: 'Spittership is a working name for a fully community-driven vehicle aimed at Spitter — space Twitter on X, where people join. Beyond Stage Zero manages the project and provides the B1M engine; the community can change everything else, including the name. Kickoff and community formation are planned after the first B1M static fire.',
+    spittership: true,
   },
   {
     date: '2026-05-01',
@@ -54,7 +56,9 @@ const posts = [
   },
 ]
 
-const sorted = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date))
+const sorted = [...posts]
+  .filter((p) => SHOW_SPITTERSHIP || !p.spittership)
+  .sort((a, b) => new Date(b.date) - new Date(a.date))
 const [featured, ...rest] = sorted
 
 export default function News() {
@@ -75,7 +79,7 @@ export default function News() {
           </div>
           <div className="news-hero-stats">
             <div className="news-hero-stat">
-              <span className="news-hero-stat-val">{posts.length}</span>
+              <span className="news-hero-stat-val">{sorted.length}</span>
               <span className="news-hero-stat-lbl">Posts published</span>
             </div>
             <div className="news-hero-stat">

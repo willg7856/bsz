@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import BrandLogo from './BrandLogo'
+import { SHOW_SPITTERSHIP } from '../featureFlags'
 import './Nav.css'
 
 const projects = [
@@ -14,11 +15,13 @@ const projects = [
     label: 'STRAVOX B1M',
     note: 'Sub-scale 3 km test vehicle',
   },
-  {
-    path: '/spittership',
-    label: 'Spittership',
-    note: 'Spitter / X community vehicle · BSZ + B1M',
-  },
+  ...(SHOW_SPITTERSHIP
+    ? [{
+        path: '/spittership',
+        label: 'Spittership',
+        note: 'Spitter / X community vehicle · BSZ + B1M',
+      }]
+    : []),
   {
     path: '/nozzles',
     label: 'Ceramic Nozzles',

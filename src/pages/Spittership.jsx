@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
 import './Spittership.css'
 
+// Public visibility is controlled by SHOW_SPITTERSHIP in src/featureFlags.js
+// (page + styles are kept even when the flag is false).
+
 const TICK = Array.from({ length: 40 })
 
 const goals = [

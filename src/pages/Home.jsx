@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { SHOW_SPITTERSHIP } from '../featureFlags'
 import './Home.css'
 
 const TICK = Array.from({ length: 40 })
@@ -132,6 +133,7 @@ export default function Home() {
         </div>
       </section>
 
+      {SHOW_SPITTERSHIP && (
       <section className="section dark home-project home-project--dark">
         <div className="container home-project-inner">
           <div className="home-project-text">
@@ -162,6 +164,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      )}
 
       <section className="section home-project">
         <div className="container home-project-inner">

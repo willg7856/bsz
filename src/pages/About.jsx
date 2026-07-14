@@ -333,7 +333,7 @@ export default function About() {
             <p className="eyebrow">Get involved</p>
             <h2>Build with us.</h2>
             <p className="lead">
-              Sponsorship, team applications, Spittership, or media — tell us why you're
+              Sponsorship, team applications, or media — tell us why you're
               reaching out and we'll take it from there.
             </p>
           </div>
