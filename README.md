@@ -19,18 +19,16 @@ Vercel project settings:
 - **Framework:** Vite
 - Uses root `vercel.json` (SPA rewrites)
 
-## beyondstagezero.space (`space/`)
+## beyondstagezero.space
 
-```bash
-cd space
-npm install
-npm run dev
-```
+Served from this same Vercel project (`beyondstagezero/bsz`) via host-based rewrites to `public/space-landing.html`.
 
-Vercel project settings (separate project from `.com`):
-- **Git repository:** `willg7856/bsz` (this repo)
-- **Root Directory:** `space`
-- **Framework:** Next.js
-- **Domain:** `beyondstagezero.space` (+ `www` if you use it)
+In Vercel → Project **bsz** → Settings → Domains, add:
 
-After deleting the old `bsz-cursor` repo, create or reconnect a Vercel project with those settings so `.space` keeps deploying from this monorepo.
+- `beyondstagezero.space`
+- `www.beyondstagezero.space` (optional)
+
+If the domain is still on an old/deleted project, remove it there first, then add it here. After that, every production deploy of this repo updates `.space` automatically.
+
+The Next.js app under [`space/`](./space) remains available if you later want a separate Vercel project with Root Directory = `space`.
+

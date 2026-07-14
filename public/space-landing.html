@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beyond Stage Zero · .space</title>
+    <meta name="description" content="Beyond Stage Zero." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+      }
+
+      body {
+        min-height: 100svh;
+        min-height: 100dvh;
+        background: #0a0a0c;
+        color: #fafaf7;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: rgba(255, 87, 34, 0.4);
+        color: #fafaf7;
+      }
+
+      .space-landing {
+        min-height: 100svh;
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        padding: 2rem;
+      }
+
+      .space-landing-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: clamp(1.25rem, 3vw, 2rem);
+        animation: space-rise 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+      }
+
+      .space-mark {
+        width: auto;
+        height: clamp(36px, 7vw, 56px);
+        color: #fafaf7;
+        animation: space-fade 900ms ease both;
+      }
+
+      .space-wordmark {
+        margin: 0;
+        font-size: clamp(0.875rem, 2.2vw, 1.125rem);
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #fafaf7;
+        animation: space-fade 900ms ease 120ms both;
+      }
+
+      .space-wordmark span {
+        font-weight: 400;
+        opacity: 0.9;
+      }
+
+      .space-domain {
+        margin: 0;
+        font-size: clamp(4.5rem, 18vw, 11rem);
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 0.9;
+        color: #ff5722;
+        animation: space-fade 1000ms ease 220ms both;
+      }
+
+      @keyframes space-rise {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes space-fade {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .space-landing-inner,
+        .space-mark,
+        .space-wordmark,
+        .space-domain {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="space-landing">
+      <div class="space-landing-inner">
+        <svg
+          class="space-mark"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 96 40"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <circle cx="10.5" cy="20" r="5.75" />
+          <rect x="24" y="8.5" width="10" height="2.25" />
+          <rect x="31.75" y="8.5" width="2.25" height="23" />
+          <rect x="24" y="29.25" width="10" height="2.25" />
+          <path d="M42 31.5 L51 8.5 h2.5 L44.5 31.5 H42z" />
+          <path d="M52 31.5 L61 8.5 h2.5 L54.5 31.5 H52z" />
+        </svg>
+        <p class="space-wordmark">BEYOND <span>[STAGE ZERO]</span></p>
+        <h1 class="space-domain">.space</h1>
+      </div>
+    </main>
+  </body>
+</html>
