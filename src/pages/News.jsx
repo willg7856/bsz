@@ -8,7 +8,7 @@ const posts = [
     display: 'May 2026',
     tag: 'Programme',
     title: 'B1M engines in production',
-    body: 'We have begun building three B1M engines — 550 mm tall, 80 mm wide, loaded with 1.2 kg of KNO₃/Sorbitol at a 70:30 ratio. We are targeting approximately 50 kgf of thrust for 7 seconds per firing, and aiming to reuse each casing for at least two static fires. These are the motors that will fly on STRAVOX B1M-01.',
+    body: 'We have begun building three B1M engines — 550 mm tall, 80 mm wide, loaded with 1.2 kg of KNO₃/Sorbitol at a 70:30 ratio. Design is complete; propellant characterisation and engine build are in progress. We are targeting approximately 150 kgf of thrust for 3.5 seconds per firing, and aiming to reuse each casing for at least two static fires. These are the motors that will fly on STRAVOX B1M-01.',
   },
   {
     date: '2026-05-01',
