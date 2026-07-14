@@ -74,6 +74,7 @@ const roster = [
   { name: 'Columbus', role: 'Drone Propulsion Lead' },
   { name: 'Arnav', role: 'TVC Development' },
   { name: 'Wave', role: 'Spittership Lead' },
+  { name: 'Sage', role: 'Fibreglass Lead' },
 ]
 
 export default function About() {
