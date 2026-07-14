@@ -133,7 +133,8 @@
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
   background: var(--bg-elev);
   border: 1px solid var(--line);
   border-radius: var(--r-2);
@@ -150,7 +151,8 @@
 .form-group textarea::placeholder { color: var(--fg-faint); }
 
 .form-group input:focus,
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-group select:focus {
   border-color: var(--ignition-500);
   background: var(--bg);
 }
