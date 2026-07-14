@@ -100,6 +100,36 @@ function MissionControlBackdrop() {
         <div className="mc-col mc-col--center">
           <div className="mc-panel">
             <div className="mc-panel-head">
+              <span>Onboard camera</span>
+              <strong>CAM-AFT · STANDBY</strong>
+            </div>
+            <div className="mc-cam">
+              <div className="mc-cam-sky" />
+              <div className="mc-cam-earth" />
+              <div className="mc-cam-fin mc-cam-fin--l" />
+              <div className="mc-cam-fin mc-cam-fin--r" />
+              <div className="mc-cam-body" />
+              <div className="mc-cam-plume" />
+              <div className="mc-cam-noise" />
+              <div className="mc-cam-corners" />
+              <div className="mc-cam-cross" />
+              <div className="mc-cam-standby">FEED ARMED</div>
+              <div className="mc-cam-hud">
+                <div className="mc-cam-hud-top">
+                  <span className="mc-cam-rec">REC</span>
+                  <span>STRAVOX / AFT</span>
+                  <span>1080P · 60</span>
+                </div>
+                <div className="mc-cam-hud-bot">
+                  <span>ALT ---.- KM</span>
+                  <span>VEL --- M/S</span>
+                  <span>T-∞</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="mc-panel">
+            <div className="mc-panel-head">
               <span>Altitude profile</span>
               <strong>SIM · HOLD</strong>
             </div>
