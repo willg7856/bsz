@@ -51,6 +51,12 @@ const missions = [
 
 const upcoming = [
   {
+    id: 'STRAVOX-HOP-01',
+    name: 'STRAVOX — 100 m Hop Test',
+    note: 'Low-altitude hop of STRAVOX to roughly 100 m. Validates propulsive landing, drone-arm deployment, and vehicle handling before higher-energy flights.',
+    year: '2026',
+  },
+  {
     id: 'STRAVOX-B1M-02',
     name: 'STRAVOX B1M-02',
     note: 'Second B1M flight incorporating fixes and improvements from B1M-01. Objectives TBD based on B1M-01 data.',

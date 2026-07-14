@@ -339,7 +339,7 @@
 /* ── Upcoming ─────────────────────────────────────── */
 .missions-upcoming {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
   border: 1px solid var(--line);
   margin-top: 40px;
@@ -407,6 +407,10 @@
 
   .missions-card-left { border-right: 0; border-bottom: 1px solid var(--line); }
 
+  .missions-milestone-list { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 1024px) {
   .missions-upcoming {
     grid-template-columns: 1fr;
   }
@@ -416,6 +420,4 @@
     border-bottom: 1px solid var(--line);
   }
   .missions-upcoming-card:last-child { border-bottom: 0; }
-
-  .missions-milestone-list { grid-template-columns: 1fr; }
 }
