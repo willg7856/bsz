@@ -17,7 +17,7 @@ const projects = [
   {
     path: '/spittership',
     label: 'Spittership',
-    note: 'Community vehicle · kickoff after first B1M fire',
+    note: 'Spitter / X community vehicle · BSZ + B1M',
   },
   {
     path: '/nozzles',

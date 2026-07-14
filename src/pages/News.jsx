@@ -8,7 +8,7 @@ const posts = [
     display: 'May 2026',
     tag: 'Community',
     title: 'Project Spittership',
-    body: 'Project Spittership will be the first fully community-driven vehicle development — people from all around the world, powered by B1M. Programme kickoff and community formation are planned after we static-fire B1M for the first time.',
+    body: 'Spittership is a working name for a fully community-driven vehicle aimed at Spitter — space Twitter on X, where people join. Beyond Stage Zero manages the project and provides the B1M engine; the community can change everything else, including the name. Kickoff and community formation are planned after the first B1M static fire.',
   },
   {
     date: '2026-05-01',

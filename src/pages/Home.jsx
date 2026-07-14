@@ -143,9 +143,9 @@ export default function Home() {
             <p className="eyebrow" style={{ color: 'var(--ignition-400)' }}>Vehicle · Community</p>
             <h2>Spittership</h2>
             <p className="home-project-desc">
-              The first fully community-driven vehicle development — people from
-              all around the world, powered by B1M. Kickoff planned after the
-              first B1M static fire.
+              Space Twitter builds it — Spitter means the community on X. BSZ
+              manages the project and provides the B1M engine; the community owns
+              the rest (name included). Kickoff after the first B1M static fire.
             </p>
             <Link className="home-rocket-link" to="/spittership">
               Explore the programme →
@@ -157,12 +157,12 @@ export default function Home() {
               <span>Planned</span>
             </div>
             <div className="home-project-meta-row">
-              <span>Kickoff</span>
-              <span>After first B1M fire</span>
+              <span>Join via</span>
+              <span>X · Spitter</span>
             </div>
             <div className="home-project-meta-row">
-              <span>Powered by</span>
-              <span>B1M</span>
+              <span>BSZ role</span>
+              <span>Manage + B1M engine</span>
             </div>
           </div>
         </div>
