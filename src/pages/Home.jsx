@@ -144,7 +144,8 @@ export default function Home() {
             <h2>Spittership</h2>
             <p className="home-project-desc">
               The first fully community-driven vehicle development — people from
-              all around the world, powered by B1M.
+              all around the world, powered by B1M. Kickoff planned after the
+              first B1M static fire.
             </p>
             <Link className="home-rocket-link" to="/spittership">
               Explore the programme →
@@ -153,11 +154,11 @@ export default function Home() {
           <div className="home-project-meta home-project-meta--dark" aria-hidden="true">
             <div className="home-project-meta-row">
               <span>Status</span>
-              <span>Active</span>
+              <span>Planned</span>
             </div>
             <div className="home-project-meta-row">
-              <span>Model</span>
-              <span>Community-driven</span>
+              <span>Kickoff</span>
+              <span>After first B1M fire</span>
             </div>
             <div className="home-project-meta-row">
               <span>Powered by</span>

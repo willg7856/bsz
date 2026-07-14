@@ -27,8 +27,9 @@ const goals = [
 ]
 
 const milestones = [
-  { label: 'Programme kickoff', status: 'active', note: 'Spittership announced as a community-driven vehicle powered by the B1M motor.' },
-  { label: 'Community formation', status: 'active', note: 'Bringing contributors together from around the world to shape the vehicle.' },
+  { label: 'First B1M static fire', status: 'upcoming', note: 'Spittership kickoff waits on the first B1M static fire — the motor has to prove itself on the stand first.' },
+  { label: 'Programme kickoff', status: 'upcoming', note: 'Official Spittership kickoff after the first B1M static fire.' },
+  { label: 'Community formation', status: 'upcoming', note: 'Bring contributors together from around the world once the programme opens.' },
   { label: 'Vehicle concept', status: 'upcoming', note: 'Airframe and systems concept sized around B1M propulsion and community design input.' },
   { label: 'B1M integration', status: 'upcoming', note: 'Motor interface, recovery, and avionics aligned with the B1M engine programme.' },
   { label: 'Build & flight prep', status: 'upcoming', note: 'Fabrication, integration, and range prep toward a community Spittership flight.' },
@@ -49,6 +50,7 @@ export default function Spittership() {
             <p className="spittership-hero-sub">
               Project Spittership — the first fully community-driven vehicle
               development, with people from all around the world, powered by B1M.
+              Kickoff is planned after the first B1M static fire.
             </p>
             <div className="spittership-hero-actions">
               <Link className="btn btn-primary" to="/b1m">B1M motor →</Link>
@@ -57,7 +59,7 @@ export default function Spittership() {
           </div>
           <div className="spittership-hero-stat-row">
             <div className="spittership-hero-stat">
-              <span className="spittership-hero-stat-val">ACTIVE</span>
+              <span className="spittership-hero-stat-val">PLANNED</span>
               <span className="spittership-hero-stat-lbl">Programme status</span>
             </div>
             <div className="spittership-hero-stat">
