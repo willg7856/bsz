@@ -104,12 +104,16 @@ function MissionControlBackdrop() {
               <strong>CAM-AFT · STANDBY</strong>
             </div>
             <div className="mc-cam">
-              <div className="mc-cam-sky" />
-              <div className="mc-cam-earth" />
-              <div className="mc-cam-fin mc-cam-fin--l" />
-              <div className="mc-cam-fin mc-cam-fin--r" />
-              <div className="mc-cam-body" />
-              <div className="mc-cam-plume" />
+              <img
+                className="mc-cam-feed"
+                src="/space-cam-aft.jpg"
+                alt=""
+                width={960}
+                height={640}
+                decoding="async"
+              />
+              <div className="mc-cam-grade" />
+              <div className="mc-cam-scan" />
               <div className="mc-cam-noise" />
               <div className="mc-cam-corners" />
               <div className="mc-cam-cross" />
