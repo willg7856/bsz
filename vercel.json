@@ -1,5 +1,15 @@
 {
   "rewrites": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "beyondstagezero.space" }],
+      "destination": "/space-landing.html"
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.beyondstagezero.space" }],
+      "destination": "/space-landing.html"
+    },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "redirects": [
