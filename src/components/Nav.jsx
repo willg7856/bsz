@@ -216,8 +216,6 @@ export default function Nav() {
             </div>
 
             <nav className="nav-mobile-links" aria-label="Mobile">
-              <Link className={link('/')} to="/" onClick={close}>Home</Link>
-
               <MobileGroup
                 label="Projects"
                 items={projects}
