@@ -107,7 +107,7 @@ export default function About() {
           </p>
           <div className="about-hero-stats">
             <div className="about-stat">
-              <span className="about-stat-val">17</span>
+              <span className="about-stat-val">16</span>
               <span className="about-stat-lbl">Team Members</span>
             </div>
             <div className="about-stat">
@@ -235,7 +235,7 @@ export default function About() {
               <h2>The people.</h2>
             </div>
             <p className="lead">
-              Seventeen students building STRAVOX from Creswick.
+              Sixteen students building STRAVOX from Creswick.
             </p>
           </div>
           <ul className="about-roster">
@@ -255,7 +255,7 @@ export default function About() {
               <h2>What we cover.</h2>
             </div>
             <p className="lead">
-              Seventeen students across the disciplines that make a flight programme real —
+              Sixteen students across the disciplines that make a flight programme real —
               from home-built motors to Goods Shed mission ops.
             </p>
           </div>
