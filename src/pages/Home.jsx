@@ -80,7 +80,7 @@ export default function Home() {
             {[
               { val: '4',    lbl: 'Static fires completed' },
               { val: '9',    lbl: 'Engines built' },
-              { val: '4 km', lbl: 'First mission target' },
+              { val: '3 km', lbl: 'First mission target' },
               { val: '2026', lbl: 'First launch year' },
             ].map(s => (
               <div key={s.lbl} className="home-strip-stat">
@@ -119,7 +119,7 @@ export default function Home() {
             <p className="eyebrow accent">Flight programme</p>
             <h2>Missions</h2>
             <p className="home-project-desc">
-              From the STRAVOX B1M 4 km sub-scale flight to the 100 m drone-powered
+              From the STRAVOX B1M 3 km sub-scale flight to the 100 m drone-powered
               hop and full-scale 30 km attempt — every planned flight, objective,
               and milestone in one place.
             </p>
@@ -130,7 +130,7 @@ export default function Home() {
           <div className="home-project-meta" aria-hidden="true">
             <div className="home-project-meta-row">
               <span>Next up</span>
-              <span>B1M-01 · 4 km</span>
+              <span>B1M-01 · 3 km</span>
             </div>
             <div className="home-project-meta-row">
               <span>Hop test</span>

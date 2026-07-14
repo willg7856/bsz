@@ -5,7 +5,7 @@ const TICK = Array.from({ length: 40 })
 
 const specs = [
   ['Role', 'Sub-scale test vehicle'],
-  ['Target apogee', '4 km'],
+  ['Target apogee', '3 km'],
   ['Motor', 'KNSB B1M — 550 mm × 80 mm'],
   ['Propellant', '1.2 kg KNO₃/Sorbitol 70:30'],
   ['Expected thrust', '~50 kgf for 7 s'],
@@ -16,7 +16,7 @@ const specs = [
 ]
 
 const objectives = [
-  'Reach 4 km target apogee',
+  'Reach 3 km target apogee',
   'Validate KNSB engine in flight',
   'Avionics and flight computer in real conditions',
   'Recovery system deployment',
@@ -32,7 +32,7 @@ const milestones = [
   { label: 'Vehicle design & fabrication', status: 'upcoming', note: 'Airframe, fins, and recovery bay sized around the B1M engine.' },
   { label: 'Avionics integration', status: 'upcoming', note: 'Flight computer, altimeter, GPS, and recovery electronics.' },
   { label: 'CASA range clearance', status: 'upcoming', note: 'Regulatory approval for launch at a CASA-cleared site in Victoria.' },
-  { label: 'STRAVOX B1M-01 launch', status: 'upcoming', note: '4 km apogee. Full flight telemetry. Recover and review.' },
+  { label: 'STRAVOX B1M-01 launch', status: 'upcoming', note: '3 km apogee. Full flight telemetry. Recover and review.' },
 ]
 
 export default function B1m() {
@@ -48,7 +48,7 @@ export default function B1m() {
             </p>
             <h1 className="b1m-hero-h1">STRAVOX<br />B1M.</h1>
             <p className="b1m-hero-sub">
-              Our sub-scale test vehicle — built to reach 4 km apogee on a home-built
+              Our sub-scale test vehicle — built to reach 3 km apogee on a home-built
               KNSB engine and return real flight data before we commit to full-scale
               STRAVOX. What works on B1M goes on STRAVOX.
             </p>
@@ -60,7 +60,7 @@ export default function B1m() {
           <div className="b1m-hero-spec">
             <div className="b1m-spec-row">
               <span className="b1m-spec-lbl">Target apogee</span>
-              <span className="b1m-spec-val accent">4.0 km</span>
+              <span className="b1m-spec-val accent">3.0 km</span>
             </div>
             <div className="b1m-spec-row">
               <span className="b1m-spec-lbl">Motor</span>
@@ -86,7 +86,7 @@ export default function B1m() {
           <div className="section-head">
             <div>
               <p className="eyebrow">Why B1M</p>
-              <h2>Prove it at 4 km first.</h2>
+              <h2>Prove it at 3 km first.</h2>
             </div>
             <p className="lead">
               Flying B1M lets us validate avionics, recovery, and vehicle systems at

@@ -12,7 +12,7 @@ const vehicles = [
   {
     path: '/b1m',
     label: 'STRAVOX B1M',
-    note: 'Sub-scale 4 km test vehicle',
+    note: 'Sub-scale 3 km test vehicle',
   },
   {
     path: '/nozzles',
