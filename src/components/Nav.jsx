@@ -10,6 +10,11 @@ const vehicles = [
     note: 'Full-scale reusable launch vehicle',
   },
   {
+    path: '/b1m',
+    label: 'STRAVOX B1M',
+    note: 'Sub-scale 4 km test vehicle',
+  },
+  {
     path: '/nozzles',
     label: 'Ceramic Nozzles',
     note: 'Ceramic nozzle development programme',

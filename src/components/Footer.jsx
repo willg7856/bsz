@@ -17,6 +17,7 @@ export default function Footer() {
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/stravox">STRAVOX</Link>
+          <Link to="/b1m">B1M</Link>
           <Link to="/missions">Missions</Link>
           <Link to="/tests">Tests</Link>
           <Link to="/nozzles">Nozzles</Link>
