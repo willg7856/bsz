@@ -27,7 +27,10 @@ export default function HomePage() {
         <p className="space-wordmark">
           BEYOND <span>[STAGE ZERO]</span>
         </p>
-        <h1 className="space-domain">.space</h1>
+        <div className="space-hero-copy">
+          <h1 className="space-domain">.space</h1>
+          <p className="space-teaser">Live mission tracking coming soon</p>
+        </div>
       </div>
     </main>
   );
