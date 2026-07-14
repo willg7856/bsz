@@ -209,11 +209,12 @@ export default function Home() {
       <section className="section dark home-project home-project--dark">
         <div className="container home-project-inner">
           <div className="home-project-text">
-            <p className="eyebrow" style={{ color: 'var(--ignition-400)' }}>Software · Avionics</p>
+            <p className="eyebrow" style={{ color: 'var(--ignition-400)' }}>Data link · Mission control</p>
             <h2>Octopus</h2>
             <p className="home-project-desc">
-              Our custom flight and ground software — the stack that will sense,
-              decide, and report from BSZ vehicles, starting with STRAVOX B1M.
+              The connection that gets pad data — and later vehicle data — into
+              Goods Shed mission control during static fires and launches. Not
+              the flight computer.
             </p>
             <Link className="home-rocket-link" to="/octopus">
               Explore the programme →
@@ -225,12 +226,12 @@ export default function Home() {
               <span>Active</span>
             </div>
             <div className="home-project-meta-row">
-              <span>Scope</span>
-              <span>Flight + ground</span>
+              <span>Path</span>
+              <span>Pad → Goods Shed</span>
             </div>
             <div className="home-project-meta-row">
-              <span>Target</span>
-              <span>B1M-01</span>
+              <span>Also</span>
+              <span>Vehicle → MC</span>
             </div>
           </div>
         </div>
