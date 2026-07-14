@@ -92,11 +92,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Rocket preview ──────────────────────────── */}
+      {/* ── Vehicles & projects ─────────────────────── */}
       <section className="section dark home-rocket">
         <div className="container home-rocket-inner">
           <div className="home-rocket-text">
-            <p className="eyebrow" style={{ color: 'var(--ignition-400)' }}>Currently in development</p>
+            <p className="eyebrow" style={{ color: 'var(--ignition-400)' }}>Vehicle · Currently in development</p>
             <h2>STRAVOX</h2>
             <p className="home-rocket-desc">
               A 2,633 mm high-power rocket with a split nosecone airbrake and
@@ -109,6 +109,68 @@ export default function Home() {
           </div>
           <div className="home-rocket-img-wrap">
             <img src="/stravox-render.png" alt="STRAVOX rocket render" className="home-rocket-img" />
+          </div>
+        </div>
+      </section>
+
+      <section className="section home-project">
+        <div className="container home-project-inner">
+          <div className="home-project-text">
+            <p className="eyebrow accent">Flight programme</p>
+            <h2>Missions</h2>
+            <p className="home-project-desc">
+              From the STRAVOX B1M 4 km sub-scale flight to the 100 m drone-powered
+              hop and full-scale 30 km attempt — every planned flight, objective,
+              and milestone in one place.
+            </p>
+            <Link className="home-project-link" to="/missions">
+              View the mission pipeline →
+            </Link>
+          </div>
+          <div className="home-project-meta" aria-hidden="true">
+            <div className="home-project-meta-row">
+              <span>Next up</span>
+              <span>B1M-01 · 4 km</span>
+            </div>
+            <div className="home-project-meta-row">
+              <span>Hop test</span>
+              <span>100 m · drone power</span>
+            </div>
+            <div className="home-project-meta-row">
+              <span>Full scale</span>
+              <span>STRAVOX · 30 km</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section dark home-project home-project--dark">
+        <div className="container home-project-inner">
+          <div className="home-project-text">
+            <p className="eyebrow" style={{ color: 'var(--ignition-400)' }}>Propulsion · Ground test</p>
+            <h2>Engine Tests</h2>
+            <p className="home-project-desc">
+              Static-fire campaigns, engine builds, and propellant work that feed
+              every vehicle we fly. Mk I and Mk II results are public — B1M motors
+              are next on the stand.
+            </p>
+            <Link className="home-rocket-link" to="/tests">
+              See the test log →
+            </Link>
+          </div>
+          <div className="home-project-meta home-project-meta--dark" aria-hidden="true">
+            <div className="home-project-meta-row">
+              <span>Static fires</span>
+              <span>4 completed</span>
+            </div>
+            <div className="home-project-meta-row">
+              <span>Engines built</span>
+              <span>9 total</span>
+            </div>
+            <div className="home-project-meta-row">
+              <span>Next campaign</span>
+              <span>B1M static fires</span>
+            </div>
           </div>
         </div>
       </section>
