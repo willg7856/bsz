@@ -13,6 +13,7 @@ import Nozzles from './pages/Nozzles'
 import Octopus from './pages/Octopus'
 import Spittership from './pages/Spittership'
 import News from './pages/News'
+import { SHOW_SPITTERSHIP } from './featureFlags'
 
 export default function App() {
   return (
@@ -24,7 +25,9 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/stravox" element={<Stravox />} />
         <Route path="/b1m" element={<B1m />} />
-        <Route path="/spittership" element={<Spittership />} />
+        {SHOW_SPITTERSHIP && (
+          <Route path="/spittership" element={<Spittership />} />
+        )}
         <Route path="/missions" element={<Missions />} />
         <Route path="/tests" element={<Tests />} />
         <Route path="/nozzles" element={<Nozzles />} />

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { SHOW_SPITTERSHIP } from '../featureFlags'
 import './Contact.css'
 
 const TICK = Array.from({ length: 40 })
@@ -6,7 +7,7 @@ const TICK = Array.from({ length: 40 })
 const REASONS = [
   'Sponsorship or partnership',
   'Joining the team',
-  'Join Spittership',
+  ...(SHOW_SPITTERSHIP ? ['Join Spittership'] : []),
   'Media enquiries',
   'General questions',
 ]
