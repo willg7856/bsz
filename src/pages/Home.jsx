@@ -206,6 +206,36 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section dark home-project home-project--dark">
+        <div className="container home-project-inner">
+          <div className="home-project-text">
+            <p className="eyebrow" style={{ color: 'var(--ignition-400)' }}>Software · Avionics</p>
+            <h2>Octopus</h2>
+            <p className="home-project-desc">
+              Our custom flight and ground software — the stack that will sense,
+              decide, and report from BSZ vehicles, starting with STRAVOX B1M.
+            </p>
+            <Link className="home-rocket-link" to="/octopus">
+              Explore the programme →
+            </Link>
+          </div>
+          <div className="home-project-meta home-project-meta--dark" aria-hidden="true">
+            <div className="home-project-meta-row">
+              <span>Status</span>
+              <span>Active</span>
+            </div>
+            <div className="home-project-meta-row">
+              <span>Scope</span>
+              <span>Flight + ground</span>
+            </div>
+            <div className="home-project-meta-row">
+              <span>Target</span>
+              <span>B1M-01</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
   )
 }

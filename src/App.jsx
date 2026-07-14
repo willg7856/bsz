@@ -10,6 +10,7 @@ import Contact from './pages/Contact'
 import Missions from './pages/Missions'
 import Tests from './pages/Tests'
 import Nozzles from './pages/Nozzles'
+import Octopus from './pages/Octopus'
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/missions" element={<Missions />} />
         <Route path="/tests" element={<Tests />} />
         <Route path="/nozzles" element={<Nozzles />} />
+        <Route path="/octopus" element={<Octopus />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />

@@ -28,7 +28,7 @@ const missions = [
       { label: 'B1M engine static fires',  status: 'upcoming', note: 'Ground firing campaign to validate B1M motor before flight (~150 kgf, 3.5 s burn).' },
       { label: 'Vehicle design',           status: 'upcoming', note: 'Airframe, fins, and recovery bay sized for B1M engine.' },
       { label: 'Vehicle fabrication',      status: 'upcoming', note: 'Airframe construction and component manufacture.' },
-      { label: 'Avionics integration',     status: 'upcoming', note: 'Flight computer, altimeter, GPS, and recovery electronics.' },
+      { label: 'Avionics integration',     status: 'upcoming', note: 'Octopus flight software with flight computer, altimeter, GPS, and recovery electronics.' },
       { label: 'Ground systems test',      status: 'upcoming', note: 'Full vehicle systems check on the pad before flight.' },
       { label: 'CASA range clearance',     status: 'upcoming', note: 'Regulatory approval for launch at a CASA-cleared site in Victoria.' },
       { label: 'Launch readiness review',  status: 'upcoming', note: 'Final internal review before committing to launch day.' },

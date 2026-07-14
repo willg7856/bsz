@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import BrandLogo from './BrandLogo'
 import './Nav.css'
 
-const vehicles = [
+const projects = [
   {
     path: '/stravox',
     label: 'STRAVOX',
@@ -18,6 +18,11 @@ const vehicles = [
     path: '/nozzles',
     label: 'Ceramic Nozzles',
     note: 'Ceramic nozzle development programme',
+  },
+  {
+    path: '/octopus',
+    label: 'Octopus',
+    note: 'Custom flight and ground software',
   },
 ]
 
@@ -34,19 +39,19 @@ function useIsMobile() {
 export default function Nav() {
   const { pathname } = useLocation()
   const [open, setOpen] = useState(false)
-  const [vehiclesOpen, setVehiclesOpen] = useState(false)
+  const [projectsOpen, setProjectsOpen] = useState(false)
   const isMobile = useIsMobile()
   const link = (path) => `nav-link${pathname === path ? ' active' : ''}`
-  const vehicleActive = vehicles.some((v) => pathname === v.path)
+  const projectActive = projects.some((v) => pathname === v.path)
   const close = () => {
     setOpen(false)
-    setVehiclesOpen(false)
+    setProjectsOpen(false)
   }
 
   useEffect(() => {
     if (!isMobile) {
       setOpen(false)
-      setVehiclesOpen(false)
+      setProjectsOpen(false)
     }
   }, [isMobile])
 
@@ -72,18 +77,18 @@ export default function Nav() {
               <Link className={link('/')} to="/">Home</Link>
               <Link className={link('/about')} to="/about">About</Link>
 
-              <div className={`nav-dropdown${vehicleActive ? ' active' : ''}`}>
+              <div className={`nav-dropdown${projectActive ? ' active' : ''}`}>
                 <button
                   type="button"
-                  className={`nav-dropdown-trigger${vehicleActive ? ' active' : ''}`}
+                  className={`nav-dropdown-trigger${projectActive ? ' active' : ''}`}
                   aria-expanded="false"
                   aria-haspopup="true"
                 >
-                  Vehicles
+                  Projects
                   <span className="nav-dropdown-caret" aria-hidden="true" />
                 </button>
                 <div className="nav-dropdown-menu" role="menu">
-                  {vehicles.map((v) => (
+                  {projects.map((v) => (
                     <Link
                       key={v.path}
                       className={`nav-dropdown-item${pathname === v.path ? ' active' : ''}`}
@@ -118,19 +123,19 @@ export default function Nav() {
           <Link className={link('/')} to="/" onClick={close}>Home</Link>
           <Link className={link('/about')} to="/about" onClick={close}>About</Link>
 
-          <div className={`nav-mobile-group${vehiclesOpen ? ' is-open' : ''}`}>
+          <div className={`nav-mobile-group${projectsOpen ? ' is-open' : ''}`}>
             <button
               type="button"
-              className={`nav-mobile-group-trigger${vehicleActive ? ' active' : ''}`}
-              onClick={() => setVehiclesOpen((o) => !o)}
-              aria-expanded={vehiclesOpen}
+              className={`nav-mobile-group-trigger${projectActive ? ' active' : ''}`}
+              onClick={() => setProjectsOpen((o) => !o)}
+              aria-expanded={projectsOpen}
             >
-              Vehicles
+              Projects
               <span className="nav-dropdown-caret" aria-hidden="true" />
             </button>
-            {vehiclesOpen && (
+            {projectsOpen && (
               <div className="nav-mobile-group-links">
-                {vehicles.map((v) => (
+                {projects.map((v) => (
                   <Link
                     key={v.path}
                     className={link(v.path)}
