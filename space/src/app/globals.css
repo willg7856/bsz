@@ -25,10 +25,11 @@ html {
 body {
   margin: 0;
   min-height: 100svh;
-  background: #0a0a0c;
+  background: #07080a;
   color: #fafaf7;
   font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
   -webkit-font-smoothing: antialiased;
+  overflow: hidden;
 }
 
 ::selection {

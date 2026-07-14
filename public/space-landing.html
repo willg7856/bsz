@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Beyond Stage Zero · .space</title>
-    <meta name="description" content="Beyond Stage Zero." />
+    <meta name="description" content="Beyond Stage Zero — live mission tracking coming soon." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,10 +28,11 @@
       body {
         min-height: 100svh;
         min-height: 100dvh;
-        background: #0a0a0c;
+        background: #07080a;
         color: #fafaf7;
         font-family: "JetBrains Mono", ui-monospace, monospace;
         -webkit-font-smoothing: antialiased;
+        overflow: hidden;
       }
 
       ::selection {
@@ -40,14 +41,218 @@
       }
 
       .space-landing {
+        position: relative;
+        isolation: isolate;
         min-height: 100svh;
         min-height: 100dvh;
         display: grid;
         place-items: center;
         padding: 2rem;
+        overflow: hidden;
       }
 
+      /* ── Mission control backdrop ───────────────── */
+      .mc {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .mc-grid {
+        position: absolute;
+        inset: -10%;
+        background-image:
+          linear-gradient(rgba(250, 250, 247, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(250, 250, 247, 0.035) 1px, transparent 1px);
+        background-size: 48px 48px;
+        mask-image: radial-gradient(ellipse 70% 55% at 50% 48%, #000 20%, transparent 75%);
+        -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 48%, #000 20%, transparent 75%);
+        opacity: 0.7;
+      }
+
+      .mc-glow {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 55% 40% at 50% 42%, rgba(255, 87, 34, 0.1), transparent 70%),
+          radial-gradient(ellipse 40% 35% at 18% 70%, rgba(45, 194, 217, 0.07), transparent 65%),
+          radial-gradient(ellipse 35% 30% at 82% 28%, rgba(45, 194, 217, 0.05), transparent 60%);
+      }
+
+      .mc-panels {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        grid-template-columns: 1fr minmax(0, 42rem) 1fr;
+        gap: clamp(0.75rem, 2vw, 1.5rem);
+        padding: clamp(1rem, 3vw, 2.5rem);
+        opacity: 0.34;
+        filter: blur(0.4px);
+      }
+
+      .mc-col {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        min-width: 0;
+      }
+
+      .mc-col--left { justify-content: flex-end; padding-bottom: 12vh; }
+      .mc-col--center { justify-content: flex-start; padding-top: 8vh; }
+      .mc-col--right { justify-content: center; }
+
+      .mc-panel {
+        border: 1px solid rgba(250, 250, 247, 0.12);
+        background: rgba(10, 12, 16, 0.55);
+        padding: 0.7rem 0.85rem;
+        min-height: 0;
+      }
+
+      .mc-panel-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.75rem;
+        margin-bottom: 0.55rem;
+        font-size: 0.5625rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(250, 250, 247, 0.45);
+      }
+
+      .mc-panel-head strong {
+        color: rgba(45, 194, 217, 0.85);
+        font-weight: 500;
+      }
+
+      .mc-rows {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+
+      .mc-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        font-size: 0.625rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(250, 250, 247, 0.55);
+        border-bottom: 1px dashed rgba(250, 250, 247, 0.08);
+        padding-bottom: 0.28rem;
+      }
+      .mc-row:last-child { border-bottom: 0; padding-bottom: 0; }
+      .mc-row span:last-child { color: rgba(250, 250, 247, 0.82); font-variant-numeric: tabular-nums; }
+      .mc-row .warn { color: #ffc400; }
+      .mc-row .ok { color: #18a957; }
+      .mc-row .live { color: #2dc2d9; }
+
+      .mc-chart {
+        height: 72px;
+        margin-top: 0.25rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .mc-chart svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .mc-chart-line {
+        fill: none;
+        stroke: rgba(255, 87, 34, 0.75);
+        stroke-width: 1.6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 220;
+        stroke-dashoffset: 220;
+        animation: mc-draw 3.2s ease-out 0.4s both;
+      }
+
+      .mc-chart-grid line {
+        stroke: rgba(250, 250, 247, 0.08);
+        stroke-width: 1;
+      }
+
+      .mc-stream {
+        font-size: 0.5625rem;
+        line-height: 1.55;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(250, 250, 247, 0.4);
+        max-height: 7.5rem;
+        overflow: hidden;
+        mask-image: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
+        -webkit-mask-image: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
+      }
+
+      .mc-stream-track {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        animation: mc-scroll 18s linear infinite;
+      }
+
+      .mc-ticker {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        gap: 2rem;
+        padding: 0.65rem 1.25rem;
+        border-top: 1px solid rgba(250, 250, 247, 0.08);
+        background: linear-gradient(180deg, transparent, rgba(7, 8, 10, 0.85));
+        font-size: 0.625rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(250, 250, 247, 0.35);
+        white-space: nowrap;
+        overflow: hidden;
+        opacity: 0.55;
+      }
+
+      .mc-ticker-track {
+        display: inline-flex;
+        gap: 2rem;
+        animation: mc-marquee 28s linear infinite;
+      }
+
+      .mc-ticker em {
+        font-style: normal;
+        color: rgba(255, 87, 34, 0.8);
+      }
+
+      .mc-scan {
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          180deg,
+          transparent 0,
+          transparent 3px,
+          rgba(0, 0, 0, 0.12) 3px,
+          rgba(0, 0, 0, 0.12) 4px
+        );
+        opacity: 0.35;
+        mix-blend-mode: multiply;
+      }
+
+      .mc-vignette {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 55% 45% at 50% 48%, transparent 0%, rgba(7, 8, 10, 0.55) 55%, #07080a 100%),
+          linear-gradient(180deg, rgba(7, 8, 10, 0.55), transparent 18%, transparent 78%, rgba(7, 8, 10, 0.8));
+      }
+
+      /* ── Foreground brand ───────────────────────── */
       .space-landing-inner {
+        position: relative;
+        z-index: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -63,6 +268,7 @@
         height: clamp(48px, 9vw, 72px);
         color: #fafaf7;
         animation: space-fade 900ms ease both;
+        filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.45));
       }
 
       .space-wordmark {
@@ -73,6 +279,7 @@
         text-transform: uppercase;
         color: #fafaf7;
         animation: space-fade 900ms ease 120ms both;
+        text-shadow: 0 2px 24px rgba(0, 0, 0, 0.65);
       }
 
       .space-wordmark span {
@@ -88,6 +295,7 @@
         line-height: 0.9;
         color: #ff5722;
         animation: space-fade 1000ms ease 220ms both;
+        text-shadow: 0 6px 40px rgba(0, 0, 0, 0.55);
       }
 
       .space-teaser {
@@ -100,6 +308,7 @@
         text-transform: uppercase;
         color: #fafaf7;
         animation: space-fade 1000ms ease 380ms both;
+        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.65);
       }
 
       @keyframes space-rise {
@@ -114,11 +323,35 @@
       }
 
       @keyframes space-fade {
-        from {
-          opacity: 0;
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes mc-draw {
+        to { stroke-dashoffset: 0; }
+      }
+
+      @keyframes mc-scroll {
+        from { transform: translateY(0); }
+        to { transform: translateY(-50%); }
+      }
+
+      @keyframes mc-marquee {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+      }
+
+      @media (max-width: 820px) {
+        .mc-panels {
+          grid-template-columns: 1fr;
+          opacity: 0.28;
         }
-        to {
-          opacity: 1;
+        .mc-col--left,
+        .mc-col--right { display: none; }
+        .mc-col--center {
+          padding-top: 6vh;
+          justify-content: flex-end;
+          padding-bottom: 18vh;
         }
       }
 
@@ -127,14 +360,131 @@
         .space-mark,
         .space-wordmark,
         .space-domain,
-        .space-teaser {
+        .space-teaser,
+        .mc-chart-line,
+        .mc-stream-track,
+        .mc-ticker-track {
           animation: none;
         }
+        .mc-chart-line { stroke-dashoffset: 0; }
       }
     </style>
   </head>
   <body>
     <main class="space-landing">
+      <div class="mc" aria-hidden="true">
+        <div class="mc-grid"></div>
+        <div class="mc-glow"></div>
+
+        <div class="mc-panels">
+          <div class="mc-col mc-col--left">
+            <div class="mc-panel">
+              <div class="mc-panel-head">
+                <span>Pad telemetry</span>
+                <strong>LINK STANDBY</strong>
+              </div>
+              <div class="mc-rows">
+                <div class="mc-row"><span>Range</span><span>VIC · CASA</span></div>
+                <div class="mc-row"><span>Pad bus</span><span class="live">IDLE</span></div>
+                <div class="mc-row"><span>Octopus</span><span>GOODS SHED</span></div>
+                <div class="mc-row"><span>Uplink</span><span class="warn">ARMED SOON</span></div>
+              </div>
+            </div>
+            <div class="mc-panel">
+              <div class="mc-panel-head">
+                <span>Propulsion</span>
+                <strong>B1M</strong>
+              </div>
+              <div class="mc-rows">
+                <div class="mc-row"><span>Thrust tgt</span><span>~150 KGF</span></div>
+                <div class="mc-row"><span>Burn</span><span>3.5 S</span></div>
+                <div class="mc-row"><span>Propellant</span><span>KNSB 65:35</span></div>
+                <div class="mc-row"><span>Static fires</span><span class="ok">04 LOGGED</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mc-col mc-col--center">
+            <div class="mc-panel">
+              <div class="mc-panel-head">
+                <span>Altitude profile</span>
+                <strong>SIM · HOLD</strong>
+              </div>
+              <div class="mc-chart">
+                <svg viewBox="0 0 320 72" preserveAspectRatio="none">
+                  <g class="mc-chart-grid">
+                    <line x1="0" y1="18" x2="320" y2="18" />
+                    <line x1="0" y1="36" x2="320" y2="36" />
+                    <line x1="0" y1="54" x2="320" y2="54" />
+                  </g>
+                  <path
+                    class="mc-chart-line"
+                    d="M4 64 C 48 62, 72 58, 96 40 S 140 8, 168 10 S 220 28, 248 44 S 292 58, 316 52"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="mc-col mc-col--right">
+            <div class="mc-panel">
+              <div class="mc-panel-head">
+                <span>Event log</span>
+                <strong>BUFFER</strong>
+              </div>
+              <div class="mc-stream">
+                <div class="mc-stream-track">
+                  <span>T-∞ · MC ONLINE · GOODS SHED</span>
+                  <span>SYS · OCTOPUS PATH CHECK</span>
+                  <span>ENG · B1M CASING READY</span>
+                  <span>NAV · RANGE WINDOW Q4'26–Q1'27</span>
+                  <span>REC · RECOVERY BAY PENDING</span>
+                  <span>NET · PAD BUS STANDBY</span>
+                  <span>OPS · TRACKING FEED LOCKED</span>
+                  <span>T-∞ · MC ONLINE · GOODS SHED</span>
+                  <span>SYS · OCTOPUS PATH CHECK</span>
+                  <span>ENG · B1M CASING READY</span>
+                  <span>NAV · RANGE WINDOW Q4'26–Q1'27</span>
+                  <span>REC · RECOVERY BAY PENDING</span>
+                  <span>NET · PAD BUS STANDBY</span>
+                  <span>OPS · TRACKING FEED LOCKED</span>
+                </div>
+              </div>
+            </div>
+            <div class="mc-panel">
+              <div class="mc-panel-head">
+                <span>Vehicle</span>
+                <strong>STRAVOX</strong>
+              </div>
+              <div class="mc-rows">
+                <div class="mc-row"><span>Apogee tgt</span><span>30.0 KM</span></div>
+                <div class="mc-row"><span>Length</span><span>2,633 MM</span></div>
+                <div class="mc-row"><span>Peak vel</span><span>MACH 2.5</span></div>
+                <div class="mc-row"><span>Mode</span><span class="live">PRE-FLIGHT</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mc-ticker">
+          <div class="mc-ticker-track">
+            <span>MISSION CONTROL · GOODS SHED</span>
+            <span>OCTOPUS DATA LINK · STANDBY</span>
+            <span>B1M-01 · <em>Q4 2026 – Q1 2027</em></span>
+            <span>TRACKING FEED · COMING ONLINE</span>
+            <span>CRESWICK VIC · AUSTRALIA</span>
+            <span>MISSION CONTROL · GOODS SHED</span>
+            <span>OCTOPUS DATA LINK · STANDBY</span>
+            <span>B1M-01 · <em>Q4 2026 – Q1 2027</em></span>
+            <span>TRACKING FEED · COMING ONLINE</span>
+            <span>CRESWICK VIC · AUSTRALIA</span>
+          </div>
+        </div>
+
+        <div class="mc-scan"></div>
+        <div class="mc-vignette"></div>
+      </div>
+
       <div class="space-landing-inner">
         <svg
           class="space-mark"
