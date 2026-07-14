@@ -16,31 +16,31 @@ export default function Home() {
             <h1 className="home-hero-h1">
               Beyond Stage <span className="home-hero-accent">Zero.</span>
               <span className="home-hero-h1-divider" aria-hidden="true" />
-              <span className="home-hero-h1-sub">An Australian student<br />rocketry team.</span>
+              <span className="home-hero-h1-sub">Australia's first fully and<br />rapidly reusable launch vehicle.</span>
             </h1>
             <p className="home-hero-sub">
-              Sixteen students building toward Australia's first fully and rapidly
-              reusable launch vehicle — designing, machining, and testing from
-              Creswick, Victoria.
+              An Australian student rocketry team designing, building, and flying
+              from Creswick, Victoria — starting with <span className="mono">STRAVOX</span> and
+              the B1M sub-scale programme.
             </p>
             <div className="home-hero-actions">
-              <Link className="btn btn-primary" to="/about">About the team →</Link>
-              <Link className="btn btn-ghost-dark" to="/stravox">Explore STRAVOX</Link>
+              <Link className="btn btn-primary" to="/stravox">Explore the rocket →</Link>
+              <Link className="btn btn-ghost-dark" to="/about">About the team</Link>
             </div>
           </div>
 
           <div className="home-hero-spec">
             <div className="home-spec-row">
-              <span className="home-spec-lbl">Team</span>
-              <span className="home-spec-val accent">16 students</span>
+              <span className="home-spec-lbl">Vehicles in production</span>
+              <span className="home-spec-val accent">2</span>
             </div>
             <div className="home-spec-row">
-              <span className="home-spec-lbl">Founded</span>
-              <span className="home-spec-val">2025</span>
+              <span className="home-spec-lbl">STRAVOX</span>
+              <span className="home-spec-val">Full-scale · design</span>
             </div>
             <div className="home-spec-row">
-              <span className="home-spec-lbl">Based in</span>
-              <span className="home-spec-val">Creswick · VIC</span>
+              <span className="home-spec-lbl">STRAVOX B1M</span>
+              <span className="home-spec-val">Sub-scale · build</span>
             </div>
             <div className="home-spec-row">
               <span className="home-spec-lbl">First flight</span>
