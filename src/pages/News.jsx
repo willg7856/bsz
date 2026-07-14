@@ -15,7 +15,7 @@ const posts = [
     display: 'May 2026',
     tag: 'Programme',
     title: 'STRAVOX B1M-01 announced',
-    body: 'Our first planned mission is STRAVOX B1M-01 — a sub-scale flight to 3 km apogee on a BSZ-built KNSB engine. B1M is our systems validation vehicle: it lets us test avionics, recovery, and propulsion in real flight conditions before committing to the full 30 km STRAVOX programme. We are targeting launch in 2026 from a CASA-cleared site in Victoria.',
+    body: 'Our first planned mission is STRAVOX B1M-01 — a sub-scale flight to 3 km apogee on a BSZ-built KNSB engine. B1M is our systems validation vehicle: it lets us test avionics, recovery, and propulsion in real flight conditions before committing to the full 30 km STRAVOX programme. We are targeting launch in Q4 2026 to Q1 2027 from a CASA-cleared site in Victoria.',
   },
   {
     date: '2026-04-26',
