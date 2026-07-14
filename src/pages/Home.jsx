@@ -175,6 +175,37 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section home-project">
+        <div className="container home-project-inner">
+          <div className="home-project-text">
+            <p className="eyebrow accent">Propulsion · Materials</p>
+            <h2>Ceramic Nozzles</h2>
+            <p className="home-project-desc">
+              A programme to design and qualify ceramic nozzles that survive our
+              burns — after early motors lost nozzles to ejection and thermal
+              damage. From insert prototypes to B1M-ready stacks.
+            </p>
+            <Link className="home-project-link" to="/nozzles">
+              Explore the programme →
+            </Link>
+          </div>
+          <div className="home-project-meta" aria-hidden="true">
+            <div className="home-project-meta-row">
+              <span>Status</span>
+              <span>Active</span>
+            </div>
+            <div className="home-project-meta-row">
+              <span>Focus</span>
+              <span>Retention + heat</span>
+            </div>
+            <div className="home-project-meta-row">
+              <span>Target</span>
+              <span>B1M integration</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
   )
 }
