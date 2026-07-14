@@ -21,6 +21,7 @@ export default function Footer() {
           <Link to="/spittership">Spittership</Link>
           <Link to="/missions">Missions</Link>
           <Link to="/tests">Tests</Link>
+          <Link to="/news">News</Link>
           <Link to="/nozzles">Nozzles</Link>
           <Link to="/octopus">Octopus</Link>
           <Link to="/contact">Contact</Link>

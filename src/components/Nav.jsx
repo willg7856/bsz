@@ -109,6 +109,7 @@ export default function Nav() {
 
               <Link className={link('/missions')} to="/missions">Missions</Link>
               <Link className={link('/tests')} to="/tests">Tests</Link>
+              <Link className={link('/news')} to="/news">News</Link>
               <Link className={link('/contact')} to="/contact">Contact</Link>
               <a
                 className="nav-cta"
@@ -156,6 +157,7 @@ export default function Nav() {
 
           <Link className={link('/missions')} to="/missions" onClick={close}>Missions</Link>
           <Link className={link('/tests')} to="/tests" onClick={close}>Tests</Link>
+          <Link className={link('/news')} to="/news" onClick={close}>News</Link>
           <Link className={link('/contact')} to="/contact" onClick={close}>Contact</Link>
           <a
             className="nav-cta-mobile"

@@ -12,6 +12,7 @@ import Tests from './pages/Tests'
 import Nozzles from './pages/Nozzles'
 import Octopus from './pages/Octopus'
 import Spittership from './pages/Spittership'
+import News from './pages/News'
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/tests" element={<Tests />} />
         <Route path="/nozzles" element={<Nozzles />} />
         <Route path="/octopus" element={<Octopus />} />
+        <Route path="/news" element={<News />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
