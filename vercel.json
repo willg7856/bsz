@@ -1,34 +1,12 @@
 {
   "redirects": [
     {
-      "source": "/",
-      "has": [{ "type": "host", "value": "beyondstagezero.space" }],
-      "destination": "/space-landing.html",
-      "permanent": false
-    },
-    {
-      "source": "/",
-      "has": [{ "type": "host", "value": "www.beyondstagezero.space" }],
-      "destination": "/space-landing.html",
-      "permanent": false
-    },
-    {
       "source": "/contacts",
       "destination": "/contact",
       "permanent": true
     }
   ],
   "rewrites": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "beyondstagezero.space" }],
-      "destination": "/space-landing.html"
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.beyondstagezero.space" }],
-      "destination": "/space-landing.html"
-    },
     {
       "source": "/(.*)",
       "missing": [

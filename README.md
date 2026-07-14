@@ -21,7 +21,7 @@ Vercel project settings:
 
 ## beyondstagezero.space
 
-Served from this same Vercel project (`beyondstagezero/bsz`) via host-based rewrites to `public/space-landing.html`.
+Served from this same Vercel project (`beyondstagezero/bsz`). Edge middleware rewrites `.space` hosts to `public/space-landing.html` while keeping the URL as `https://beyondstagezero.space/` (static `index.html` would otherwise win before `vercel.json` rewrites).
 
 In Vercel → Project **bsz** → Settings → Domains, add:
 
