@@ -235,7 +235,8 @@ export default function About() {
               <h2>The people.</h2>
             </div>
             <p className="lead">
-              Sixteen students building STRAVOX from Creswick.
+              Sixteen students building STRAVOX from all around the world,
+              primarily Victoria.
             </p>
           </div>
           <ul className="about-roster">
