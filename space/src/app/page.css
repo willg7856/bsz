@@ -21,7 +21,7 @@
 
 .space-mark {
   width: auto;
-  height: clamp(36px, 7vw, 56px);
+  height: clamp(48px, 9vw, 72px);
   color: #fafaf7;
   animation: space-fade 900ms ease both;
 }

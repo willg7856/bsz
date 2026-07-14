@@ -1,8 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 40" fill="currentColor" aria-hidden="true">
-  <circle cx="10.5" cy="20" r="5.75" />
-  <rect x="24" y="8.5" width="10" height="2.25" />
-  <rect x="31.75" y="8.5" width="2.25" height="23" />
-  <rect x="24" y="29.25" width="10" height="2.25" />
-  <path d="M42 31.5 L51 8.5 h2.5 L44.5 31.5 H42z" />
-  <path d="M52 31.5 L61 8.5 h2.5 L54.5 31.5 H52z" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="currentColor" role="img" aria-label="Beyond Stage Zero">
+  <circle cx="25.6" cy="60" r="18"/>
+  <path d="M45.1 23 L55.1 23 L55.1 97 L45.1 97" fill="none" stroke="currentColor" stroke-width="9"/>
+  <line x1="70.7" y1="82" x2="90.7" y2="38" stroke="currentColor" stroke-width="9"/>
+  <line x1="88.3" y1="82" x2="108.3" y2="38" stroke="currentColor" stroke-width="9"/>
 </svg>
