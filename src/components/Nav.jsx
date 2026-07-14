@@ -22,7 +22,7 @@ const projects = [
   {
     path: '/octopus',
     label: 'Octopus',
-    note: 'Custom flight and ground software',
+    note: 'Pad and vehicle data link to mission control',
   },
 ]
 

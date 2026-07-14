@@ -6,9 +6,9 @@ const posts = [
   {
     date: '2026-05-01',
     display: 'May 2026',
-    tag: 'Software',
-    title: 'Octopus software programme',
-    body: 'We are building Octopus — Beyond Stage Zero\'s custom flight and ground software. It will handle onboard sensing and flight logic, pad-side checks, live telemetry, and post-flight review for our vehicles. First flight target is STRAVOX B1M-01.',
+    tag: 'Data link',
+    title: 'Octopus data link',
+    body: 'We are building Octopus — the connection that gets data from the pad during static fires and launches into Goods Shed mission control. It will also support a vehicle-to-mission-control link. Octopus is not planned to be the flight computer; it moves data to the shed so the team can run range operations live.',
   },
   {
     date: '2026-05-01',

@@ -6,32 +6,32 @@ const TICK = Array.from({ length: 40 })
 const goals = [
   {
     index: '01',
-    title: 'Fly our own stack',
-    desc: 'A custom software system built for BSZ vehicles — not a black-box commercial flight computer bolted on at the last minute.',
+    title: 'Pad to Goods Shed',
+    desc: 'Get live data off the pad during static fires and launches, and deliver it to mission control in the Goods Shed.',
   },
   {
     index: '02',
-    title: 'Sense and decide',
-    desc: 'Ingest sensor data, run flight logic, and drive recovery and landing systems with timing we can inspect and tune.',
+    title: 'Mission control link',
+    desc: 'A reliable connection between the range and the Goods Shed so the team can watch burns and flights as they happen.',
   },
   {
     index: '03',
-    title: 'Talk to the ground',
-    desc: 'Telemetry, command, and post-flight review in one coherent pipeline — from pad checks through recovery.',
+    title: 'Vehicle to MC',
+    desc: 'Extend the same link for vehicle-to-mission-control data — telemetry from the rocket into the Goods Shed.',
   },
   {
     index: '04',
-    title: 'Prove on B1M',
-    desc: 'Ship on STRAVOX B1M first. What works at 3 km scales into full-scale STRAVOX avionics.',
+    title: 'Not the flight computer',
+    desc: 'Octopus moves data. Flight control and onboard decision-making stay on separate systems — Octopus is the pipe, not the brain.',
   },
 ]
 
 const milestones = [
-  { label: 'Architecture definition', status: 'active', note: 'Defining Octopus modules for flight computer, telemetry, and ground operations around B1M and STRAVOX needs.' },
-  { label: 'Core flight software', status: 'active', note: 'Building the onboard stack that will fly on B1M — sensing, state estimation, and event logic.' },
-  { label: 'Ground tools', status: 'upcoming', note: 'Pad-side software for preflight checks, live telemetry display, and post-flight data review.' },
-  { label: 'Hardware-in-the-loop', status: 'upcoming', note: 'Bench integration with sensors, actuators, and recovery electronics before first flight.' },
-  { label: 'B1M flight qualification', status: 'upcoming', note: 'Fly Octopus on STRAVOX B1M-01 in the Q4 2026 – Q1 2027 window.' },
+  { label: 'Link architecture', status: 'active', note: 'Defining how Octopus carries pad and vehicle data into Goods Shed mission control.' },
+  { label: 'Pad data path', status: 'active', note: 'Building the connection used during static fires and launches — pad instruments into the Goods Shed.' },
+  { label: 'Goods Shed ops', status: 'upcoming', note: 'Mission control side of the link — receiving, displaying, and logging live range data.' },
+  { label: 'Vehicle telemetry path', status: 'upcoming', note: 'Extend Octopus for vehicle-to-mission-control data on flight days.' },
+  { label: 'B1M range use', status: 'upcoming', note: 'Run Octopus for STRAVOX B1M-01 static fires and launch support in the Q4 2026 – Q1 2027 window.' },
 ]
 
 export default function Octopus() {
@@ -43,17 +43,17 @@ export default function Octopus() {
         <div className="container octopus-hero-inner">
           <div>
             <p className="eyebrow" style={{ color: 'var(--ink-400)', marginBottom: '24px' }}>
-              [ Software programme ]
+              [ Data link programme ]
             </p>
             <h1 className="octopus-hero-h1">Octopus.</h1>
             <p className="octopus-hero-sub">
-              Beyond Stage Zero&apos;s custom flight and ground software — the stack
-              that will sense, decide, and report from our vehicles, starting with
-              STRAVOX B1M.
+              The connection that moves data from the pad — and later the vehicle —
+              into Goods Shed mission control during static fires and launches.
+              Not our flight computer.
             </p>
             <div className="octopus-hero-actions">
-              <Link className="btn btn-primary" to="/b1m">B1M vehicle →</Link>
-              <Link className="btn btn-ghost-dark" to="/stravox">Full-scale STRAVOX</Link>
+              <Link className="btn btn-primary" to="/tests">Engine tests →</Link>
+              <Link className="btn btn-ghost-dark" to="/b1m">B1M vehicle</Link>
             </div>
           </div>
           <div className="octopus-hero-stat-row">
@@ -62,12 +62,12 @@ export default function Octopus() {
               <span className="octopus-hero-stat-lbl">Programme status</span>
             </div>
             <div className="octopus-hero-stat">
-              <span className="octopus-hero-stat-val">Custom</span>
-              <span className="octopus-hero-stat-lbl">Built in-house</span>
+              <span className="octopus-hero-stat-val">Pad → MC</span>
+              <span className="octopus-hero-stat-lbl">Primary path</span>
             </div>
             <div className="octopus-hero-stat">
-              <span className="octopus-hero-stat-val">B1M</span>
-              <span className="octopus-hero-stat-lbl">First flight target</span>
+              <span className="octopus-hero-stat-val">Goods Shed</span>
+              <span className="octopus-hero-stat-lbl">Mission control</span>
             </div>
           </div>
         </div>
@@ -81,13 +81,13 @@ export default function Octopus() {
           <div className="section-head">
             <div>
               <p className="eyebrow">Why Octopus</p>
-              <h2>Software we own.</h2>
+              <h2>Data into the shed.</h2>
             </div>
             <p className="lead">
-              Reusable rocketry is as much a software problem as a hardware one.
-              Octopus is our answer: a single custom system for flight software and
-              ground operations, designed around how BSZ actually builds and flies
-              rockets — not a generic kit firmware we can&apos;t change.
+              Static fires and launches only help if the team can see what happened
+              in real time. Octopus is the custom link that gets pad data — and,
+              later, vehicle data — from the range into Goods Shed mission control.
+              It is a connection layer, not the flight computer.
             </p>
           </div>
 
