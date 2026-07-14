@@ -54,7 +54,7 @@ export default function B1m() {
             </p>
             <div className="b1m-hero-actions">
               <Link className="btn btn-primary" to="/missions">Mission pipeline →</Link>
-              <Link className="btn btn-ghost-dark" to="/stravox">Full-scale STRAVOX</Link>
+              <Link className="btn btn-ghost-dark" to="/spittership">Spittership</Link>
             </div>
           </div>
           <div className="b1m-hero-spec">

@@ -11,6 +11,7 @@ import Missions from './pages/Missions'
 import Tests from './pages/Tests'
 import Nozzles from './pages/Nozzles'
 import Octopus from './pages/Octopus'
+import Spittership from './pages/Spittership'
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/stravox" element={<Stravox />} />
         <Route path="/b1m" element={<B1m />} />
+        <Route path="/spittership" element={<Spittership />} />
         <Route path="/missions" element={<Missions />} />
         <Route path="/tests" element={<Tests />} />
         <Route path="/nozzles" element={<Nozzles />} />
