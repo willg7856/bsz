@@ -75,6 +75,15 @@ const roster = [
   'Arnav',
   'Wave',
   'Sage',
+  'Abby',
+  'Chelsea',
+  'Declan M',
+  'Declan S',
+  'Lilly',
+  'Nia',
+  'Oscar',
+  'Zafran',
+  'Ziad',
 ]
 
 export default function About() {
