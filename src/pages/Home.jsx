@@ -36,19 +36,19 @@ export default function Home() {
             </div>
             <div className="home-spec-row">
               <span className="home-spec-lbl">100 m Hopper</span>
-              <span className="home-spec-val">In build</span>
+              <span className="home-spec-val">In production</span>
             </div>
             <div className="home-spec-row">
               <span className="home-spec-lbl">B1M-01</span>
-              <span className="home-spec-val">In build</span>
+              <span className="home-spec-val">In production</span>
             </div>
             <div className="home-spec-row">
               <span className="home-spec-lbl">B1M-02</span>
-              <span className="home-spec-val">In build</span>
+              <span className="home-spec-val">In production</span>
             </div>
             <div className="home-spec-row">
               <span className="home-spec-lbl">B1M-03</span>
-              <span className="home-spec-val">In build</span>
+              <span className="home-spec-val">In production</span>
             </div>
           </div>
         </div>
