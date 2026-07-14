@@ -32,19 +32,23 @@ export default function Home() {
           <div className="home-hero-spec">
             <div className="home-spec-row">
               <span className="home-spec-lbl">Vehicles in production</span>
-              <span className="home-spec-val accent">2</span>
+              <span className="home-spec-val accent">4</span>
             </div>
             <div className="home-spec-row">
-              <span className="home-spec-lbl">STRAVOX</span>
-              <span className="home-spec-val">Full-scale · design</span>
+              <span className="home-spec-lbl">100 m Hopper</span>
+              <span className="home-spec-val">In build</span>
             </div>
             <div className="home-spec-row">
-              <span className="home-spec-lbl">STRAVOX B1M</span>
-              <span className="home-spec-val">Sub-scale · build</span>
+              <span className="home-spec-lbl">B1M-01</span>
+              <span className="home-spec-val">In build</span>
             </div>
             <div className="home-spec-row">
-              <span className="home-spec-lbl">First flight</span>
-              <span className="home-spec-val">Q4'26–Q1'27</span>
+              <span className="home-spec-lbl">B1M-02</span>
+              <span className="home-spec-val">In build</span>
+            </div>
+            <div className="home-spec-row">
+              <span className="home-spec-lbl">B1M-03</span>
+              <span className="home-spec-val">In build</span>
             </div>
           </div>
         </div>
