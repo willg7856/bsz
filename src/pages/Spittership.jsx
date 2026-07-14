@@ -56,7 +56,7 @@ export default function Spittership() {
             <div className="spittership-hero-actions">
               <a
                 className="btn btn-primary"
-                href="https://x.com"
+                href="https://x.com/beyondstagezero"
                 target="_blank"
                 rel="noopener noreferrer"
               >

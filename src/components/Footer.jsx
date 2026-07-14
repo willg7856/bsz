@@ -28,6 +28,7 @@ export default function Footer() {
         <div className="footer-col">
           <h4>Contact</h4>
           <a href="mailto:beyondstagezero@gmail.com">beyondstagezero@gmail.com</a>
+          <a href="https://x.com/beyondstagezero" target="_blank" rel="noopener noreferrer">X · @beyondstagezero</a>
           <span className="footer-location">Creswick, VIC · Australia</span>
         </div>
       </div>
