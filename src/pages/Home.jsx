@@ -137,6 +137,36 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section dark home-project home-project--dark">
+        <div className="container home-project-inner">
+          <div className="home-project-text">
+            <p className="eyebrow" style={{ color: 'var(--ignition-400)' }}>Vehicle · Community</p>
+            <h2>Spittership</h2>
+            <p className="home-project-desc">
+              The first fully community-driven vehicle development — people from
+              all around the world, powered by B1M.
+            </p>
+            <Link className="home-rocket-link" to="/spittership">
+              Explore the programme →
+            </Link>
+          </div>
+          <div className="home-project-meta home-project-meta--dark" aria-hidden="true">
+            <div className="home-project-meta-row">
+              <span>Status</span>
+              <span>Active</span>
+            </div>
+            <div className="home-project-meta-row">
+              <span>Model</span>
+              <span>Community-driven</span>
+            </div>
+            <div className="home-project-meta-row">
+              <span>Powered by</span>
+              <span>B1M</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section home-project">
         <div className="container home-project-inner">
           <div className="home-project-text">

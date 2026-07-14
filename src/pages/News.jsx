@@ -6,6 +6,13 @@ const posts = [
   {
     date: '2026-05-01',
     display: 'May 2026',
+    tag: 'Community',
+    title: 'Project Spittership',
+    body: 'We are launching Project Spittership — the first fully community-driven vehicle development, with people from all around the world, powered by B1M. Spittership is an open collaboration to design and fly a vehicle on a BSZ B1M motor, built by a global community alongside Beyond Stage Zero.',
+  },
+  {
+    date: '2026-05-01',
+    display: 'May 2026',
     tag: 'Data link',
     title: 'Octopus data link',
     body: 'We are building Octopus — the connection that gets data from the pad during static fires and launches into Goods Shed mission control. It will also support a vehicle-to-mission-control link. Octopus is not planned to be the flight computer; it moves data to the shed so the team can run range operations live.',

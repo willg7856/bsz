@@ -15,6 +15,11 @@ const projects = [
     note: 'Sub-scale 3 km test vehicle',
   },
   {
+    path: '/spittership',
+    label: 'Spittership',
+    note: 'Community-driven vehicle · powered by B1M',
+  },
+  {
     path: '/nozzles',
     label: 'Ceramic Nozzles',
     note: 'Ceramic nozzle development programme',
