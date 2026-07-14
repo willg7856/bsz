@@ -63,6 +63,18 @@ export default function Nav() {
     }
   }, [isMobile])
 
+  useEffect(() => {
+    close()
+  }, [pathname])
+
+  useEffect(() => {
+    if (!isMobile) return undefined
+    document.body.style.overflow = open ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [open, isMobile])
+
   return (
     <>
       <header className="nav">
@@ -73,10 +85,12 @@ export default function Nav() {
 
           {isMobile ? (
             <button
+              type="button"
               className={`nav-burger${open ? ' is-open' : ''}`}
               onClick={() => setOpen((o) => !o)}
-              aria-label="Toggle menu"
-              style={{ touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}
+              aria-label={open ? 'Close menu' : 'Open menu'}
+              aria-expanded={open}
+              aria-controls="nav-mobile-panel"
             >
               <span /><span /><span />
             </button>
@@ -128,49 +142,65 @@ export default function Nav() {
       </header>
 
       {isMobile && (
-        <div className={`nav-mobile${open ? ' is-open' : ''}`}>
-          <Link className={link('/')} to="/" onClick={close}>Home</Link>
-          <Link className={link('/about')} to="/about" onClick={close}>About</Link>
+        <div
+          id="nav-mobile-panel"
+          className={`nav-mobile${open ? ' is-open' : ''}`}
+          aria-hidden={!open}
+        >
+          <div className="nav-mobile-panel">
+            <div className="nav-mobile-head">
+              <p className="nav-mobile-eyebrow mono">Menu</p>
+              <span className="nav-mobile-path mono">{pathname === '/' ? '/home' : pathname}</span>
+            </div>
 
-          <div className={`nav-mobile-group${projectsOpen ? ' is-open' : ''}`}>
-            <button
-              type="button"
-              className={`nav-mobile-group-trigger${projectActive ? ' active' : ''}`}
-              onClick={() => setProjectsOpen((o) => !o)}
-              aria-expanded={projectsOpen}
-            >
-              Projects
-              <span className="nav-dropdown-caret" aria-hidden="true" />
-            </button>
-            {projectsOpen && (
-              <div className="nav-mobile-group-links">
-                {projects.map((v) => (
-                  <Link
-                    key={v.path}
-                    className={link(v.path)}
-                    to={v.path}
-                    onClick={close}
-                  >
-                    {v.label}
-                  </Link>
-                ))}
+            <nav className="nav-mobile-links" aria-label="Mobile">
+              <Link className={link('/')} to="/" onClick={close}>Home</Link>
+              <Link className={link('/about')} to="/about" onClick={close}>About</Link>
+
+              <div className={`nav-mobile-group${projectsOpen ? ' is-open' : ''}${projectActive ? ' has-active' : ''}`}>
+                <button
+                  type="button"
+                  className={`nav-mobile-group-trigger${projectActive ? ' active' : ''}`}
+                  onClick={() => setProjectsOpen((o) => !o)}
+                  aria-expanded={projectsOpen}
+                >
+                  <span>Projects</span>
+                  <span className="nav-dropdown-caret" aria-hidden="true" />
+                </button>
+                <div className="nav-mobile-group-links" hidden={!projectsOpen}>
+                  {projects.map((v) => (
+                    <Link
+                      key={v.path}
+                      className={`nav-mobile-project${pathname === v.path ? ' active' : ''}`}
+                      to={v.path}
+                      onClick={close}
+                    >
+                      <span className="nav-mobile-project-label">{v.label}</span>
+                      <span className="nav-mobile-project-note">{v.note}</span>
+                    </Link>
+                  ))}
+                </div>
               </div>
-            )}
-          </div>
 
-          <Link className={link('/missions')} to="/missions" onClick={close}>Missions</Link>
-          <Link className={link('/tests')} to="/tests" onClick={close}>Tests</Link>
-          <Link className={link('/news')} to="/news" onClick={close}>News</Link>
-          <Link className={link('/contact')} to="/contact" onClick={close}>Contact</Link>
-          <a
-            className="nav-cta-mobile"
-            href="https://beyondstagezero.space"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={close}
-          >
-            .space
-          </a>
+              <Link className={link('/missions')} to="/missions" onClick={close}>Missions</Link>
+              <Link className={link('/tests')} to="/tests" onClick={close}>Tests</Link>
+              <Link className={link('/news')} to="/news" onClick={close}>News</Link>
+              <Link className={link('/contact')} to="/contact" onClick={close}>Contact</Link>
+            </nav>
+
+            <div className="nav-mobile-foot">
+              <a
+                className="nav-cta-mobile"
+                href="https://beyondstagezero.space"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={close}
+              >
+                Open .space →
+              </a>
+              <p className="nav-mobile-foot-note mono">Creswick, VIC · Australia</p>
+            </div>
+          </div>
         </div>
       )}
     </>
