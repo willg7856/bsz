@@ -30,7 +30,7 @@ const milestones = [
   { label: 'B1M engine build', status: 'active', note: 'In progress — engines in production for ground test and flight.' },
   { label: 'B1M engine static fires', status: 'upcoming', note: 'Ground firing campaign to validate the motor before flight (~150 kgf, 3.5 s burn).' },
   { label: 'Vehicle design & fabrication', status: 'upcoming', note: 'Airframe, fins, and recovery bay sized around the B1M engine.' },
-  { label: 'Avionics integration', status: 'upcoming', note: 'Flight computer, altimeter, GPS, and recovery electronics.' },
+  { label: 'Avionics integration', status: 'upcoming', note: 'Octopus flight software with flight computer, altimeter, GPS, and recovery electronics.' },
   { label: 'CASA range clearance', status: 'upcoming', note: 'Regulatory approval for launch at a CASA-cleared site in Victoria.' },
   { label: 'STRAVOX B1M-01 launch', status: 'upcoming', note: 'Target window Q4 2026 – Q1 2027. 3 km apogee. Full flight telemetry. Recover and review.' },
 ]

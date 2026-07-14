@@ -74,7 +74,7 @@ export default function About() {
               </p>
               <p>
                 We're based in Creswick, Victoria — machining our own motor casings, casting
-                our own propellant, writing our own flight software, and learning everything
+                our own propellant, writing our own flight software (Octopus), and learning everything
                 the hard way. Every failure is logged. Every test is published.
               </p>
             </div>

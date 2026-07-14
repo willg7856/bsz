@@ -6,6 +6,13 @@ const posts = [
   {
     date: '2026-05-01',
     display: 'May 2026',
+    tag: 'Software',
+    title: 'Octopus software programme',
+    body: 'We are building Octopus — Beyond Stage Zero\'s custom flight and ground software. It will handle onboard sensing and flight logic, pad-side checks, live telemetry, and post-flight review for our vehicles. First flight target is STRAVOX B1M-01.',
+  },
+  {
+    date: '2026-05-01',
+    display: 'May 2026',
     tag: 'Programme',
     title: 'B1M engines in production',
     body: 'We have begun building three B1M engines — 550 mm tall, 80 mm wide, loaded with around 2 kg of KNO₃/Sorbitol at a 65:35 ratio. Design is complete; propellant characterisation and engine build are in progress. We are targeting approximately 150 kgf of thrust for 3.5 seconds per firing, and aiming to reuse each casing for at least two static fires. These are the motors that will fly on STRAVOX B1M-01.',
