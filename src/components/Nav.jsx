@@ -34,6 +34,24 @@ const projects = [
   },
 ]
 
+const company = [
+  {
+    path: '/about',
+    label: 'About',
+    note: 'Team, base, and partners',
+  },
+  {
+    path: '/news',
+    label: 'News',
+    note: 'Programme updates and milestones',
+  },
+  {
+    path: '/contact',
+    label: 'Contact',
+    note: 'Sponsorship, joining, and enquiries',
+  },
+]
+
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 769)
   useEffect(() => {
@@ -44,22 +62,84 @@ function useIsMobile() {
   return isMobile
 }
 
+function Dropdown({ label, items, active, pathname }) {
+  return (
+    <div className={`nav-dropdown${active ? ' active' : ''}`}>
+      <button
+        type="button"
+        className={`nav-dropdown-trigger${active ? ' active' : ''}`}
+        aria-expanded="false"
+        aria-haspopup="true"
+      >
+        {label}
+        <span className="nav-dropdown-caret" aria-hidden="true" />
+      </button>
+      <div className="nav-dropdown-menu" role="menu">
+        {items.map((v) => (
+          <Link
+            key={v.path}
+            className={`nav-dropdown-item${pathname === v.path ? ' active' : ''}`}
+            to={v.path}
+            role="menuitem"
+          >
+            <span className="nav-dropdown-item-label">{v.label}</span>
+            <span className="nav-dropdown-item-note">{v.note}</span>
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function MobileGroup({ label, items, open, setOpen, active, pathname, onNavigate }) {
+  return (
+    <div className={`nav-mobile-group${open ? ' is-open' : ''}${active ? ' has-active' : ''}`}>
+      <button
+        type="button"
+        className={`nav-mobile-group-trigger${active ? ' active' : ''}`}
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+      >
+        <span>{label}</span>
+        <span className="nav-dropdown-caret" aria-hidden="true" />
+      </button>
+      <div className="nav-mobile-group-links" hidden={!open}>
+        {items.map((v) => (
+          <Link
+            key={v.path}
+            className={`nav-mobile-project${pathname === v.path ? ' active' : ''}`}
+            to={v.path}
+            onClick={onNavigate}
+          >
+            <span className="nav-mobile-project-label">{v.label}</span>
+            <span className="nav-mobile-project-note">{v.note}</span>
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function Nav() {
   const { pathname } = useLocation()
   const [open, setOpen] = useState(false)
   const [projectsOpen, setProjectsOpen] = useState(false)
+  const [companyOpen, setCompanyOpen] = useState(false)
   const isMobile = useIsMobile()
   const link = (path) => `nav-link${pathname === path ? ' active' : ''}`
   const projectActive = projects.some((v) => pathname === v.path)
+  const companyActive = company.some((v) => pathname === v.path)
   const close = () => {
     setOpen(false)
     setProjectsOpen(false)
+    setCompanyOpen(false)
   }
 
   useEffect(() => {
     if (!isMobile) {
       setOpen(false)
       setProjectsOpen(false)
+      setCompanyOpen(false)
     }
   }, [isMobile])
 
@@ -97,37 +177,20 @@ export default function Nav() {
           ) : (
             <nav className="nav-links">
               <Link className={link('/')} to="/">Home</Link>
-              <Link className={link('/about')} to="/about">About</Link>
-
-              <div className={`nav-dropdown${projectActive ? ' active' : ''}`}>
-                <button
-                  type="button"
-                  className={`nav-dropdown-trigger${projectActive ? ' active' : ''}`}
-                  aria-expanded="false"
-                  aria-haspopup="true"
-                >
-                  Projects
-                  <span className="nav-dropdown-caret" aria-hidden="true" />
-                </button>
-                <div className="nav-dropdown-menu" role="menu">
-                  {projects.map((v) => (
-                    <Link
-                      key={v.path}
-                      className={`nav-dropdown-item${pathname === v.path ? ' active' : ''}`}
-                      to={v.path}
-                      role="menuitem"
-                    >
-                      <span className="nav-dropdown-item-label">{v.label}</span>
-                      <span className="nav-dropdown-item-note">{v.note}</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
+              <Dropdown
+                label="Projects"
+                items={projects}
+                active={projectActive}
+                pathname={pathname}
+              />
               <Link className={link('/missions')} to="/missions">Missions</Link>
               <Link className={link('/tests')} to="/tests">Tests</Link>
-              <Link className={link('/news')} to="/news">News</Link>
-              <Link className={link('/contact')} to="/contact">Contact</Link>
+              <Dropdown
+                label="Company"
+                items={company}
+                active={companyActive}
+                pathname={pathname}
+              />
               <a
                 className="nav-cta"
                 href="https://beyondstagezero.space"
@@ -155,37 +218,29 @@ export default function Nav() {
 
             <nav className="nav-mobile-links" aria-label="Mobile">
               <Link className={link('/')} to="/" onClick={close}>Home</Link>
-              <Link className={link('/about')} to="/about" onClick={close}>About</Link>
 
-              <div className={`nav-mobile-group${projectsOpen ? ' is-open' : ''}${projectActive ? ' has-active' : ''}`}>
-                <button
-                  type="button"
-                  className={`nav-mobile-group-trigger${projectActive ? ' active' : ''}`}
-                  onClick={() => setProjectsOpen((o) => !o)}
-                  aria-expanded={projectsOpen}
-                >
-                  <span>Projects</span>
-                  <span className="nav-dropdown-caret" aria-hidden="true" />
-                </button>
-                <div className="nav-mobile-group-links" hidden={!projectsOpen}>
-                  {projects.map((v) => (
-                    <Link
-                      key={v.path}
-                      className={`nav-mobile-project${pathname === v.path ? ' active' : ''}`}
-                      to={v.path}
-                      onClick={close}
-                    >
-                      <span className="nav-mobile-project-label">{v.label}</span>
-                      <span className="nav-mobile-project-note">{v.note}</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
+              <MobileGroup
+                label="Projects"
+                items={projects}
+                open={projectsOpen}
+                setOpen={setProjectsOpen}
+                active={projectActive}
+                pathname={pathname}
+                onNavigate={close}
+              />
 
               <Link className={link('/missions')} to="/missions" onClick={close}>Missions</Link>
               <Link className={link('/tests')} to="/tests" onClick={close}>Tests</Link>
-              <Link className={link('/news')} to="/news" onClick={close}>News</Link>
-              <Link className={link('/contact')} to="/contact" onClick={close}>Contact</Link>
+
+              <MobileGroup
+                label="Company"
+                items={company}
+                open={companyOpen}
+                setOpen={setCompanyOpen}
+                active={companyActive}
+                pathname={pathname}
+                onNavigate={close}
+              />
             </nav>
 
             <div className="nav-mobile-foot">
