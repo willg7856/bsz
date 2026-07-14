@@ -22,7 +22,7 @@ const goals = [
   {
     index: '04',
     title: 'Join on X',
-    desc: 'People join from X. When the programme kicks off after the first B1M static fire, Spitter is where the call goes out.',
+    desc: 'People join from X via @beyondstagezero. When the programme kicks off after the first B1M static fire, Spitter is where the call goes out.',
   },
 ]
 
