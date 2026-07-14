@@ -58,6 +58,47 @@
 
 .stravox-tick { margin: 0; }
 
+/* ── Living design notice ─────────────────────────── */
+.stravox-living {
+  background: var(--ignition-100);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(36px, 6vw, 56px) 0;
+}
+
+.stravox-living-inner {
+  max-width: 52rem;
+}
+
+.stravox-living-label {
+  margin: 0 0 14px;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ignition-600);
+}
+
+.stravox-living-title {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3.6vw, 2.35rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: var(--fg);
+  border-left: 4px solid var(--ignition-500);
+  padding-left: 18px;
+}
+
+.stravox-living-body {
+  margin: 0;
+  padding-left: 22px;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.65;
+  color: var(--fg-muted);
+  max-width: 48ch;
+}
+
 /* ── Breakdown ────────────────────────────────────── */
 .stravox-split {
   display: grid;
