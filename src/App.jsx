@@ -1,25 +1,41 @@
-import Hero from './components/Hero'
-import Features from './components/Features'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Nav from './components/Nav'
 import Footer from './components/Footer'
-import './App.css'
+import ScrollToTop from './components/ScrollToTop'
+import Home from './pages/Home'
+import About from './pages/About'
+import Stravox from './pages/Stravox'
+import B1m from './pages/B1m'
+import Contact from './pages/Contact'
+import Missions from './pages/Missions'
+import Tests from './pages/Tests'
+import Nozzles from './pages/Nozzles'
+import Octopus from './pages/Octopus'
+import Spittership from './pages/Spittership'
+import News from './pages/News'
+import { SHOW_SPITTERSHIP } from './featureFlags'
 
 export default function App() {
   return (
-    <>
-      <header className="nav">
-        <div className="nav-inner">
-          <span className="logo">Apex Agency</span>
-          <nav>
-            <a href="#features">Services</a>
-            <a href="#contact" className="btn-primary">Get in Touch</a>
-          </nav>
-        </div>
-      </header>
-      <main>
-        <Hero />
-        <Features />
-      </main>
+    <BrowserRouter>
+      <ScrollToTop />
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/stravox" element={<Stravox />} />
+        <Route path="/b1m" element={<B1m />} />
+        {SHOW_SPITTERSHIP && (
+          <Route path="/spittership" element={<Spittership />} />
+        )}
+        <Route path="/missions" element={<Missions />} />
+        <Route path="/tests" element={<Tests />} />
+        <Route path="/nozzles" element={<Nozzles />} />
+        <Route path="/octopus" element={<Octopus />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
       <Footer />
-    </>
+    </BrowserRouter>
   )
 }
