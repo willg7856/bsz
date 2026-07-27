@@ -7,6 +7,7 @@ import About from './pages/About'
 import Stravox from './pages/Stravox'
 import B1m from './pages/B1m'
 import Contact from './pages/Contact'
+import Sponsors from './pages/Sponsors'
 import Missions from './pages/Missions'
 import Tests from './pages/Tests'
 import Nozzles from './pages/Nozzles'
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/nozzles" element={<Nozzles />} />
         <Route path="/octopus" element={<Octopus />} />
         <Route path="/news" element={<News />} />
+        <Route path="/sponsors" element={<Sponsors />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
