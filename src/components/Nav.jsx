@@ -46,6 +46,11 @@ const company = [
     note: 'Programme updates and milestones',
   },
   {
+    path: '/sponsors',
+    label: 'Sponsors',
+    note: 'Partnership pitch and support levels',
+  },
+  {
     path: '/contact',
     label: 'Contact',
     note: 'Sponsorship, joining, and enquiries',

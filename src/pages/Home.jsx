@@ -60,7 +60,10 @@ export default function Home() {
       {/* ── Partners ────────────────────────────────── */}
       <section className="section home-partners">
         <div className="container">
-          <p className="eyebrow" style={{ marginBottom: '2.5rem' }}>Partners &amp; Supporters</p>
+          <div className="home-partners-head">
+            <p className="eyebrow">Partners &amp; Supporters</p>
+            <Link className="home-partners-cta" to="/sponsors">Sponsor the programme →</Link>
+          </div>
           <div className="home-partners-logos">
             <a className="home-partner" href="https://www.crwa.org.au" target="_blank" rel="noopener noreferrer">
               <img src="/partner-crwa.svg" alt="Creswick Railway Workshops Association" />

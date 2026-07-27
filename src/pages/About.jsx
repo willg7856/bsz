@@ -224,6 +224,9 @@ export default function About() {
               </a>
             ))}
           </div>
+          <p className="about-partners-cta">
+            <Link to="/sponsors">Sponsor the programme →</Link>
+          </p>
         </div>
       </section>
 

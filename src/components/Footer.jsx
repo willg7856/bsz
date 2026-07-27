@@ -25,6 +25,7 @@ export default function Footer() {
           <Link to="/news">News</Link>
           <Link to="/nozzles">Nozzles</Link>
           <Link to="/octopus">Octopus</Link>
+          <Link to="/sponsors">Sponsors</Link>
           <Link to="/contact">Contact</Link>
         </div>
         <div className="footer-col">
