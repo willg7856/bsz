@@ -74,25 +74,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Programme strip ─────────────────────────── */}
-      <section className="section home-strip">
-        <div className="container">
-          <div className="home-strip-grid">
-            {[
-              { val: '4',    lbl: 'Static fires completed' },
-              { val: '9',    lbl: 'Engines built' },
-              { val: '3 km', lbl: 'First mission target' },
-              { val: 'Q4\'26–Q1\'27', lbl: 'First flight window' },
-            ].map(s => (
-              <div key={s.lbl} className="home-strip-stat">
-                <span className="home-strip-val">{s.val}</span>
-                <span className="home-strip-lbl">{s.lbl}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Vehicles & projects ─────────────────────── */}
       <section className="section dark home-rocket">
         <div className="container home-rocket-inner">

@@ -1,122 +1,116 @@
+import { Link } from 'react-router-dom'
 import './Nozzles.css'
 
-const TICK = Array.from({ length: 40 })
-
-const goals = [
+const failures = [
   {
-    index: '01',
-    title: 'Survive the burn',
-    desc: 'Ceramic throats and inserts that hold geometry under chamber temperature and pressure — no melt-back, no washout.',
+    fire: 'Mk I',
+    result: 'Nozzle ejected',
+    note: 'Pressure spikes threw the nozzle clear of the motor. Retention became a hard requirement.',
   },
   {
-    index: '02',
-    title: 'Stay retained',
-    desc: 'Fix the ejection failures from early Mk I fires with a nozzle stack designed to stay locked through pressure spikes.',
-  },
-  {
-    index: '03',
-    title: 'Scale to B1M',
-    desc: 'Take lessons from small-motor inserts into nozzles sized for the B1M and, later, full-scale STRAVOX motors.',
-  },
-  {
-    index: '04',
-    title: 'Prove on the stand',
-    desc: 'Every ceramic design earns its place through static fire — measured, inspected, and published with the rest of the test log.',
+    fire: 'Mk II',
+    result: 'Throat burn-through',
+    note: 'Metal couldn’t hold geometry for the full burn. Thermal survival joined the brief.',
   },
 ]
 
-const milestones = [
-  { label: 'Problem definition', status: 'done', note: 'Mk I nozzle ejections and Mk II burn-throughs established retention and thermal survival as hard requirements.' },
-  { label: 'Material research', status: 'active', note: 'Evaluating ceramic formulations and insert geometries for throat and exit-cone duty.' },
-  { label: 'Prototype inserts', status: 'active', note: 'First ceramic nozzle inserts in design and fabrication for small-motor verification.' },
-  { label: 'Static-fire validation', status: 'upcoming', note: 'Fire ceramic nozzles on the stand; inspect throat erosion, retention, and post-burn integrity.' },
-  { label: 'B1M integration', status: 'upcoming', note: 'Scale a proven ceramic stack into the B1M motor before flight.' },
+const requirements = [
+  {
+    title: 'Hold the throat',
+    desc: 'Ceramic inserts that keep geometry under chamber heat and pressure — no melt-back, no washout.',
+  },
+  {
+    title: 'Stay locked in',
+    desc: 'A stack that survives pressure spikes instead of ejecting like the early Mk I fires.',
+  },
+  {
+    title: 'Earn it on the stand',
+    desc: 'Every design gets fired, inspected, and written up with the rest of the test log before it flies on B1M.',
+  },
+]
+
+const phases = [
+  { name: 'Problem locked', detail: 'Ejection and burn-through logged from Mk I–II' },
+  { name: 'Materials & inserts', detail: 'Formulations and geometries in design and fab' },
+  { name: 'Static-fire proof', detail: 'Fire, inspect, publish — then scale to B1M' },
 ]
 
 export default function Nozzles() {
   return (
     <main className="nozzles">
 
-      <section className="nozzles-hero">
-        <div className="nozzles-hero-grid-bg" aria-hidden="true" />
-        <div className="container nozzles-hero-inner">
-          <div>
-            <p className="eyebrow" style={{ color: 'var(--ink-400)', marginBottom: '24px' }}>
-              [ Propulsion programme ]
+      <section className="nozzles-intro">
+        <div className="container nozzles-intro-inner">
+          <div className="nozzles-intro-copy">
+            <p className="eyebrow">Propulsion</p>
+            <h1>Ceramic nozzles</h1>
+            <p className="nozzles-intro-lead">
+              We started this programme because our early motors threw nozzles
+              or burned through them. The goal is simple: inserts that stay put
+              and survive the burn long enough to fly on B1M.
             </p>
-            <h1 className="nozzles-hero-h1">Ceramic<br />Nozzles.</h1>
-            <p className="nozzles-hero-sub">
-              A dedicated programme to design, fire, and qualify ceramic nozzles
-              that survive our motors — after early tests lost nozzles to ejection
-              and thermal damage.
-            </p>
+            <Link className="btn btn-outline" to="/tests">Read the fire logs →</Link>
           </div>
-          <div className="nozzles-hero-stat-row">
-            <div className="nozzles-hero-stat">
-              <span className="nozzles-hero-stat-val">ACTIVE</span>
-              <span className="nozzles-hero-stat-lbl">Programme status</span>
-            </div>
-            <div className="nozzles-hero-stat">
-              <span className="nozzles-hero-stat-val">Mk I–II</span>
-              <span className="nozzles-hero-stat-lbl">Driven by test failures</span>
-            </div>
-            <div className="nozzles-hero-stat">
-              <span className="nozzles-hero-stat-val">B1M</span>
-              <span className="nozzles-hero-stat-lbl">First flight target</span>
-            </div>
-          </div>
-        </div>
-        <div className="tick-rule nozzles-tick">
-          {TICK.map((_, i) => <span key={i} />)}
+          <aside className="nozzles-intro-aside" aria-label="Programme status">
+            <p className="nozzles-aside-kicker">Now</p>
+            <p className="nozzles-aside-status">Materials research &amp; first inserts</p>
+            <p className="nozzles-aside-meta">Target · B1M motor stack</p>
+          </aside>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section nozzles-failures">
         <div className="container">
-          <div className="section-head">
-            <div>
-              <p className="eyebrow">Why ceramics</p>
-              <h2>Nozzles that stay put.</h2>
-            </div>
-            <p className="lead">
-              Our first static fires made the problem obvious: metal nozzles either
-              ejected under pressure or began to burn through. The ceramic nozzle
-              programme exists to replace that weak link with inserts that retain,
-              resist heat, and keep thrust on axis for the full burn.
+          <div className="nozzles-failures-head">
+            <h2>What broke first</h2>
+            <p>
+              The ceramic brief is written from the stand, not from a wishlist.
+              Two failure modes set the requirements.
             </p>
           </div>
-
-          <div className="nozzles-goals">
-            {goals.map((g) => (
-              <div className="nozzles-goal" key={g.index}>
-                <span className="nozzles-goal-index mono">{g.index}</span>
-                <h3>{g.title}</h3>
-                <p>{g.desc}</p>
-              </div>
+          <div className="nozzles-failure-list">
+            {failures.map((f) => (
+              <article className="nozzles-failure" key={f.fire}>
+                <header>
+                  <span className="mono">{f.fire}</span>
+                  <strong>{f.result}</strong>
+                </header>
+                <p>{f.note}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section dark">
+      <section className="section dark nozzles-req">
+        <div className="container nozzles-req-inner">
+          <div className="nozzles-req-copy">
+            <p className="eyebrow" style={{ color: 'var(--ink-400)' }}>The brief</p>
+            <h2>Three things the nozzle has to do</h2>
+          </div>
+          <ol className="nozzles-req-list">
+            {requirements.map((r, i) => (
+              <li key={r.title}>
+                <span className="mono">{String(i + 1).padStart(2, '0')}</span>
+                <div>
+                  <h3>{r.title}</h3>
+                  <p>{r.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="section nozzles-phases">
         <div className="container">
-          <p className="eyebrow" style={{ color: 'var(--ink-400)', marginBottom: '2.5rem' }}>
-            Programme milestones
-          </p>
-          <div className="nozzles-milestones">
-            {milestones.map((ms, idx) => (
-              <div key={ms.label} className={`nozzles-milestone nozzles-milestone--${ms.status}`}>
-                <div className="nozzles-milestone-marker">
-                  <span className="nozzles-milestone-dot" />
-                  {idx < milestones.length - 1 && <span className="nozzles-milestone-line" />}
-                </div>
-                <div className="nozzles-milestone-content">
-                  <div className="nozzles-milestone-head">
-                    <span className="nozzles-milestone-name">{ms.label}</span>
-                    <span className="nozzles-milestone-tag">{ms.status}</span>
-                  </div>
-                  <p className="nozzles-milestone-note">{ms.note}</p>
-                </div>
+          <p className="eyebrow" style={{ marginBottom: '2rem' }}>Path to flight</p>
+          <div className="nozzles-phase-row">
+            {phases.map((p, i) => (
+              <div className="nozzles-phase" key={p.name}>
+                <span className="nozzles-phase-num mono">{String(i + 1).padStart(2, '0')}</span>
+                <h3>{p.name}</h3>
+                <p>{p.detail}</p>
               </div>
             ))}
           </div>
