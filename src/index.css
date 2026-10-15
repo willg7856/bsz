@@ -1,24 +1,24 @@
 :root {
-  --ink-1000: #0c0e12;
-  --ink-900: #12141a;
+  --ink-1000: #000;
+  --ink-900: #000;
   --ink-800: #1a1d24;
   --ink-700: #2c313a;
   --ink-600: #3d4450;
   --ink-500: #5f6670;
   --ink-400: #8b929c;
   --ink-300: #d4d7d2;
-  --paper-100: #f3f4f2;
-  --paper-200: #eceeea;
-  --paper-50: #fbfbfa;
+  --paper-100: #fff;
+  --paper-200: #f3f3f1;
+  --paper-50: #fff;
   --ignition-500: #e24a12;
   --ignition-600: #c43d0d;
   --ignition-400: #ff6a2b;
-  --bg: var(--paper-100);
-  --bg-elev: var(--paper-50);
-  --fg: var(--ink-900);
+  --bg: #000;
+  --bg-elev: #111;
+  --fg: #f5f5f3;
   --fg-muted: var(--ink-500);
   --fg-faint: var(--ink-400);
-  --line: #d4d7d2;
+  --line: #2a2a2a;
   --signal: #0f7a5a;
   --warn: #b45309;
   --danger: #b42318;
@@ -45,18 +45,18 @@
 }
 
 html[data-theme='dark'] {
-  --ink-1000: #07080a;
-  --paper-100: #12141a;
-  --paper-200: #1a1d24;
-  --paper-50: #22262e;
-  --bg: #101318;
-  --bg-elev: #1a1d24;
-  --fg: #f2f1ec;
-  --fg-muted: #9aa1ab;
-  --fg-faint: #7a828e;
-  --line: #2c313a;
+  --ink-1000: #000;
+  --paper-100: #fff;
+  --paper-200: #f3f3f1;
+  --paper-50: #fff;
+  --bg: #000;
+  --bg-elev: #111;
+  --fg: #f5f5f3;
+  --fg-muted: #a3a8b0;
+  --fg-faint: #8b929c;
+  --line: #2a2a2a;
   --ink-300: #3d4450;
-  --ink-500: #9aa1ab;
+  --ink-500: #a3a8b0;
   --signal: #3dba86;
   --warn: #e0a045;
   --danger: #f07167;
@@ -151,9 +151,9 @@ h1, h2, h3, h4, p { margin: 0; }
   z-index: 40;
   position: sticky;
   top: 0;
-  border-bottom: 1px solid var(--ink-700);
-  color: var(--paper-50);
-  background: color-mix(in srgb, var(--ink-900) 96%, transparent);
+  border-bottom: 1px solid #242424;
+  color: #fff;
+  background: #000;
   backdrop-filter: blur(12px);
 }
 
@@ -386,7 +386,7 @@ h1, h2, h3, h4, p { margin: 0; }
 
 .footer {
   margin-top: auto;
-  background: var(--ink-1000);
+  background: #000;
   color: var(--paper-50);
   border-top: 1px solid var(--ink-700);
   padding: 64px 0 0;
@@ -448,8 +448,8 @@ h1, h2, h3, h4, p { margin: 0; }
 /* ——— Home ——— */
 
 .home-hero {
-  background: var(--ink-900);
-  color: var(--paper-50);
+  background: #000;
+  color: #fff;
   padding: 80px 0 0;
   position: relative;
   overflow: hidden;
@@ -618,11 +618,32 @@ h1, h2, h3, h4, p { margin: 0; }
   color: var(--ignition-400);
 }
 
-.section { padding: var(--s-9) 0; border-top: 1px solid var(--line); }
+.section {
+  padding: var(--s-9) 0;
+  border-top: 0;
+  background: #fff;
+  color: #111214;
+  --fg: #111214;
+  --fg-muted: #4b525c;
+  --fg-faint: #6d7580;
+  --line: #e4e4e1;
+  --bg: #fff;
+  --bg-elev: #f6f6f4;
+}
+
+.section + .section:not(.dark) { border-top: 1px solid #e4e4e1; }
+.section.dark + .section.dark { border-top: 1px solid #242424; }
+
 .section.dark {
-  background: var(--ink-900);
-  color: var(--paper-50);
-  border-color: var(--ink-700);
+  background: #000;
+  color: #f5f5f3;
+  border-color: #242424;
+  --fg: #f5f5f3;
+  --fg-muted: #b4b8be;
+  --fg-faint: #8b929c;
+  --line: #2a2a2a;
+  --bg: #000;
+  --bg-elev: #111;
 }
 
 .home-partners { border-top: 1px solid var(--line); }
@@ -677,8 +698,11 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 
 .section.dark h2,
-.home-rocket-text h2,
-.home-project--dark h2 { color: var(--paper-50); }
+.section.dark .home-rocket-text h2,
+.home-project--dark h2 { color: #fff; }
+
+.section:not(.dark) h2,
+.section:not(.dark) .home-rocket-text h2 { color: #111214; }
 
 .home-rocket-desc,
 .home-project-desc,
@@ -766,8 +790,8 @@ h1, h2, h3, h4, p { margin: 0; }
 /* Inner pages keep their structure, in the same visual system. */
 
 .masthead {
-  background: var(--ink-900);
-  color: var(--paper-50);
+  background: #000;
+  color: #fff;
   position: relative;
   overflow: hidden;
   border-bottom: 0;
@@ -814,7 +838,14 @@ h1, h2, h3, h4, p { margin: 0; }
 .side-row span:last-child,
 .side-row a { color: var(--paper-50); font-weight: 600; }
 
-.hud { border-bottom: 1px solid var(--line); background: var(--bg-elev); }
+.hud {
+  border-bottom: 1px solid #242424;
+  background: #000;
+  color: #f5f5f3;
+}
+.hud .metric + .metric { border-left-color: #2a2a2a; }
+.hud .metric-label { color: #8b929c; }
+.hud .metric-value { color: #fff; }
 .hud-inner {
   width: min(var(--container-max), 100%);
   margin: 0 auto;
