@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { contactReasons, site } from '../data'
 import { useTitle } from '../useTitle'
 
+const ticks = Array.from({ length: 40 })
+
 export default function Contact() {
   useTitle('Contact')
   const [status, setStatus] = useState('idle')
@@ -22,87 +24,85 @@ export default function Contact() {
   }
 
   return (
-    <>
-      <header className="masthead">
-        <div className="masthead-inner">
+    <div className="contact">
+      <section className="contact-hero">
+        <div className="contact-hero-grid-bg" aria-hidden="true" />
+        <div className="container contact-hero-inner">
           <div>
-            <p className="kicker">Get in touch</p>
-            <h1>Contact.</h1>
-            <p className="lede">
+            <p className="eyebrow">[ Get in touch ]</p>
+            <h1 className="contact-hero-h1">Contact.</h1>
+            <p className="contact-hero-sub">
               Want to collaborate, sponsor, or just follow the journey? We&apos;d love to hear from you.
             </p>
           </div>
-          <div className="masthead-side">
-            <div className="side-row">
-              <span>Direct email</span>
-              <a href={`mailto:${site.email}`}>{site.email}</a>
-            </div>
-            <div className="side-row"><span>Base</span><span>{site.place}</span></div>
+          <div className="contact-hero-direct">
+            <p className="contact-hero-direct-lbl">Direct email</p>
+            <a className="contact-hero-email" href={`mailto:${site.email}`}>{site.email}</a>
           </div>
         </div>
-      </header>
+        <div className="tick-rule contact-tick" aria-hidden="true">
+          {ticks.map((_, index) => <span key={index} />)}
+        </div>
+      </section>
 
       <section className="section">
-        <div className="wrap split">
-          <div>
-            <p className="kicker">Reasons to reach out</p>
-            <div className="rows">
+        <div className="container contact-body">
+          <div className="contact-info">
+            <p className="eyebrow">Reasons to reach out</p>
+            <div className="contact-reasons">
               {contactReasons.map((reason) => (
-                <div className="vehicle-row" key={reason}>
-                  <span className="idx">→</span>
-                  <span>{reason}</span>
-                </div>
+                <div className="contact-reason" key={reason}>{reason}</div>
               ))}
             </div>
           </div>
+
           {status === 'success' ? (
-            <div>
+            <div className="contact-success">
+              <span className="contact-success-icon" aria-hidden="true">✓</span>
               <h2>Message sent</h2>
-              <p className="lede">Thanks for reaching out — we&apos;ll get back to you soon.</p>
-              <button type="button" className="btn" style={{ marginTop: '1rem' }} onClick={() => setStatus('idle')}>
-                Send another
-              </button>
+              <p>Thanks for reaching out — we&apos;ll get back to you soon.</p>
+              <button type="button" className="btn" onClick={() => setStatus('idle')}>Send another</button>
             </div>
           ) : (
-            <form className="form" onSubmit={onSubmit}>
+            <form className="contact-form" onSubmit={onSubmit}>
               <h2>Send a message</h2>
               <div className="form-row">
-                <label>
-                  Name
+                <div className="form-group">
+                  <label htmlFor="name">Name</label>
                   <input id="name" name="name" type="text" placeholder="Your name" required />
-                </label>
-                <label>
-                  Email
+                </div>
+                <div className="form-group">
+                  <label htmlFor="email">Email</label>
                   <input id="email" name="email" type="email" placeholder="your@email.com" required />
-                </label>
+                </div>
               </div>
-              <label>
-                Reason
+              <div className="form-group">
+                <label htmlFor="reason">Reason</label>
                 <select id="reason" name="reason" required defaultValue="">
                   <option value="" disabled>Select a reason</option>
                   {contactReasons.map((reason) => (
                     <option key={reason} value={reason}>{reason}</option>
                   ))}
                 </select>
-              </label>
-              <label>
-                Subject
+              </div>
+              <div className="form-group">
+                <label htmlFor="subject">Subject</label>
                 <input id="subject" name="subject" type="text" placeholder="What's this about?" required />
-              </label>
-              <label>
-                Message
+              </div>
+              <div className="form-group">
+                <label htmlFor="message">Message</label>
                 <textarea id="message" name="message" rows={6} placeholder="Your message..." required />
-              </label>
+              </div>
               {status === 'error' ? (
-                <p className="form-error">Something went wrong — please try again or email us directly.</p>
+                <p className="contact-error">Something went wrong — please try again or email us directly.</p>
               ) : null}
-              <button className="btn btn-ink" type="submit" disabled={status === 'submitting'}>
-                {status === 'submitting' ? 'Sending…' : 'Send message'}
+              <button className="btn btn-primary" type="submit" disabled={status === 'submitting'}>
+                {status === 'submitting' ? 'Sending…' : 'Send Message →'}
               </button>
             </form>
           )}
         </div>
       </section>
-    </>
+    </div>
   )
 }
