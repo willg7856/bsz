@@ -1,219 +1,155 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import MissionProfile from '../components/MissionProfile'
-import './Stravox.css'
-import './Home.css'
-
-const TICK = Array.from({ length: 40 })
-
-const specs = [
-  { label: 'Height',          value: '2,633 mm' },
-  { label: 'Diameter',        value: '200 mm' },
-  { label: 'Base Fin Span',   value: '520 mm' },
-  { label: 'Upper Fin Span',  value: '340 mm' },
-  { label: 'Target Altitude', value: '30 km' },
-  { label: 'Max Velocity',    value: 'Mach 2.5' },
-  { label: 'Motor',           value: 'KNSB — 1 m grain' },
-  { label: 'Landing Motors',  value: 'T-Motor U13 II × 4' },
-  { label: 'Landing T/W',     value: '2.05×' },
-  { label: 'Status',          value: 'In Development' },
-]
-
-const numbers = [
-  { lbl: 'Apogee',          val: '30',    unit: 'km',   note: 'Target altitude above sea level.' },
-  { lbl: 'Peak velocity',   val: '2.5',   unit: 'Mach', note: 'At motor burnout, ~10 km AGL.' },
-  { lbl: 'Length',          val: '2,633', unit: 'mm',   note: 'Full vehicle height, fins included.' },
-  { lbl: 'Diameter',        val: '200',   unit: 'mm',   note: 'Airframe outer diameter.' },
-  { lbl: 'Base fin span',   val: '520',   unit: 'mm',   note: 'Boost-phase stability fins.' },
-  { lbl: 'Upper fin span',  val: '340',   unit: 'mm',   note: 'Supersonic control fins.' },
-  { lbl: 'Landing thrust',  val: '112',   unit: 'kgf',  note: 'T-Motor U13 II × 4, combined.' },
-  { lbl: 'Landing T/W',     val: '2.05',  unit: '×',    note: 'Thrust-to-weight at touchdown.' },
-  { lbl: 'Engine grain',    val: '1,000', unit: 'mm',   note: 'KNSB propellant grain length.' },
-  { lbl: 'Launch mass',     val: '104.8', unit: 'kg',   note: 'Full vehicle mass at liftoff, including propellant.' },
-]
-
-const stages = [
-  { id: 0, num: 'STAGE 00', name: 'Concept', when: '2025-Q3', state: 'done',
-    headline: 'From whiteboard to mission spec.',
-    body: 'Trade studies across propulsion, airframe, and recovery systems. Settled on a KNSB solid motor, 30 km target apogee, and propulsive vertical landing as the core mission profile.',
-    readout: [['Design revs', '8'], ['Trade studies', '4'], ['Sign-off', '2025-Q3']] },
-  { id: 1, num: 'STAGE 01', name: 'Design', when: '2025-Q4', state: 'done',
-    headline: 'Full vehicle design completed.',
-    body: 'Aerodynamic modelling, structural analysis, and avionics architecture completed. Split nosecone airbrake geometry and propulsive landing motor placement on folding arms defined.',
-    readout: [['CAD revision', 'Rev 4'], ['Simulations run', '23'], ['Sign-off', '2025-Q4']] },
-  { id: 2, num: 'STAGE 02', name: 'Engine Dev.', when: '2026-Q1 — Q2', state: 'now',
-    headline: 'Engine development and static fire campaign.',
-    body: 'Development and testing of KNSB propulsion across three engine generations. B1M engine design is complete; propellant characterisation and engine build are in progress ahead of a static fire campaign (~150 kgf, 3.5 s burn).',
-    readout: [['B1M design', 'Done'], ['B1M engines', '3 in build'], ['Status', 'ACTIVE']] },
-  { id: 3, num: 'STAGE 03', name: 'Avionics', when: '2026-Q3', state: 'next',
-    headline: 'Fabrication and integrated avionics testing.',
-    body: 'Building and qualifying avionics systems — flight computer, altimeter, GPS, and recovery electronics — alongside Octopus, our pad and vehicle data link into Goods Shed mission control. Full bench integration and validation of the avionics stack before airframe integration.',
-    readout: [['Octopus', 'DATA LINK'], ['Recovery sys.', 'PENDING'], ['Status', 'UPCOMING']] },
-  { id: 4, num: 'STAGE 04', name: 'Fabrication', when: '2026-Q4', state: 'next',
-    headline: 'Full scale STRAVOX flight hardware.',
-    body: 'Manufacturing the 200 mm diameter airframe, CNC-cutting both fin sets, assembling the KNSB motor with a 1 m propellant grain, and integrating all vehicle systems into the complete STRAVOX stack.',
-    readout: [['Airframe', '2,633 mm'], ['Motor grain', '1,000 mm'], ['Status', 'UPCOMING']] },
-  { id: 5, num: 'STAGE 05', name: 'Testing', when: '2027-Q1', state: 'next',
-    headline: 'Integrated full stack testing.',
-    body: 'Full vehicle systems review with all hardware integrated. Landing system deployment tests, end-to-end avionics check, and launch readiness review before CASA range clearance is sought.',
-    readout: [['Systems review', 'PENDING'], ['Range clearance', 'PENDING'], ['Status', 'UPCOMING']] },
-  { id: 6, num: 'STAGE 06', name: 'Launch', when: '2027-Q2', state: 'next',
-    headline: 'Full scale 30 km flight.',
-    body: 'Vertical propulsive landing demonstration at a CASA-cleared range in Victoria. A full mission — boost to 30 km, airbrake descent, and controlled touchdown on four landing legs.',
-    readout: [['Target apogee', '30 km'], ['Peak velocity', 'Mach 2.5'], ['Status', 'PLANNING']] },
-]
-
-const sections = [
-  { label: 'Split Nosecone', info: 'Clamshell design that opens after burnout to expose a 3.5× larger drag area — passively braking the vehicle from Mach 2.5 down to ~64 m/s for the landing sequence.' },
-  { label: 'Avionics + Battery Bay', info: 'Flight computer, altimeter, GPS, and recovery electronics. Controls nosecone deployment, drone arm extension, and the full propulsive landing sequence.' },
-  { label: 'Airframe', info: '200 mm diameter tube, 2,633 mm total vehicle height. Upper and lower sections joined by a bolted coupler ring. Carries two independent fin sets.' },
-  { label: 'KNSB Motor', info: 'Home-ground potassium nitrate / sorbitol propellant in a 1 m grain. Pushes STRAVOX past Mach 2.5 before burnout at approximately 10 km altitude.' },
-  { label: 'Fins', info: 'Two fin sets: 520 mm-span base fins for boost-phase stability and 340 mm-span upper fins for supersonic control throughout flight.' },
-  { label: 'Landing System', info: 'Four T-Motor U13 II motors extend on folding arms at apogee. Deliver 112 kgf of thrust at a 2.05× thrust-to-weight ratio for a controlled vertical touchdown.' },
-]
+import { flightPhases, stages, stravoxSpecs, systems } from '../data'
+import { useTitle } from '../useTitle'
 
 export default function Stravox() {
-  const [selected, setSelected] = useState(2)
-  const s = stages[selected]
+  useTitle('STRAVOX')
+  const [active, setActive] = useState(2)
+  const stage = stages[active]
 
   return (
-    <main className="stravox">
-
-      {/* ── Dark hero ───────────────────────────────── */}
-      <section className="stravox-hero">
-        <div className="stravox-hero-grid-bg" aria-hidden="true" />
-        <div className="container stravox-hero-inner">
-          <div className="stravox-hero-left">
-            <p className="eyebrow" style={{ color: 'var(--ink-400)', marginBottom: '24px' }}>The Rocket</p>
-            <h1 className="stravox-hero-h1">STRAVOX</h1>
-            <p className="stravox-hero-sub">
-              Australia's first fully and rapidly reusable launch vehicle. A 2,633 mm high-power vehicle
-              with a split nosecone airbrake and propulsive vertical landing.
+    <>
+      <header className="masthead">
+        <div className="masthead-inner">
+          <div>
+            <p className="kicker">The rocket</p>
+            <h1>STRAVOX</h1>
+            <p className="lede">
+              Australia&apos;s first fully and rapidly reusable launch vehicle. A 2,633 mm high-power vehicle with a split nosecone airbrake and propulsive vertical landing.
             </p>
           </div>
-          <div className="stravox-hero-spec">
-            <div className="home-spec-row">
-              <span className="home-spec-lbl">Height</span>
-              <span className="home-spec-val">2,633 mm</span>
-            </div>
-            <div className="home-spec-row">
-              <span className="home-spec-lbl">Target apogee</span>
-              <span className="home-spec-val accent">30.0 km</span>
-            </div>
-            <div className="home-spec-row">
-              <span className="home-spec-lbl">Peak velocity</span>
-              <span className="home-spec-val">Mach 2.5</span>
-            </div>
-            <div className="home-spec-row">
-              <span className="home-spec-lbl">Landing T/W</span>
-              <span className="home-spec-val">2.05×</span>
-            </div>
+          <div className="masthead-side">
+            <div className="side-row"><span>Height</span><span>2,633 mm</span></div>
+            <div className="side-row"><span>Target apogee</span><span>30.0 km</span></div>
+            <div className="side-row"><span>Peak velocity</span><span>Mach 2.5</span></div>
+            <div className="side-row"><span>Landing T/W</span><span>2.05×</span></div>
           </div>
         </div>
-        <div className="tick-rule stravox-tick">
-          {TICK.map((_, i) => <span key={i} />)}
-        </div>
-      </section>
+      </header>
 
-      {/* ── Living design notice ─────────────────────── */}
-      <section className="stravox-living" aria-label="Development status">
-        <div className="container stravox-living-inner">
-          <p className="stravox-living-label mono">Living design</p>
-          <h2 className="stravox-living-title">
-            Full STRAVOX development is extremely dynamic.
-          </h2>
-          <p className="stravox-living-body">
-            This vehicle changes with every new test and every bit of hardware we produce.
-            Numbers, geometry, and systems on this page are the current working baseline —
-            not a frozen final design.
+      <section className="section">
+        <div className="wrap split">
+          <div>
+            <p className="kicker">Living design</p>
+            <h2>Full STRAVOX development is extremely dynamic.</h2>
+            <p className="lede">
+              This vehicle changes with every new test and every bit of hardware we produce. Numbers, geometry, and systems on this page are the current working baseline — not a frozen final design.
+            </p>
+          </div>
+          <p className="note">
+            Every figure comes from a simulated or tested subsystem. We update them after every design revision and every ground test.
           </p>
         </div>
       </section>
 
-      {/* ── Sections breakdown ──────────────────────── */}
-      <section className="section stravox-breakdown">
-        <div className="container stravox-split">
-          <div className="stravox-img-col">
-            <img src="/stravox-render.png" alt="STRAVOX render" className="stravox-model-img" />
-          </div>
-          <div className="stravox-descriptions">
-            {sections.map((s, i) => (
-              <div key={s.label} className="stravox-desc">
-                <span className="stravox-desc-num mono">0{i + 1}</span>
-                <h3>{s.label}</h3>
-                <p>{s.info}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Specs ───────────────────────────────────── */}
-      <section className="section stravox-specs-section">
-        <div className="container">
+      <section className="section">
+        <div className="wrap">
           <div className="section-head">
             <div>
-              <span className="eyebrow accent">[ Technical ]</span>
-              <h2>Specifications</h2>
+              <p className="kicker">Mission profile</p>
+              <h2>Three phases of a flight.</h2>
             </div>
-            <p className="lead">
-              Every figure on this page comes from a simulated or tested subsystem.
-              We update them after every design revision and every ground test.
-            </p>
+            <p>Powered ascent, drag-braked descent, and propulsive landing.</p>
           </div>
-          <div className="stravox-numbers-grid">
-            {numbers.map(c => (
-              <div className="spec-cell" key={c.lbl}>
-                <div className="lbl">{c.lbl}</div>
-                <div className="val">{c.val}<small>{c.unit}</small></div>
-                <div className="note">{c.note}</div>
-              </div>
+          <div className="phase-grid">
+            {flightPhases.map((phase) => (
+              <article className="phase" key={phase.id}>
+                <p className="kicker">{phase.label}</p>
+                <h3>{phase.title}</h3>
+                <p>{phase.body}</p>
+                <div className="stat-list">
+                  {phase.stats.map(([label, value]) => (
+                    <div className="meta-line" key={label}>
+                      <span>{label}</span>
+                      <span>{value}</span>
+                    </div>
+                  ))}
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Build stages ─────────────────────────────── */}
-      <section className="section" style={{ background: 'var(--paper-200)' }}>
-        <div className="container">
+      <section className="section">
+        <div className="wrap">
           <div className="section-head">
             <div>
-              <span className="eyebrow">[ Programme ]</span>
+              <p className="kicker">Technical</p>
+              <h2>Specifications.</h2>
+            </div>
+          </div>
+          <dl className="spec-table">
+            {stravoxSpecs.map((spec) => (
+              <div className="spec-line" key={spec.lbl}>
+                <dt>{spec.lbl}</dt>
+                <dd>
+                  {spec.val} {spec.unit}
+                  <span className="note"> — {spec.note}</span>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <p className="kicker">Vehicle</p>
+              <h2>The stack.</h2>
+            </div>
+          </div>
+          <div className="rows">
+            {systems.map((system, index) => (
+              <article className="prog-row" key={system.label}>
+                <p className="prog-kicker">{String(index + 1).padStart(2, '0')}</p>
+                <div>
+                  <h3>{system.label}</h3>
+                  <p>{system.info}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <p className="kicker">Programme</p>
               <h2>Stages of the build.</h2>
             </div>
-            <p className="lead">
-              The team is named after this list. Stage Zero is the ground — everything
-              beyond it is what we're doing. Click a stage to read the spec.
-            </p>
+            <p>The team is named after this list. Stage Zero is the ground — everything beyond it is what we&apos;re doing.</p>
           </div>
-          <div className="stages-row">
-            {stages.map((st, i) => {
-              const cls = [
-                'stage-item',
-                st.state === 'done' && i !== selected ? 'done' : '',
-                i === selected ? 'now' : '',
-                st.state === 'next' && i !== selected ? 'next' : '',
-              ].filter(Boolean).join(' ')
-              return (
-                <div key={st.id} className={cls} onClick={() => setSelected(i)}>
-                  <div className="stage-num">{st.num}</div>
-                  <div className="stage-name">{st.name}</div>
-                  <div className="stage-when">{st.when} · {st.state.toUpperCase()}</div>
-                </div>
-              )
-            })}
+          <div className="stage-nav" role="tablist" aria-label="Build stages">
+            {stages.map((item, index) => (
+              <button
+                key={item.num}
+                type="button"
+                role="tab"
+                aria-selected={index === active}
+                aria-pressed={index === active}
+                onClick={() => setActive(index)}
+              >
+                {item.num}
+              </button>
+            ))}
           </div>
-          <div className="stage-detail">
+          <div className="stage-panel" role="tabpanel">
             <div>
-              <span className="eyebrow accent">[ {s.num} / {s.name.toUpperCase()} ]</span>
-              <h3>{s.headline}</h3>
-              <p>{s.body}</p>
+              <p className="kicker">{stage.when} · {stage.state}</p>
+              <h3>{stage.name}. {stage.headline}</h3>
+              <p className="lede">{stage.body}</p>
             </div>
-            <div className="stage-readout">
-              {s.readout.map(([k, v]) => (
-                <div className="row" key={k}>
-                  <span className="lbl">{k}</span>
-                  <span className="val">{v}</span>
+            <div className="meta-stack">
+              {stage.readout.map(([label, value]) => (
+                <div className="meta-line" key={label}>
+                  <span>{label}</span>
+                  <span>{value}</span>
                 </div>
               ))}
             </div>
@@ -221,23 +157,16 @@ export default function Stravox() {
         </div>
       </section>
 
-      {/* ── Mission profile ──────────────────────────── */}
-      <MissionProfile />
-
-      {/* ── CTA ─────────────────────────────────────── */}
-      <section className="section stravox-cta-section">
-        <div className="container stravox-cta-inner">
+      <section className="section">
+        <div className="wrap callout">
           <div>
-            <p className="eyebrow">Stay in the loop</p>
+            <p className="kicker">Stay in the loop</p>
             <h2>Want to know more?</h2>
-            <p className="lead" style={{ marginTop: '16px' }}>
-              We publish updates as the build continues. Reach out to follow the journey.
-            </p>
+            <p className="note">We publish updates as the build continues.</p>
           </div>
-          <Link className="btn btn-primary" to="/contact">Contact Us →</Link>
+          <Link className="btn btn-ink" to="/contact">Contact us</Link>
         </div>
       </section>
-
-    </main>
+    </>
   )
 }

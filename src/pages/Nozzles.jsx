@@ -1,128 +1,92 @@
-import './Nozzles.css'
-
-const TICK = Array.from({ length: 40 })
-
-const goals = [
-  {
-    index: '01',
-    title: 'Survive the burn',
-    desc: 'Ceramic throats and inserts that hold geometry under chamber temperature and pressure — no melt-back, no washout.',
-  },
-  {
-    index: '02',
-    title: 'Stay retained',
-    desc: 'Fix the ejection failures from early Mk I fires with a nozzle stack designed to stay locked through pressure spikes.',
-  },
-  {
-    index: '03',
-    title: 'Scale to B1M',
-    desc: 'Take lessons from small-motor inserts into nozzles sized for the B1M and, later, full-scale STRAVOX motors.',
-  },
-  {
-    index: '04',
-    title: 'Prove on the stand',
-    desc: 'Every ceramic design earns its place through static fire — measured, inspected, and published with the rest of the test log.',
-  },
-]
-
-const milestones = [
-  { label: 'Problem definition', status: 'done', note: 'Mk I nozzle ejections and Mk II burn-throughs established retention and thermal survival as hard requirements.' },
-  { label: 'Material research', status: 'active', note: 'Evaluating ceramic formulations and insert geometries for throat and exit-cone duty.' },
-  { label: 'Prototype inserts', status: 'active', note: 'First ceramic nozzle inserts in design and fabrication for small-motor verification.' },
-  { label: 'Static-fire validation', status: 'upcoming', note: 'Fire ceramic nozzles on the stand; inspect throat erosion, retention, and post-burn integrity.' },
-  { label: 'B1M integration', status: 'upcoming', note: 'Scale a proven ceramic stack into the B1M motor before flight.' },
-]
+import { Link } from 'react-router-dom'
+import { nozzleBrief, nozzleFailures, nozzlePath } from '../data'
+import { useTitle } from '../useTitle'
 
 export default function Nozzles() {
-  return (
-    <main className="nozzles">
+  useTitle('Ceramic nozzles')
 
-      <section className="nozzles-hero">
-        <div className="nozzles-hero-grid-bg" aria-hidden="true" />
-        <div className="container nozzles-hero-inner">
+  return (
+    <>
+      <header className="masthead">
+        <div className="masthead-inner">
           <div>
-            <p className="eyebrow" style={{ color: 'var(--ink-400)', marginBottom: '24px' }}>
-              [ Propulsion programme ]
+            <p className="kicker">Propulsion</p>
+            <h1>Ceramic nozzles.</h1>
+            <p className="lede">
+              We started this programme because our early motors threw nozzles or burned through them. The goal is simple: inserts that stay put and survive the burn long enough to fly on B1M.
             </p>
-            <h1 className="nozzles-hero-h1">Ceramic<br />Nozzles.</h1>
-            <p className="nozzles-hero-sub">
-              A dedicated programme to design, fire, and qualify ceramic nozzles
-              that survive our motors — after early tests lost nozzles to ejection
-              and thermal damage.
-            </p>
+            <div className="actions">
+              <Link className="btn" to="/tests">Read the fire logs</Link>
+            </div>
           </div>
-          <div className="nozzles-hero-stat-row">
-            <div className="nozzles-hero-stat">
-              <span className="nozzles-hero-stat-val">ACTIVE</span>
-              <span className="nozzles-hero-stat-lbl">Programme status</span>
-            </div>
-            <div className="nozzles-hero-stat">
-              <span className="nozzles-hero-stat-val">Mk I–II</span>
-              <span className="nozzles-hero-stat-lbl">Driven by test failures</span>
-            </div>
-            <div className="nozzles-hero-stat">
-              <span className="nozzles-hero-stat-val">B1M</span>
-              <span className="nozzles-hero-stat-lbl">First flight target</span>
-            </div>
+          <div className="masthead-side">
+            <div className="side-row"><span>Now</span><span>Materials research</span></div>
+            <div className="side-row"><span>Focus</span><span>First inserts</span></div>
+            <div className="side-row"><span>Target</span><span>B1M motor stack</span></div>
           </div>
         </div>
-        <div className="tick-rule nozzles-tick">
-          {TICK.map((_, i) => <span key={i} />)}
+      </header>
+
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <p className="kicker">What broke first</p>
+              <h2>Written from the stand.</h2>
+            </div>
+            <p>The ceramic brief is written from the stand, not from a wishlist. Two failure modes set the requirements.</p>
+          </div>
+          <div className="two">
+            {nozzleFailures.map((item) => (
+              <article className="cell" key={item.fire} style={{ borderTop: '1px solid var(--line)', paddingTop: '1rem' }}>
+                <p className="kicker">{item.fire}</p>
+                <h3>{item.result}</h3>
+                <p>{item.note}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="section">
-        <div className="container">
+        <div className="wrap">
           <div className="section-head">
             <div>
-              <p className="eyebrow">Why ceramics</p>
-              <h2>Nozzles that stay put.</h2>
+              <p className="kicker">The brief</p>
+              <h2>Three things the nozzle has to do.</h2>
             </div>
-            <p className="lead">
-              Our first static fires made the problem obvious: metal nozzles either
-              ejected under pressure or began to burn through. The ceramic nozzle
-              programme exists to replace that weak link with inserts that retain,
-              resist heat, and keep thrust on axis for the full burn.
-            </p>
           </div>
-
-          <div className="nozzles-goals">
-            {goals.map((g) => (
-              <div className="nozzles-goal" key={g.index}>
-                <span className="nozzles-goal-index mono">{g.index}</span>
-                <h3>{g.title}</h3>
-                <p>{g.desc}</p>
-              </div>
+          <div className="phase-grid">
+            {nozzleBrief.map((item, index) => (
+              <article className="phase" key={item.title}>
+                <p className="kicker">{String(index + 1).padStart(2, '0')}</p>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section dark">
-        <div className="container">
-          <p className="eyebrow" style={{ color: 'var(--ink-400)', marginBottom: '2.5rem' }}>
-            Programme milestones
-          </p>
-          <div className="nozzles-milestones">
-            {milestones.map((ms, idx) => (
-              <div key={ms.label} className={`nozzles-milestone nozzles-milestone--${ms.status}`}>
-                <div className="nozzles-milestone-marker">
-                  <span className="nozzles-milestone-dot" />
-                  {idx < milestones.length - 1 && <span className="nozzles-milestone-line" />}
-                </div>
-                <div className="nozzles-milestone-content">
-                  <div className="nozzles-milestone-head">
-                    <span className="nozzles-milestone-name">{ms.label}</span>
-                    <span className="nozzles-milestone-tag">{ms.status}</span>
-                  </div>
-                  <p className="nozzles-milestone-note">{ms.note}</p>
-                </div>
-              </div>
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <p className="kicker">Path to flight</p>
+              <h2>From the log to B1M.</h2>
+            </div>
+          </div>
+          <div className="rows">
+            {nozzlePath.map((item, index) => (
+              <article className="vehicle-row" key={item.name}>
+                <span className="idx">{String(index + 1).padStart(2, '0')}</span>
+                <strong>{item.name}</strong>
+                <span className="partner-role">{item.detail}</span>
+              </article>
             ))}
           </div>
         </div>
       </section>
-
-    </main>
+    </>
   )
 }
