@@ -59,19 +59,14 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section home-partners">
         <div className="wrap">
-          <div className="section-head">
-            <div>
-              <p className="kicker">Partners</p>
-              <h2>Who stands with us.</h2>
-            </div>
-          </div>
-          <div className="rows">
+          <p className="eyebrow">Partners & supporters</p>
+          <div className="home-partners-logos">
             {partners.map((partner) => (
-              <a className="partner-row" key={partner.name} href={partner.href}>
-                <span className="partner-name">{partner.name}</span>
-                <span className="partner-role">{partner.role}</span>
+              <a className="home-partner" key={partner.name} href={partner.href} target="_blank" rel="noopener noreferrer">
+                <img src={partner.logo} alt="" />
+                <span>{partner.name}</span>
               </a>
             ))}
           </div>

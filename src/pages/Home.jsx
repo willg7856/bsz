@@ -49,22 +49,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section home-partners">
-        <div className="container">
-          <p className="eyebrow">Partners & supporters</p>
-          <div className="home-partners-logos">
-            <a className="home-partner" href="https://www.crwa.org.au" target="_blank" rel="noopener noreferrer">
-              <img src="/partner-crwa.svg" alt="" />
-              <span>Creswick Railway Workshops Association</span>
-            </a>
-            <a className="home-partner" href="https://ballarattech.school" target="_blank" rel="noopener noreferrer">
-              <img src="/partner-bts.svg" alt="" />
-              <span>Ballarat Tech School</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
       <section className="section dark home-rocket">
         <div className="container home-rocket-inner">
           <div className="home-rocket-text">

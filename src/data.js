@@ -114,11 +114,25 @@ export const partners = [
     name: 'Creswick Railway Workshops Association',
     role: 'Workshop & base',
     href: 'https://www.crwa.org.au',
+    logo: '/partner-crwa.svg',
   },
   {
     name: 'Ballarat Tech School',
     role: 'Education partner',
     href: 'https://ballarattech.school',
+    logo: '/partner-bts.svg',
+  },
+  {
+    name: 'Federation University',
+    role: 'Supporter',
+    href: 'https://federation.edu.au',
+    logo: '/partner-feduni.svg',
+  },
+  {
+    name: 'Parish Engineering',
+    role: 'Supporter',
+    href: 'https://www.parishengineering.com.au/',
+    logo: '/partner-parish.png',
   },
 ]
 
