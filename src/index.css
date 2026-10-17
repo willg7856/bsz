@@ -585,6 +585,16 @@ h1, h2, h3, h4, p { margin: 0; }
 .tick-rule span { border-right: 1px solid var(--ink-700); flex: 1; }
 .tick-rule span:nth-child(5n + 1) { border-right-color: var(--ink-400); }
 
+.home-tick {
+  background: var(--paper-100);
+  border-top: 1px solid var(--ink-700);
+  border-bottom: 1px solid #d7ddd4;
+  height: 22px;
+}
+
+.home-tick span { border-right-color: #d5dbd2; }
+.home-tick span:nth-child(5n + 1) { border-right-color: var(--ink-900); }
+
 .btn {
   font-family: var(--font-display);
   text-transform: uppercase;
@@ -701,17 +711,31 @@ h1, h2, h3, h4, p { margin: 0; }
   line-height: 1.4;
 }
 
+.home .home-rocket,
+.home .home-project {
+  padding-block: clamp(3.25rem, 6vw, 4.75rem);
+}
+
+.home-hero + .home-rocket {
+  background: var(--ink-800);
+  border-top: 0;
+}
+
+.home-rocket--light {
+  background: var(--paper-200);
+}
+
 .home-rocket-inner {
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: clamp(40px, 6vw, 80px);
+  gap: clamp(40px, 6vw, 72px);
   display: grid;
 }
 
 .home-project-inner {
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(17rem, 24rem);
   align-items: center;
-  gap: clamp(40px, 6vw, 80px);
+  gap: clamp(32px, 5vw, 64px);
   display: grid;
 }
 
