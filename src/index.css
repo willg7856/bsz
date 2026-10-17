@@ -668,8 +668,8 @@ h1, h2, h3, h4, p { margin: 0; }
 
 .home-partners-logos {
   flex-wrap: wrap;
-  align-items: center;
-  gap: 56px;
+  align-items: flex-start;
+  gap: 40px 56px;
   display: flex;
 }
 
@@ -683,7 +683,14 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 
 .home-partner:hover { opacity: 1; }
-.home-partner img { height: 56px; width: auto; display: block; filter: grayscale(0.3); }
+.home-partner img {
+  height: 56px;
+  width: auto;
+  max-width: 210px;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+}
 
 .home-partner span {
   font-family: var(--font-mono);

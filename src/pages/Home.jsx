@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { partners } from '../data'
 import { useTitle } from '../useTitle'
 
 const ticks = Array.from({ length: 40 })
@@ -53,14 +54,12 @@ export default function Home() {
         <div className="container">
           <p className="eyebrow">Partners & supporters</p>
           <div className="home-partners-logos">
-            <a className="home-partner" href="https://www.crwa.org.au" target="_blank" rel="noopener noreferrer">
-              <img src="/partner-crwa.svg" alt="" />
-              <span>Creswick Railway Workshops Association</span>
-            </a>
-            <a className="home-partner" href="https://ballarattech.school" target="_blank" rel="noopener noreferrer">
-              <img src="/partner-bts.svg" alt="" />
-              <span>Ballarat Tech School</span>
-            </a>
+            {partners.map((partner) => (
+              <a className="home-partner" key={partner.name} href={partner.href} target="_blank" rel="noopener noreferrer">
+                <img src={partner.logo} alt="" />
+                <span>{partner.name}</span>
+              </a>
+            ))}
           </div>
         </div>
       </section>
