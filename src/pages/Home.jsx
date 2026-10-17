@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { partners } from '../data'
 import { useTitle } from '../useTitle'
 
 const ticks = Array.from({ length: 40 })
@@ -47,20 +46,6 @@ export default function Home() {
         </div>
         <div className="tick-rule home-tick" aria-hidden="true">
           {ticks.map((_, index) => <span key={index} />)}
-        </div>
-      </section>
-
-      <section className="section home-partners">
-        <div className="container">
-          <p className="eyebrow">Partners & supporters</p>
-          <div className="home-partners-logos">
-            {partners.map((partner) => (
-              <a className="home-partner" key={partner.name} href={partner.href} target="_blank" rel="noopener noreferrer">
-                <img src={partner.logo} alt="" />
-                <span>{partner.name}</span>
-              </a>
-            ))}
-          </div>
         </div>
       </section>
 
