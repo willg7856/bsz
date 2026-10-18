@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
-import { applyTheme, getPreferredTheme } from '../theme'
 import { site } from '../data'
 
 const projects = [
   { path: '/stravox', label: 'STRAVOX', note: 'Full-scale reusable launch vehicle' },
   { path: '/b1m', label: 'STRAVOX B1M', note: 'Sub-scale 3 km test vehicle' },
+  { path: '/b1m-engine', label: 'B1M engine', note: 'Development updates before flight one' },
   { path: '/nozzles', label: 'Ceramic Nozzles', note: 'Ceramic nozzle development programme' },
   { path: '/octopus', label: 'Octopus', note: 'Pad and vehicle data link to mission control' },
 ]
@@ -90,10 +90,8 @@ function MobileGroup({ label, items, pathname, onNavigate }) {
 
 export default function Layout() {
   const location = useLocation()
-  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || getPreferredTheme())
   const [menuPath, setMenuPath] = useState(null)
   const menuOpen = menuPath === location.pathname
-  const nextLabel = theme === 'dark' ? 'Light' : 'Dark'
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -105,12 +103,6 @@ export default function Layout() {
       document.body.style.overflow = ''
     }
   }, [menuOpen])
-
-  function toggleTheme() {
-    const next = theme === 'dark' ? 'light' : 'dark'
-    applyTheme(next)
-    setTheme(next)
-  }
 
   function closeMenu() {
     setMenuPath(null)
@@ -129,15 +121,6 @@ export default function Layout() {
             <NavLink className="nav-btn" to="/missions">Missions</NavLink>
             <NavLink className="nav-btn" to="/tests">Tests</NavLink>
             <Dropdown label="Company" items={company} pathname={location.pathname} />
-            <button
-              type="button"
-              className="nav-btn"
-              onClick={toggleTheme}
-              aria-pressed={theme === 'dark'}
-              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {nextLabel}
-            </button>
             <a className="nav-cta" href={site.space} target="_blank" rel="noopener noreferrer">.space</a>
           </nav>
           <button
@@ -167,9 +150,6 @@ export default function Layout() {
             <MobileGroup label="Company" items={company} pathname={location.pathname} onNavigate={closeMenu} />
           </nav>
           <div className="nav-mobile-foot">
-            <button type="button" className="nav-btn nav-btn-block" onClick={toggleTheme}>
-              {nextLabel} mode
-            </button>
             <a className="nav-cta-mobile" href={site.space} target="_blank" rel="noopener noreferrer">Open .space</a>
             <p className="nav-mobile-foot-note">{site.place}</p>
           </div>
@@ -190,6 +170,7 @@ export default function Layout() {
             <Link to="/about">About</Link>
             <Link to="/stravox">STRAVOX</Link>
             <Link to="/b1m">B1M</Link>
+            <Link to="/b1m-engine">B1M engine</Link>
             <Link to="/missions">Missions</Link>
             <Link to="/tests">Tests</Link>
             <Link to="/news">News</Link>

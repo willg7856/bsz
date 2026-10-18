@@ -10,6 +10,7 @@ export const site = {
 export const nav = [
   { to: '/stravox', label: 'STRAVOX' },
   { to: '/b1m', label: 'B1M' },
+  { to: '/b1m-engine', label: 'B1M engine' },
   { to: '/missions', label: 'Missions' },
   { to: '/tests', label: 'Tests' },
   { to: '/news', label: 'News' },
@@ -19,6 +20,7 @@ export const footerNav = [
   { to: '/about', label: 'About' },
   { to: '/stravox', label: 'STRAVOX' },
   { to: '/b1m', label: 'B1M' },
+  { to: '/b1m-engine', label: 'B1M engine' },
   { to: '/missions', label: 'Missions' },
   { to: '/tests', label: 'Tests' },
   { to: '/nozzles', label: 'Nozzles' },
@@ -55,7 +57,7 @@ export const programme = [
     action: 'Explore B1M',
     meta: [
       ['Apogee', '3 km'],
-      ['Thrust', '~150 kgf'],
+      ['Thrust', '200 kgf'],
       ['Window', "Q4'26–Q1'27"],
     ],
   },
@@ -114,11 +116,25 @@ export const partners = [
     name: 'Creswick Railway Workshops Association',
     role: 'Workshop & base',
     href: 'https://www.crwa.org.au',
+    logo: '/partner-crwa.svg',
   },
   {
     name: 'Ballarat Tech School',
     role: 'Education partner',
     href: 'https://ballarattech.school',
+    logo: '/partner-bts.svg',
+  },
+  {
+    name: 'Federation University',
+    role: 'Supporter',
+    href: 'https://federation.edu.au',
+    logo: '/partner-feduni.svg',
+  },
+  {
+    name: 'Parish Engineering',
+    role: 'Supporter',
+    href: 'https://www.parishengineering.com.au/',
+    logo: '/partner-parish.png',
   },
 ]
 
@@ -231,7 +247,7 @@ export const stages = [
     when: '2026-Q1 — Q2',
     state: 'now',
     headline: 'Engine development and static fire campaign.',
-    body: 'Development and testing of KNSB propulsion across three engine generations. B1M engine design is complete; propellant characterisation and engine build are in progress ahead of a static fire campaign (~150 kgf, 3.5 s burn).',
+    body: 'Development and testing of KNSB propulsion across three engine generations. B1M engine design is complete; propellant characterisation and engine build are in progress ahead of a static fire campaign (200 kgf, 3 s burn).',
     readout: [['B1M design', 'Done'], ['B1M engines', '3 in build'], ['Status', 'Active']],
   },
   {
@@ -272,12 +288,26 @@ export const stages = [
   },
 ]
 
+export const b1mMotorSpecs = [
+  { lbl: 'Thrust', val: '200', unit: 'kgf', note: 'Target thrust for a 3 second burn.' },
+  { lbl: 'Burn', val: '3', unit: 's', note: 'Target burn time.' },
+  { lbl: 'In production', val: '3', unit: 'engines', note: 'Built in collaboration with Federation University.' },
+  { lbl: 'Pressure test', val: '1', unit: 'engine', note: 'Almost ready for pressure testing.' },
+  { lbl: 'Apogee', val: '3', unit: 'km', note: 'Target altitude for B1M-01.' },
+  { lbl: 'Casing', val: '550', unit: 'mm', note: 'Motor length. 80 mm diameter.' },
+  { lbl: 'Diameter', val: '80', unit: 'mm', note: 'Motor casing outer diameter.' },
+  { lbl: 'Propellant', val: '~2', unit: 'kg', note: 'KNO₃/Sorbitol 65:35.' },
+]
+
 export const b1mSpecs = [
   ['Role', 'Sub-scale test vehicle'],
   ['Target apogee', '3 km'],
   ['Motor', 'KNSB B1M — 550 mm × 80 mm'],
   ['Propellant', '~2 kg KNO₃/Sorbitol 65:35'],
-  ['Expected thrust', '~150 kgf for 3.5 s'],
+  ['Expected thrust', '200 kgf for 3 s'],
+  ['Engines in production', '3'],
+  ['Pressure testing', '1 almost ready'],
+  ['Collaboration', 'Federation University'],
   ['Purpose', 'Systems validation for STRAVOX'],
   ['Launch site', 'Victoria, AUS'],
   ['Status', 'In development'],
@@ -295,10 +325,13 @@ export const b1mObjectives = [
 
 export const b1mMilestones = [
   { label: 'B1M engine design', status: 'done', note: 'Design complete — 550 mm × 80 mm casing, ~2 kg KNO₃/Sorbitol 65:35.' },
+  { label: 'Static fire stand design', status: 'done', note: 'Design complete.' },
   { label: 'Propellant characterisation', status: 'active', note: 'In progress — refining burn behaviour and propellant performance ahead of B1M static fires.' },
-  { label: 'B1M engine build', status: 'active', note: 'In progress — engines in production for ground test and flight.' },
-  { label: 'B1M engine static fires', status: 'upcoming', note: 'Ground firing campaign to validate the motor before flight (~150 kgf, 3.5 s burn).' },
-  { label: 'Vehicle design & fabrication', status: 'upcoming', note: 'Airframe, fins, and recovery bay sized around the B1M engine.' },
+  { label: 'B1M engine build', status: 'active', note: 'In progress — three engines in production with Federation University. One is almost ready for pressure testing.' },
+  { label: 'Static fire stand construction', status: 'active', note: 'In progress — the stand is being built for the B1M static fires.' },
+  { label: 'B1M engine static fires', status: 'upcoming', note: 'Ground firing campaign to validate the motor before flight (200 kgf, 3 s burn).' },
+  { label: 'Vehicle design', status: 'done', note: 'Design complete — airframe, fins, and recovery bay sized for the B1M engine.' },
+  { label: 'Vehicle fabrication', status: 'upcoming', note: 'Airframe construction and component manufacture.' },
   { label: 'Avionics integration', status: 'upcoming', note: 'Flight computer, altimeter, GPS, and recovery electronics — with Octopus linking pad/vehicle data to Goods Shed mission control.' },
   { label: 'CASA range clearance', status: 'upcoming', note: 'Regulatory approval for launch at a CASA-cleared site in Victoria.' },
   { label: 'STRAVOX B1M-01 launch', status: 'upcoming', note: 'Target window Q4 2026 – Q1 2027. 3 km apogee. Full flight telemetry. Recover and review.' },
@@ -324,12 +357,19 @@ export const missions = [
     specs: b1mSpecs,
     milestones: [
       { label: 'B1M engine design', status: 'done', note: 'Design complete — 550 mm × 80 mm casing, ~2 kg KNO₃/Sorbitol 65:35.' },
+      { label: 'Static fire stand design', status: 'done', note: 'Design complete.' },
       { label: 'Propellant characterisation', status: 'active', note: 'In progress — refining burn behaviour and propellant performance ahead of B1M static fires.' },
-      { label: 'B1M engine build', status: 'active', note: 'In progress — engines in production for ground test and flight.' },
-      { label: 'B1M engine static fires', status: 'upcoming', note: 'Ground firing campaign to validate B1M motor before flight (~150 kgf, 3.5 s burn).' },
-      { label: 'Vehicle design', status: 'upcoming', note: 'Airframe, fins, and recovery bay sized for B1M engine.' },
+      { label: 'B1M engine build', status: 'active', note: 'In progress — three engines in production with Federation University. One is almost ready for pressure testing.' },
+      { label: 'Static fire stand construction', status: 'active', note: 'In progress — the stand is being built for the B1M static fires.' },
+      { label: 'Launch pad design', status: 'active', note: 'In progress — the pad for STRAVOX B1M-01.' },
+      { label: 'B1M engine static fires', status: 'upcoming', note: 'Ground firing campaign to validate B1M motor before flight (200 kgf, 3 s burn).' },
+      { label: 'Vehicle design', status: 'done', note: 'Design complete — airframe, fins, and recovery bay sized for the B1M engine.' },
       { label: 'Vehicle fabrication', status: 'upcoming', note: 'Airframe construction and component manufacture.' },
       { label: 'Avionics integration', status: 'upcoming', note: 'Flight computer, altimeter, GPS, and recovery electronics — with Octopus linking pad/vehicle data to Goods Shed mission control.' },
+      { label: 'Ground systems test', status: 'upcoming', note: 'Full vehicle systems check on the pad before flight.' },
+      { label: 'CASA range clearance', status: 'upcoming', note: 'Regulatory approval for launch at a CASA-cleared site in Victoria.' },
+      { label: 'Launch readiness review', status: 'upcoming', note: 'Final internal review before committing to launch day.' },
+      { label: 'STRAVOX B1M-01 launch', status: 'upcoming', note: 'Target window Q4 2026 – Q1 2027. 3 km apogee. Full flight telemetry. Recover and review.' },
     ],
   },
 ]
@@ -343,7 +383,7 @@ export const upcoming = [
 export const engineSummary = [
   { label: 'Mk I engines built', val: '3', sub: '250 mm × 32 mm — 2 fired, 1 held' },
   { label: 'Mk II engines built', val: '6', sub: '300 mm × 30 mm — 2 fired, 4 remaining' },
-  { label: 'B1M engines in build', val: '3', sub: '550 mm × 80 mm · ~2 kg KNO₃/Sorbitol 65:35 · ~150 kgf for 3.5 s · targeting ≥2 firings each' },
+  { label: 'B1M engines in build', val: '3', sub: '550 mm × 80 mm · ~2 kg KNO₃/Sorbitol 65:35 · 200 kgf for 3 s · one almost ready for pressure testing · with Federation University' },
 ]
 
 export const campaigns = [
@@ -355,7 +395,7 @@ export const nextCampaign = {
   id: 'C-03',
   label: 'Campaign 3 — B1M engine static fires',
   engine: 'B1M — 550 mm × 80 mm',
-  note: 'First firing of the B1M engine series. Engines in build; propellant characterisation in progress. Targeting ~150 kgf for a 3.5 s burn, with each casing aimed at ≥2 firings before flight.',
+  note: 'First firing of the B1M engine series. Three engines in production with Federation University; one is almost ready for pressure testing. Targeting 200 kgf for a 3 s burn, with each casing aimed at ≥2 firings before flight.',
   status: 'In build',
 }
 
@@ -465,6 +505,33 @@ export const octopusHops = [
   { from: 'Pad', to: 'Octopus', desc: 'Instruments and range data leave the pad during static fires and launches.' },
   { from: 'Octopus', to: 'Goods Shed', desc: 'The link delivers that stream into mission control so the team can watch the burn live.' },
   { from: 'Vehicle', to: 'Goods Shed', desc: 'Same pipe, later — telemetry from the rocket into the shed on flight days.' },
+]
+
+export const octopusMilestones = [
+  {
+    label: 'Pad → Goods Shed link',
+    status: 'active',
+    note: 'In progress — the connection that gets pad data during static fires and launches into Goods Shed mission control.',
+  },
+  {
+    label: 'Vehicle → Goods Shed link',
+    status: 'upcoming',
+    note: 'Same pipe, later. The link will also carry telemetry from the rocket into the shed on flight days.',
+  },
+  {
+    label: 'First use on B1M-01',
+    status: 'upcoming',
+    note: 'Static fires and launch support. Target window Q4 2026 – Q1 2027.',
+  },
+]
+
+export const b1mEngineUpdates = [
+  {
+    date: '2026-05-01',
+    display: 'May 2026',
+    title: 'B1M engines in production',
+    body: 'We have begun building three B1M engines — 550 mm tall, 80 mm wide, loaded with around 2 kg of KNO₃/Sorbitol at a 65:35 ratio. Design is complete; propellant characterisation and engine build are in progress. We are targeting approximately 150 kgf of thrust for 3.5 seconds per firing, and aiming to reuse each casing for at least two static fires. These are the motors that will fly on STRAVOX B1M-01.',
+  },
 ]
 
 export const news = [

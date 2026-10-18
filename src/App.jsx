@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import About from './pages/About'
 import B1m from './pages/B1m'
+import B1mEngine from './pages/B1mEngine'
 import Contact from './pages/Contact'
 import Home from './pages/Home'
 import Missions from './pages/Missions'
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="about" element={<About />} />
           <Route path="stravox" element={<Stravox />} />
           <Route path="b1m" element={<B1m />} />
+          <Route path="b1m-engine" element={<B1mEngine />} />
           <Route path="missions" element={<Missions />} />
           <Route path="tests" element={<Tests />} />
           <Route path="nozzles" element={<Nozzles />} />

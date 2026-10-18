@@ -28,17 +28,12 @@ export default function Stravox() {
         </div>
       </header>
 
-      <section className="section">
-        <div className="wrap split">
-          <div>
-            <p className="kicker">Living design</p>
-            <h2>Full STRAVOX development is extremely dynamic.</h2>
-            <p className="lede">
-              This vehicle changes with every new test and every bit of hardware we produce. Numbers, geometry, and systems on this page are the current working baseline — not a frozen final design.
-            </p>
-          </div>
-          <p className="note">
-            Every figure comes from a simulated or tested subsystem. We update them after every design revision and every ground test.
+      <section className="stravox-living" aria-label="Development status">
+        <div className="container stravox-living-inner">
+          <p className="stravox-living-label">Living design</p>
+          <h2 className="stravox-living-title">Full STRAVOX development is extremely dynamic.</h2>
+          <p className="stravox-living-body">
+            This vehicle changes with every new test and every bit of hardware we produce. Numbers, geometry, and systems on this page are the current working baseline — not a frozen final design.
           </p>
         </div>
       </section>
@@ -73,24 +68,23 @@ export default function Stravox() {
       </section>
 
       <section className="section">
-        <div className="wrap">
+        <div className="container">
           <div className="section-head">
             <div>
-              <p className="kicker">Technical</p>
+              <p className="kicker accent">Technical</p>
               <h2>Specifications.</h2>
             </div>
+            <p>Every figure on this page comes from a simulated or tested subsystem. We update them after every design revision and every ground test.</p>
           </div>
-          <dl className="spec-table">
+          <div className="stravox-numbers-grid">
             {stravoxSpecs.map((spec) => (
-              <div className="spec-line" key={spec.lbl}>
-                <dt>{spec.lbl}</dt>
-                <dd>
-                  {spec.val} {spec.unit}
-                  <span className="note"> — {spec.note}</span>
-                </dd>
+              <div className="spec-cell" key={spec.lbl}>
+                <div className="lbl">{spec.lbl}</div>
+                <div className="val">{spec.val}<small>{spec.unit}</small></div>
+                <div className="note">{spec.note}</div>
               </div>
             ))}
-          </dl>
+          </div>
         </div>
       </section>
 
@@ -116,40 +110,46 @@ export default function Stravox() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="wrap">
+      <section className="section stravox-stages">
+        <div className="container">
           <div className="section-head">
             <div>
               <p className="kicker">Programme</p>
               <h2>Stages of the build.</h2>
             </div>
-            <p>The team is named after this list. Stage Zero is the ground — everything beyond it is what we&apos;re doing.</p>
+            <p>The team is named after this list. Stage Zero is the ground — everything beyond it is what we&apos;re doing. Click a stage to read the spec.</p>
           </div>
-          <div className="stage-nav" role="tablist" aria-label="Build stages">
-            {stages.map((item, index) => (
-              <button
-                key={item.num}
-                type="button"
-                role="tab"
-                aria-selected={index === active}
-                aria-pressed={index === active}
-                onClick={() => setActive(index)}
-              >
-                {item.num}
-              </button>
-            ))}
+          <div className="stages-row" role="tablist" aria-label="Build stages">
+            {stages.map((item, index) => {
+              const selected = index === active
+              const tone = selected ? 'now' : item.state === 'done' ? 'done' : ''
+              return (
+                <button
+                  key={item.num}
+                  type="button"
+                  role="tab"
+                  className={`stage-item${tone ? ` ${tone}` : ''}`}
+                  aria-selected={selected}
+                  onClick={() => setActive(index)}
+                >
+                  <span className="stage-num">{item.num}</span>
+                  <span className="stage-name">{item.name}</span>
+                  <span className="stage-when">{item.when} · {item.state}</span>
+                </button>
+              )
+            })}
           </div>
-          <div className="stage-panel" role="tabpanel">
+          <div className="stage-detail" role="tabpanel">
             <div>
-              <p className="kicker">{stage.when} · {stage.state}</p>
-              <h3>{stage.name}. {stage.headline}</h3>
-              <p className="lede">{stage.body}</p>
+              <p className="kicker accent">[ {stage.num} / {stage.name} ]</p>
+              <h3>{stage.headline}</h3>
+              <p>{stage.body}</p>
             </div>
-            <div className="meta-stack">
+            <div className="stage-readout">
               {stage.readout.map(([label, value]) => (
-                <div className="meta-line" key={label}>
-                  <span>{label}</span>
-                  <span>{value}</span>
+                <div className="row" key={label}>
+                  <span className="lbl">{label}</span>
+                  <span className={`val${value === 'Active' ? ' status-active' : ''}`}>{value}</span>
                 </div>
               ))}
             </div>

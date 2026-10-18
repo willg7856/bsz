@@ -1,6 +1,26 @@
 import { Link } from 'react-router-dom'
-import { b1mMilestones, b1mObjectives, b1mSpecs } from '../data'
+import { b1mMilestones, b1mMotorSpecs, b1mObjectives, b1mSpecs } from '../data'
 import { useTitle } from '../useTitle'
+import './Missions.css'
+
+const preStaticFire = [
+  'B1M engine design',
+  'Static fire stand design',
+  'Propellant characterisation',
+  'B1M engine build',
+  'Static fire stand construction',
+  'B1M engine static fires',
+]
+
+const shownOnSpecSheet = new Set([
+  'Target apogee',
+  'Motor',
+  'Propellant',
+  'Expected thrust',
+  'Engines in production',
+  'Pressure testing',
+  'Collaboration',
+])
 
 export default function B1m() {
   useTitle('B1M')
@@ -16,18 +36,48 @@ export default function B1m() {
               Our sub-scale test vehicle — built to reach 3 km apogee on a home-built KNSB engine and return real flight data before we commit to full-scale STRAVOX. What works on B1M goes on STRAVOX.
             </p>
             <div className="actions">
-              <Link className="btn btn-ink" to="/missions">Mission pipeline</Link>
+              <Link className="btn btn-ink" to="/b1m-engine">Engine updates</Link>
+              <Link className="btn" to="/missions">Mission pipeline</Link>
               <Link className="btn" to="/contact">Get involved</Link>
             </div>
           </div>
           <div className="masthead-side">
             <div className="side-row"><span>Target apogee</span><span>3.0 km</span></div>
-            <div className="side-row"><span>Thrust</span><span>~150 kgf</span></div>
-            <div className="side-row"><span>Burn time</span><span>3.5 s</span></div>
+            <div className="side-row"><span>Thrust</span><span>200 kgf</span></div>
+            <div className="side-row"><span>Burn time</span><span>3 s</span></div>
             <div className="side-row"><span>First flight</span><span>Q4&apos;26–Q1&apos;27</span></div>
           </div>
         </div>
       </header>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <p className="kicker accent">Technical</p>
+              <h2>Specifications.</h2>
+            </div>
+            <div className="b1m-spec-aside">
+              <a href="https://federation.edu.au" target="_blank" rel="noopener noreferrer">
+                <img src="/partner-feduni.svg" alt="Federation University" />
+              </a>
+              <p>
+                Current figures for the B1M motor, built in collaboration with{' '}
+                <a className="b1m-spec-link" href="https://federation.edu.au" target="_blank" rel="noopener noreferrer">Federation University</a>.
+              </p>
+            </div>
+          </div>
+          <div className="stravox-numbers-grid cols-4">
+            {b1mMotorSpecs.map((spec) => (
+              <div className="spec-cell" key={spec.lbl}>
+                <div className="lbl">{spec.lbl}</div>
+                <div className="val">{spec.val}<small>{spec.unit}</small></div>
+                <div className="note">{spec.note}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="section">
         <div className="wrap split">
@@ -59,7 +109,7 @@ export default function B1m() {
             </div>
           </div>
           <dl className="spec-table">
-            {b1mSpecs.map(([label, value]) => (
+            {b1mSpecs.filter(([label]) => !shownOnSpecSheet.has(label)).map(([label, value]) => (
               <div className="spec-line" key={label}>
                 <dt>{label}</dt>
                 <dd>{value}</dd>
@@ -71,28 +121,27 @@ export default function B1m() {
 
       <section className="section">
         <div className="wrap">
-          <div className="section-head">
-            <div>
-              <p className="kicker">Path to first flight</p>
-              <h2>From drawing to launch.</h2>
-            </div>
-          </div>
-          <div>
-            {b1mMilestones.map((item, index) => (
-              <div className={`milestone status-${item.status}`} key={item.label}>
-                <div className="milestone-rail">
-                  <span className="dot" />
-                  {index < b1mMilestones.length - 1 ? <span className="rail" /> : null}
-                </div>
-                <div className="milestone-body">
-                  <div className="milestone-head">
-                    <strong>{item.label}</strong>
-                    <span className={`status status-${item.status}`}>{item.status}</span>
+          <div className="missions-card">
+            <div className="missions-milestones missions-milestones--solo">
+              <p className="missions-milestones-label">Pre-static fire milestones</p>
+              <div className="missions-milestone-list">
+                {b1mMilestones.filter((item) => preStaticFire.includes(item.label)).map((item, index, list) => (
+                  <div className={`missions-milestone missions-milestone--${item.status}`} key={item.label}>
+                    <div className="missions-milestone-marker">
+                      <span className="missions-milestone-dot" />
+                      {index < list.length - 1 ? <span className="missions-milestone-line" /> : null}
+                    </div>
+                    <div className="missions-milestone-content">
+                      <div className="missions-milestone-head">
+                        <span className="missions-milestone-name">{item.label}</span>
+                        <span className="missions-milestone-tag">{item.status}</span>
+                      </div>
+                      <p className="missions-milestone-note">{item.note}</p>
+                    </div>
                   </div>
-                  <p className="note">{item.note}</p>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
