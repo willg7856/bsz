@@ -5,8 +5,10 @@ import './Missions.css'
 
 const preStaticFire = [
   'B1M engine design',
+  'Static fire stand design',
   'Propellant characterisation',
   'B1M engine build',
+  'Static fire stand construction',
   'B1M engine static fires',
 ]
 
