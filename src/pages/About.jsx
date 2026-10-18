@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { disciplines, partners, record, values } from '../data'
+import { disciplines, partners, record, team, values } from '../data'
 import { useTitle } from '../useTitle'
 
 export default function About() {
@@ -81,6 +81,23 @@ export default function About() {
               <h2>The people.</h2>
             </div>
             <p>Seventeen students building STRAVOX from all around the world, primarily Victoria.</p>
+          </div>
+          <ul className="about-roster">
+            {team.map((name) => (
+              <li className="about-roster-name" key={name}>{name}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <p className="kicker">Coverage</p>
+              <h2>What we cover.</h2>
+            </div>
+            <p>Seventeen students across the disciplines that make a flight programme real — from home-built motors to Goods Shed mission ops.</p>
           </div>
           <div className="card-grid">
             {disciplines.map((item) => (

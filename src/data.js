@@ -1,7 +1,6 @@
 export const site = {
   name: 'Beyond Stage Zero',
-  email: 'beyondstagezero@gmail.com',
-  directEmail: 'contact@beyondstagezero.com',
+  email: 'contact@beyondstagezero.com',
   x: 'https://x.com/beyondstagezero',
   space: 'https://beyondstagezero.space',
   starship: 'https://starship.beyondstagezero.com',
@@ -144,6 +143,26 @@ export const values = [
   { index: '02', title: 'Ambitious', desc: "We set out to build Australia's first fully and rapidly reusable launch vehicle." },
   { index: '03', title: 'Collaborative', desc: 'We bring together engineers, scientists, and builders from across disciplines.' },
   { index: '04', title: 'Open', desc: 'We share our progress, failures, and learnings with the broader community.' },
+]
+
+export const team = [
+  'Will',
+  'Seb',
+  'Jet',
+  'Columbus',
+  'Arnav',
+  'Wave',
+  'Sage',
+  'Abby',
+  'Alice',
+  'Chelsea',
+  'Declan M',
+  'Declan S',
+  'Lilly',
+  'Nia',
+  'Oscar',
+  'Zafran',
+  'Ziad',
 ]
 
 export const disciplines = [
