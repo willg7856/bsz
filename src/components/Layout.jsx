@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
-import { applyTheme, getPreferredTheme } from '../theme'
 import { site } from '../data'
 
 const projects = [
@@ -90,10 +89,8 @@ function MobileGroup({ label, items, pathname, onNavigate }) {
 
 export default function Layout() {
   const location = useLocation()
-  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || getPreferredTheme())
   const [menuPath, setMenuPath] = useState(null)
   const menuOpen = menuPath === location.pathname
-  const nextLabel = theme === 'dark' ? 'Light' : 'Dark'
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -105,12 +102,6 @@ export default function Layout() {
       document.body.style.overflow = ''
     }
   }, [menuOpen])
-
-  function toggleTheme() {
-    const next = theme === 'dark' ? 'light' : 'dark'
-    applyTheme(next)
-    setTheme(next)
-  }
 
   function closeMenu() {
     setMenuPath(null)
@@ -129,15 +120,6 @@ export default function Layout() {
             <NavLink className="nav-btn" to="/missions">Missions</NavLink>
             <NavLink className="nav-btn" to="/tests">Tests</NavLink>
             <Dropdown label="Company" items={company} pathname={location.pathname} />
-            <button
-              type="button"
-              className="nav-btn"
-              onClick={toggleTheme}
-              aria-pressed={theme === 'dark'}
-              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {nextLabel}
-            </button>
             <a className="nav-cta" href={site.space} target="_blank" rel="noopener noreferrer">.space</a>
           </nav>
           <button
@@ -167,9 +149,6 @@ export default function Layout() {
             <MobileGroup label="Company" items={company} pathname={location.pathname} onNavigate={closeMenu} />
           </nav>
           <div className="nav-mobile-foot">
-            <button type="button" className="nav-btn nav-btn-block" onClick={toggleTheme}>
-              {nextLabel} mode
-            </button>
             <a className="nav-cta-mobile" href={site.space} target="_blank" rel="noopener noreferrer">Open .space</a>
             <p className="nav-mobile-foot-note">{site.place}</p>
           </div>
