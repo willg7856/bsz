@@ -90,6 +90,11 @@
 .missions-card-section { border-bottom: 1px solid var(--line); }
 
 .missions-card {
+  --telemetry-amber: #ffc400;
+  --telemetry-green: #18a957;
+  --telemetry-cyan: #2dc2d9;
+  --r-1: 2px;
+  --r-2: 4px;
   border: 1px solid var(--line);
   background: var(--paper-100);
 }
@@ -103,10 +108,11 @@
   border-bottom: 1px solid var(--line);
 }
 
-.missions-card-name {
+.section .missions-card h2.missions-card-name {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 500;
   font-size: clamp(1.75rem, 4vw, 3rem);
+  line-height: 0.95;
   letter-spacing: -0.025em;
   text-transform: uppercase;
   margin: 12px 0 8px;
@@ -387,6 +393,21 @@
 }
 
 /* ── Mobile ───────────────────────────────────────── */
+@media (max-width: 980px) {
+  .missions-card-head {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .missions-card-body {
+    grid-template-columns: 1fr;
+  }
+
+  .missions-card-left { border-right: 0; border-bottom: 1px solid var(--line); }
+
+  .missions-milestone-list { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 768px) {
   .missions-hero-inner {
     grid-template-columns: 1fr;

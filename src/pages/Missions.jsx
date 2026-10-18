@@ -1,5 +1,6 @@
 import { missions, upcoming } from '../data'
 import { useTitle } from '../useTitle'
+import './Missions.css'
 
 export default function Missions() {
   useTitle('Missions')
@@ -24,55 +25,61 @@ export default function Missions() {
       </header>
 
       {missions.map((mission) => (
-        <section className="section" key={mission.id}>
+        <section className="section missions-card-section" key={mission.id}>
           <div className="wrap">
-            <div className="section-head">
-              <div>
-                <p className="kicker">{mission.num} · {mission.year}</p>
-                <h2>{mission.name}</h2>
-                <p>{mission.tagline}</p>
+            <div className="missions-card">
+              <div className="missions-card-head">
+                <div>
+                  <span className="eyebrow accent">[ {mission.num} ]</span>
+                  <h2 className="missions-card-name">{mission.name}</h2>
+                  <p className="missions-card-tagline">{mission.tagline}</p>
+                </div>
+                <div className="missions-status missions-status--cyan">{mission.status}</div>
               </div>
-              <span className="status status-planned">{mission.status}</span>
-            </div>
-            <div className="split">
-              <div>
-                <p className="copy">{mission.description}</p>
-                <p className="kicker" style={{ marginTop: '1.4rem' }}>Mission objectives</p>
-                <div className="rows">
-                  {mission.objectives.map((item) => (
-                    <div className="vehicle-row" key={item}>
-                      <span className="idx">○</span>
-                      <span>{item}</span>
+
+              <div className="missions-card-body">
+                <div className="missions-card-left">
+                  <p className="missions-desc">{mission.description}</p>
+                  <div>
+                    <p className="missions-objectives-label">Mission objectives</p>
+                    {mission.objectives.map((item) => (
+                      <div className="missions-obj-row" key={item}>
+                        <span className="missions-obj-icon">○</span>
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="missions-card-specs">
+                  {mission.specs.map(([label, value]) => (
+                    <div className="missions-spec-row" key={label}>
+                      <span className="missions-spec-lbl">{label}</span>
+                      <span className="missions-spec-val">{value}</span>
                     </div>
                   ))}
                 </div>
               </div>
-              <dl className="spec-table">
-                {mission.specs.map(([label, value]) => (
-                  <div className="spec-line" key={label}>
-                    <dt>{label}</dt>
-                    <dd>{value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-            <p className="kicker" style={{ marginTop: '2rem' }}>Pre-flight milestones</p>
-            <div>
-              {mission.milestones.map((item, index) => (
-                <div className={`milestone status-${item.status}`} key={item.label}>
-                  <div className="milestone-rail">
-                    <span className="dot" />
-                    {index < mission.milestones.length - 1 ? <span className="rail" /> : null}
-                  </div>
-                  <div className="milestone-body">
-                    <div className="milestone-head">
-                      <strong>{item.label}</strong>
-                      <span className={`status status-${item.status}`}>{item.status}</span>
+
+              <div className="missions-milestones">
+                <p className="missions-milestones-label">Pre-flight milestones</p>
+                <div className="missions-milestone-list">
+                  {mission.milestones.map((item, index) => (
+                    <div className={`missions-milestone missions-milestone--${item.status}`} key={item.label}>
+                      <div className="missions-milestone-marker">
+                        <span className="missions-milestone-dot" />
+                        {index < mission.milestones.length - 1 ? <span className="missions-milestone-line" /> : null}
+                      </div>
+                      <div className="missions-milestone-content">
+                        <div className="missions-milestone-head">
+                          <span className="missions-milestone-name">{item.label}</span>
+                          <span className="missions-milestone-tag">{item.status}</span>
+                        </div>
+                        <p className="missions-milestone-note">{item.note}</p>
+                      </div>
                     </div>
-                    <p className="note">{item.note}</p>
-                  </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </section>

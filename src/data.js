@@ -344,6 +344,10 @@ export const missions = [
       { label: 'Vehicle design', status: 'upcoming', note: 'Airframe, fins, and recovery bay sized for B1M engine.' },
       { label: 'Vehicle fabrication', status: 'upcoming', note: 'Airframe construction and component manufacture.' },
       { label: 'Avionics integration', status: 'upcoming', note: 'Flight computer, altimeter, GPS, and recovery electronics — with Octopus linking pad/vehicle data to Goods Shed mission control.' },
+      { label: 'Ground systems test', status: 'upcoming', note: 'Full vehicle systems check on the pad before flight.' },
+      { label: 'CASA range clearance', status: 'upcoming', note: 'Regulatory approval for launch at a CASA-cleared site in Victoria.' },
+      { label: 'Launch readiness review', status: 'upcoming', note: 'Final internal review before committing to launch day.' },
+      { label: 'STRAVOX B1M-01 launch', status: 'upcoming', note: 'Target window Q4 2026 – Q1 2027. 3 km apogee. Full flight telemetry. Recover and review.' },
     ],
   },
 ]
