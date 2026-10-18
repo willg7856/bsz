@@ -278,6 +278,213 @@
   color: var(--ink-400);
 }
 
+/* Motor target and production board, inside the charcoal masthead. */
+.b1m-motor-band {
+  border-top: 1px solid var(--ink-700);
+}
+
+.b1m-motor-band-inner {
+  width: min(var(--container-max), 100%);
+  margin: 0 auto;
+  padding: 8px var(--container-pad) 28px;
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.9fr) minmax(0, 1.1fr);
+  gap: 0;
+}
+
+.b1m-motor-target {
+  padding: 28px 40px 8px 0;
+  border-right: 1px solid var(--ink-700);
+}
+
+.b1m-motor-build {
+  padding: 28px 0 8px 40px;
+}
+
+.masthead h2.b1m-motor-heading {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.15rem;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--paper-100);
+}
+
+.b1m-motor-figure {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.b1m-motor-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3.4rem, 6.5vw, 5rem);
+  letter-spacing: -0.045em;
+  line-height: 0.85;
+  font-variant-numeric: tabular-nums;
+  color: var(--paper-100);
+}
+
+.b1m-motor-unit {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.b1m-motor-for {
+  padding-bottom: 1.35rem;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ignition-400);
+}
+
+.b1m-motor-lead {
+  margin: 0 0 16px;
+  max-width: 28ch;
+  color: var(--ink-300);
+  line-height: 1.45;
+}
+
+.b1m-engine-row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.b1m-engine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  padding: 18px 10px 14px;
+  border: 1px solid var(--ink-700);
+  text-align: center;
+}
+
+.b1m-engine.is-ready {
+  border-color: var(--ignition-500);
+  background: color-mix(in srgb, var(--ignition-500) 14%, transparent);
+}
+
+.b1m-casing {
+  display: block;
+  width: 22px;
+  height: 108px;
+  margin-bottom: 12px;
+  border: 1.5px solid var(--ink-500);
+  border-radius: 11px 11px 3px 3px;
+  position: relative;
+  color: var(--ink-400);
+}
+
+.b1m-casing::before {
+  content: "";
+  position: absolute;
+  left: -1.5px;
+  right: -1.5px;
+  top: 16px;
+  height: 1.5px;
+  background: currentColor;
+}
+
+.b1m-casing::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 12px;
+  height: 10px;
+  transform: translateX(-50%);
+  background: currentColor;
+  clip-path: polygon(18% 0, 82% 0, 100% 100%, 0 100%);
+}
+
+.b1m-engine.is-ready .b1m-casing {
+  color: var(--ignition-500);
+  border-color: var(--ignition-500);
+  background: color-mix(in srgb, var(--ignition-500) 22%, transparent);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--ignition-500) 16%, transparent);
+}
+
+.b1m-engine-status {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--paper-100);
+}
+
+.b1m-engine-note {
+  min-height: 1em;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ignition-400);
+}
+
+.b1m-motor-credit {
+  position: relative;
+  z-index: 1;
+  background: var(--paper-100);
+  color: var(--ink-900);
+}
+
+.b1m-motor-partner {
+  width: min(var(--container-max), 100%);
+  margin: 0 auto;
+  padding: 14px var(--container-pad);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: var(--ink-900);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.b1m-motor-partner img {
+  height: 32px;
+  width: auto;
+  display: block;
+  flex: none;
+}
+
+.b1m-motor-partner:hover { color: var(--ignition-600); }
+
+@media (max-width: 980px) {
+  .b1m-motor-band-inner { grid-template-columns: 1fr; }
+  .b1m-motor-target {
+    border-right: 0;
+    border-bottom: 1px solid var(--ink-700);
+    padding: 28px 0 24px;
+  }
+  .b1m-motor-build { padding: 24px 0 8px; }
+}
+
+@media (max-width: 640px) {
+  .masthead h2.b1m-motor-heading { gap: 0.7rem; }
+  .b1m-motor-num { font-size: 2.75rem; }
+  .b1m-motor-for { padding-bottom: 1.05rem; }
+  .b1m-casing { width: 18px; height: 84px; }
+  .b1m-engine { padding: 14px 6px 12px; }
+  .b1m-engine-status { font-size: 0.6rem; }
+}
+
 @media (max-width: 768px) {
   .b1m-hero-inner {
     grid-template-columns: 1fr;
