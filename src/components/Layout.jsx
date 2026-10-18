@@ -5,6 +5,7 @@ import { site } from '../data'
 const projects = [
   { path: '/stravox', label: 'STRAVOX', note: 'Full-scale reusable launch vehicle' },
   { path: '/b1m', label: 'STRAVOX B1M', note: 'Sub-scale 3 km test vehicle' },
+  { path: '/b1m-engine', label: 'B1M engine', note: 'Development updates before flight one' },
   { path: '/nozzles', label: 'Ceramic Nozzles', note: 'Ceramic nozzle development programme' },
   { path: '/octopus', label: 'Octopus', note: 'Pad and vehicle data link to mission control' },
 ]
@@ -169,6 +170,7 @@ export default function Layout() {
             <Link to="/about">About</Link>
             <Link to="/stravox">STRAVOX</Link>
             <Link to="/b1m">B1M</Link>
+            <Link to="/b1m-engine">B1M engine</Link>
             <Link to="/missions">Missions</Link>
             <Link to="/tests">Tests</Link>
             <Link to="/news">News</Link>

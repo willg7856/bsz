@@ -16,7 +16,8 @@ export default function B1m() {
               Our sub-scale test vehicle — built to reach 3 km apogee on a home-built KNSB engine and return real flight data before we commit to full-scale STRAVOX. What works on B1M goes on STRAVOX.
             </p>
             <div className="actions">
-              <Link className="btn btn-ink" to="/missions">Mission pipeline</Link>
+              <Link className="btn btn-ink" to="/b1m-engine">Engine updates</Link>
+              <Link className="btn" to="/missions">Mission pipeline</Link>
               <Link className="btn" to="/contact">Get involved</Link>
             </div>
           </div>

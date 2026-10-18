@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { missions, upcoming } from '../data'
 import { useTitle } from '../useTitle'
 import './Missions.css'
@@ -32,6 +33,21 @@ export default function Missions() {
           </div>
         </div>
       </header>
+
+      <section className="section">
+        <div className="wrap split">
+          <div>
+            <p className="kicker">Before STRAVOX B1M-01</p>
+            <h2>Next milestone.</h2>
+          </div>
+          <div>
+            <p className="copy">
+              B1M engine development. Design is complete, three motors are in build, and propellant characterisation is in progress. This is the update log for that work, ahead of the static fires and flight one.
+            </p>
+            <Link className="btn btn-ink" to="/b1m-engine">Engine updates</Link>
+          </div>
+        </div>
+      </section>
 
       {missions.map((mission) => (
         <section className="section missions-card-section" key={mission.id}>

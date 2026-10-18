@@ -10,6 +10,7 @@ export const site = {
 export const nav = [
   { to: '/stravox', label: 'STRAVOX' },
   { to: '/b1m', label: 'B1M' },
+  { to: '/b1m-engine', label: 'B1M engine' },
   { to: '/missions', label: 'Missions' },
   { to: '/tests', label: 'Tests' },
   { to: '/news', label: 'News' },
@@ -19,6 +20,7 @@ export const footerNav = [
   { to: '/about', label: 'About' },
   { to: '/stravox', label: 'STRAVOX' },
   { to: '/b1m', label: 'B1M' },
+  { to: '/b1m-engine', label: 'B1M engine' },
   { to: '/missions', label: 'Missions' },
   { to: '/tests', label: 'Tests' },
   { to: '/nozzles', label: 'Nozzles' },
@@ -500,6 +502,15 @@ export const octopusMilestones = [
     label: 'First use on B1M-01',
     status: 'upcoming',
     note: 'Static fires and launch support. Target window Q4 2026 – Q1 2027.',
+  },
+]
+
+export const b1mEngineUpdates = [
+  {
+    date: '2026-05-01',
+    display: 'May 2026',
+    title: 'B1M engines in production',
+    body: 'We have begun building three B1M engines — 550 mm tall, 80 mm wide, loaded with around 2 kg of KNO₃/Sorbitol at a 65:35 ratio. Design is complete; propellant characterisation and engine build are in progress. We are targeting approximately 150 kgf of thrust for 3.5 seconds per firing, and aiming to reuse each casing for at least two static fires. These are the motors that will fly on STRAVOX B1M-01.',
   },
 ]
 

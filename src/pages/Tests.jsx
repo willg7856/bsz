@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { campaigns, engineSummary, fires, nextCampaign, resultLabel } from '../data'
 import { useTitle } from '../useTitle'
 import './Tests.css'
@@ -89,6 +90,9 @@ export default function Tests() {
               <div className="tests-upnext-id">{nextCampaign.id}</div>
               <div className="tests-upnext-label">{nextCampaign.label}</div>
               <p className="tests-upnext-note">{nextCampaign.note}</p>
+              <p style={{ marginTop: '1rem' }}>
+                <Link className="home-rocket-link" to="/b1m-engine">Engine development updates</Link>
+              </p>
             </div>
             <div className="tests-upnext-card-right">
               <div>
