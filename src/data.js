@@ -1,6 +1,7 @@
 export const site = {
   name: 'Beyond Stage Zero',
   email: 'beyondstagezero@gmail.com',
+  directEmail: 'contact@beyondstagezero.com',
   x: 'https://x.com/beyondstagezero',
   space: 'https://beyondstagezero.space',
   starship: 'https://starship.beyondstagezero.com',

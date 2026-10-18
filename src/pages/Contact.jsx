@@ -37,7 +37,7 @@ export default function Contact() {
           </div>
           <div className="contact-hero-direct">
             <p className="contact-hero-direct-lbl">Direct email</p>
-            <a className="contact-hero-email" href={`mailto:${site.email}`}>{site.email}</a>
+            <a className="contact-hero-email" href={`mailto:${site.directEmail}`}>{site.directEmail}</a>
           </div>
         </div>
         <div className="tick-rule contact-tick" aria-hidden="true">
