@@ -288,6 +288,17 @@ export const stages = [
   },
 ]
 
+export const b1mMotorSpecs = [
+  { lbl: 'Thrust', val: '200', unit: 'kgf', note: 'Target thrust for a 3 second burn.' },
+  { lbl: 'Burn', val: '3', unit: 's', note: 'Target burn time.' },
+  { lbl: 'In production', val: '3', unit: 'engines', note: 'Built in collaboration with Federation University.' },
+  { lbl: 'Pressure test', val: '1', unit: 'engine', note: 'Almost ready for pressure testing.' },
+  { lbl: 'Apogee', val: '3', unit: 'km', note: 'Target altitude for B1M-01.' },
+  { lbl: 'Casing', val: '550', unit: 'mm', note: 'Motor length. 80 mm diameter.' },
+  { lbl: 'Diameter', val: '80', unit: 'mm', note: 'Motor casing outer diameter.' },
+  { lbl: 'Propellant', val: '~2', unit: 'kg', note: 'KNO₃/Sorbitol 65:35.' },
+]
+
 export const b1mSpecs = [
   ['Role', 'Sub-scale test vehicle'],
   ['Target apogee', '3 km'],

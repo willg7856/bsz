@@ -650,6 +650,28 @@ h1, h2, h3, h4, p { margin: 0; }
 .stravox-numbers-grid .spec-cell:nth-child(5n) { border-right: 0; }
 .stravox-numbers-grid .spec-cell:nth-last-child(-n + 5) { border-bottom: 0; }
 
+.stravox-numbers-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.stravox-numbers-grid.cols-4 .spec-cell:nth-child(5n) { border-right: 1px solid var(--line); }
+.stravox-numbers-grid.cols-4 .spec-cell:nth-child(4n) { border-right: 0; }
+.stravox-numbers-grid.cols-4 .spec-cell:nth-last-child(-n + 5) { border-bottom: 1px solid var(--line); }
+.stravox-numbers-grid.cols-4 .spec-cell:nth-last-child(-n + 4) { border-bottom: 0; }
+
+.b1m-spec-aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 28rem;
+}
+.b1m-spec-aside img {
+  display: block;
+  height: 36px;
+  width: auto;
+}
+.b1m-spec-aside a:hover img { opacity: 0.8; }
+.section-head .b1m-spec-aside p { margin: 0; max-width: none; }
+.b1m-spec-aside a.b1m-spec-link { color: var(--ignition-600); }
+
 .spec-cell .lbl {
   font-family: var(--font-display);
   letter-spacing: 0.16em;
@@ -1605,11 +1627,16 @@ textarea { min-height: 9rem; resize: vertical; }
   .nav-mobile-foot { display: flex; flex-direction: column; gap: 12px; margin-top: auto; }
   .nav-cta-mobile { width: 100%; padding: 14px 20px; }
   .home-hero-inner, .home-rocket-inner, .home-project-inner, .masthead-inner, .split, .stage-panel, .stage-detail, .footer-inner, .prog-row { grid-template-columns: 1fr; }
-  .stravox-numbers-grid { grid-template-columns: repeat(2, 1fr); }
+  .stravox-numbers-grid,
+  .stravox-numbers-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
   .stravox-numbers-grid .spec-cell:nth-child(5n) { border-right: 1px solid var(--line); }
   .stravox-numbers-grid .spec-cell:nth-child(2n) { border-right: 0; }
   .stravox-numbers-grid .spec-cell:nth-last-child(-n + 5) { border-bottom: 1px solid var(--line); }
   .stravox-numbers-grid .spec-cell:nth-last-child(-n + 2) { border-bottom: 0; }
+  .stravox-numbers-grid.cols-4 .spec-cell:nth-child(4n) { border-right: 1px solid var(--line); }
+  .stravox-numbers-grid.cols-4 .spec-cell:nth-child(2n) { border-right: 0; }
+  .stravox-numbers-grid.cols-4 .spec-cell:nth-last-child(-n + 4) { border-bottom: 1px solid var(--line); }
+  .stravox-numbers-grid.cols-4 .spec-cell:nth-last-child(-n + 2) { border-bottom: 0; }
   .stages-row { flex-direction: column; }
   .stage-item { border-right: 1px solid var(--line); border-bottom: 0; }
   .stage-item:last-child { border-bottom: 1px solid var(--line); }

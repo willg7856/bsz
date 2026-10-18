@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom'
-import { b1mMilestones, b1mObjectives, b1mSpecs } from '../data'
+import { b1mMilestones, b1mMotorSpecs, b1mObjectives, b1mSpecs } from '../data'
 import { useTitle } from '../useTitle'
 import './Missions.css'
-import './B1m.css'
 
 const preStaticFire = [
   'B1M engine design',
@@ -13,18 +12,15 @@ const preStaticFire = [
   'B1M engine static fires',
 ]
 
-const shownOnMotorBoard = new Set([
+const shownOnSpecSheet = new Set([
+  'Target apogee',
+  'Motor',
+  'Propellant',
   'Expected thrust',
   'Engines in production',
   'Pressure testing',
   'Collaboration',
 ])
-
-const engines = [
-  { id: 'build-1', status: 'In production', note: '', ready: false },
-  { id: 'ready', status: 'Almost ready', note: 'Pressure testing', ready: true },
-  { id: 'build-3', status: 'In production', note: '', ready: false },
-]
 
 export default function B1m() {
   useTitle('B1M')
@@ -47,47 +43,41 @@ export default function B1m() {
           </div>
           <div className="masthead-side">
             <div className="side-row"><span>Target apogee</span><span>3.0 km</span></div>
+            <div className="side-row"><span>Thrust</span><span>200 kgf</span></div>
+            <div className="side-row"><span>Burn time</span><span>3 s</span></div>
             <div className="side-row"><span>First flight</span><span>Q4&apos;26–Q1&apos;27</span></div>
           </div>
         </div>
-        <div className="b1m-motor-band">
-          <div className="b1m-motor-band-inner">
-            <div className="b1m-motor-target">
-              <p className="kicker">Motor target</p>
-              <h2 className="b1m-motor-heading">
-                <span className="b1m-motor-figure">
-                  <span className="b1m-motor-num">200</span>
-                  <span className="b1m-motor-unit">kgf thrust</span>
-                </span>
-                <span className="b1m-motor-for">for</span>
-                <span className="b1m-motor-figure">
-                  <span className="b1m-motor-num">3</span>
-                  <span className="b1m-motor-unit">seconds</span>
-                </span>
-              </h2>
+      </header>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <p className="kicker accent">Technical</p>
+              <h2>Specifications.</h2>
             </div>
-            <div className="b1m-motor-build">
-              <p className="kicker">Three in production</p>
-              <p className="b1m-motor-lead">One is almost ready for pressure testing.</p>
-              <ul className="b1m-engine-row" aria-label="Three B1M engines">
-                {engines.map((engine) => (
-                  <li className={`b1m-engine${engine.ready ? ' is-ready' : ''}`} key={engine.id}>
-                    <span className="b1m-casing" aria-hidden="true" />
-                    <span className={`b1m-engine-status${engine.ready ? ' status-active' : ''}`}>{engine.status}</span>
-                    <span className="b1m-engine-note">{engine.note}</span>
-                  </li>
-                ))}
-              </ul>
+            <div className="b1m-spec-aside">
+              <a href="https://federation.edu.au" target="_blank" rel="noopener noreferrer">
+                <img src="/partner-feduni.svg" alt="Federation University" />
+              </a>
+              <p>
+                Current figures for the B1M motor, built in collaboration with{' '}
+                <a className="b1m-spec-link" href="https://federation.edu.au" target="_blank" rel="noopener noreferrer">Federation University</a>.
+              </p>
             </div>
           </div>
-          <div className="b1m-motor-credit">
-            <a className="b1m-motor-partner" href="https://federation.edu.au" target="_blank" rel="noopener noreferrer">
-              <img src="/partner-feduni.svg" alt="" />
-              <span>Built in collaboration with Federation University</span>
-            </a>
+          <div className="stravox-numbers-grid cols-4">
+            {b1mMotorSpecs.map((spec) => (
+              <div className="spec-cell" key={spec.lbl}>
+                <div className="lbl">{spec.lbl}</div>
+                <div className="val">{spec.val}<small>{spec.unit}</small></div>
+                <div className="note">{spec.note}</div>
+              </div>
+            ))}
           </div>
         </div>
-      </header>
+      </section>
 
       <section className="section">
         <div className="wrap split">
@@ -119,7 +109,7 @@ export default function B1m() {
             </div>
           </div>
           <dl className="spec-table">
-            {b1mSpecs.filter(([label]) => !shownOnMotorBoard.has(label)).map(([label, value]) => (
+            {b1mSpecs.filter(([label]) => !shownOnSpecSheet.has(label)).map(([label, value]) => (
               <div className="spec-line" key={label}>
                 <dt>{label}</dt>
                 <dd>{value}</dd>
