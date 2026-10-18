@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { octopusHops } from '../data'
+import { octopusHops, octopusMilestones } from '../data'
 import { useTitle } from '../useTitle'
 
 export default function Octopus() {
@@ -76,9 +76,34 @@ export default function Octopus() {
               </article>
             ))}
           </div>
-          <p className="note" style={{ marginTop: '1rem' }}>
-            First use · B1M-01 static fires & launch support · Q4 2026 – Q1 2027
-          </p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <p className="kicker">Status</p>
+              <h2>Programme milestones.</h2>
+            </div>
+          </div>
+          <div>
+            {octopusMilestones.map((item, index) => (
+              <div className={`milestone status-${item.status}`} key={item.label}>
+                <div className="milestone-rail">
+                  <span className="dot" />
+                  {index < octopusMilestones.length - 1 ? <span className="rail" /> : null}
+                </div>
+                <div className="milestone-body">
+                  <div className="milestone-head">
+                    <strong>{item.label}</strong>
+                    <span className={`status status-${item.status}`}>{item.status}</span>
+                  </div>
+                  <p className="note">{item.note}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>

@@ -481,6 +481,24 @@ export const octopusHops = [
   { from: 'Vehicle', to: 'Goods Shed', desc: 'Same pipe, later — telemetry from the rocket into the shed on flight days.' },
 ]
 
+export const octopusMilestones = [
+  {
+    label: 'Pad → Goods Shed link',
+    status: 'active',
+    note: 'In progress — the connection that gets pad data during static fires and launches into Goods Shed mission control.',
+  },
+  {
+    label: 'Vehicle → Goods Shed link',
+    status: 'upcoming',
+    note: 'Same pipe, later. The link will also carry telemetry from the rocket into the shed on flight days.',
+  },
+  {
+    label: 'First use on B1M-01',
+    status: 'upcoming',
+    note: 'Static fires and launch support. Target window Q4 2026 – Q1 2027.',
+  },
+]
+
 export const news = [
   {
     date: '2026-05-01',
