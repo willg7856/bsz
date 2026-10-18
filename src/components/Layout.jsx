@@ -5,7 +5,7 @@ import { site } from '../data'
 const projects = [
   { path: '/stravox', label: 'STRAVOX', note: 'Full-scale reusable launch vehicle' },
   { path: '/b1m', label: 'STRAVOX B1M', note: 'Sub-scale 3 km test vehicle' },
-  { path: '/b1m-engine', label: 'B1M engine', note: 'Development updates before flight one' },
+  { path: '/b1m-engine', label: 'B1M engine', note: 'Motor casing, figures, and build log' },
   { path: '/nozzles', label: 'Ceramic Nozzles', note: 'Ceramic nozzle development programme' },
   { path: '/octopus', label: 'Octopus', note: 'Pad and vehicle data link to mission control' },
 ]

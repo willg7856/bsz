@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { b1mEngineUpdates, b1mMilestones } from '../data'
+import { b1mEngineUpdates, b1mMilestones, b1mMotorSpecs } from '../data'
 import { useTitle } from '../useTitle'
 import './Missions.css'
 
@@ -12,6 +12,12 @@ const engineSteps = [
   'B1M engine static fires',
 ]
 
+const views = [
+  { src: '/b1m-external1.png', alt: 'External view of the B1M motor casing, nozzle end', caption: 'Nozzle end' },
+  { src: '/b1m-external2.png', alt: 'Side view of the B1M motor casing', caption: 'Side' },
+  { src: '/b1m-external3.png', alt: 'Angled view of the B1M motor casing', caption: 'External' },
+]
+
 export default function B1mEngine() {
   useTitle('B1M engine')
   const steps = b1mMilestones.filter((item) => engineSteps.includes(item.label))
@@ -21,13 +27,13 @@ export default function B1mEngine() {
       <header className="masthead">
         <div className="masthead-inner">
           <div>
-            <p className="kicker">Next milestone · before B1M-01</p>
+            <p className="kicker">Motor · before B1M-01</p>
             <h1>B1M engine.</h1>
             <p className="lede">
-              Engine development is the milestone in front of STRAVOX B1M flight one. The motor design is done. Three engines are in production with Federation University, and one is almost ready for pressure testing. The target is 200 kgf for 3 seconds.
+              The motor for STRAVOX B1M. Design is complete. Three engines are in production with Federation University, and one is almost ready for pressure testing. The target is 200 kgf for 3 seconds.
             </p>
             <div className="actions">
-              <Link className="btn btn-ink" to="/missions">B1M-01 mission</Link>
+              <Link className="btn btn-ink" to="/b1m">STRAVOX B1M</Link>
               <Link className="btn" to="/tests">Static fire log</Link>
             </div>
           </div>
@@ -36,11 +42,63 @@ export default function B1mEngine() {
             <div className="side-row"><span>In production</span><span>3 engines</span></div>
             <div className="side-row"><span>Pressure test</span><span>1 almost ready</span></div>
             <div className="side-row"><span>Target</span><span>200 kgf · 3 s</span></div>
-            <div className="side-row"><span>Characterisation</span><span>In progress</span></div>
             <div className="side-row"><span>Next</span><span>Static fires</span></div>
           </div>
         </div>
       </header>
+
+      <section className="section">
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <p className="kicker">Casing</p>
+              <h2>550 mm by 80 mm.</h2>
+            </div>
+            <p>Cutaway of the current B1M motor, with the external views of the same casing.</p>
+          </div>
+          <figure className="cad">
+            <img src="/b1m-cad.png" alt="Cutaway of the B1M motor casing, 550 mm by 80 mm" />
+            <figcaption>B1M motor · CAD cutaway · 550 mm × 80 mm</figcaption>
+          </figure>
+          <div className="b1m-views">
+            {views.map((view) => (
+              <figure className="cad" key={view.src}>
+                <img src={view.src} alt={view.alt} />
+                <figcaption>{view.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <p className="kicker accent">Technical</p>
+              <h2>Specifications.</h2>
+            </div>
+            <div className="b1m-spec-aside">
+              <a href="https://federation.edu.au" target="_blank" rel="noopener noreferrer">
+                <img src="/partner-feduni.svg" alt="Federation University" />
+              </a>
+              <p>
+                Current figures for the B1M motor, built in collaboration with{' '}
+                <a className="b1m-spec-link" href="https://federation.edu.au" target="_blank" rel="noopener noreferrer">Federation University</a>.
+              </p>
+            </div>
+          </div>
+          <div className="stravox-numbers-grid cols-4">
+            {b1mMotorSpecs.map((spec) => (
+              <div className="spec-cell" key={spec.lbl}>
+                <div className="lbl">{spec.lbl}</div>
+                <div className="val">{spec.val}<small>{spec.unit}</small></div>
+                <div className="note">{spec.note}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="section">
         <div className="wrap">
