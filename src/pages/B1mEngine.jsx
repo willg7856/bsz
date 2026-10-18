@@ -24,7 +24,7 @@ export default function B1mEngine() {
             <p className="kicker">Next milestone · before B1M-01</p>
             <h1>B1M engine.</h1>
             <p className="lede">
-              Engine development is the milestone in front of STRAVOX B1M flight one. The motor design is done. Three engines are in build, and propellant characterisation is in progress. Static fires are the gate before that flight.
+              Engine development is the milestone in front of STRAVOX B1M flight one. The motor design is done. Three engines are in production with Federation University, and one is almost ready for pressure testing. The target is 200 kgf for 3 seconds.
             </p>
             <div className="actions">
               <Link className="btn btn-ink" to="/missions">B1M-01 mission</Link>
@@ -33,7 +33,9 @@ export default function B1mEngine() {
           </div>
           <div className="masthead-side">
             <div className="side-row"><span>Design</span><span>Complete</span></div>
-            <div className="side-row"><span>In build</span><span>3 engines</span></div>
+            <div className="side-row"><span>In production</span><span>3 engines</span></div>
+            <div className="side-row"><span>Pressure test</span><span>1 almost ready</span></div>
+            <div className="side-row"><span>Target</span><span>200 kgf · 3 s</span></div>
             <div className="side-row"><span>Characterisation</span><span>In progress</span></div>
             <div className="side-row"><span>Next</span><span>Static fires</span></div>
           </div>

@@ -57,7 +57,7 @@ export const programme = [
     action: 'Explore B1M',
     meta: [
       ['Apogee', '3 km'],
-      ['Thrust', '~150 kgf'],
+      ['Thrust', '200 kgf'],
       ['Window', "Q4'26–Q1'27"],
     ],
   },
@@ -247,7 +247,7 @@ export const stages = [
     when: '2026-Q1 — Q2',
     state: 'now',
     headline: 'Engine development and static fire campaign.',
-    body: 'Development and testing of KNSB propulsion across three engine generations. B1M engine design is complete; propellant characterisation and engine build are in progress ahead of a static fire campaign (~150 kgf, 3.5 s burn).',
+    body: 'Development and testing of KNSB propulsion across three engine generations. B1M engine design is complete; propellant characterisation and engine build are in progress ahead of a static fire campaign (200 kgf, 3 s burn).',
     readout: [['B1M design', 'Done'], ['B1M engines', '3 in build'], ['Status', 'Active']],
   },
   {
@@ -293,7 +293,10 @@ export const b1mSpecs = [
   ['Target apogee', '3 km'],
   ['Motor', 'KNSB B1M — 550 mm × 80 mm'],
   ['Propellant', '~2 kg KNO₃/Sorbitol 65:35'],
-  ['Expected thrust', '~150 kgf for 3.5 s'],
+  ['Expected thrust', '200 kgf for 3 s'],
+  ['Engines in production', '3'],
+  ['Pressure testing', '1 almost ready'],
+  ['Collaboration', 'Federation University'],
   ['Purpose', 'Systems validation for STRAVOX'],
   ['Launch site', 'Victoria, AUS'],
   ['Status', 'In development'],
@@ -313,9 +316,9 @@ export const b1mMilestones = [
   { label: 'B1M engine design', status: 'done', note: 'Design complete — 550 mm × 80 mm casing, ~2 kg KNO₃/Sorbitol 65:35.' },
   { label: 'Static fire stand design', status: 'done', note: 'Design complete.' },
   { label: 'Propellant characterisation', status: 'active', note: 'In progress — refining burn behaviour and propellant performance ahead of B1M static fires.' },
-  { label: 'B1M engine build', status: 'active', note: 'In progress — engines in production for ground test and flight.' },
+  { label: 'B1M engine build', status: 'active', note: 'In progress — three engines in production with Federation University. One is almost ready for pressure testing.' },
   { label: 'Static fire stand construction', status: 'active', note: 'In progress — the stand is being built for the B1M static fires.' },
-  { label: 'B1M engine static fires', status: 'upcoming', note: 'Ground firing campaign to validate the motor before flight (~150 kgf, 3.5 s burn).' },
+  { label: 'B1M engine static fires', status: 'upcoming', note: 'Ground firing campaign to validate the motor before flight (200 kgf, 3 s burn).' },
   { label: 'Vehicle design', status: 'done', note: 'Design complete — airframe, fins, and recovery bay sized for the B1M engine.' },
   { label: 'Vehicle fabrication', status: 'upcoming', note: 'Airframe construction and component manufacture.' },
   { label: 'Avionics integration', status: 'upcoming', note: 'Flight computer, altimeter, GPS, and recovery electronics — with Octopus linking pad/vehicle data to Goods Shed mission control.' },
@@ -345,10 +348,10 @@ export const missions = [
       { label: 'B1M engine design', status: 'done', note: 'Design complete — 550 mm × 80 mm casing, ~2 kg KNO₃/Sorbitol 65:35.' },
       { label: 'Static fire stand design', status: 'done', note: 'Design complete.' },
       { label: 'Propellant characterisation', status: 'active', note: 'In progress — refining burn behaviour and propellant performance ahead of B1M static fires.' },
-      { label: 'B1M engine build', status: 'active', note: 'In progress — engines in production for ground test and flight.' },
+      { label: 'B1M engine build', status: 'active', note: 'In progress — three engines in production with Federation University. One is almost ready for pressure testing.' },
       { label: 'Static fire stand construction', status: 'active', note: 'In progress — the stand is being built for the B1M static fires.' },
       { label: 'Launch pad design', status: 'active', note: 'In progress — the pad for STRAVOX B1M-01.' },
-      { label: 'B1M engine static fires', status: 'upcoming', note: 'Ground firing campaign to validate B1M motor before flight (~150 kgf, 3.5 s burn).' },
+      { label: 'B1M engine static fires', status: 'upcoming', note: 'Ground firing campaign to validate B1M motor before flight (200 kgf, 3 s burn).' },
       { label: 'Vehicle design', status: 'done', note: 'Design complete — airframe, fins, and recovery bay sized for the B1M engine.' },
       { label: 'Vehicle fabrication', status: 'upcoming', note: 'Airframe construction and component manufacture.' },
       { label: 'Avionics integration', status: 'upcoming', note: 'Flight computer, altimeter, GPS, and recovery electronics — with Octopus linking pad/vehicle data to Goods Shed mission control.' },
@@ -369,7 +372,7 @@ export const upcoming = [
 export const engineSummary = [
   { label: 'Mk I engines built', val: '3', sub: '250 mm × 32 mm — 2 fired, 1 held' },
   { label: 'Mk II engines built', val: '6', sub: '300 mm × 30 mm — 2 fired, 4 remaining' },
-  { label: 'B1M engines in build', val: '3', sub: '550 mm × 80 mm · ~2 kg KNO₃/Sorbitol 65:35 · ~150 kgf for 3.5 s · targeting ≥2 firings each' },
+  { label: 'B1M engines in build', val: '3', sub: '550 mm × 80 mm · ~2 kg KNO₃/Sorbitol 65:35 · 200 kgf for 3 s · one almost ready for pressure testing · with Federation University' },
 ]
 
 export const campaigns = [
@@ -381,7 +384,7 @@ export const nextCampaign = {
   id: 'C-03',
   label: 'Campaign 3 — B1M engine static fires',
   engine: 'B1M — 550 mm × 80 mm',
-  note: 'First firing of the B1M engine series. Engines in build; propellant characterisation in progress. Targeting ~150 kgf for a 3.5 s burn, with each casing aimed at ≥2 firings before flight.',
+  note: 'First firing of the B1M engine series. Three engines in production with Federation University; one is almost ready for pressure testing. Targeting 200 kgf for a 3 s burn, with each casing aimed at ≥2 firings before flight.',
   status: 'In build',
 }
 

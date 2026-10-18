@@ -33,8 +33,9 @@ export default function B1m() {
           </div>
           <div className="masthead-side">
             <div className="side-row"><span>Target apogee</span><span>3.0 km</span></div>
-            <div className="side-row"><span>Thrust</span><span>~150 kgf</span></div>
-            <div className="side-row"><span>Burn time</span><span>3.5 s</span></div>
+            <div className="side-row"><span>Thrust</span><span>200 kgf</span></div>
+            <div className="side-row"><span>Burn time</span><span>3 s</span></div>
+            <div className="side-row"><span>In production</span><span>3 engines</span></div>
             <div className="side-row"><span>First flight</span><span>Q4&apos;26–Q1&apos;27</span></div>
           </div>
         </div>
@@ -53,6 +54,26 @@ export default function B1m() {
             <img src="/b1m-cad.png" alt="Cutaway of the B1M motor casing, 550 mm by 80 mm" />
             <figcaption>B1M motor · CAD cutaway · 550 mm × 80 mm</figcaption>
           </figure>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="wrap split">
+          <div>
+            <p className="kicker">Motor</p>
+            <h2>200 kgf for 3 seconds.</h2>
+            <p className="copy">
+              Three B1M engines are in production, built in collaboration with Federation University. One is almost ready for pressure testing.
+            </p>
+            <a className="home-project-link" href="https://federation.edu.au" target="_blank" rel="noopener noreferrer">Federation University</a>
+          </div>
+          <dl className="spec-table">
+            <div className="spec-line"><dt>Target thrust</dt><dd>200 kgf</dd></div>
+            <div className="spec-line"><dt>Burn time</dt><dd>3 s</dd></div>
+            <div className="spec-line"><dt>In production</dt><dd>3 engines</dd></div>
+            <div className="spec-line"><dt>Pressure testing</dt><dd>1 almost ready</dd></div>
+            <div className="spec-line"><dt>Collaboration</dt><dd>Federation University</dd></div>
+          </dl>
         </div>
       </section>
 
