@@ -182,9 +182,13 @@ export default function Layout() {
             <h4>Contact</h4>
             <a href={`mailto:${site.email}`}>{site.email}</a>
             <a href={site.x}>X · @beyondstagezero</a>
-            <a href={site.starship}>Starship tracker</a>
             <span className="footer-location">{site.place}</span>
           </div>
+        </div>
+        <div className="container footer-sites">
+          <h4>Other sites</h4>
+          <a href={site.starship}>Starship tracker</a>
+          <a href={site.space}>.space</a>
         </div>
         <div className="container footer-bottom">
           <span>© {new Date().getFullYear()} Beyond Stage Zero</span>
