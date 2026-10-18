@@ -8,6 +8,7 @@ const projects = [
   { path: '/b1m-engine', label: 'B1M engine', note: 'Motor casing, figures, and build log' },
   { path: '/nozzles', label: 'Ceramic Nozzles', note: 'Ceramic nozzle development programme' },
   { path: '/octopus', label: 'Octopus', note: 'Pad and vehicle data link to mission control' },
+  { path: '/starship', label: 'Starship tracker', note: 'Live public tracker · 20,000 views in under 24 hours' },
 ]
 
 const company = [
@@ -176,6 +177,7 @@ export default function Layout() {
             <Link to="/news">News</Link>
             <Link to="/nozzles">Nozzles</Link>
             <Link to="/octopus">Octopus</Link>
+            <Link to="/starship">Starship tracker</Link>
             <Link to="/contact">Contact</Link>
           </div>
           <div className="footer-col">
@@ -187,8 +189,8 @@ export default function Layout() {
         </div>
         <div className="container footer-sites">
           <h4>Other sites</h4>
-          <a href={site.starship}>Starship tracker</a>
-          <a href={site.space}>.space</a>
+          <a href={site.starship} target="_blank" rel="noopener noreferrer">Starship tracker</a>
+          <a href={site.space} target="_blank" rel="noopener noreferrer">.space</a>
         </div>
         <div className="container footer-bottom">
           <span>© {new Date().getFullYear()} Beyond Stage Zero</span>

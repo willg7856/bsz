@@ -115,6 +115,14 @@ export default function Home() {
         action="Explore the programme"
         meta={[['Status', 'Active'], ['Path', 'Pad → Goods Shed'], ['Also', 'Vehicle → MC']]}
       />
+      <Project
+        kicker="Public tracker"
+        title="Starship"
+        body="An unofficial live tracker for SpaceX Starship, built by Beyond Stage Zero from SpaceX’s public telemetry. It passed 20,000 views in under 24 hours."
+        to="/starship"
+        action="About the tracker"
+        meta={[['Views', '20,000'], ['Window', 'Under 24 hours'], ['Telemetry', 'SpaceX public']]}
+      />
     </div>
   )
 }
