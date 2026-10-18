@@ -16,10 +16,19 @@ export default function Missions() {
               Every flight we run has a mission designation, a set of objectives, and a public record. This is the full picture — what we&apos;re flying, when, and why.
             </p>
           </div>
-          <div className="masthead-side">
-            <div className="side-row"><span>Active missions</span><span>0</span></div>
-            <div className="side-row"><span>Flights completed</span><span>0</span></div>
-            <div className="side-row"><span>First launch</span><span>Q4&apos;26–Q1&apos;27</span></div>
+          <div className="masthead-side missions-hero-stat-row">
+            <div className="missions-hero-stat">
+              <span className="missions-hero-stat-val">0</span>
+              <span className="missions-hero-stat-lbl">Active missions</span>
+            </div>
+            <div className="missions-hero-stat">
+              <span className="missions-hero-stat-val">0</span>
+              <span className="missions-hero-stat-lbl">Flights completed</span>
+            </div>
+            <div className="missions-hero-stat">
+              <span className="missions-hero-stat-val">Q4&apos;26–Q1&apos;27</span>
+              <span className="missions-hero-stat-lbl">First launch</span>
+            </div>
           </div>
         </div>
       </header>
