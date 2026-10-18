@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { b1mEngineUpdates, b1mMilestones } from '../data'
 import { useTitle } from '../useTitle'
+import './Missions.css'
 
 const engineSteps = [
   'B1M engine design',
@@ -39,28 +40,27 @@ export default function B1mEngine() {
 
       <section className="section">
         <div className="wrap">
-          <div className="section-head">
-            <div>
-              <p className="kicker">Before flight one</p>
-              <h2>Where the motor stands.</h2>
-            </div>
-          </div>
-          <div>
-            {steps.map((item, index) => (
-              <div className={`milestone status-${item.status}`} key={item.label}>
-                <div className="milestone-rail">
-                  <span className="dot" />
-                  {index < steps.length - 1 ? <span className="rail" /> : null}
-                </div>
-                <div className="milestone-body">
-                  <div className="milestone-head">
-                    <strong>{item.label}</strong>
-                    <span className={`status status-${item.status}`}>{item.status}</span>
+          <div className="missions-card">
+            <div className="missions-milestones missions-milestones--solo">
+              <p className="missions-milestones-label">Pre-static fire milestones</p>
+              <div className="missions-milestone-list">
+                {steps.map((item, index) => (
+                  <div className={`missions-milestone missions-milestone--${item.status}`} key={item.label}>
+                    <div className="missions-milestone-marker">
+                      <span className="missions-milestone-dot" />
+                      {index < steps.length - 1 ? <span className="missions-milestone-line" /> : null}
+                    </div>
+                    <div className="missions-milestone-content">
+                      <div className="missions-milestone-head">
+                        <span className="missions-milestone-name">{item.label}</span>
+                        <span className="missions-milestone-tag">{item.status}</span>
+                      </div>
+                      <p className="missions-milestone-note">{item.note}</p>
+                    </div>
                   </div>
-                  <p className="note">{item.note}</p>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>

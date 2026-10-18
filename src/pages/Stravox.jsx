@@ -149,7 +149,7 @@ export default function Stravox() {
               {stage.readout.map(([label, value]) => (
                 <div className="row" key={label}>
                   <span className="lbl">{label}</span>
-                  <span className="val">{value}</span>
+                  <span className={`val${value === 'Active' ? ' status-active' : ''}`}>{value}</span>
                 </div>
               ))}
             </div>

@@ -133,7 +133,7 @@ function Project({ kicker, title, body, to, action, meta, dark = false }) {
           {meta.map(([label, value]) => (
             <div className="home-project-meta-row" key={label}>
               <span>{label}</span>
-              <span>{value}</span>
+              <span className={value === 'Active' ? 'status-active' : undefined}>{value}</span>
             </div>
           ))}
         </div>
