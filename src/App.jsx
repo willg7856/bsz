@@ -10,6 +10,7 @@ import News from './pages/News'
 import NotFound from './pages/NotFound'
 import Nozzles from './pages/Nozzles'
 import Octopus from './pages/Octopus'
+import Starship from './pages/Starship'
 import Stravox from './pages/Stravox'
 import Tests from './pages/Tests'
 
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="tests" element={<Tests />} />
           <Route path="nozzles" element={<Nozzles />} />
           <Route path="octopus" element={<Octopus />} />
+          <Route path="starship" element={<Starship />} />
           <Route path="news" element={<News />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

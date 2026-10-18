@@ -432,6 +432,29 @@ h1, h2, h3, h4, p { margin: 0; }
 .footer-col a:hover { color: var(--ignition-400); }
 .footer-location { color: var(--ink-400); }
 
+.footer-sites {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.75rem;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--ink-700);
+}
+.footer-sites h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+.footer-sites a {
+  color: var(--paper-100);
+  font-size: 0.875rem;
+}
+.footer-sites a:hover { color: var(--ignition-400); }
+
 .footer-bottom {
   letter-spacing: 0.06em;
   text-transform: uppercase;
