@@ -28,16 +28,14 @@ export default function Stravox() {
         </div>
       </header>
 
-      <section className="section">
-        <div className="wrap split">
-          <div>
-            <p className="kicker">Living design</p>
-            <h2>Full STRAVOX development is extremely dynamic.</h2>
-            <p className="lede">
-              This vehicle changes with every new test and every bit of hardware we produce. Numbers, geometry, and systems on this page are the current working baseline — not a frozen final design.
-            </p>
-          </div>
-          <p className="note">
+      <section className="stravox-living" aria-label="Development status">
+        <div className="container stravox-living-inner">
+          <p className="stravox-living-label">Living design</p>
+          <h2 className="stravox-living-title">Full STRAVOX development is extremely dynamic.</h2>
+          <p className="stravox-living-body">
+            This vehicle changes with every new test and every bit of hardware we produce. Numbers, geometry, and systems on this page are the current working baseline — not a frozen final design.
+          </p>
+          <p className="stravox-living-body">
             Every figure comes from a simulated or tested subsystem. We update them after every design revision and every ground test.
           </p>
         </div>

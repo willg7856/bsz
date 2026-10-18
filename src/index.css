@@ -13,6 +13,7 @@
   --ignition-500: #ff5a1f;
   --ignition-600: #e64613;
   --ignition-400: #ff7a47;
+  --ignition-100: #ffe4d7;
   --bg: #fafaf7;
   --bg-elev: #f1f1ec;
   --fg: #0b0d0f;
@@ -592,6 +593,47 @@ h1, h2, h3, h4, p { margin: 0; }
 
 .home-tick span { border-right-color: #d5dbd2; }
 .home-tick span:nth-child(5n + 1) { border-right-color: var(--ink-900); }
+
+.stravox-living {
+  background: var(--ignition-100);
+  border-bottom: 1px solid #f0c2ae;
+  padding: clamp(36px, 6vw, 56px) 0;
+}
+
+.stravox-living-inner { max-width: 52rem; }
+
+.stravox-living-label {
+  margin: 0 0 14px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ignition-600);
+}
+
+.stravox-living-title {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3.6vw, 2.35rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: var(--ink-900);
+  border-left: 4px solid var(--ignition-500);
+  padding-left: 18px;
+}
+
+.stravox-living-body {
+  margin: 0;
+  padding-left: 22px;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.65;
+  color: var(--ink-800);
+  max-width: 48ch;
+}
+
+.stravox-living-body + .stravox-living-body { margin-top: 0.85rem; }
 
 .btn {
   font-family: var(--font-display);
