@@ -56,11 +56,15 @@ export default function B1mEngine() {
               <p className="kicker">Casing</p>
               <h2>550 mm by 80 mm.</h2>
             </div>
-            <p>Cutaway of the current B1M motor, with the external views of the same casing.</p>
+            <p>Cutaway of the current B1M motor, the casing on the bench, and the external views of the same part.</p>
           </div>
           <figure className="cad">
             <img src="/b1m-cad.png" alt="Cutaway of the B1M motor casing, 550 mm by 80 mm" />
             <figcaption>B1M motor · CAD cutaway · 550 mm × 80 mm</figcaption>
+          </figure>
+          <figure className="cad b1m-casing-photo">
+            <img src="/b1m-engine-photo.jpg" alt="B1M engine casing standing on a workshop bench" />
+            <figcaption>B1M engine casing.</figcaption>
           </figure>
           <div className="b1m-views">
             {views.map((view) => (
