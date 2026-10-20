@@ -14,7 +14,7 @@ const engineSteps = [
 ]
 
 const views = [
-  { src: '/b1m-external1.png', alt: 'B1M engine external render, nozzle end', caption: 'Nozzle end', className: 'b1m-view-primary' },
+  { src: '/b1m-external1.png', alt: 'Full external view of the B1M engine', caption: 'Engine', className: 'b1m-view-primary' },
   { src: '/b1m-external2.png', alt: 'Side view of the B1M motor casing', caption: 'Side' },
   { src: '/b1m-external3.png', alt: 'Angled view of the B1M motor casing', caption: 'External' },
 ]
