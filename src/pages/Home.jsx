@@ -76,7 +76,9 @@ export default function Home() {
             <Link className="home-project-link" to="/b1m">Explore B1M</Link>
           </div>
           <div className="home-rocket-img-wrap">
-            <img src="/b1m-external1.png" alt="B1M engine external CAD render" className="home-rocket-img home-rocket-img--b1m" />
+            <div className="b1m-render-frame b1m-render-frame--home">
+              <img src="/b1m-external1.png" alt="B1M engine external render" />
+            </div>
           </div>
         </div>
       </section>

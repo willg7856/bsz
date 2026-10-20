@@ -1090,6 +1090,27 @@ h1, h2, h3, h4, p { margin: 0; }
   max-height: 420px;
   filter: drop-shadow(0 18px 36px #0f121629);
 }
+.b1m-render-frame {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  height: 420px;
+  width: 140px;
+  margin-inline: auto;
+}
+.b1m-render-frame img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: auto;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  transform: translateX(calc(-50% - 1.95%));
+  object-fit: fill;
+  background: transparent;
+  filter: none;
+}
 .home-rocket-img-wrap { display: flex; justify-content: center; }
 
 .home-project-meta {
@@ -1329,6 +1350,14 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .b1m-views .cad { margin: 0; height: 100%; }
 .b1m-views img { background: var(--paper-50); object-fit: contain; max-height: 420px; margin-inline: auto; }
+.b1m-views .b1m-render-frame img {
+  width: auto;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  object-fit: fill;
+  background: transparent;
+}
 .b1m-casing-photo { width: min(100%, 20rem); margin-top: 1rem; }
 .b1m-casing-photo img { display: block; width: 100%; height: auto; object-fit: contain; }
 .b1m-motor-points {
@@ -1729,6 +1758,10 @@ textarea { min-height: 9rem; resize: vertical; }
     max-width: 120px;
     max-height: 260px;
     margin-inline: auto;
+  }
+  .b1m-render-frame--home {
+    height: 280px;
+    width: 96px;
   }
   .hud-inner, .phase-grid, .card-grid, .three, .fire-grid, .about-roster { grid-template-columns: 1fr 1fr; }
   .about-roster-name:nth-child(3n + 2),
