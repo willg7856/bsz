@@ -25,7 +25,6 @@ export default function B1mEngine() {
 
   return (
     <>
-      <B1mStaticFireNotice />
       <header className="masthead">
         <div className="masthead-inner">
           <div>
@@ -48,6 +47,7 @@ export default function B1mEngine() {
           </div>
         </div>
       </header>
+      <B1mStaticFireNotice />
 
       <section className="section">
         <div className="wrap">
