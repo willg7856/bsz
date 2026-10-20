@@ -30,7 +30,7 @@ export default function B1mEngine() {
             <p className="kicker">Motor · before B1M-01</p>
             <h1>B1M engine.</h1>
             <p className="lede">
-              The motor for STRAVOX B1M. Design is complete. Three engines are in production with Federation University, and one is almost ready for pressure testing. The target is 200 kgf for 3 seconds.
+              The motor for STRAVOX B1M. Design is complete. The first engine is done and waiting regulatory approval. Two are still in production with Federation University. The target is 200 kgf for 3 seconds.
             </p>
             <div className="actions">
               <Link className="btn btn-ink" to="/b1m">STRAVOX B1M</Link>
@@ -39,8 +39,8 @@ export default function B1mEngine() {
           </div>
           <div className="masthead-side">
             <div className="side-row"><span>Design</span><span>Complete</span></div>
-            <div className="side-row"><span>In production</span><span>3 engines</span></div>
-            <div className="side-row"><span>Pressure test</span><span>1 almost ready</span></div>
+            <div className="side-row"><span>In production</span><span>2 engines</span></div>
+            <div className="side-row"><span>First engine</span><span>Done · awaiting approval</span></div>
             <div className="side-row"><span>Target</span><span>200 kgf · 3 s</span></div>
             <div className="side-row"><span>Next</span><span>Static fires</span></div>
           </div>
