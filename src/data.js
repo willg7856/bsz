@@ -316,14 +316,14 @@ export const b1mMotorSpecs = [
   { lbl: 'First engine', val: '1', unit: 'done', note: 'Build finished. Pending regulatory approval.' },
   { lbl: 'Casing', val: '550', unit: 'mm', note: 'Motor length. 80 mm diameter.' },
   { lbl: 'Diameter', val: '80', unit: 'mm', note: 'Motor casing outer diameter.' },
-  { lbl: 'Propellant', val: '~2', unit: 'kg', note: 'KNO₃/Sorbitol 65:35.' },
+  { lbl: 'Propellant', val: '2.9', unit: 'kg', note: 'KNO₃/Sorbitol 65:35.' },
 ]
 
 export const b1mSpecs = [
   ['Role', 'Sub-scale test vehicle'],
   ['Target apogee', '3 km'],
   ['Motor', 'KNSB B1M — 550 mm × 80 mm'],
-  ['Propellant', '~2 kg KNO₃/Sorbitol 65:35'],
+  ['Propellant', '2.9 kg KNO₃/Sorbitol 65:35'],
   ['Expected thrust', '200 kgf for 3 s'],
   ['Engines in production', '2 of 3'],
   ['First engine', 'Done — pending regulatory approval'],
@@ -344,7 +344,7 @@ export const b1mObjectives = [
 ]
 
 export const b1mMilestones = [
-  { label: 'B1M engine design', status: 'done', note: 'Design complete — 550 mm × 80 mm casing, ~2 kg KNO₃/Sorbitol 65:35.' },
+  { label: 'B1M engine design', status: 'done', note: 'Design complete — 550 mm × 80 mm casing, 2.9 kg KNO₃/Sorbitol 65:35.' },
   { label: 'Static fire stand design', status: 'done', note: 'Design complete.' },
   { label: 'Propellant characterisation', status: 'active', note: 'In progress — refining burn behaviour and propellant performance ahead of B1M static fires.' },
   { label: 'B1M engine build', status: 'active', note: 'First engine done — pending regulatory approval. Two still in production with Federation University.' },
@@ -376,7 +376,7 @@ export const missions = [
     ],
     specs: b1mSpecs,
     milestones: [
-      { label: 'B1M engine design', status: 'done', note: 'Design complete — 550 mm × 80 mm casing, ~2 kg KNO₃/Sorbitol 65:35.' },
+      { label: 'B1M engine design', status: 'done', note: 'Design complete — 550 mm × 80 mm casing, 2.9 kg KNO₃/Sorbitol 65:35.' },
       { label: 'Static fire stand design', status: 'done', note: 'Design complete.' },
       { label: 'Propellant characterisation', status: 'active', note: 'In progress — refining burn behaviour and propellant performance ahead of B1M static fires.' },
       { label: 'B1M engine build', status: 'active', note: 'First engine done — pending regulatory approval. Two still in production with Federation University.' },
@@ -403,7 +403,7 @@ export const upcoming = [
 export const engineSummary = [
   { label: 'Mk I engines built', val: '3', sub: '250 mm × 32 mm — 2 fired, 1 held' },
   { label: 'Mk II engines built', val: '6', sub: '300 mm × 30 mm — 2 fired, 4 remaining' },
-  { label: 'B1M engines in build', val: '2', sub: '550 mm × 80 mm · ~2 kg KNO₃/Sorbitol 65:35 · 200 kgf for 3 s · first engine done, pending regulatory approval · two still in build with Federation University' },
+  { label: 'B1M engines in build', val: '2', sub: '550 mm × 80 mm · 2.9 kg KNO₃/Sorbitol 65:35 · 200 kgf for 3 s · first engine done, pending regulatory approval · two still in build with Federation University' },
 ]
 
 export const campaigns = [
