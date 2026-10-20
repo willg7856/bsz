@@ -1329,6 +1329,8 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .b1m-views .cad { margin: 0; height: 100%; }
 .b1m-views img { background: var(--paper-50); object-fit: contain; max-height: 420px; margin-inline: auto; }
+.b1m-casing-photo { width: min(100%, 20rem); margin-top: 1rem; }
+.b1m-casing-photo img { display: block; width: 100%; height: auto; object-fit: contain; }
 .b1m-motor-points {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
