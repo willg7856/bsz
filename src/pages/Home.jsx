@@ -71,7 +71,7 @@ export default function Home() {
             <p className="eyebrow accent">Vehicle · Sub-scale</p>
             <h2>STRAVOX B1M</h2>
             <p className="home-rocket-desc">
-              Our 3 km systems-validation vehicle — flying a home-built KNSB motor to prove avionics, recovery, and flight systems before full-scale STRAVOX. Engine design complete; build and propellant work in progress.
+              Our 3 km systems-validation vehicle — flying a home-built KNSB motor to prove avionics, recovery, and flight systems before full-scale STRAVOX. Engine design complete. The first engine is done and waiting regulatory approval; two are still in production, and propellant work continues.
             </p>
             <Link className="home-project-link" to="/b1m">Explore B1M</Link>
           </div>

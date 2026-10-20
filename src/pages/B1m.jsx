@@ -16,7 +16,7 @@ const motorSpecLabels = new Set([
   'Propellant',
   'Expected thrust',
   'Engines in production',
-  'Pressure testing',
+  'First engine',
   'Collaboration',
 ])
 
@@ -64,13 +64,13 @@ export default function B1m() {
           <p className="kicker">Motor</p>
           <h2>The engine is its own build.</h2>
           <p className="copy">
-            Three B1M engines are in production with Federation University. One is almost ready for pressure testing. The casing drawings, the motor figures, and the build log live on the engine page.
+            The first B1M engine is done and waiting regulatory approval. Two are still in production with Federation University. The casing drawings, the motor figures, and the build log live on the engine page.
           </p>
           <Link className="home-rocket-link" to="/b1m-engine">Open the B1M engine</Link>
           <div className="b1m-motor-points">
             <div><span>Thrust</span><strong>200 kgf</strong></div>
             <div><span>Burn</span><strong>3 s</strong></div>
-            <div><span>In production</span><strong>3 engines</strong></div>
+            <div><span>In production</span><strong>2 engines</strong></div>
           </div>
         </div>
       </section>
