@@ -547,6 +547,12 @@ export const octopusMilestones = [
 
 export const b1mEngineUpdates = [
   {
+    date: '2026-10-20',
+    display: '20 October 2026',
+    title: 'First B1M engine complete',
+    body: 'The first B1M engine is complete. The first static fire is pending regulatory approval, and two engines are still in production with Federation University.',
+  },
+  {
     date: '2026-05-01',
     display: 'May 2026',
     title: 'B1M engines in production',
