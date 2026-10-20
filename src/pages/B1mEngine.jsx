@@ -14,7 +14,7 @@ const engineSteps = [
 ]
 
 const views = [
-  { src: '/b1m-external1.png', alt: 'External view of the B1M motor casing, nozzle end', caption: 'Nozzle end' },
+  { src: '/b1m-external1.png', alt: 'B1M engine external render, nozzle end', caption: 'Nozzle end', className: 'b1m-view-primary' },
   { src: '/b1m-external2.png', alt: 'Side view of the B1M motor casing', caption: 'Side' },
   { src: '/b1m-external3.png', alt: 'Angled view of the B1M motor casing', caption: 'External' },
 ]
@@ -68,8 +68,14 @@ export default function B1mEngine() {
           </figure>
           <div className="b1m-views">
             {views.map((view) => (
-              <figure className="cad" key={view.src}>
-                <img src={view.src} alt={view.alt} />
+              <figure className={view.className ? `cad ${view.className}` : 'cad'} key={view.src}>
+                {view.className ? (
+                  <div className="b1m-render-frame">
+                    <img src={view.src} alt={view.alt} />
+                  </div>
+                ) : (
+                  <img src={view.src} alt={view.alt} />
+                )}
                 <figcaption>{view.caption}</figcaption>
               </figure>
             ))}
