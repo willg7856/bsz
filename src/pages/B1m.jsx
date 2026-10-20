@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import B1mStaticFireNotice from '../components/B1mStaticFireNotice'
 import { b1mMilestones, b1mObjectives, b1mSpecs } from '../data'
 import { useTitle } from '../useTitle'
 import './Missions.css'
@@ -26,6 +27,7 @@ export default function B1m() {
 
   return (
     <>
+      <B1mStaticFireNotice />
       <header className="masthead">
         <div className="masthead-inner">
           <div>
@@ -64,7 +66,7 @@ export default function B1m() {
           <p className="kicker">Motor</p>
           <h2>The engine is its own build.</h2>
           <p className="copy">
-            The first B1M engine is done and waiting regulatory approval. Two are still in production with Federation University. The casing drawings, the motor figures, and the build log live on the engine page.
+            The first B1M engine is done and pending regulatory approval. Two are still in production with Federation University. The casing drawings, the motor figures, and the build log live on the engine page.
           </p>
           <Link className="home-rocket-link" to="/b1m-engine">Open the B1M engine</Link>
           <div className="b1m-motor-points">
