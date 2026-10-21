@@ -1455,6 +1455,13 @@ h1, h2, h3, h4, p { margin: 0; }
 .milestone-body { padding-bottom: 1rem; }
 .stage-nav,
 .gallery-filter { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.1rem; }
+.gallery-empty {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--fg);
+}
 .stage-nav button,
 .gallery-filter button {
   appearance: none;
