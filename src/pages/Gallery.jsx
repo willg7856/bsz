@@ -13,6 +13,7 @@ export default function Gallery() {
   useTitle('Gallery')
   const [filter, setFilter] = useState('all')
   const shown = filter === 'all' ? gallery : gallery.filter((item) => item.kind === filter)
+  const teamEmpty = filter === 'team' && shown.length === 0
 
   return (
     <>
@@ -42,21 +43,20 @@ export default function Gallery() {
               </button>
             ))}
           </div>
-          {filter === 'team' && shown.length === 0 ? (
-            <p className="gallery-empty">No team photos yet.</p>
-          ) : (
-            <div className="gallery-grid">
-              {shown.map((item) => (
-                <figure className="gallery-item" key={item.src}>
-                  <a href={item.src} target="_blank" rel="noopener noreferrer">
-                    <img src={item.src} alt={item.caption} />
-                  </a>
-                  <figcaption>{item.caption}</figcaption>
-                </figure>
-              ))}
-            </div>
-          )}
+          {teamEmpty ? <p className="gallery-empty">No team photos yet.</p> : null}
         </div>
+        {teamEmpty ? null : (
+          <div className="gallery-grid">
+            {shown.map((item) => (
+              <figure className="gallery-item" key={item.src}>
+                <a href={item.src} target="_blank" rel="noopener noreferrer">
+                  <img src={item.src} alt={item.caption} />
+                </a>
+                <figcaption>{item.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        )}
       </section>
     </>
   )
