@@ -1347,25 +1347,27 @@ h1, h2, h3, h4, p { margin: 0; }
 .gallery-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  column-gap: 4px;
+  row-gap: 1.15rem;
+  width: 100%;
+  align-items: start;
 }
 .gallery-item {
   margin: 0;
-  background: var(--paper-50);
-  border: 1px solid var(--line);
-  padding: 0.75rem;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  padding: 0;
 }
-.gallery-item a { display: block; background: var(--paper-200); }
+.gallery-item a { display: block; background: transparent; line-height: 0; }
 .gallery-item img {
   display: block;
   width: 100%;
-  height: min(62vh, 34rem);
-  object-fit: contain;
-  object-position: center;
-  background: var(--paper-200);
+  height: auto;
 }
 .gallery-item figcaption {
   margin-top: 0.55rem;
+  padding-inline: 0.75rem;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--fg-muted);
