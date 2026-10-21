@@ -1453,8 +1453,10 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .rail { width: 1px; flex: 1; background: var(--line); margin-top: 0.3rem; }
 .milestone-body { padding-bottom: 1rem; }
-.stage-nav { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.1rem; }
-.stage-nav button {
+.stage-nav,
+.gallery-filter { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.1rem; }
+.stage-nav button,
+.gallery-filter button {
   appearance: none;
   border: 1px solid var(--line);
   background: transparent;
@@ -1465,7 +1467,9 @@ h1, h2, h3, h4, p { margin: 0; }
   transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
 }
 .stage-nav button:hover,
-.stage-nav button[aria-pressed='true'] {
+.stage-nav button[aria-pressed='true'],
+.gallery-filter button:hover,
+.gallery-filter button[aria-pressed='true'] {
   background: var(--ink-900);
   color: var(--ignition-400);
   border-color: var(--ink-900);
