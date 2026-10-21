@@ -4,6 +4,7 @@ import About from './pages/About'
 import B1m from './pages/B1m'
 import B1mEngine from './pages/B1mEngine'
 import Contact from './pages/Contact'
+import Gallery from './pages/Gallery'
 import Home from './pages/Home'
 import Missions from './pages/Missions'
 import News from './pages/News'
@@ -30,6 +31,7 @@ export default function App() {
           <Route path="octopus" element={<Octopus />} />
           <Route path="starship" element={<Starship />} />
           <Route path="news" element={<News />} />
+          <Route path="gallery" element={<Gallery />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Route>

@@ -7,6 +7,15 @@ export const site = {
   place: 'Creswick, VIC · Australia',
 }
 
+export const gallery = [
+  { src: '/b1m-engine-photo.jpg', caption: 'B1M engine casing.' },
+  { src: '/b1m-engine-disassembled.jpg', caption: 'B1M engine, disassembled.' },
+  { src: '/b1m-cad.png', caption: 'B1M engine cutaway.' },
+  { src: '/b1m-external1.png', caption: 'B1M engine.' },
+  { src: '/b1m-external2.png', caption: 'B1M engine, side.' },
+  { src: '/b1m-external3.png', caption: 'B1M engine, external.' },
+]
+
 export const nav = [
   { to: '/stravox', label: 'STRAVOX' },
   { to: '/b1m', label: 'B1M' },
