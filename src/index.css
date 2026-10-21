@@ -1358,8 +1358,19 @@ h1, h2, h3, h4, p { margin: 0; }
   object-fit: fill;
   background: transparent;
 }
-.b1m-casing-photo { width: min(100%, 20rem); margin-top: 1rem; }
-.b1m-casing-photo img { display: block; width: 100%; height: auto; object-fit: contain; }
+.b1m-hardware-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: start;
+}
+.b1m-hardware-layout .b1m-casing-photo { grid-row: 1 / span 2; }
+.b1m-hardware-layout .b1m-views { margin-top: 0; }
+.b1m-casing-photo,
+.b1m-disassembled-photo { width: auto; margin: 0; }
+.b1m-casing-photo img,
+.b1m-disassembled-photo img { display: block; width: 100%; height: auto; object-fit: contain; }
 .b1m-motor-points {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1768,6 +1779,8 @@ textarea { min-height: 9rem; resize: vertical; }
   .about-roster-name:nth-child(3n) { padding-left: 0; }
   .about-roster-name:nth-child(2n) { padding-left: 1.25rem; }
   .b1m-views { grid-template-columns: 1fr; }
+  .b1m-hardware-layout { grid-template-columns: 1fr; }
+  .b1m-hardware-layout .b1m-casing-photo { grid-row: auto; width: min(100%, 20rem); }
   .b1m-motor-points { grid-template-columns: 1fr; }
   .b1m-motor-points div + div { border-left: 0; border-top: 1px solid var(--ink-700); padding-left: 0; padding-top: 1rem; }
   .flow { grid-template-columns: 1fr; }
