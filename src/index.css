@@ -1342,6 +1342,37 @@ h1, h2, h3, h4, p { margin: 0; }
 .cad { background: var(--paper-50); border: 1px solid var(--line); padding: 0.75rem; }
 .cad img { display: block; width: 100%; height: auto; }
 .cad figcaption { margin-top: 0.55rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--fg-muted); }
+.b1m-casing-aside { max-width: 36rem; }
+.b1m-all-photos { display: inline-block; margin-top: 0.85rem; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.gallery-item {
+  margin: 0;
+  background: var(--paper-50);
+  border: 1px solid var(--line);
+  padding: 0.75rem;
+}
+.gallery-item a { display: block; background: var(--paper-200); }
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: min(62vh, 34rem);
+  object-fit: contain;
+  object-position: center;
+  background: var(--paper-200);
+}
+.gallery-item figcaption {
+  margin-top: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg-muted);
+}
+@media (min-width: 981px) {
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+}
 .b1m-views {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

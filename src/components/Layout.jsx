@@ -14,6 +14,7 @@ const projects = [
 const company = [
   { path: '/about', label: 'About', note: 'Team, base, and partners' },
   { path: '/news', label: 'News', note: 'Programme updates and milestones' },
+  { path: '/gallery', label: 'Gallery', note: 'Build photos from the programme' },
   { path: '/contact', label: 'Contact', note: 'Sponsorship, joining, and enquiries' },
 ]
 
@@ -175,6 +176,7 @@ export default function Layout() {
             <Link to="/missions">Missions</Link>
             <Link to="/tests">Tests</Link>
             <Link to="/news">News</Link>
+            <Link to="/gallery">Gallery</Link>
             <Link to="/nozzles">Nozzles</Link>
             <Link to="/octopus">Octopus</Link>
             <Link to="/starship">Starship tracker</Link>
