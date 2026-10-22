@@ -6,7 +6,7 @@ const ticks = Array.from({ length: 40 })
 const vehicles = [
   ['Vehicles in production', '4', true],
   ['100 m Hopper', 'In production', false],
-  ['B1M-01', 'In production', false],
+  ['B1M-01', 'Completed', false],
   ['B1M-02', 'In production', false],
   ['B1M-03', 'In production', false],
 ]
@@ -39,7 +39,7 @@ export default function Home() {
             {vehicles.map(([label, value, accent]) => (
               <div className="home-spec-row" key={label}>
                 <span className="home-spec-lbl">{label}</span>
-                <span className={`home-spec-val${accent ? ' accent' : ''}`}>{value}</span>
+                <span className={`home-spec-val${accent ? ' accent' : ''}${value === 'Completed' ? ' done' : ''}`}>{value}</span>
               </div>
             ))}
           </div>
