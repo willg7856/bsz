@@ -1402,6 +1402,7 @@ h1, h2, h3, h4, p { margin: 0; }
   font-size: 0.75rem;
   letter-spacing: 0.08em;
 }
+.phase .idx { color: var(--ignition-600); }
 .prog-row h3, .post h2, .post h3, .phase h3, .cell h3, .quote {
   font-family: var(--font-display);
   font-weight: 500;
