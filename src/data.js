@@ -520,18 +520,6 @@ export const nozzleFailures = [
   { fire: 'Mk II', result: 'Throat burn-through', note: 'Metal couldn’t hold geometry for the full burn. Thermal survival joined the brief.' },
 ]
 
-export const nozzleBrief = [
-  { title: 'Hold the throat', desc: 'Ceramic inserts that keep geometry under chamber heat and pressure — no melt-back, no washout.' },
-  { title: 'Stay locked in', desc: 'A stack that survives pressure spikes instead of ejecting like the early Mk I fires.' },
-  { title: 'Earn it on the stand', desc: 'Every design gets fired, inspected, and written up with the rest of the test log before it flies on B1M.' },
-]
-
-export const nozzlePath = [
-  { name: 'Problem locked', detail: 'Ejection and burn-through logged from Mk I–II' },
-  { name: 'Mould v13', detail: '3 nozzles complete, 5 in production' },
-  { name: 'Static-fire proof', detail: 'Fire, inspect, publish — then scale to B1M' },
-]
-
 export const octopusHops = [
   { from: 'Pad', to: 'Octopus', desc: 'Instruments and range data leave the pad during static fires and launches.' },
   { from: 'Octopus', to: 'Goods Shed', desc: 'The link delivers that stream into mission control so the team can watch the burn live.' },
