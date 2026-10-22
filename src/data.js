@@ -618,6 +618,7 @@ export const news = [
 
 export const contactReasons = [
   'Sponsorship or partnership',
+  'Donation',
   'Joining the team',
   'Media enquiries',
   'Ceramic nozzle enquiries',
