@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import B1mStaticFireNotice from '../components/B1mStaticFireNotice'
 import { b1mMilestones, b1mObjectives, b1mSpecs } from '../data'
 import { useTitle } from '../useTitle'
-import './Missions.css'
 
 const flightPath = [
   'Vehicle design',
@@ -33,19 +32,18 @@ export default function B1m() {
             <p className="kicker">Sub-scale vehicle</p>
             <h1>STRAVOX B1M</h1>
             <p className="lede">
-              Our sub-scale test vehicle — built to reach 3 km apogee on a home-built KNSB engine and return real flight data before we commit to full-scale STRAVOX. What works on B1M goes on STRAVOX.
+              A 3 km vehicle that flies before full-scale STRAVOX. Vehicle design is complete. The first engine is done and pending regulatory approval, and two engines are still in production. First flight is aimed at Q4 2026 to Q1 2027.
             </p>
             <div className="actions">
               <Link className="btn btn-ink" to="/b1m-engine">B1M engine</Link>
               <Link className="btn" to="/missions">Mission pipeline</Link>
-              <Link className="btn" to="/contact">Get involved</Link>
             </div>
           </div>
           <div className="masthead-side">
-            <div className="side-row"><span>Target apogee</span><span className="num">3.0 km</span></div>
+            <div className="side-row"><span>Apogee</span><span className="num">3.0 km</span></div>
+            <div className="side-row"><span>Design</span><span className="done">Complete</span></div>
+            <div className="side-row"><span>In production</span><span className="num">2 engines</span></div>
             <div className="side-row"><span>First flight</span><span>Q4&apos;26–Q1&apos;27</span></div>
-            <div className="side-row"><span>Status</span><span>In development</span></div>
-            <div className="side-row"><span>Motor</span><Link to="/b1m-engine">B1M engine</Link></div>
           </div>
         </div>
       </header>
@@ -63,16 +61,19 @@ export default function B1m() {
 
       <section className="section dark">
         <div className="wrap">
-          <p className="kicker">Motor</p>
-          <h2>The engine is its own build.</h2>
-          <p className="copy">
-            The first B1M engine is done and pending regulatory approval. Two are still in production with Federation University. The casing drawings, the motor figures, and the build log live on the engine page.
-          </p>
-          <Link className="home-rocket-link" to="/b1m-engine">Open the B1M engine</Link>
-          <div className="b1m-motor-points">
-            <div><span>Thrust</span><strong>200 kgf</strong></div>
-            <div><span>Burn</span><strong>3 s</strong></div>
-            <div><span>In production</span><strong>2 engines</strong></div>
+          <div className="section-head">
+            <div>
+              <p className="kicker">Flight objectives</p>
+              <h2>What the flight has to prove.</h2>
+            </div>
+          </div>
+          <div className="rows">
+            {b1mObjectives.map((item, index) => (
+              <div className="vehicle-row" key={item}>
+                <span className="idx">{String(index + 1).padStart(2, '0')}</span>
+                <span>{item}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -80,15 +81,8 @@ export default function B1m() {
       <section className="section">
         <div className="wrap split">
           <div>
-            <p className="kicker">Flight objectives</p>
-            <div className="rows">
-              {b1mObjectives.map((item, index) => (
-                <div className="vehicle-row" key={item}>
-                  <span className="idx">{String(index + 1).padStart(2, '0')}</span>
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
+            <p className="kicker">Vehicle</p>
+            <h2>The airframe around that motor.</h2>
           </div>
           <dl className="spec-table">
             {b1mSpecs.filter(([label]) => !motorSpecLabels.has(label)).map(([label, value]) => (
@@ -103,27 +97,23 @@ export default function B1m() {
 
       <section className="section">
         <div className="wrap">
-          <div className="missions-card">
-            <div className="missions-milestones missions-milestones--solo">
-              <p className="missions-milestones-label">Path to flight</p>
-              <div className="missions-milestone-list">
-                {path.map((item, index) => (
-                  <div className={`missions-milestone missions-milestone--${item.status}`} key={item.label}>
-                    <div className="missions-milestone-marker">
-                      <span className="missions-milestone-dot" />
-                      {index < path.length - 1 ? <span className="missions-milestone-line" /> : null}
-                    </div>
-                    <div className="missions-milestone-content">
-                      <div className="missions-milestone-head">
-                        <span className="missions-milestone-name">{item.label}</span>
-                        <span className="missions-milestone-tag">{item.status}</span>
-                      </div>
-                      <p className="missions-milestone-note">{item.note}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+          <div className="section-head">
+            <div>
+              <p className="kicker">Path to flight</p>
+              <h2>From design to B1M-01.</h2>
             </div>
+          </div>
+          <div className="rows">
+            {path.map((item, index) => (
+              <article className="vehicle-row" key={item.label}>
+                <span className="idx">{String(index + 1).padStart(2, '0')}</span>
+                <div>
+                  <strong>{item.label}</strong>
+                  <span className="path-note">{item.note}</span>
+                </div>
+                <span className={`status status-${item.status}`}>{item.status}</span>
+              </article>
+            ))}
           </div>
         </div>
       </section>

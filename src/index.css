@@ -1390,6 +1390,15 @@ h1, h2, h3, h4, p { margin: 0; }
 .prog-row { grid-template-columns: 8.5rem minmax(0, 1.3fr) minmax(14rem, 0.8fr); }
 .prog-row:not(:has(.meta-stack)) { grid-template-columns: 8.5rem minmax(0, 1fr); }
 .vehicle-row { grid-template-columns: 3rem 1fr auto; align-items: baseline; }
+.vehicle-row:has(.path-note) { align-items: start; }
+.vehicle-row .path-note {
+  display: block;
+  margin: 0.3rem 0 0;
+  max-width: 46rem;
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
 .prog-kicker, .idx, .partner-role, .tag {
   font-family: var(--font-mono);
   font-size: 0.7rem;
