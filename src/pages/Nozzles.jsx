@@ -105,6 +105,20 @@ export default function Nozzles() {
           </div>
         </div>
       </section>
+
+      <section className="section">
+        <div className="wrap split">
+          <div>
+            <p className="kicker">Orders</p>
+            <h2>Special orders.</h2>
+          </div>
+          <div className="copy">
+            <p>
+              We are taking special orders for ceramic nozzles. For more information, contact us on the <Link to="/contact?reason=Ceramic%20nozzle%20enquiries">contact page</Link>.
+            </p>
+          </div>
+        </div>
+      </section>
     </>
   )
 }
