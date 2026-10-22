@@ -1161,6 +1161,7 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 
 .copy a:not(.home-project-link):hover { color: var(--ignition-500); }
+.nozzle-orders .copy a { white-space: nowrap; }
 
 .section.dark .home-rocket-desc,
 .section.dark .home-project-desc,

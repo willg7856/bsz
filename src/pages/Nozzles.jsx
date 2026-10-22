@@ -77,7 +77,7 @@ export default function Nozzles() {
         </div>
       </section>
 
-      <section className="section dark">
+      <section className="section dark nozzle-orders">
         <div className="wrap">
           <p className="kicker">Orders</p>
           <h2>We are taking special orders.</h2>
