@@ -10,6 +10,8 @@ export const site = {
 export const gallery = [
   { src: '/b1m-engine-photo.jpg', caption: 'B1M engine casing.', kind: 'photo' },
   { src: '/b1m-engine-disassembled.jpg', caption: 'B1M engine, disassembled.', kind: 'photo' },
+  { src: '/b1m-sealant-apply.jpg', caption: 'Applying sealant during B1M engine assembly.', kind: 'photo' },
+  { src: '/b1m-sealant-spread.jpg', caption: 'Sealant spread on a B1M engine part.', kind: 'photo' },
   { src: '/b1m-cad.png', caption: 'B1M engine cutaway.', kind: 'render' },
   { src: '/b1m-external1.png', caption: 'B1M engine.', kind: 'render' },
   { src: '/b1m-external2.png', caption: 'B1M engine, side.', kind: 'render' },
