@@ -45,8 +45,8 @@ export default function Nozzles() {
               To lower the cost of a nozzle compared to graphite. They still have to survive a burn before one flies on B1M.
             </p>
             <div className="actions">
-              <Link className="btn btn-ink" to="/tests">Read the fire logs</Link>
-              <Link className="btn" to="/contact?reason=Ceramic%20nozzle%20enquiries">Special orders</Link>
+              <Link className="btn btn-ink" to="/contact?reason=Ceramic%20nozzle%20enquiries">Special orders</Link>
+              <Link className="btn" to="/tests">Read the fire logs</Link>
             </div>
           </div>
           <div className="masthead-side">
@@ -63,28 +63,28 @@ export default function Nozzles() {
       <NoteSection note={nozzleMould} dark />
 
       <section className="section">
-        <div className="wrap two">
-          <div>
-            <p className="kicker">2026</p>
-            <h2>Peter Doherty Science Award.</h2>
-            <div className="copy">
-              <p>
-                Our entry this year, through Ballarat Tech School.
-              </p>
-              <p>
-                <a className="home-project-link" href="https://ballarattechschool.vic.edu.au/programs/peter-doherty-science-award" target="_blank" rel="noopener noreferrer">About the award</a>
-              </p>
-            </div>
+        <div className="wrap">
+          <p className="kicker">2026</p>
+          <h2>Peter Doherty Science Award.</h2>
+          <div className="copy">
+            <p>
+              Our entry this year, through Ballarat Tech School.
+            </p>
+            <p>
+              <a className="home-project-link" href="https://ballarattechschool.vic.edu.au/programs/peter-doherty-science-award" target="_blank" rel="noopener noreferrer">About the award</a>
+            </p>
           </div>
-          <div>
-            <p className="kicker">Orders</p>
-            <h2>Special orders.</h2>
-            <div className="copy">
-              <p>
-                We are taking special orders for ceramic nozzles. For more information, contact us on the <Link to="/contact?reason=Ceramic%20nozzle%20enquiries">contact page</Link>.
-              </p>
-            </div>
-          </div>
+        </div>
+      </section>
+
+      <section className="section dark">
+        <div className="wrap">
+          <p className="kicker">Orders</p>
+          <h2>We are taking special orders.</h2>
+          <p className="copy">
+            Ceramic nozzles. For more information, contact us on the <Link to="/contact?reason=Ceramic%20nozzle%20enquiries">contact page</Link>.
+          </p>
+          <Link className="btn btn-ink" to="/contact?reason=Ceramic%20nozzle%20enquiries">Contact us</Link>
         </div>
       </section>
     </>
