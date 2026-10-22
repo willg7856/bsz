@@ -1,5 +1,35 @@
 import { Link } from 'react-router-dom'
+import { nozzleDesign, nozzleMould } from '../data'
 import { useTitle } from '../useTitle'
+
+function NoteSection({ note, dark = false }) {
+  return (
+    <section className={dark ? 'section dark' : 'section'}>
+      <div className="wrap">
+        <div className="section-head">
+          <div>
+            <p className="kicker">{note.kicker}</p>
+            <h2>{note.title}</h2>
+          </div>
+        </div>
+        {note.body ? <p className="copy">{note.body}</p> : null}
+        {note.points?.length ? (
+          <div className="rows">
+            {note.points.map((item, index) => (
+              <article className="vehicle-row" key={item.title}>
+                <span className="idx">{String(index + 1).padStart(2, '0')}</span>
+                <div>
+                  <strong>{item.title}</strong>
+                  {item.body ? <span className="path-note">{item.body}</span> : null}
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : null}
+      </div>
+    </section>
+  )
+}
 
 export default function Nozzles() {
   useTitle('Ceramic nozzles')
@@ -28,6 +58,9 @@ export default function Nozzles() {
           </div>
         </div>
       </header>
+
+      <NoteSection note={nozzleDesign} />
+      <NoteSection note={nozzleMould} dark />
 
       <section className="section">
         <div className="wrap two">
