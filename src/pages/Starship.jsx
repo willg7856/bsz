@@ -35,7 +35,7 @@ export default function Starship() {
         </div>
       </header>
 
-      <section className="section">
+      <section className="section dark">
         <div className="wrap">
           <div className="section-head">
             <div>

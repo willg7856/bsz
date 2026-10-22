@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import B1mStaticFireNotice from '../components/B1mStaticFireNotice'
 import { b1mEngineUpdates, b1mMilestones, b1mMotorSpecs } from '../data'
 import { useTitle } from '../useTitle'
-import './Missions.css'
 
 const engineSteps = [
   'B1M engine design',
@@ -13,6 +12,11 @@ const engineSteps = [
   'B1M engine static fires',
 ]
 
+const engineBrief = [
+  { title: '200 kgf for 3 s', desc: 'The target for the B1M motor.' },
+  { title: '2.9 kg of propellant', desc: 'KNO₃/Sorbitol 65:35 in the 550 mm casing.' },
+  { title: 'Prove it on the stand', desc: 'The first engine is done. The first static fire is pending regulatory approval. Two engines are still in production.' },
+]
 const views = [
   { src: '/b1m-external1.png', alt: 'Full external view of the B1M engine', caption: 'Engine', className: 'b1m-view-primary' },
   { src: '/b1m-external2.png', alt: 'Side view of the B1M motor casing', caption: 'Side' },
@@ -92,6 +96,26 @@ export default function B1mEngine() {
         </div>
       </section>
 
+      <section className="section dark">
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <p className="kicker">The brief</p>
+              <h2>What this motor has to do.</h2>
+            </div>
+          </div>
+          <div className="phase-grid">
+            {engineBrief.map((item, index) => (
+              <article className="phase" key={item.title}>
+                <p className="kicker idx">{String(index + 1).padStart(2, '0')}</p>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section">
         <div className="container">
           <div className="section-head">
@@ -123,27 +147,23 @@ export default function B1mEngine() {
 
       <section className="section">
         <div className="wrap">
-          <div className="missions-card">
-            <div className="missions-milestones missions-milestones--solo">
-              <p className="missions-milestones-label">Pre-static fire milestones</p>
-              <div className="missions-milestone-list">
-                {steps.map((item, index) => (
-                  <div className={`missions-milestone missions-milestone--${item.status}`} key={item.label}>
-                    <div className="missions-milestone-marker">
-                      <span className="missions-milestone-dot" />
-                      {index < steps.length - 1 ? <span className="missions-milestone-line" /> : null}
-                    </div>
-                    <div className="missions-milestone-content">
-                      <div className="missions-milestone-head">
-                        <span className="missions-milestone-name">{item.label}</span>
-                        <span className="missions-milestone-tag">{item.status}</span>
-                      </div>
-                      <p className="missions-milestone-note">{item.note}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+          <div className="section-head">
+            <div>
+              <p className="kicker">Path</p>
+              <h2>Before the static fires.</h2>
             </div>
+          </div>
+          <div className="rows">
+            {steps.map((item, index) => (
+              <article className="vehicle-row" key={item.label}>
+                <span className="idx">{String(index + 1).padStart(2, '0')}</span>
+                <div>
+                  <strong>{item.label}</strong>
+                  <span className="path-note">{item.note}</span>
+                </div>
+                <span className={`status status-${item.status}`}>{item.status}</span>
+              </article>
+            ))}
           </div>
         </div>
       </section>

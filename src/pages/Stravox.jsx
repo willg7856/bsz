@@ -16,8 +16,12 @@ export default function Stravox() {
             <p className="kicker">The rocket</p>
             <h1>STRAVOX</h1>
             <p className="lede">
-              Australia&apos;s first fully and rapidly reusable launch vehicle. A 2,633 mm high-power vehicle with a split nosecone airbrake and propulsive vertical landing.
+              Full STRAVOX is a living design: 2,633 mm, a split nosecone airbrake, and a propulsive landing aimed at 30 km. B1M flies first, at 3 km, to prove the systems.
             </p>
+            <div className="actions">
+              <Link className="btn btn-ink" to="/b1m">STRAVOX B1M</Link>
+              <Link className="btn" to="/contact">Contact us</Link>
+            </div>
           </div>
           <div className="masthead-side">
             <div className="side-row"><span>Height</span><span className="num">2,633 mm</span></div>
@@ -38,7 +42,7 @@ export default function Stravox() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section dark">
         <div className="wrap">
           <div className="section-head">
             <div>
@@ -48,9 +52,9 @@ export default function Stravox() {
             <p>Powered ascent, drag-braked descent, and propulsive landing.</p>
           </div>
           <div className="phase-grid">
-            {flightPhases.map((phase) => (
+            {flightPhases.map((phase, index) => (
               <article className="phase" key={phase.id}>
-                <p className="kicker">{phase.label}</p>
+                <p className="kicker idx">{String(index + 1).padStart(2, '0')}</p>
                 <h3>{phase.title}</h3>
                 <p>{phase.body}</p>
                 <div className="stat-list">

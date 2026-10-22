@@ -13,8 +13,18 @@ export default function Octopus() {
             <p className="kicker">Data link</p>
             <h1>Octopus.</h1>
             <p className="lede">
-              The pipe from the pad — and later the vehicle — into Goods Shed mission control. It moves data. It is not the flight computer.
+              The pipe from the pad — and later the vehicle — into Goods Shed mission control. The pad link is in progress. The vehicle link comes later. It moves data. It is not the flight computer.
             </p>
+            <div className="actions">
+              <Link className="btn btn-ink" to="/tests">Engine tests</Link>
+              <Link className="btn" to="/b1m">B1M vehicle</Link>
+            </div>
+          </div>
+          <div className="masthead-side">
+            <div className="side-row"><span>Pad link</span><span>In progress</span></div>
+            <div className="side-row"><span>Vehicle link</span><span>Later</span></div>
+            <div className="side-row"><span>First use</span><span>B1M-01</span></div>
+            <div className="side-row"><span>Role</span><span>Not the flight computer</span></div>
           </div>
         </div>
       </header>
@@ -22,6 +32,7 @@ export default function Octopus() {
       <section className="section">
         <div className="wrap">
           <p className="kicker">Data path</p>
+          <h2>Pad, then the shed.</h2>
           <div className="flow" aria-label="Data path">
             <div className="flow-node">
               <strong>Pad</strong>
@@ -41,38 +52,21 @@ export default function Octopus() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="wrap split">
-          <blockquote className="quote">
-            <p>Octopus is the connection. Flight control stays somewhere else.</p>
-          </blockquote>
-          <div>
-            <p className="copy">
-              Static fires and launches only help if someone in the shed can see what happened as it happens. Octopus is the custom link that carries that stream — first from pad instruments, later from the vehicle.
-            </p>
-            <div className="actions">
-              <Link className="btn" to="/tests">Engine tests</Link>
-              <Link className="btn" to="/b1m">B1M vehicle</Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
+      <section className="section dark">
         <div className="wrap">
           <div className="section-head">
             <div>
               <p className="kicker">What gets built</p>
               <h2>The hops.</h2>
             </div>
+            <p>Static fires and launches only help if someone in the shed can see what happened as it happens.</p>
           </div>
-          <div className="rows">
-            {octopusHops.map((hop) => (
-              <article className="prog-row" key={hop.from + hop.to}>
-                <p className="prog-kicker">{hop.from} → {hop.to}</p>
-                <div>
-                  <p>{hop.desc}</p>
-                </div>
+          <div className="phase-grid">
+            {octopusHops.map((hop, index) => (
+              <article className="phase" key={hop.from + hop.to}>
+                <p className="kicker idx">{String(index + 1).padStart(2, '0')}</p>
+                <h3>{hop.from} → {hop.to}</h3>
+                <p>{hop.desc}</p>
               </article>
             ))}
           </div>
@@ -83,25 +77,20 @@ export default function Octopus() {
         <div className="wrap">
           <div className="section-head">
             <div>
-              <p className="kicker">Status</p>
+              <p className="kicker">Path</p>
               <h2>Programme milestones.</h2>
             </div>
           </div>
-          <div>
+          <div className="rows">
             {octopusMilestones.map((item, index) => (
-              <div className={`milestone status-${item.status}`} key={item.label}>
-                <div className="milestone-rail">
-                  <span className="dot" />
-                  {index < octopusMilestones.length - 1 ? <span className="rail" /> : null}
+              <article className="vehicle-row" key={item.label}>
+                <span className="idx">{String(index + 1).padStart(2, '0')}</span>
+                <div>
+                  <strong>{item.label}</strong>
+                  <span className="path-note">{item.note}</span>
                 </div>
-                <div className="milestone-body">
-                  <div className="milestone-head">
-                    <strong>{item.label}</strong>
-                    <span className={`status status-${item.status}`}>{item.status}</span>
-                  </div>
-                  <p className="note">{item.note}</p>
-                </div>
-              </div>
+                <span className={`status status-${item.status}`}>{item.status}</span>
+              </article>
             ))}
           </div>
         </div>
