@@ -4,16 +4,18 @@ import { useTitle } from '../useTitle'
 const ticks = Array.from({ length: 40 })
 
 const vehicleRows = [
-  ['100 m Hopper', 'In production', false],
-  ['B1M-01', 'Completed', false],
-  ['B1M-02', 'In production', false],
-  ['B1M-03', 'In production', false],
+  { label: '100 m Hopper', status: 'In production' },
+  { label: 'B1M-01', status: 'Completed', to: '/b1m' },
+  { label: 'B1M-02', status: 'In production', to: '/b1m' },
+  { label: 'B1M-03', status: 'In production', to: '/b1m' },
 ]
 
-const vehicles = [
-  ['Vehicles in production', String(vehicleRows.filter(([, status]) => status === 'In production').length), true],
-  ...vehicleRows,
-]
+const vehiclesInProduction = vehicleRows.filter((row) => row.status === 'In production').length
+
+function SpecLabel({ to, children }) {
+  if (!to) return children
+  return <Link to={to}>{children}</Link>
+}
 
 export default function Home() {
   useTitle('')
@@ -39,13 +41,41 @@ export default function Home() {
               <Link className="btn btn-ghost-dark" to="/about">About the team</Link>
             </div>
           </div>
-          <div className="home-hero-spec">
-            {vehicles.map(([label, value, accent]) => (
-              <div className="home-spec-row" key={label}>
-                <span className="home-spec-lbl">{label}</span>
-                <span className={`home-spec-val${accent ? ' accent' : ''}${value === 'Completed' ? ' done' : ''}`}>{value}</span>
+          <div className="home-hero-spec" role="region" aria-labelledby="current-production">
+            <p className="eyebrow" id="current-production">Current production</p>
+            <div className="home-spec-group">
+              <div className="home-spec-row">
+                <span className="home-spec-lbl">Vehicles in production</span>
+                <span className="home-spec-val num accent">{vehiclesInProduction}</span>
               </div>
-            ))}
+              {vehicleRows.map((row) => (
+                <div className="home-spec-row" key={row.label}>
+                  <span className="home-spec-lbl">
+                    <SpecLabel to={row.to}>{row.label}</SpecLabel>
+                  </span>
+                  <span className={`home-spec-val${row.status === 'Completed' ? ' done' : ''}`}>{row.status}</span>
+                </div>
+              ))}
+            </div>
+            <div className="home-spec-group">
+              <div className="home-spec-stack">
+                <div className="home-spec-row">
+                  <span className="home-spec-lbl">
+                    <Link to="/b1m-engine">B1M engines in production</Link>
+                  </span>
+                  <span className="home-spec-val num">2</span>
+                </div>
+                <p className="home-spec-note">First engine done. First static fire pending regulatory approval.</p>
+              </div>
+            </div>
+            <div className="home-spec-group">
+              <div className="home-spec-row">
+                <span className="home-spec-lbl">
+                  <Link to="/nozzles">Ceramic nozzles in production</Link>
+                </span>
+                <span className="home-spec-val num">5</span>
+              </div>
+            </div>
           </div>
         </div>
         <div className="tick-rule home-tick" aria-hidden="true">

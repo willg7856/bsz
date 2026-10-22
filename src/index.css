@@ -568,9 +568,37 @@ h1, h2, h3, h4, p { margin: 0; }
   border-top: 1px solid var(--ink-700);
   border-bottom: 1px solid var(--ink-700);
   flex-direction: column;
-  gap: 14px;
+  gap: 0;
   padding: 24px 0;
   display: flex;
+}
+
+.home-hero-spec > .eyebrow {
+  color: var(--ignition-400);
+  margin-bottom: 14px;
+}
+
+.home-spec-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.home-spec-group + .home-spec-group {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--ink-700);
+}
+
+.home-spec-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.home-spec-stack .home-spec-row {
+  border-bottom: 0;
+  padding-bottom: 0;
 }
 
 .home-spec-row {
@@ -595,9 +623,21 @@ h1, h2, h3, h4, p { margin: 0; }
   font-size: 0.6875rem;
 }
 
+.home-spec-lbl a { color: inherit; }
+.home-spec-lbl a:hover { color: var(--paper-100); }
+
 .home-spec-val { color: var(--paper-100); font-weight: 600; }
+.home-spec-val.num { font-weight: 700; font-variant-numeric: tabular-nums; }
 .home-spec-val.accent { color: var(--ignition-500); }
 .home-spec-val.done { color: var(--signal); }
+
+.home-spec-note {
+  margin: 0;
+  max-width: 36ch;
+  color: var(--ink-400);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
 
 .tick-rule {
   border-top: 1px solid var(--ink-700);
