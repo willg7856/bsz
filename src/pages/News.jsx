@@ -17,8 +17,8 @@ export default function News() {
             </p>
           </div>
           <div className="masthead-side">
-            <div className="side-row"><span>Posts published</span><span>{news.length}</span></div>
-            <div className="side-row"><span>Programme started</span><span>2025</span></div>
+            <div className="side-row"><span>Posts published</span><span className="num">{news.length}</span></div>
+            <div className="side-row"><span>Programme started</span><span className="num">2025</span></div>
             <div className="side-row"><span>Latest update</span><span>{featured.display}</span></div>
           </div>
         </div>

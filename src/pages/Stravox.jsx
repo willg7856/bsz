@@ -20,10 +20,10 @@ export default function Stravox() {
             </p>
           </div>
           <div className="masthead-side">
-            <div className="side-row"><span>Height</span><span>2,633 mm</span></div>
-            <div className="side-row"><span>Target apogee</span><span>30.0 km</span></div>
-            <div className="side-row"><span>Peak velocity</span><span>Mach 2.5</span></div>
-            <div className="side-row"><span>Landing T/W</span><span>2.05×</span></div>
+            <div className="side-row"><span>Height</span><span className="num">2,633 mm</span></div>
+            <div className="side-row"><span>Target apogee</span><span className="num">30.0 km</span></div>
+            <div className="side-row"><span>Peak velocity</span><span className="num">Mach 2.5</span></div>
+            <div className="side-row"><span>Landing T/W</span><span className="num">2.05×</span></div>
           </div>
         </div>
       </header>
@@ -99,7 +99,7 @@ export default function Stravox() {
           <div className="rows">
             {systems.map((system, index) => (
               <article className="prog-row" key={system.label}>
-                <p className="prog-kicker">{String(index + 1).padStart(2, '0')}</p>
+                <p className="prog-kicker idx">{String(index + 1).padStart(2, '0')}</p>
                 <div>
                   <h3>{system.label}</h3>
                   <p>{system.info}</p>
