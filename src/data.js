@@ -515,6 +515,21 @@ export const resultLabel = {
   success: 'Success',
 }
 
+// Slots. Replace body and points when the notes arrive.
+export const nozzleDesign = {
+  kicker: 'Design',
+  title: 'The nozzle.',
+  body: 'The nozzle design goes here.',
+  points: [],
+}
+
+export const nozzleMould = {
+  kicker: 'Current mould',
+  title: 'Mould v13.',
+  body: 'The current mould design goes here.',
+  points: [],
+}
+
 export const octopusHops = [
   { from: 'Pad', to: 'Octopus', desc: 'Instruments and range data leave the pad during static fires and launches.' },
   { from: 'Octopus', to: 'Goods Shed', desc: 'The link delivers that stream into mission control so the team can watch the burn live.' },
