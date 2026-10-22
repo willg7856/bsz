@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { contactReasons, site } from '../data'
 import { useTitle } from '../useTitle'
 
@@ -7,6 +8,9 @@ const ticks = Array.from({ length: 40 })
 export default function Contact() {
   useTitle('Contact')
   const [status, setStatus] = useState('idle')
+  const [params] = useSearchParams()
+  const requestedReason = params.get('reason')
+  const reason = contactReasons.includes(requestedReason) ? requestedReason : ''
 
   async function onSubmit(event) {
     event.preventDefault()
@@ -78,7 +82,7 @@ export default function Contact() {
               </div>
               <div className="form-group">
                 <label htmlFor="reason">Reason</label>
-                <select id="reason" name="reason" required defaultValue="">
+                <select id="reason" name="reason" required defaultValue={reason} key={reason}>
                   <option value="" disabled>Select a reason</option>
                   {contactReasons.map((reason) => (
                     <option key={reason} value={reason}>{reason}</option>

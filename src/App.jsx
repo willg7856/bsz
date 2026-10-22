@@ -13,6 +13,7 @@ import Nozzles from './pages/Nozzles'
 import Octopus from './pages/Octopus'
 import Starship from './pages/Starship'
 import Stravox from './pages/Stravox'
+import Support from './pages/Support'
 import Tests from './pages/Tests'
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="starship" element={<Starship />} />
           <Route path="news" element={<News />} />
           <Route path="gallery" element={<Gallery />} />
+          <Route path="support" element={<Support />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Route>

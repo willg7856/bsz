@@ -1155,6 +1155,13 @@ h1, h2, h3, h4, p { margin: 0; }
   line-height: 1.7;
 }
 
+.copy a:not(.home-project-link) {
+  color: var(--ignition-600);
+  border-bottom: 1px solid color-mix(in srgb, var(--ignition-600) 55%, transparent);
+}
+
+.copy a:not(.home-project-link):hover { color: var(--ignition-500); }
+
 .section.dark .home-rocket-desc,
 .section.dark .home-project-desc,
 .home-project--dark .home-project-desc { color: var(--ink-400); }
