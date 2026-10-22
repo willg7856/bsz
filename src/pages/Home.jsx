@@ -27,7 +27,7 @@ export default function Home() {
               Beyond Stage <span className="home-hero-accent">Zero.</span>
               <span className="home-hero-h1-divider" aria-hidden="true" />
               <span className="home-hero-h1-sub">
-                Australia&apos;s first<br />fully and rapidly reusable<br />launch vehicle.
+                To lower the cost<br />and the barrier to entry<br />for others to follow.
               </span>
             </h1>
             <p className="home-hero-sub">
