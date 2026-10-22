@@ -1,3 +1,4 @@
+// Not routed. Hold this page until there is a way to take payment.
 import { Link } from 'react-router-dom'
 import { partners, site } from '../data'
 import { useTitle } from '../useTitle'
