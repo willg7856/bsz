@@ -13,6 +13,17 @@ function NoteSection({ note, dark = false }) {
           </div>
         </div>
         {note.body ? <p className="copy">{note.body}</p> : null}
+        {note.costs?.length ? (
+          <div className="nozzle-costs">
+            {note.costs.map((item) => (
+              <div className="spec-cell" key={item.label}>
+                <p className="lbl">{item.label}</p>
+                <p className="val">{item.value}</p>
+                <p className="note">{item.note}</p>
+              </div>
+            ))}
+          </div>
+        ) : null}
         {note.points?.length ? (
           <div className="rows">
             {note.points.map((item, index) => (

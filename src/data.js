@@ -515,12 +515,24 @@ export const resultLabel = {
   success: 'Success',
 }
 
-// Slots. Replace body and points when the notes arrive.
+// Slots. Replace body and points when the shape notes arrive.
 export const nozzleDesign = {
-  kicker: 'Design',
+  kicker: 'Aim',
   title: 'The nozzle.',
-  body: 'The nozzle design goes here.',
+  body: 'Moulding a ceramic nozzle removes buying graphite stock and having it machined. The aim is a lower cost, and a lower barrier for others to do this.',
   points: [],
+  costs: [
+    {
+      label: 'Graphite',
+      value: '~$300',
+      note: 'Average for a B1M-sized engine. Bought as stock, then machined.',
+    },
+    {
+      label: 'Ceramic',
+      value: '~$10',
+      note: 'The production cost we are aiming for.',
+    },
+  ],
 }
 
 export const nozzleMould = {
