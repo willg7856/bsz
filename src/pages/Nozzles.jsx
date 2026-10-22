@@ -20,8 +20,9 @@ export default function Nozzles() {
             </div>
           </div>
           <div className="masthead-side">
-            <div className="side-row"><span>Now</span><span>Materials research</span></div>
-            <div className="side-row"><span>Focus</span><span>First inserts</span></div>
+            <div className="side-row"><span>Mould</span><span className="num">v13</span></div>
+            <div className="side-row"><span>Completed</span><span className="done">3</span></div>
+            <div className="side-row"><span>In production</span><span className="num">5</span></div>
             <div className="side-row"><span>Target</span><span>B1M motor stack</span></div>
             <div className="side-row"><span>2026</span><a href="https://ballarattechschool.vic.edu.au/programs/peter-doherty-science-award" target="_blank" rel="noopener noreferrer">Doherty Award</a></div>
           </div>

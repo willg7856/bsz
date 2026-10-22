@@ -163,11 +163,10 @@ export default function About() {
           <div>
             <p className="kicker">Get involved</p>
             <h2>Build with us.</h2>
-            <p className="note">Donations, sponsorship, team applications, or media — tell us why you&apos;re reaching out.</p>
+            <p className="note">Sponsorship, team applications, or media — tell us why you&apos;re reaching out.</p>
           </div>
           <div className="actions">
-            <Link className="btn btn-ink" to="/support">Donate or sponsor</Link>
-            <Link className="btn" to="/contact">Contact the team</Link>
+            <Link className="btn btn-ink" to="/contact">Contact the team</Link>
             <a className="btn" href="https://x.com/beyondstagezero">Follow on X</a>
           </div>
         </div>
