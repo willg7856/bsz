@@ -603,9 +603,9 @@ h1, h2, h3, h4, p { margin: 0; }
 
 .home-spec-children {
   list-style: none;
-  margin: 0;
+  margin: 0 0 0 2px;
   padding: 2px 0 2px 12px;
-  border-left: 1px solid var(--ink-700);
+  border-left: 1px solid var(--ink-400);
   display: flex;
   flex-direction: column;
   gap: 6px;
