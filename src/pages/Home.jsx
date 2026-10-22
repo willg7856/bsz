@@ -27,14 +27,14 @@ export default function Home() {
               Beyond Stage <span className="home-hero-accent">Zero.</span>
               <span className="home-hero-h1-divider" aria-hidden="true" />
               <span className="home-hero-h1-sub">
-                Australia&apos;s first fully and<br />rapidly reusable launch vehicle.
+                Australia&apos;s first<br />fully and rapidly reusable<br />launch vehicle.
               </span>
             </h1>
             <p className="home-hero-sub">
-              An Australian student rocketry team designing, building, and flying from Creswick, Victoria — starting with <span className="mono">STRAVOX</span> and the B1M sub-scale programme.
+              A student team in Creswick, Victoria, designing and building <span className="mono">STRAVOX</span>. <span className="mono">B1M</span> is the 3 km vehicle that flies first, to prove the systems.
             </p>
             <div className="home-hero-actions">
-              <Link className="btn btn-primary" to="/stravox">Explore the rocket</Link>
+              <Link className="btn btn-primary" to="/stravox">Explore STRAVOX</Link>
               <Link className="btn btn-ghost-dark" to="/about">About the team</Link>
             </div>
           </div>
