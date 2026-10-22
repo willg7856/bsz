@@ -1513,6 +1513,14 @@ h1, h2, h3, h4, p { margin: 0; }
   font-size: 0.72rem;
   color: var(--fg-muted);
 }
+.nozzle-costs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.nozzle-costs .spec-cell { border-right: 0; border-bottom: 0; }
+.nozzle-costs .spec-cell + .spec-cell { border-left: 1px solid var(--line); }
 .b1m-casing-aside { max-width: 36rem; }
 .b1m-all-photos { display: inline-block; margin-top: 0.85rem; }
 .gallery-grid {
@@ -1993,6 +2001,8 @@ textarea { min-height: 9rem; resize: vertical; }
   .about-roster-name:nth-child(2n) { padding-left: 1.25rem; }
   .b1m-views { grid-template-columns: 1fr; }
   .nozzle-figures { grid-template-columns: 1fr 1fr; }
+  .nozzle-costs { grid-template-columns: 1fr; }
+  .nozzle-costs .spec-cell + .spec-cell { border-left: 0; border-top: 1px solid var(--line); }
   .b1m-hardware-layout { grid-template-columns: 1fr; }
   .b1m-hardware-layout .b1m-casing-photo { grid-row: auto; width: min(100%, 20rem); }
   .b1m-motor-points { grid-template-columns: 1fr; }
