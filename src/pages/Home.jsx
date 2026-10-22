@@ -76,6 +76,16 @@ export default function Home() {
                 <span className="home-spec-val num">5</span>
               </div>
             </div>
+            <div className="home-spec-group">
+              <div className="home-spec-row">
+                <span className="home-spec-lbl">B1M static fire stand</span>
+                <span className="home-spec-val">In production</span>
+              </div>
+              <div className="home-spec-row">
+                <span className="home-spec-lbl">Ceramic nozzle engine</span>
+                <span className="home-spec-val">In production</span>
+              </div>
+            </div>
           </div>
         </div>
         <div className="tick-rule home-tick" aria-hidden="true">
