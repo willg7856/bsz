@@ -164,7 +164,7 @@ export default function Layout() {
         <div className="container footer-inner">
           <div className="footer-brand">
             <Link to="/" className="footer-logo" aria-label="Beyond Stage Zero home"><Logo /></Link>
-            <p>An Australian student rocketry team building Australia&apos;s first fully and rapidly reusable launch vehicle.</p>
+            <p>A student team in Creswick, Victoria, working to lower the cost and the barrier to entry for others to follow.</p>
           </div>
           <div className="footer-col">
             <h4>Pages</h4>

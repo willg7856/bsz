@@ -193,14 +193,10 @@
 .missions-obj-row:last-child { border-bottom: 0; }
 .missions-obj-row.done { color: var(--fg); }
 
-.missions-obj-icon {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--fg-muted);
+.missions-obj-row .idx {
   flex-shrink: 0;
-  width: 16px;
+  width: 1.75rem;
 }
-.missions-obj-row.done .missions-obj-icon { color: var(--telemetry-green); }
 
 /* Specs column */
 .missions-card-specs {

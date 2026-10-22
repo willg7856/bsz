@@ -151,10 +151,10 @@ export default function Home() {
       <Project
         kicker="Propulsion · Materials"
         title="Ceramic nozzles"
-        body="A programme to design and qualify ceramic nozzles that survive our burns — after early motors lost nozzles to ejection and thermal damage. From insert prototypes to B1M-ready stacks."
+        body="Early motors lost nozzles to ejection and thermal damage. Mould v13 is the current tool: 3 nozzles are complete, and 5 are in production."
         to="/nozzles"
         action="Explore the programme"
-        meta={[['Status', 'Active'], ['Focus', 'Retention + heat'], ['Target', 'B1M integration']]}
+        meta={[['Mould', 'v13'], ['Completed', '3'], ['In production', '5']]}
       />
       <Project
         dark
