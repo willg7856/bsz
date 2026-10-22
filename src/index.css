@@ -1490,6 +1490,29 @@ h1, h2, h3, h4, p { margin: 0; }
 .cad { background: var(--paper-50); border: 1px solid var(--line); padding: 0.75rem; }
 .cad img { display: block; width: 100%; height: auto; }
 .cad figcaption { margin-top: 0.55rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--fg-muted); }
+.nozzle-figures {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+.nozzle-figures figure { margin: 0; min-width: 0; }
+.nozzle-figure-frame {
+  aspect-ratio: 4 / 3;
+  background: var(--paper-100);
+  border: 1px solid var(--line);
+}
+.nozzle-figure-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.nozzle-figures figcaption {
+  margin-top: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg-muted);
+}
 .b1m-casing-aside { max-width: 36rem; }
 .b1m-all-photos { display: inline-block; margin-top: 0.85rem; }
 .gallery-grid {
@@ -1969,6 +1992,7 @@ textarea { min-height: 9rem; resize: vertical; }
   .about-roster-name:nth-child(3n) { padding-left: 0; }
   .about-roster-name:nth-child(2n) { padding-left: 1.25rem; }
   .b1m-views { grid-template-columns: 1fr; }
+  .nozzle-figures { grid-template-columns: 1fr 1fr; }
   .b1m-hardware-layout { grid-template-columns: 1fr; }
   .b1m-hardware-layout .b1m-casing-photo { grid-row: auto; width: min(100%, 20rem); }
   .b1m-motor-points { grid-template-columns: 1fr; }

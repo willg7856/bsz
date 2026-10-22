@@ -526,8 +526,14 @@ export const nozzleDesign = {
 export const nozzleMould = {
   kicker: 'Current mould',
   title: 'Mould v13.',
-  body: 'The current mould design goes here.',
+  body: 'Four pieces: two halves for the outer diameter, a converging piece, and a throat piece.',
   points: [],
+  figures: [
+    { id: 'od-half-1', title: 'OD half', src: '', alt: 'One outer-diameter half of mould v13' },
+    { id: 'od-half-2', title: 'OD half', src: '', alt: 'The other outer-diameter half of mould v13' },
+    { id: 'converging', title: 'Converging piece', src: '', alt: 'Converging piece of mould v13' },
+    { id: 'throat', title: 'Throat piece', src: '', alt: 'Throat piece of mould v13' },
+  ],
 }
 
 export const octopusHops = [
