@@ -100,7 +100,7 @@ export const programme = [
   {
     kicker: 'Propulsion · Materials',
     title: 'Ceramic nozzles',
-    body: 'Early motors lost nozzles to ejection and thermal damage. Mould v13 is the current tool: 3 nozzles are complete, and 5 are in production.',
+    body: 'To lower the cost of a nozzle compared to graphite. Mould v13 is the current tool: 3 nozzles are complete, and 5 are in production.',
     to: '/nozzles',
     action: 'Explore the programme',
     meta: [
@@ -514,11 +514,6 @@ export const resultLabel = {
   partial: 'Partial',
   success: 'Success',
 }
-
-export const nozzleFailures = [
-  { fire: 'Mk I', result: 'Nozzle ejected', note: 'Pressure spikes threw the nozzle clear of the motor. Retention became a hard requirement.' },
-  { fire: 'Mk II', result: 'Throat burn-through', note: 'Metal couldn’t hold geometry for the full burn. Thermal survival joined the brief.' },
-]
 
 export const octopusHops = [
   { from: 'Pad', to: 'Octopus', desc: 'Instruments and range data leave the pad during static fires and launches.' },

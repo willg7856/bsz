@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { nozzleFailures } from '../data'
 import { useTitle } from '../useTitle'
 
 export default function Nozzles() {
@@ -13,7 +12,7 @@ export default function Nozzles() {
             <p className="kicker">Propulsion</p>
             <h1>Ceramic nozzles.</h1>
             <p className="lede">
-              Ceramic inserts for the B1M motor. They still have to survive a burn before one flies.
+              To lower the cost of a nozzle compared to graphite. They still have to survive a burn before one flies on B1M.
             </p>
             <div className="actions">
               <Link className="btn btn-ink" to="/tests">Read the fire logs</Link>
@@ -29,26 +28,6 @@ export default function Nozzles() {
           </div>
         </div>
       </header>
-
-      <section className="section">
-        <div className="wrap">
-          <div className="section-head">
-            <div>
-              <p className="kicker">Fire log</p>
-              <h2>What the early motors did.</h2>
-            </div>
-          </div>
-          <div className="two">
-            {nozzleFailures.map((item) => (
-              <article className="cell" key={item.fire}>
-                <p className="kicker">{item.fire}</p>
-                <h3>{item.result}</h3>
-                <p>{item.note}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="section">
         <div className="wrap two">
