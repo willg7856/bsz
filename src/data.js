@@ -88,7 +88,7 @@ export const programme = [
   {
     kicker: 'Propulsion · Ground test',
     title: 'Engine tests',
-    body: 'Static-fire campaigns, engine builds, and propellant work that feed every vehicle we fly. Mk I and Mk II results are public — B1M motors are next on the stand.',
+    body: 'Static-fire campaigns, engine builds, and propellant work that feed every vehicle we fly. Mk I and Mk II results are public. The first B1M static fire is pending regulatory approval, and the stand is still in production.',
     to: '/tests',
     action: 'See the test log',
     meta: [

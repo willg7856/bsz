@@ -51,7 +51,7 @@ export default function Home() {
                 <span className="home-spec-lbl">
                   <Link to="/b1m">B1M-01</Link>
                 </span>
-                <span className="home-spec-val done">Completed</span>
+                <span className="home-spec-val done">Build complete</span>
               </div>
             </div>
             <div className="home-spec-group">
@@ -143,7 +143,7 @@ export default function Home() {
         dark
         kicker="Propulsion · Ground test"
         title="Engine tests"
-        body="Static-fire campaigns, engine builds, and propellant work that feed every vehicle we fly. Mk I and Mk II results are public — B1M motors are next on the stand."
+        body="Static-fire campaigns, engine builds, and propellant work that feed every vehicle we fly. Mk I and Mk II results are public. The first B1M static fire is pending regulatory approval, and the stand is still in production."
         to="/tests"
         action="See the test log"
         meta={[['Static fires', '4 completed'], ['Engines built', '9 total'], ['Next campaign', 'B1M static fires']]}
