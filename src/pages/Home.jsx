@@ -83,21 +83,17 @@ export default function Home() {
       <section className="section home-build" aria-labelledby="also-in-production">
         <div className="container">
           <p className="eyebrow accent" id="also-in-production">Also in production</p>
-          <ul className="home-build-grid">
-            {vehiclesInProduction.map((item) => (
+          <ol className="home-build-list">
+            {[...vehiclesInProduction, ...alsoInProduction].map((item, index) => (
               <li className="home-build-item" key={item.label}>
+                <span className="home-build-idx">{String(index + 1).padStart(2, '0')}</span>
                 <span className="home-build-lbl">
                   {item.to ? <Link to={item.to}>{item.label}</Link> : item.label}
                 </span>
+                {item.status ? <span className="home-build-val">{item.status}</span> : null}
               </li>
             ))}
-            {alsoInProduction.map((item) => (
-              <li className="home-build-item" key={item.label}>
-                <span className="home-build-lbl">{item.label}</span>
-                <span className="home-build-val">{item.status}</span>
-              </li>
-            ))}
-          </ul>
+          </ol>
         </div>
       </section>
 
