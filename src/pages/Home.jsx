@@ -3,12 +3,16 @@ import { useTitle } from '../useTitle'
 
 const ticks = Array.from({ length: 40 })
 
-const vehicles = [
-  ['Vehicles in production', '4', true],
+const vehicleRows = [
   ['100 m Hopper', 'In production', false],
   ['B1M-01', 'Completed', false],
   ['B1M-02', 'In production', false],
   ['B1M-03', 'In production', false],
+]
+
+const vehicles = [
+  ['Vehicles in production', String(vehicleRows.filter(([, status]) => status === 'In production').length), true],
+  ...vehicleRows,
 ]
 
 export default function Home() {
