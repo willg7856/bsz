@@ -26,6 +26,18 @@ function NoteSection({ note, dark = false }) {
             ))}
           </div>
         ) : null}
+        {note.figures?.length ? (
+          <div className="nozzle-figures">
+            {note.figures.map((figure) => (
+              <figure key={figure.id}>
+                <div className="nozzle-figure-frame">
+                  {figure.src ? <img src={figure.src} alt={figure.alt || figure.title} /> : null}
+                </div>
+                <figcaption>{figure.title}</figcaption>
+              </figure>
+            ))}
+          </div>
+        ) : null}
       </div>
     </section>
   )
