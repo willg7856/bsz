@@ -597,6 +597,7 @@ h1, h2, h3, h4, p { margin: 0; }
 
 .home-spec-val { color: var(--paper-100); font-weight: 600; }
 .home-spec-val.accent { color: var(--ignition-500); }
+.home-spec-val.done { color: var(--signal); }
 
 .tick-rule {
   border-top: 1px solid var(--ink-700);
