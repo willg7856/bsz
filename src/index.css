@@ -810,7 +810,7 @@ h1, h2, h3, h4, p { margin: 0; }
   font-family: var(--font-display);
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.03em;
-  color: var(--fg);
+  color: var(--ignition-500);
   font-size: 2.75rem;
   font-weight: 700;
   line-height: 1;
@@ -1301,9 +1301,29 @@ h1, h2, h3, h4, p { margin: 0; }
   text-transform: uppercase;
   color: var(--ink-400);
   font-size: 0.68rem;
+  flex: 0 0 auto;
 }
 .side-row span:last-child,
-.side-row a { color: var(--paper-50); font-weight: 600; }
+.side-row a {
+  color: var(--paper-50);
+  font-weight: 600;
+  text-align: right;
+}
+.side-row span:last-child:not(.num):not(.done) {
+  max-width: 16rem;
+  line-height: 1.35;
+}
+.side-row span.num,
+.side-row span.done {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.side-row span.num { color: var(--ignition-500); }
+.side-row span.done { color: var(--signal); }
 
 .hud {
   border-bottom: 1px solid var(--ink-700);
@@ -1333,7 +1353,8 @@ h1, h2, h3, h4, p { margin: 0; }
 .metric-value {
   font-family: var(--font-mono);
   font-size: clamp(1.4rem, 3vw, 2rem);
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--ignition-500);
   letter-spacing: -0.03em;
   line-height: 1;
 }
@@ -1366,6 +1387,11 @@ h1, h2, h3, h4, p { margin: 0; }
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--fg-faint);
+}
+.idx {
+  color: var(--ignition-600);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
 }
 .prog-row h3, .post h2, .post h3, .phase h3, .cell h3, .quote {
   font-family: var(--font-display);
@@ -1526,7 +1552,7 @@ h1, h2, h3, h4, p { margin: 0; }
   font-size: clamp(1.6rem, 3vw, 2.25rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: var(--paper-100);
+  color: var(--ignition-500);
 }
 .fire { padding: 1.3rem 0; border-bottom: 1px solid var(--line); }
 .fire-head, .milestone-head { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; }

@@ -45,9 +45,9 @@ export default function Starship() {
             <p>Live location from SpaceX’s public vehicle tracker. Not a SpaceX product, and not part of the STRAVOX flight computer.</p>
           </div>
           <div className="rows">
-            {shows.map((item) => (
+            {shows.map((item, index) => (
               <article className="vehicle-row" key={item.label}>
-                <span className="idx">○</span>
+                <span className="idx">{String(index + 1).padStart(2, '0')}</span>
                 <span><strong>{item.label}. </strong>{item.note}</span>
               </article>
             ))}

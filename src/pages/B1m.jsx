@@ -42,7 +42,7 @@ export default function B1m() {
             </div>
           </div>
           <div className="masthead-side">
-            <div className="side-row"><span>Target apogee</span><span>3.0 km</span></div>
+            <div className="side-row"><span>Target apogee</span><span className="num">3.0 km</span></div>
             <div className="side-row"><span>First flight</span><span>Q4&apos;26–Q1&apos;27</span></div>
             <div className="side-row"><span>Status</span><span>In development</span></div>
             <div className="side-row"><span>Motor</span><Link to="/b1m-engine">B1M engine</Link></div>
@@ -82,9 +82,9 @@ export default function B1m() {
           <div>
             <p className="kicker">Flight objectives</p>
             <div className="rows">
-              {b1mObjectives.map((item) => (
+              {b1mObjectives.map((item, index) => (
                 <div className="vehicle-row" key={item}>
-                  <span className="idx">○</span>
+                  <span className="idx">{String(index + 1).padStart(2, '0')}</span>
                   <span>{item}</span>
                 </div>
               ))}

@@ -17,8 +17,8 @@ export default function About() {
             </p>
           </div>
           <div className="masthead-side">
-            <div className="side-row"><span>Team</span><span>17</span></div>
-            <div className="side-row"><span>Founded</span><span>2025</span></div>
+            <div className="side-row"><span>Team</span><span className="num">17</span></div>
+            <div className="side-row"><span>Founded</span><span className="num">2025</span></div>
             <div className="side-row"><span>Based in</span><span>Creswick, VIC</span></div>
           </div>
         </div>

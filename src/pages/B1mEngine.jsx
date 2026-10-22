@@ -39,10 +39,10 @@ export default function B1mEngine() {
             </div>
           </div>
           <div className="masthead-side">
-            <div className="side-row"><span>Design</span><span>Complete</span></div>
-            <div className="side-row"><span>In production</span><span>2 engines</span></div>
+            <div className="side-row"><span>Design</span><span className="done">Complete</span></div>
+            <div className="side-row"><span>In production</span><span className="num">2 engines</span></div>
             <div className="side-row"><span>First engine</span><span>Done · pending regulatory approval</span></div>
-            <div className="side-row"><span>Target</span><span>200 kgf · 3 s</span></div>
+            <div className="side-row"><span>Target</span><span className="num">200 kgf · 3 s</span></div>
             <div className="side-row"><span>Next</span><span>Static fires</span></div>
           </div>
         </div>
