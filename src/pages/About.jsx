@@ -13,7 +13,7 @@ export default function About() {
             <p className="kicker">Who we are</p>
             <h1>Beyond Stage Zero<span className="accent">.</span></h1>
             <p className="lede">
-              An Australian student rocketry team designing, building, and flying hardware from Creswick, Victoria — with published tests, institutional partners, and a clear path to first flight.
+              An Australian student rocketry team designing and building hardware from Creswick, Victoria — with published tests, institutional partners, and a clear path to first flight.
             </p>
           </div>
           <div className="masthead-side">

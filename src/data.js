@@ -100,13 +100,13 @@ export const programme = [
   {
     kicker: 'Propulsion · Materials',
     title: 'Ceramic nozzles',
-    body: 'A programme to design and qualify ceramic nozzles that survive our burns — after early motors lost nozzles to ejection and thermal damage. From insert prototypes to B1M-ready stacks.',
+    body: 'Early motors lost nozzles to ejection and thermal damage. Mould v13 is the current tool: 3 nozzles are complete, and 5 are in production.',
     to: '/nozzles',
     action: 'Explore the programme',
     meta: [
-      ['Status', 'Active'],
-      ['Focus', 'Retention + heat'],
-      ['Target', 'B1M integration'],
+      ['Mould', 'v13'],
+      ['Completed', '3'],
+      ['In production', '5'],
     ],
   },
   {
@@ -572,6 +572,13 @@ export const b1mEngineUpdates = [
 ]
 
 export const news = [
+  {
+    date: '2026-10-20',
+    display: '20 October 2026',
+    tag: 'Programme',
+    title: 'First B1M engine complete',
+    body: 'The first B1M engine is complete. The first static fire is pending regulatory approval, and two engines are still in production with Federation University.',
+  },
   {
     date: '2026-05-01',
     display: 'May 2026',

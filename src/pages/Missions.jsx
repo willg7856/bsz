@@ -14,7 +14,7 @@ export default function Missions() {
             <p className="kicker">Programme</p>
             <h1>Missions.</h1>
             <p className="lede">
-              Every flight we run has a mission designation, a set of objectives, and a public record. This is the full picture — what we&apos;re flying, when, and why.
+              Nothing has flown yet. The next flight is STRAVOX B1M-01, to 3 km, in Q4 2026 to Q1 2027.
             </p>
           </div>
           <div className="masthead-side missions-hero-stat-row">
@@ -67,9 +67,9 @@ export default function Missions() {
                   <p className="missions-desc">{mission.description}</p>
                   <div>
                     <p className="missions-objectives-label">Mission objectives</p>
-                    {mission.objectives.map((item) => (
+                    {mission.objectives.map((item, index) => (
                       <div className="missions-obj-row" key={item}>
-                        <span className="missions-obj-icon">○</span>
+                        <span className="idx">{String(index + 1).padStart(2, '0')}</span>
                         <span>{item}</span>
                       </div>
                     ))}
