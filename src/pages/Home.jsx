@@ -9,10 +9,10 @@ const vehiclesInProduction = [
   { label: 'B1M-03', to: '/b1m' },
 ]
 
-function SpecLabel({ to, children }) {
-  if (!to) return children
-  return <Link to={to}>{children}</Link>
-}
+const alsoInProduction = [
+  { label: 'Ceramic nozzle engine', status: 'In production' },
+  { label: 'B1M static fire stand', status: 'In production' },
+]
 
 export default function Home() {
   useTitle('')
@@ -41,20 +41,9 @@ export default function Home() {
           <div className="home-hero-spec" role="region" aria-labelledby="current-production">
             <p className="eyebrow" id="current-production">Current production</p>
             <div className="home-spec-group">
-              <div className="home-spec-stack">
-                <div className="home-spec-row">
-                  <span className="home-spec-lbl">Vehicles in production</span>
-                  <span className="home-spec-val num accent">{vehiclesInProduction.length}</span>
-                </div>
-                <ul className="home-spec-children">
-                  {vehiclesInProduction.map((row) => (
-                    <li className="home-spec-row" key={row.label}>
-                      <span className="home-spec-lbl">
-                        <SpecLabel to={row.to}>{row.label}</SpecLabel>
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="home-spec-row">
+                <span className="home-spec-lbl">Vehicles in production</span>
+                <span className="home-spec-val num accent">{vehiclesInProduction.length}</span>
               </div>
             </div>
             <div className="home-spec-group">
@@ -75,10 +64,6 @@ export default function Home() {
                 </div>
                 <p className="home-spec-note">First engine done. First static fire pending regulatory approval.</p>
               </div>
-              <div className="home-spec-row">
-                <span className="home-spec-lbl">Ceramic nozzle engine</span>
-                <span className="home-spec-val">In production</span>
-              </div>
             </div>
             <div className="home-spec-group">
               <div className="home-spec-row">
@@ -88,16 +73,31 @@ export default function Home() {
                 <span className="home-spec-val num">5</span>
               </div>
             </div>
-            <div className="home-spec-group">
-              <div className="home-spec-row">
-                <span className="home-spec-lbl">B1M static fire stand</span>
-                <span className="home-spec-val">In production</span>
-              </div>
-            </div>
           </div>
         </div>
         <div className="tick-rule home-tick" aria-hidden="true">
           {ticks.map((_, index) => <span key={index} />)}
+        </div>
+      </section>
+
+      <section className="section home-build" aria-labelledby="also-in-production">
+        <div className="container">
+          <p className="eyebrow accent" id="also-in-production">Also in production</p>
+          <ul className="home-build-grid">
+            {vehiclesInProduction.map((item) => (
+              <li className="home-build-item" key={item.label}>
+                <span className="home-build-lbl">
+                  {item.to ? <Link to={item.to}>{item.label}</Link> : item.label}
+                </span>
+              </li>
+            ))}
+            {alsoInProduction.map((item) => (
+              <li className="home-build-item" key={item.label}>
+                <span className="home-build-lbl">{item.label}</span>
+                <span className="home-build-val">{item.status}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
