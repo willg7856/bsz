@@ -528,7 +528,7 @@ export const nozzleBrief = [
 
 export const nozzlePath = [
   { name: 'Problem locked', detail: 'Ejection and burn-through logged from Mk I–II' },
-  { name: 'Materials & inserts', detail: 'Formulations and geometries in design and fab' },
+  { name: 'Mould v13', detail: '3 nozzles complete, 5 in production' },
   { name: 'Static-fire proof', detail: 'Fire, inspect, publish — then scale to B1M' },
 ]
 
