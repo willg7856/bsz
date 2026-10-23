@@ -13,7 +13,7 @@ export default function About() {
             <p className="kicker">Who we are</p>
             <h1>Beyond Stage Zero<span className="accent">.</span></h1>
             <p className="lede">
-              An Australian student rocketry team designing and building hardware from Creswick, Victoria — with published tests, institutional partners, and a clear path to first flight.
+              A student team in Creswick, Victoria, designing and building to lower the cost and the barrier to entry for others to follow. First flight is still ahead.
             </p>
           </div>
           <div className="masthead-side">
@@ -34,7 +34,7 @@ export default function About() {
             <p>
               Beyond Stage Zero started with a simple question: why can&apos;t Australian students build something that competes with the best rocketry programmes in the world? We didn&apos;t have a good answer, so we started building.
             </p>
-            <p style={{ marginTop: '0.9rem' }}>
+            <p>
               We&apos;re based in Creswick, Victoria — machining our own motor casings, casting our own propellant, writing our own range data links (Octopus), and learning everything the hard way. Every failure is logged. Every test is published.
             </p>
           </div>
@@ -67,6 +67,7 @@ export default function About() {
               <a className="home-partner" key={partner.name} href={partner.href} target="_blank" rel="noopener noreferrer">
                 <img src={partner.logo} alt="" />
                 <span>{partner.name}</span>
+                <span className="home-partner-role">{partner.role}</span>
               </a>
             ))}
           </div>
@@ -111,7 +112,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section dark">
         <div className="wrap">
           <div className="section-head">
             <div>
@@ -158,7 +159,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section dark">
         <div className="wrap callout">
           <div>
             <p className="kicker">Get involved</p>
