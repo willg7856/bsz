@@ -38,13 +38,13 @@ function NoteSection({ note, dark = false }) {
           </div>
         ) : null}
         {note.figures?.length ? (
-          <div className="nozzle-figures">
+          <div className={`nozzle-figures count-${note.figures.length}`}>
             {note.figures.map((figure) => (
               <figure key={figure.id}>
                 <div className="nozzle-figure-frame">
                   {figure.src ? <img src={figure.src} alt={figure.alt || figure.title} /> : null}
                 </div>
-                <figcaption>{figure.title}</figcaption>
+                {figure.title ? <figcaption>{figure.title}</figcaption> : null}
               </figure>
             ))}
           </div>
