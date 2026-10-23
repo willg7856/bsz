@@ -1390,7 +1390,8 @@ h1, h2, h3, h4, p { margin: 0; }
 .rows { border-top: 1px solid var(--line); }
 .rows + .actions { margin-top: 1.5rem; }
 .section.dark .rows,
-.section.dark .vehicle-row { border-color: var(--ink-600); }
+.section.dark .vehicle-row,
+.section.dark .callout { border-color: var(--ink-600); }
 .prog-row, .vehicle-row, .plain-row {
   display: grid;
   gap: 1rem 2rem;
