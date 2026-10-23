@@ -1096,6 +1096,13 @@ h1, h2, h3, h4, p { margin: 0; }
   font-size: 0.68rem;
   line-height: 1.4;
 }
+.home-partner-role {
+  color: var(--fg-muted);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.75rem;
+}
+.split .copy p + p { margin-top: 0.9rem; }
 
 .home .home-rocket,
 .home .home-project {
@@ -1381,6 +1388,9 @@ h1, h2, h3, h4, p { margin: 0; }
 .section-head p { color: var(--fg-muted); max-width: 36rem; line-height: 1.5; }
 
 .rows { border-top: 1px solid var(--line); }
+.rows + .actions { margin-top: 1.5rem; }
+.section.dark .rows,
+.section.dark .vehicle-row { border-color: var(--ink-600); }
 .prog-row, .vehicle-row, .plain-row {
   display: grid;
   gap: 1rem 2rem;

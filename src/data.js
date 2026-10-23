@@ -151,7 +151,7 @@ export const partners = [
 ]
 
 export const values = [
-  { index: '01', title: 'Student led', desc: 'Every part of the project — from design to launch — is driven by students.' },
+  { index: '01', title: 'Student led', desc: 'Every part of the work is driven by students.' },
   { index: '02', title: 'Ambitious', desc: "We set out to build Australia's first fully and rapidly reusable launch vehicle." },
   { index: '03', title: 'Collaborative', desc: 'We bring together engineers, scientists, and builders from across disciplines.' },
   { index: '04', title: 'Open', desc: 'We share our progress, failures, and learnings with the broader community.' },
@@ -182,13 +182,15 @@ export const disciplines = [
   { code: 'STRU', title: 'Structures', desc: 'Airframe, fins, and recovery bay design for B1M and full-scale STRAVOX — machined and assembled in Creswick.' },
   { code: 'AVIO', title: 'Avionics', desc: 'Flight computer, altimeter, GPS, and recovery electronics sized for sub-scale flight before the 30 km vehicle.' },
   { code: 'LINK', title: 'Range data', desc: 'Octopus — the pad and vehicle data link into Goods Shed mission control for live static fires and launches.' },
-  { code: 'RECO', title: 'Recovery & landing', desc: 'Parachute recovery on B1M today; propulsive vertical landing on folding drone arms for full-scale STRAVOX.' },
+  { code: 'RECO', title: 'Recovery & landing', desc: 'Parachute recovery for B1M. Propulsive vertical landing, on folding drone arms, for full-scale STRAVOX.' },
   { code: 'OPS', title: 'Mission ops', desc: 'CASA range path, Victorian launch planning, and Goods Shed operations for the flight programme.' },
 ]
 
 export const record = [
   { val: '4', lbl: 'Static fires completed', note: 'Mk I & Mk II campaigns logged and published' },
   { val: '9', lbl: 'Engines built', note: 'From early ground motors to B1M production' },
+  { val: '1', lbl: 'B1M engine complete', note: 'Static fire pending regulatory approval. Two engines still in production.' },
+  { val: '5', lbl: 'Nozzles in production', note: '3 complete, on mould v13.' },
   { val: 'Apr 2025', lbl: 'Founded', note: 'Creswick, Victoria — programme start' },
   { val: "Q4'26–Q1'27", lbl: 'First flight window', note: 'STRAVOX B1M-01 · 3 km systems validation' },
 ]
@@ -534,7 +536,8 @@ export const nozzleDesign = {
     },
   ],
   figures: [
-    { id: 'nozzle', title: '', src: '', alt: 'Ceramic nozzle' },
+    { id: 'nozzle-1', title: '', src: '', alt: 'Ceramic nozzle' },
+    { id: 'nozzle-2', title: '', src: '', alt: 'Ceramic nozzle' },
   ],
 }
 
