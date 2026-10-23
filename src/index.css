@@ -1492,13 +1492,15 @@ h1, h2, h3, h4, p { margin: 0; }
 .cad figcaption { margin-top: 0.55rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--fg-muted); }
 .nozzle-figures {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  margin-top: 1.5rem;
 }
+.nozzle-figures.count-1 { grid-template-columns: minmax(0, 36rem); }
 .nozzle-figures figure { margin: 0; min-width: 0; }
 .nozzle-figure-frame {
   aspect-ratio: 4 / 3;
-  background: var(--paper-100);
+  background: var(--paper-200);
   border: 1px solid var(--line);
 }
 .nozzle-figure-frame img {
