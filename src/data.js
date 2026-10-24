@@ -12,6 +12,14 @@ export const gallery = [
   { src: '/b1m-engine-disassembled.jpg', caption: 'B1M engine, disassembled.', kind: 'photo' },
   { src: '/b1m-sealant-apply.jpg', caption: 'Applying sealant during B1M engine assembly.', kind: 'photo' },
   { src: '/b1m-sealant-spread.jpg', caption: 'Sealant spread on a B1M engine part.', kind: 'photo' },
+  { src: '/nozzle-duracast-1.jpg', caption: 'The first ceramic nozzle, in the current Duracast material.', kind: 'photo' },
+  { src: '/nozzle-duracast-2.jpg', caption: 'Another view of the same nozzle.', kind: 'photo' },
+  { src: '/nozzle-graphite.jpg', caption: 'A graphite nozzle being machined.', kind: 'photo' },
+  { src: '/mould-top.jpg', caption: 'Top-down view of the ceramic in the mould.', kind: 'photo' },
+  { src: '/mould-side.jpg', caption: 'Side view of the ceramic in the mould.', kind: 'photo' },
+  { src: '/doherty-nozzles.jpg', caption: 'Five ceramic nozzles in their moulds.', kind: 'photo' },
+  { src: '/crwa-station.jpg', caption: "The CRWA's railway station and goods shed.", kind: 'photo' },
+  { src: '/crwa-goods-shed.jpg', caption: 'Another view of the station and goods shed.', kind: 'photo' },
   { src: '/b1m-cad.png', caption: 'B1M engine cutaway.', kind: 'render' },
   { src: '/b1m-external1.png', caption: 'B1M engine.', kind: 'render' },
   { src: '/b1m-external2.png', caption: 'B1M engine, side.', kind: 'render' },
@@ -520,13 +528,18 @@ export const resultLabel = {
 export const nozzleDesign = {
   kicker: 'Aim',
   title: 'The nozzle.',
-  body: 'Moulding a ceramic nozzle removes buying graphite stock and having it machined. The aim is a lower cost, and a lower barrier for others to do this.',
+  body: 'Moulding a ceramic nozzle removes buying graphite stock and having it machined.',
   points: [],
   costs: [
     {
       label: 'Graphite',
       value: '~$300',
       note: 'Average for a B1M-sized engine. Bought as stock, then machined.',
+      figure: {
+        src: '/nozzle-graphite.jpg',
+        alt: 'A graphite nozzle being machined on a lathe.',
+        title: 'A graphite nozzle being machined.',
+      },
     },
     {
       label: 'Ceramic',
@@ -547,13 +560,8 @@ export const nozzleDesign = {
       src: '/nozzle-duracast-2.jpg',
       alt: 'Another view of the first ceramic nozzle, in the current Duracast material.',
     },
-    {
-      id: 'graphite-machining',
-      title: 'A graphite nozzle being machined.',
-      src: '/nozzle-graphite.jpg',
-      alt: 'A graphite nozzle being machined on a lathe.',
-    },
   ],
+  more: { to: '/gallery', label: 'All photos' },
 }
 
 export const nozzleMould = {
