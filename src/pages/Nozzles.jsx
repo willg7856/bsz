@@ -41,9 +41,11 @@ function NoteSection({ note, dark = false }) {
           <div className={`nozzle-figures count-${note.figures.length}`}>
             {note.figures.map((figure) => (
               <figure key={figure.id}>
-                <div className="nozzle-figure-frame">
-                  {figure.src ? <img src={figure.src} alt={figure.alt || figure.title} /> : null}
-                </div>
+                {figure.src ? (
+                  <img src={figure.src} alt={figure.alt || figure.title} />
+                ) : (
+                  <div className="nozzle-figure-frame" />
+                )}
                 {figure.title ? <figcaption>{figure.title}</figcaption> : null}
               </figure>
             ))}
@@ -97,6 +99,10 @@ export default function Nozzles() {
               <a className="home-project-link" href="https://ballarattechschool.vic.edu.au/programs/peter-doherty-science-award" target="_blank" rel="noopener noreferrer">About the award</a>
             </p>
           </div>
+          <figure className="doherty-photo">
+            <img src="/doherty-nozzles.jpg" alt="Five ceramic nozzles in their moulds" />
+            <figcaption>Five ceramic nozzles in their moulds.</figcaption>
+          </figure>
         </div>
       </section>
 

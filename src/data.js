@@ -517,7 +517,6 @@ export const resultLabel = {
   success: 'Success',
 }
 
-// Slots. Replace body and points when the shape notes arrive.
 export const nozzleDesign = {
   kicker: 'Aim',
   title: 'The nozzle.',
@@ -536,8 +535,24 @@ export const nozzleDesign = {
     },
   ],
   figures: [
-    { id: 'nozzle-1', title: '', src: '', alt: 'Ceramic nozzle' },
-    { id: 'nozzle-2', title: '', src: '', alt: 'Ceramic nozzle' },
+    {
+      id: 'duracast-1',
+      title: 'The first ceramic nozzle, in the current Duracast material.',
+      src: '/nozzle-duracast-1.jpg',
+      alt: 'The first ceramic nozzle, in the current Duracast material.',
+    },
+    {
+      id: 'duracast-2',
+      title: 'Another view of the same nozzle.',
+      src: '/nozzle-duracast-2.jpg',
+      alt: 'Another view of the first ceramic nozzle, in the current Duracast material.',
+    },
+    {
+      id: 'graphite-machining',
+      title: 'A graphite nozzle being machined.',
+      src: '/nozzle-graphite.jpg',
+      alt: 'A graphite nozzle being machined on a lathe.',
+    },
   ],
 }
 
@@ -547,8 +562,18 @@ export const nozzleMould = {
   body: 'Four pieces: two halves for the outer diameter, a converging piece, and a throat piece.',
   points: [],
   figures: [
-    { id: 'mould-1', title: '', src: '', alt: 'Mould v13' },
-    { id: 'mould-2', title: '', src: '', alt: 'Mould v13' },
+    {
+      id: 'mould-top',
+      title: 'Top-down view of the ceramic in the mould.',
+      src: '/mould-top.jpg',
+      alt: 'Top-down view of the ceramic in the mould.',
+    },
+    {
+      id: 'mould-side',
+      title: 'Side view of the ceramic in the mould.',
+      src: '/mould-side.jpg',
+      alt: 'Side view of the ceramic in the mould.',
+    },
   ],
 }
 
