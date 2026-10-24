@@ -41,26 +41,22 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="wrap">
-          <div className="section-head">
-            <div>
-              <p className="kicker">Base of operations</p>
-              <h2>Creswick Goods Shed.</h2>
-            </div>
-            <p>We design and build out of the historic railway workshops in Creswick — real industrial floor space for motors, airframes, and Goods Shed mission control.</p>
+      <section className="shed-block">
+        <div className="shed-hero">
+          <img src="/goods-shed.jpg" alt="The goods shed" />
+          <div className="shed-hero-shade" aria-hidden="true" />
+          <div className="wrap shed-hero-inner">
+            <p className="kicker">Base of operations</p>
+            <h2>Creswick Goods Shed.</h2>
+            <p className="shed-hero-lede">We design and build out of the historic railway workshops in Creswick — real industrial floor space for motors, airframes, and Goods Shed mission control.</p>
           </div>
-          <figure className="place-photo">
-            <img src="/goods-shed.jpg" alt="Creswick Goods Shed" />
-            <figcaption>The goods shed.</figcaption>
-          </figure>
-          <dl className="spec-table">
-            <div className="spec-line"><dt>Location</dt><dd>Creswick, Victoria · Australia</dd></div>
-            <div className="spec-line"><dt>Workshop</dt><dd>Machining, assembly, propellant work</dd></div>
-            <div className="spec-line"><dt>Mission control</dt><dd>Goods Shed ops via Octopus data link</dd></div>
-            <div className="spec-line"><dt>Launch path</dt><dd>CASA-cleared Victorian range planning</dd></div>
-          </dl>
         </div>
+        <dl className="shed-hero-specs">
+          <div><dt>Location</dt><dd>Creswick, Victoria · Australia</dd></div>
+          <div><dt>Workshop</dt><dd>Machining, assembly, propellant work</dd></div>
+          <div><dt>Mission control</dt><dd>Goods Shed ops via Octopus data link</dd></div>
+          <div><dt>Launch path</dt><dd>CASA-cleared Victorian range planning</dd></div>
+        </dl>
       </section>
 
       <section className="section home-partners">
