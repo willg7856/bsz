@@ -1508,7 +1508,8 @@ h1, h2, h3, h4, p { margin: 0; }
   margin-top: 1.5rem;
 }
 .section-head + .nozzle-figures { margin-top: 0; }
-.nozzle-figures + .spec-table { margin-top: 1.75rem; }
+.nozzle-figures + .spec-table,
+.place-photo + .spec-table { margin-top: 1.75rem; }
 .nozzle-figures.count-1 { grid-template-columns: minmax(0, 36rem); }
 .nozzle-figures figure { margin: 0; min-width: 0; }
 .nozzle-figures img {
@@ -1522,14 +1523,19 @@ h1, h2, h3, h4, p { margin: 0; }
   border: 1px solid var(--line);
 }
 .nozzle-figures figcaption,
-.doherty-photo figcaption {
+.doherty-photo figcaption,
+.place-photo figcaption {
   margin-top: 0.55rem;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--fg-muted);
 }
-.doherty-photo { margin: 0.25rem 0 0; }
-.doherty-photo img { display: block; width: 100%; height: auto; }
+.doherty-photo,
+.place-photo { margin: 0.25rem 0 0; }
+.doherty-photo img,
+.place-photo img { display: block; width: 100%; height: auto; }
+.home-partners-logos + .eyebrow { margin-top: 2.75rem; }
+.home-partners .eyebrow + .nozzle-figures { margin-top: 0; }
 .nozzle-figures + .nozzle-costs { margin-top: 2rem; }
 .nozzle-costs {
   display: grid;
