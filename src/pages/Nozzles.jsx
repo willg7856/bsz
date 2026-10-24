@@ -11,32 +11,8 @@ function NoteSection({ note, dark = false }) {
             <p className="kicker">{note.kicker}</p>
             <h2>{note.title}</h2>
           </div>
+          {note.body ? <p>{note.body}</p> : null}
         </div>
-        {note.body ? <p className="copy">{note.body}</p> : null}
-        {note.costs?.length ? (
-          <div className="nozzle-costs">
-            {note.costs.map((item) => (
-              <div className="spec-cell" key={item.label}>
-                <p className="lbl">{item.label}</p>
-                <p className="val">{item.value}</p>
-                <p className="note">{item.note}</p>
-              </div>
-            ))}
-          </div>
-        ) : null}
-        {note.points?.length ? (
-          <div className="rows">
-            {note.points.map((item, index) => (
-              <article className="vehicle-row" key={item.title}>
-                <span className="idx">{String(index + 1).padStart(2, '0')}</span>
-                <div>
-                  <strong>{item.title}</strong>
-                  {item.body ? <span className="path-note">{item.body}</span> : null}
-                </div>
-              </article>
-            ))}
-          </div>
-        ) : null}
         {note.figures?.length ? (
           <div className={`nozzle-figures count-${note.figures.length}`}>
             {note.figures.map((figure) => (
@@ -48,6 +24,39 @@ function NoteSection({ note, dark = false }) {
                 )}
                 {figure.title ? <figcaption>{figure.title}</figcaption> : null}
               </figure>
+            ))}
+          </div>
+        ) : null}
+        {note.costs?.length ? (
+          <div className="nozzle-costs">
+            {note.costs.map((item) => (
+              <div className="spec-cell" key={item.label}>
+                <p className="lbl">{item.label}</p>
+                <p className="val">{item.value}</p>
+                <p className="note">{item.note}</p>
+                {item.figure ? (
+                  <figure>
+                    <img src={item.figure.src} alt={item.figure.alt || item.figure.title} />
+                    {item.figure.title ? <figcaption>{item.figure.title}</figcaption> : null}
+                  </figure>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        ) : null}
+        {note.more ? (
+          <Link className="text-link b1m-all-photos" to={note.more.to}>{note.more.label}</Link>
+        ) : null}
+        {note.points?.length ? (
+          <div className="rows">
+            {note.points.map((item, index) => (
+              <article className="vehicle-row" key={item.title}>
+                <span className="idx">{String(index + 1).padStart(2, '0')}</span>
+                <div>
+                  <strong>{item.title}</strong>
+                  {item.body ? <span className="path-note">{item.body}</span> : null}
+                </div>
+              </article>
             ))}
           </div>
         ) : null}
@@ -89,13 +98,13 @@ export default function Nozzles() {
 
       <section className="section">
         <div className="wrap">
-          <p className="kicker">2026</p>
-          <h2>Peter Doherty Science Award.</h2>
-          <div className="copy">
+          <div className="section-head">
+            <div>
+              <p className="kicker">2026</p>
+              <h2>Peter Doherty Science Award.</h2>
+            </div>
             <p>
               Our entry this year, through Ballarat Tech School.
-            </p>
-            <p>
               <a className="home-project-link" href="https://ballarattechschool.vic.edu.au/programs/peter-doherty-science-award" target="_blank" rel="noopener noreferrer">About the award</a>
             </p>
           </div>

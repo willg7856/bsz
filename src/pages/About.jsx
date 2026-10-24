@@ -50,6 +50,16 @@ export default function About() {
             </div>
             <p>We design and build out of the historic railway workshops in Creswick — real industrial floor space for motors, airframes, and Goods Shed mission control.</p>
           </div>
+          <div className="nozzle-figures count-2">
+            <figure>
+              <img src="/crwa-station.jpg" alt="The CRWA's railway station and goods shed" />
+              <figcaption>The CRWA&apos;s railway station and goods shed.</figcaption>
+            </figure>
+            <figure>
+              <img src="/crwa-goods-shed.jpg" alt="Another view of the Creswick railway station and goods shed" />
+              <figcaption>Another view of the station and goods shed.</figcaption>
+            </figure>
+          </div>
           <dl className="spec-table">
             <div className="spec-line"><dt>Location</dt><dd>Creswick, Victoria · Australia</dd></div>
             <div className="spec-line"><dt>Workshop</dt><dd>Machining, assembly, propellant work</dd></div>
