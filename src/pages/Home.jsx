@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className="home">
       <section className="home-hero">
-        <div className="home-hero-grid-bg" aria-hidden="true" />
+        <img className="home-hero-engine" src="/b1m-engine-bench.png" alt="The completed B1M engine on a bench, ready for static fire" />
         <div className="container home-hero-inner">
           <div className="home-hero-left">
             <h1 className="home-hero-h1">
@@ -38,13 +38,6 @@ export default function Home() {
               <Link className="btn btn-ghost-dark" to="/about">About the team</Link>
             </div>
           </div>
-          <div className="home-hero-right">
-          <figure className="home-hero-engine">
-            <img src="/b1m-engine-bench.png" alt="The completed B1M engine on a bench, ready for static fire" />
-            <figcaption>
-              <Link to="/b1m-engine">B1M engine</Link> · ready for static fire
-            </figcaption>
-          </figure>
           <div className="home-hero-spec" role="region" aria-labelledby="current-production">
             <p className="eyebrow" id="current-production">Current production</p>
             <div className="home-spec-group">
@@ -80,7 +73,6 @@ export default function Home() {
                 <span className="home-spec-val num">5</span>
               </div>
             </div>
-          </div>
           </div>
         </div>
         <div className="tick-rule home-tick" aria-hidden="true">
