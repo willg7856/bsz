@@ -24,23 +24,6 @@ export default function About() {
         </div>
       </header>
 
-      <section className="section">
-        <div className="wrap split">
-          <div>
-            <p className="kicker">Our mission</p>
-            <h2>Why we build.</h2>
-          </div>
-          <div className="copy">
-            <p>
-              Beyond Stage Zero started with a simple question: why can&apos;t Australian students build something that competes with the best rocketry programmes in the world? We didn&apos;t have a good answer, so we started building.
-            </p>
-            <p>
-              We&apos;re based in Creswick, Victoria — machining our own motor casings, casting our own propellant, writing our own range data links (Octopus), and learning everything the hard way. Every failure is logged. Every test is published.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section className="shed-block">
         <div className="shed-hero">
           <img src="/goods-shed.jpg" alt="The goods shed" />
@@ -71,18 +54,24 @@ export default function About() {
               </a>
             ))}
           </div>
-          <p className="eyebrow">Creswick Railway Workshops Association</p>
-          <div className="nozzle-figures count-2">
-            <figure>
-              <img src="/crwa-station.jpg" alt="The CRWA's railway station" />
-              <figcaption>The CRWA&apos;s railway station.</figcaption>
-            </figure>
-            <figure>
-              <img src="/crwa-station-yard.jpg" alt="Another view of the CRWA's railway station" />
-              <figcaption>Another view of the CRWA&apos;s railway station.</figcaption>
-            </figure>
+        </div>
+      </section>
+
+      <section className="shed-block crwa-hero">
+        <div className="shed-hero">
+          <img src="/crwa-night.jpg" alt="The CRWA's railway station at night" />
+          <div className="shed-hero-shade" aria-hidden="true" />
+          <div className="wrap shed-hero-inner">
+            <p className="kicker">Workshop & base</p>
+            <h2>Creswick Railway Workshops Association.</h2>
+            <p className="shed-hero-lede">Workshop and base for the team.</p>
           </div>
         </div>
+        <dl className="shed-hero-specs">
+          <div><dt>Role</dt><dd>Workshop &amp; base</dd></div>
+          <div><dt>Place</dt><dd>Creswick, Victoria · Australia</dd></div>
+          <div><dt>Site</dt><dd><a href="https://www.crwa.org.au" target="_blank" rel="noopener noreferrer">crwa.org.au</a></dd></div>
+        </dl>
       </section>
 
       <section className="section">

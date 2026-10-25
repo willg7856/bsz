@@ -20,9 +20,11 @@ export const gallery = [
   { src: '/doherty-nozzles.jpg', caption: 'Five ceramic nozzles in their moulds.', kind: 'photo' },
   { src: '/crwa-station.jpg', caption: "The CRWA's railway station.", kind: 'photo' },
   { src: '/crwa-station-yard.jpg', caption: "Another view of the CRWA's railway station.", kind: 'photo' },
+  { src: '/crwa-night.jpg', caption: "The CRWA's railway station at night.", kind: 'photo' },
   { src: '/goods-shed.jpg', caption: 'The goods shed.', kind: 'photo' },
   { src: '/b1m-cad.png', caption: 'B1M engine cutaway.', kind: 'render' },
   { src: '/b1m-external1.png', caption: 'B1M engine.', kind: 'render' },
+  { src: '/b1m-engine-angle.png', caption: 'B1M engine, angled.', kind: 'render' },
   { src: '/b1m-external2.png', caption: 'B1M engine, side.', kind: 'render' },
   { src: '/b1m-external3.png', caption: 'B1M engine, external.', kind: 'render' },
 ]

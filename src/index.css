@@ -1589,6 +1589,51 @@ h1, h2, h3, h4, p { margin: 0; }
   font-size: 0.95rem;
   line-height: 1.4;
 }
+.shed-hero-specs a {
+  color: inherit;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+.crwa-hero .shed-hero img { object-position: center 48%; }
+.crwa-hero .shed-hero h2 { max-width: 16ch; }
+.crwa-hero .shed-hero-specs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.b1m-hero {
+  min-height: calc(100svh - 64px);
+  background: #000;
+}
+.b1m-hero::before { display: none; }
+.b1m-hero img {
+  position: absolute;
+  z-index: 0;
+  top: 8%;
+  right: 0;
+  width: min(62vw, 980px);
+  height: auto;
+  max-height: 74%;
+  object-fit: contain;
+  pointer-events: none;
+}
+.b1m-hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.2) 38%, rgba(0, 0, 0, 0) 62%);
+  pointer-events: none;
+}
+.b1m-hero .masthead-inner {
+  z-index: 2;
+  grid-template-columns: minmax(0, 34rem);
+  align-items: end;
+  min-height: calc(100svh - 64px);
+  padding-top: clamp(5.5rem, 12vh, 7rem);
+  padding-bottom: 11.5rem;
+}
+.b1m-hero .kicker { color: var(--ignition-400); }
+.b1m-hero .lede {
+  max-width: 38rem;
+  color: #d7dce1;
+}
+.b1m-hero .shed-hero-specs { z-index: 2; }
 .nozzle-figures.count-1 { grid-template-columns: minmax(0, 36rem); }
 .nozzle-figures figure { margin: 0; min-width: 0; }
 .nozzle-figures img {
@@ -2104,10 +2149,6 @@ textarea { min-height: 9rem; resize: vertical; }
     max-height: 260px;
     margin-inline: auto;
   }
-  .b1m-render-frame--home {
-    height: 280px;
-    width: 96px;
-  }
   .hud-inner, .phase-grid, .card-grid, .three, .fire-grid, .about-roster { grid-template-columns: 1fr 1fr; }
   .about-roster-name:nth-child(3n + 2),
   .about-roster-name:nth-child(3n) { padding-left: 0; }
@@ -2115,7 +2156,34 @@ textarea { min-height: 9rem; resize: vertical; }
   .b1m-views { grid-template-columns: 1fr; }
   .nozzle-figures { grid-template-columns: 1fr 1fr; }
   .shed-hero-inner { padding-bottom: 16.5rem; }
-  .shed-hero-specs { grid-template-columns: 1fr 1fr; }
+  .shed-hero-specs,
+  .crwa-hero .shed-hero-specs { grid-template-columns: 1fr 1fr; }
+  .b1m-hero { min-height: 0; }
+  .b1m-hero-shade { display: none; }
+  .b1m-hero img {
+    position: relative;
+    top: auto;
+    right: auto;
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    max-height: 48svh;
+    margin: 4.5rem auto 0;
+    object-fit: contain;
+  }
+  .b1m-hero .masthead-inner {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    padding-top: 1.5rem;
+    padding-bottom: 2.25rem;
+  }
+  .b1m-hero .shed-hero-specs {
+    position: static;
+    width: auto;
+    margin: 0;
+    background: transparent;
+  }
   .nozzle-costs { grid-template-columns: 1fr; }
   .nozzle-costs .spec-cell + .spec-cell { border-left: 0; border-top: 1px solid var(--line); }
   .b1m-hardware-layout { grid-template-columns: 1fr; }
@@ -2155,7 +2223,14 @@ textarea { min-height: 9rem; resize: vertical; }
   }
   .shed-hero-specs dt { color: var(--ink-400); }
   .shed-hero-specs dd { margin-top: 0.2rem; color: var(--ink-900); }
+  .shed-hero-specs a { border-bottom-color: var(--ink-400); }
+  .crwa-hero .shed-hero-specs { grid-template-columns: 1fr; }
+  .crwa-hero .shed-hero h2,
   .shed-hero h2 { max-width: none; }
+  .b1m-hero .shed-hero-specs {
+    background: var(--paper-100);
+    border-top: 0;
+  }
   .home-hero-actions { flex-direction: column; align-items: stretch; }
   .home-hero-actions .btn { justify-content: center; }
   .footer-bottom, .callout, .partner-row, .fire-head { flex-direction: column; align-items: flex-start; }
