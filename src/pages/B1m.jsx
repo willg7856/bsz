@@ -26,7 +26,9 @@ export default function B1m() {
 
   return (
     <>
-      <header className="masthead">
+      <header className="masthead b1m-hero">
+        <img src="/b1m-engine-hero.jpg" alt="B1M engine" />
+        <div className="b1m-hero-shade" aria-hidden="true" />
         <div className="masthead-inner">
           <div>
             <p className="kicker">Sub-scale vehicle</p>
@@ -39,13 +41,13 @@ export default function B1m() {
               <Link className="btn" to="/missions">Mission pipeline</Link>
             </div>
           </div>
-          <div className="masthead-side">
-            <div className="side-row"><span>Apogee</span><span className="num">3.0 km</span></div>
-            <div className="side-row"><span>Design</span><span className="done">Complete</span></div>
-            <div className="side-row"><span>In production</span><span className="num">2 engines</span></div>
-            <div className="side-row"><span>First flight</span><span>Q4&apos;26–Q1&apos;27</span></div>
-          </div>
         </div>
+        <dl className="shed-hero-specs">
+          <div><dt>Apogee</dt><dd>3.0 km</dd></div>
+          <div><dt>Design</dt><dd>Complete</dd></div>
+          <div><dt>In production</dt><dd>2 engines</dd></div>
+          <div><dt>First flight</dt><dd>Q4&apos;26–Q1&apos;27</dd></div>
+        </dl>
       </header>
       <B1mStaticFireNotice />
 
