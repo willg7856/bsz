@@ -31,7 +31,7 @@ export default function B1mEngine() {
     <>
       <header className="masthead b1m-hero">
         <div className="b1m-hero-figure">
-          <img src="/b1m-engine-hero.jpg" alt="B1M engine" />
+          <img src="/b1m-engine-angle.png" alt="B1M engine" />
         </div>
         <div className="b1m-hero-shade" aria-hidden="true" />
         <div className="masthead-inner">
