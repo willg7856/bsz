@@ -26,6 +26,13 @@ export default function Stravox() {
             </div>
           </div>
         </div>
+        <aside className="hero-notice" aria-label="Development status">
+          <p className="hero-notice-label">Living design</p>
+          <p className="hero-notice-title">Full STRAVOX development is extremely dynamic.</p>
+          <p className="hero-notice-body">
+            This vehicle changes with every new test and every bit of hardware we produce. Numbers, geometry, and systems on this page are the current working baseline — not a frozen final design.
+          </p>
+        </aside>
         <dl className="shed-hero-specs">
           <div><dt>Height</dt><dd>2,633 mm</dd></div>
           <div><dt>Target apogee</dt><dd>30.0 km</dd></div>
@@ -33,16 +40,6 @@ export default function Stravox() {
           <div><dt>Landing T/W</dt><dd>2.05×</dd></div>
         </dl>
       </header>
-
-      <section className="stravox-living" aria-label="Development status">
-        <div className="container stravox-living-inner">
-          <p className="stravox-living-label">Living design</p>
-          <h2 className="stravox-living-title">Full STRAVOX development is extremely dynamic.</h2>
-          <p className="stravox-living-body">
-            This vehicle changes with every new test and every bit of hardware we produce. Numbers, geometry, and systems on this page are the current working baseline — not a frozen final design.
-          </p>
-        </div>
-      </section>
 
       <section className="section dark">
         <div className="wrap">

@@ -46,8 +46,8 @@ export default function B1m() {
             <div className="side-row"><span>First flight</span><span>Q4&apos;26–Q1&apos;27</span></div>
           </div>
         </div>
+        <B1mStaticFireNotice />
       </header>
-      <B1mStaticFireNotice />
 
       <section className="section">
         <div className="wrap">

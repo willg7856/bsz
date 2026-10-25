@@ -47,6 +47,7 @@ export default function B1mEngine() {
             </div>
           </div>
         </div>
+        <B1mStaticFireNotice />
         <dl className="shed-hero-specs">
           <div><dt>Design</dt><dd>Complete</dd></div>
           <div><dt>In production</dt><dd>2 engines</dd></div>
@@ -55,7 +56,6 @@ export default function B1mEngine() {
           <div><dt>Next</dt><dd>Static fires</dd></div>
         </dl>
       </header>
-      <B1mStaticFireNotice />
 
       <section className="section">
         <div className="wrap">
