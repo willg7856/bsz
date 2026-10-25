@@ -1604,23 +1604,17 @@ h1, h2, h3, h4, p { margin: 0; }
 .b1m-hero::before { display: none; }
 .b1m-hero-figure {
   position: absolute;
-  z-index: 0;
-  top: 1rem;
-  right: 1.5rem;
-  bottom: 8.25rem;
-  left: 36%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
+  z-index: 3;
+  top: 14%;
+  left: 50%;
+  width: min(74vw, 960px);
+  transform: translateX(-50%);
   pointer-events: none;
 }
 .b1m-hero-figure img {
   display: block;
-  width: auto;
+  width: 100%;
   height: auto;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
 }
 @media (min-width: 981px) {
   .b1m-hero .shed-hero-specs { grid-template-columns: repeat(5, minmax(0, 1fr)); }
@@ -2174,6 +2168,7 @@ textarea { min-height: 9rem; resize: vertical; }
   .b1m-hero-shade { display: none; }
   .b1m-hero-figure {
     position: relative;
+    z-index: 0;
     inset: auto;
     left: auto;
     right: auto;
@@ -2182,10 +2177,11 @@ textarea { min-height: 9rem; resize: vertical; }
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: min(100% - 1.5rem, 34rem);
     height: auto;
-    margin: 0;
-    padding: 0.75rem 1rem 0;
+    margin: -0.5rem auto -1.75rem;
+    padding: 0;
+    transform: none;
   }
   .b1m-hero-figure img {
     width: 100%;
