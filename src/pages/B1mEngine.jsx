@@ -30,7 +30,9 @@ export default function B1mEngine() {
   return (
     <>
       <header className="masthead b1m-hero">
-        <img src="/b1m-engine-hero.jpg" alt="B1M engine" />
+        <div className="b1m-hero-figure">
+          <img src="/b1m-engine-hero.jpg" alt="B1M engine" />
+        </div>
         <div className="b1m-hero-shade" aria-hidden="true" />
         <div className="masthead-inner">
           <div>
