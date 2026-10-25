@@ -575,6 +575,25 @@ h1, h2, h3, h4, p { margin: 0; }
   display: flex;
 }
 
+.home-hero-right { min-width: 0; }
+.home-hero-engine {
+  margin: 0 -2rem 2rem 0;
+}
+.home-hero-engine img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.home-hero-engine figcaption {
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+.home-hero-engine figcaption a { color: var(--ignition-400); }
+
 .home-hero-spec > .eyebrow {
   color: var(--ignition-400);
   margin-bottom: 14px;
