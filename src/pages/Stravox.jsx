@@ -10,7 +10,9 @@ export default function Stravox() {
 
   return (
     <>
-      <header className="masthead">
+      <header className="masthead stravox-photo-hero">
+        <img className="stravox-photo-hero-img" src="/stravox-workshop.jpg" alt="STRAVOX standing in the Creswick workshop" />
+        <div className="stravox-photo-hero-shade" aria-hidden="true" />
         <div className="masthead-inner">
           <div>
             <p className="kicker">The rocket</p>
@@ -23,13 +25,13 @@ export default function Stravox() {
               <Link className="btn" to="/contact">Contact us</Link>
             </div>
           </div>
-          <div className="masthead-side">
-            <div className="side-row"><span>Height</span><span className="num">2,633 mm</span></div>
-            <div className="side-row"><span>Target apogee</span><span className="num">30.0 km</span></div>
-            <div className="side-row"><span>Peak velocity</span><span className="num">Mach 2.5</span></div>
-            <div className="side-row"><span>Landing T/W</span><span className="num">2.05×</span></div>
-          </div>
         </div>
+        <dl className="shed-hero-specs">
+          <div><dt>Height</dt><dd>2,633 mm</dd></div>
+          <div><dt>Target apogee</dt><dd>30.0 km</dd></div>
+          <div><dt>Peak velocity</dt><dd>Mach 2.5</dd></div>
+          <div><dt>Landing T/W</dt><dd>2.05×</dd></div>
+        </dl>
       </header>
 
       <section className="stravox-living" aria-label="Development status">

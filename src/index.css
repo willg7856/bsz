@@ -1640,6 +1640,40 @@ h1, h2, h3, h4, p { margin: 0; }
   color: #d7dce1;
 }
 .b1m-hero .shed-hero-specs { z-index: 2; }
+.stravox-photo-hero {
+  min-height: calc(100svh - 64px);
+  background: #000;
+}
+.stravox-photo-hero::before { display: none; }
+.stravox-photo-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 20% center;
+}
+.stravox-photo-hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(270deg, rgba(5, 6, 7, 0.9) 0%, rgba(5, 6, 7, 0.7) 38%, rgba(5, 6, 7, 0.1) 62%, rgba(5, 6, 7, 0) 100%),
+    linear-gradient(to top, rgba(5, 6, 7, 0.85) 0%, rgba(5, 6, 7, 0) 30%);
+  pointer-events: none;
+}
+.stravox-photo-hero .masthead-inner {
+  z-index: 2;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 32rem);
+  align-items: end;
+  min-height: calc(100svh - 64px);
+  padding-top: clamp(5.5rem, 12vh, 7rem);
+  padding-bottom: 11.5rem;
+}
+.stravox-photo-hero .masthead-inner > div { grid-column: 2; }
+.stravox-photo-hero .kicker { color: var(--ignition-400); }
+.stravox-photo-hero .lede { color: #d7dce1; }
+.stravox-photo-hero .shed-hero-specs { z-index: 2; }
 .nozzle-figures.count-1 { grid-template-columns: minmax(0, 36rem); }
 .nozzle-figures figure { margin: 0; min-width: 0; }
 .nozzle-figures img {
@@ -2195,6 +2229,27 @@ textarea { min-height: 9rem; resize: vertical; }
     padding-top: 1.5rem;
     padding-bottom: 2.25rem;
   }
+  .stravox-photo-hero { min-height: 0; }
+  .stravox-photo-hero-img {
+    position: relative;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-position: 15% center;
+  }
+  .stravox-photo-hero-shade { background: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0) 22%); bottom: auto; aspect-ratio: 16 / 10; }
+  .stravox-photo-hero .masthead-inner {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    padding-top: 1.5rem;
+    padding-bottom: 2.25rem;
+  }
+  .stravox-photo-hero .masthead-inner > div { grid-column: auto; }
+  .stravox-photo-hero .shed-hero-specs {
+    position: static;
+    width: auto;
+    margin: 0;
+    background: transparent;
+  }
   .b1m-hero .shed-hero-specs {
     position: static;
     width: auto;
@@ -2244,7 +2299,8 @@ textarea { min-height: 9rem; resize: vertical; }
   .crwa-hero .shed-hero-specs { grid-template-columns: 1fr; }
   .crwa-hero .shed-hero h2,
   .shed-hero h2 { max-width: none; }
-  .b1m-hero .shed-hero-specs {
+  .b1m-hero .shed-hero-specs,
+  .stravox-photo-hero .shed-hero-specs {
     background: var(--paper-100);
     border-top: 0;
   }
