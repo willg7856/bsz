@@ -1605,24 +1605,29 @@ h1, h2, h3, h4, p { margin: 0; }
 .b1m-hero img {
   position: absolute;
   z-index: 0;
-  top: 8%;
-  right: 0;
-  width: min(62vw, 980px);
-  height: auto;
-  max-height: 74%;
+  top: auto;
+  right: -14%;
+  bottom: 12%;
+  width: auto;
+  height: 100%;
+  max-width: none;
+  max-height: none;
   object-fit: contain;
   pointer-events: none;
+}
+@media (min-width: 981px) {
+  .b1m-hero .shed-hero-specs { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 }
 .b1m-hero-shade {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.2) 38%, rgba(0, 0, 0, 0) 62%);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.4) 26%, rgba(0, 0, 0, 0) 44%);
   pointer-events: none;
 }
 .b1m-hero .masthead-inner {
   z-index: 2;
-  grid-template-columns: minmax(0, 34rem);
+  grid-template-columns: minmax(0, 30rem);
   align-items: end;
   min-height: calc(100svh - 64px);
   padding-top: clamp(5.5rem, 12vh, 7rem);
@@ -2164,13 +2169,15 @@ textarea { min-height: 9rem; resize: vertical; }
     position: relative;
     top: auto;
     right: auto;
+    bottom: auto;
     display: block;
     width: 100%;
     max-width: none;
-    height: auto;
-    max-height: 48svh;
-    margin: 4.5rem auto 0;
-    object-fit: contain;
+    height: 62svh;
+    max-height: none;
+    margin: 0;
+    object-fit: cover;
+    object-position: 58% 46%;
   }
   .b1m-hero .masthead-inner {
     min-height: 0;

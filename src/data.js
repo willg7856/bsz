@@ -143,7 +143,7 @@ export const partners = [
   },
   {
     name: 'Ballarat Tech School',
-    role: 'Education partner',
+    role: 'Supporter',
     href: 'https://ballarattech.school',
     logo: '/partner-bts.svg',
   },
