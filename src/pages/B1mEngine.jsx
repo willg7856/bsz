@@ -29,7 +29,9 @@ export default function B1mEngine() {
 
   return (
     <>
-      <header className="masthead">
+      <header className="masthead b1m-hero">
+        <img src="/b1m-engine-hero.jpg" alt="B1M engine" />
+        <div className="b1m-hero-shade" aria-hidden="true" />
         <div className="masthead-inner">
           <div>
             <p className="kicker">Motor · before B1M-01</p>
@@ -42,14 +44,14 @@ export default function B1mEngine() {
               <Link className="btn" to="/tests">Static fire log</Link>
             </div>
           </div>
-          <div className="masthead-side">
-            <div className="side-row"><span>Design</span><span className="done">Complete</span></div>
-            <div className="side-row"><span>In production</span><span className="num">2 engines</span></div>
-            <div className="side-row"><span>First engine</span><span>Done · pending regulatory approval</span></div>
-            <div className="side-row"><span>Target</span><span className="num">200 kgf · 3 s</span></div>
-            <div className="side-row"><span>Next</span><span>Static fires</span></div>
-          </div>
         </div>
+        <dl className="shed-hero-specs">
+          <div><dt>Design</dt><dd>Complete</dd></div>
+          <div><dt>In production</dt><dd>2 engines</dd></div>
+          <div><dt>First engine</dt><dd>Done · pending regulatory approval</dd></div>
+          <div><dt>Target</dt><dd>200 kgf · 3 s</dd></div>
+          <div><dt>Next</dt><dd>Static fires</dd></div>
+        </dl>
       </header>
       <B1mStaticFireNotice />
 
