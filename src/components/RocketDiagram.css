@@ -1,0 +1,9 @@
+.rocket-diagram {
+  user-select: none;
+}
+
+.rocket-svg {
+  width: 200px;
+  display: block;
+  filter: drop-shadow(0 0 24px rgba(10, 126, 255, 0.15));
+}
