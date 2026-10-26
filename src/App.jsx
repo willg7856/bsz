@@ -7,7 +7,6 @@ import Contact from './pages/Contact'
 import Gallery from './pages/Gallery'
 import Home from './pages/Home'
 import Missions from './pages/Missions'
-import News from './pages/News'
 import NotFound from './pages/NotFound'
 import Nozzles from './pages/Nozzles'
 import Octopus from './pages/Octopus'
@@ -31,7 +30,6 @@ export default function App() {
           <Route path="nozzles" element={<Nozzles />} />
           <Route path="octopus" element={<Octopus />} />
           <Route path="starship" element={<Starship />} />
-          <Route path="news" element={<News />} />
           <Route path="gallery" element={<Gallery />} />
           <Route path="contact" element={<Contact />} />
           <Route path="support" element={<Support />} />

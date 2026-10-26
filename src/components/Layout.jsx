@@ -13,7 +13,6 @@ const projects = [
 
 const company = [
   { path: '/about', label: 'About', note: 'Team, base, and partners' },
-  { path: '/news', label: 'News', note: 'Programme updates and milestones' },
   { path: '/gallery', label: 'Gallery', note: 'Build photos from the programme' },
   { path: '/contact', label: 'Contact', note: 'Sponsorship, joining, and enquiries' },
   { path: '/support', label: 'Support us', note: 'Help fund propellant, test gear and B1M' },
@@ -176,7 +175,6 @@ export default function Layout() {
             <Link to="/b1m-engine">B1M engine</Link>
             <Link to="/missions">Missions</Link>
             <Link to="/tests">Tests</Link>
-            <Link to="/news">News</Link>
             <Link to="/gallery">Gallery</Link>
             <Link to="/nozzles">Nozzles</Link>
             <Link to="/octopus">Octopus</Link>

@@ -44,7 +44,6 @@ export const nav = [
   { to: '/b1m-engine', label: 'B1M engine' },
   { to: '/missions', label: 'Missions' },
   { to: '/tests', label: 'Tests' },
-  { to: '/news', label: 'News' },
 ]
 
 export const footerNav = [
@@ -57,7 +56,6 @@ export const footerNav = [
   { to: '/nozzles', label: 'Nozzles' },
   { to: '/octopus', label: 'Octopus' },
   { to: '/starship', label: 'Starship tracker' },
-  { to: '/news', label: 'News' },
   { to: '/contact', label: 'Contact' },
 ]
 
