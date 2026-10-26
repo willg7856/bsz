@@ -569,3 +569,5 @@
   .tests-fire-photo--portrait { padding: 28px 28px 0; }
   .tests-fire-body--portrait .tests-fire-specs { border-bottom: 0; }
 }
+
+.tests-upnext-list { display: grid; gap: 1rem; }
