@@ -22,7 +22,7 @@ export default function Missions() {
             <p className="kicker">Programme</p>
             <h1>Missions.</h1>
             <p className="lede">
-              Nothing has flown yet. Our first flight is STRAVOX B1M-01, to 3 km, some time between Q4 2026 and Q1 2027. Everything below is what has to happen first.
+              Nothing has flown yet. Our first flight is STRAVOX B1M-01, to 3 km, some time between Q1 and Q2 2027. Everything below is what has to happen first.
             </p>
           </div>
           <div className="masthead-side missions-hero-stat-row">
@@ -35,7 +35,7 @@ export default function Missions() {
               <span className="missions-hero-stat-lbl">Target apogee</span>
             </div>
             <div className="missions-hero-stat">
-              <span className="missions-hero-stat-val">Q4&apos;26–Q1&apos;27</span>
+              <span className="missions-hero-stat-val">Q1–Q2&apos;27</span>
               <span className="missions-hero-stat-lbl">Launch window</span>
             </div>
           </div>

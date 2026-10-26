@@ -88,7 +88,7 @@ export const programme = [
     meta: [
       ['Apogee', '3 km'],
       ['Thrust', '200 kgf'],
-      ['Window', "Q4'26–Q1'27"],
+      ['Window', "Q1–Q2'27"],
     ],
   },
   {
@@ -210,7 +210,7 @@ export const record = [
   { val: '1', lbl: 'B1M engine complete', note: 'Static fire pending regulatory approval. Two engines still in production.' },
   { val: '5', lbl: 'Nozzles in production', note: '3 complete, on mould v13.' },
   { val: 'Apr 2025', lbl: 'Founded', note: 'Creswick, Victoria — programme start' },
-  { val: "Q4'26–Q1'27", lbl: 'First flight window', note: 'STRAVOX B1M-01 · 3 km systems validation' },
+  { val: "Q1–Q2'27", lbl: 'First flight window', note: 'STRAVOX B1M-01 · 3 km systems validation' },
 ]
 
 export const stravoxSpecs = [
@@ -362,7 +362,7 @@ export const b1mSpecs = [
   ['Purpose', 'Systems validation for STRAVOX'],
   ['Launch site', 'Victoria, AUS'],
   ['Status', 'In development'],
-  ['First flight', 'Q4 2026 – Q1 2027 — B1M-01'],
+  ['First flight', 'Q1 – Q2 2027 — B1M-01'],
 ]
 
 export const b1mObjectives = [
@@ -386,7 +386,7 @@ export const b1mMilestones = [
   { label: 'Vehicle fabrication', status: 'upcoming', note: 'Airframe construction and component manufacture.' },
   { label: 'Avionics integration', status: 'upcoming', note: 'Flight computer, altimeter, GPS, and recovery electronics — with Octopus linking pad/vehicle data to Goods Shed mission control.' },
   { label: 'CASA range clearance', status: 'upcoming', note: 'Regulatory approval for launch at a CASA-cleared site in Victoria.' },
-  { label: 'STRAVOX B1M-01 launch', status: 'upcoming', note: 'Target window Q4 2026 – Q1 2027. 3 km apogee. Full flight telemetry. Recover and review.' },
+  { label: 'STRAVOX B1M-01 launch', status: 'upcoming', note: 'Target window Q1 – Q2 2027. 3 km apogee. Full flight telemetry. Recover and review.' },
 ]
 
 export const missions = [
@@ -395,7 +395,7 @@ export const missions = [
     num: 'Mission 01',
     name: 'STRAVOX B1M-01',
     status: 'Planned',
-    year: 'Q4 2026 – Q1 2027',
+    year: 'Q1 – Q2 2027',
     tagline: 'Sub-scale test flight. 3 km apogee. Real-world flight data.',
     description: 'STRAVOX B1M is our sub-scale test vehicle — designed to reach 3 km apogee on one of our own KNSB engines and return real-world flight data before we commit to the full STRAVOX programme. Flying B1M lets us validate avionics, recovery, and vehicle systems at a scale that avoids the regulatory complexity and risk of a 30 km flight. What works on B1M goes on STRAVOX.',
     objectives: [
@@ -422,7 +422,7 @@ export const missions = [
       { label: 'Ground systems test', status: 'upcoming', note: 'Full vehicle systems check on the pad before flight.' },
       { label: 'CASA range clearance', status: 'upcoming', note: 'Regulatory approval for launch at a CASA-cleared site in Victoria.' },
       { label: 'Launch readiness review', status: 'upcoming', note: 'Final internal review before committing to launch day.' },
-      { label: 'STRAVOX B1M-01 launch', status: 'upcoming', note: 'Target window Q4 2026 – Q1 2027. 3 km apogee. Full flight telemetry. Recover and review.' },
+      { label: 'STRAVOX B1M-01 launch', status: 'upcoming', note: 'Target window Q1 – Q2 2027. 3 km apogee. Full flight telemetry. Recover and review.' },
     ],
   },
 ]
@@ -646,7 +646,7 @@ export const octopusMilestones = [
   {
     label: 'First use on B1M-01',
     status: 'upcoming',
-    note: 'Static fires and launch support. Target window Q4 2026 – Q1 2027.',
+    note: 'Static fires and launch support. Target window Q1 – Q2 2027.',
   },
 ]
 
