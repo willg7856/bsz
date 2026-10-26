@@ -124,7 +124,7 @@ export default function Layout() {
             <NavLink className="nav-btn" to="/missions">Missions</NavLink>
             <NavLink className="nav-btn" to="/tests">Tests</NavLink>
             <Dropdown label="Company" items={company} pathname={location.pathname} />
-            <a className="nav-cta" href={site.space} target="_blank" rel="noopener noreferrer">.space</a>
+            <Link className="nav-cta" to="/support">Support us</Link>
           </nav>
           <button
             type="button"
@@ -153,7 +153,7 @@ export default function Layout() {
             <MobileGroup label="Company" items={company} pathname={location.pathname} onNavigate={closeMenu} />
           </nav>
           <div className="nav-mobile-foot">
-            <a className="nav-cta-mobile" href={site.space} target="_blank" rel="noopener noreferrer">Open .space</a>
+            <Link className="nav-cta-mobile" to="/support" onClick={closeMenu}>Support us</Link>
             <p className="nav-mobile-foot-note">{site.place}</p>
           </div>
         </div>
