@@ -61,17 +61,15 @@ export default function Home() {
 
   return (
     <div className="home">
-      <header className="masthead b1m-hero home-showcase">
-        <div className="b1m-hero-figure">
-          <img src="/b1m-engine-bench.webp" alt="The completed B1M engine on a bench, ready for static fire" />
-        </div>
-        <div className="b1m-hero-shade" aria-hidden="true" />
+      <header className="masthead stravox-photo-hero home-photo-hero">
+        <img className="stravox-photo-hero-img" src="/b1m-engine-street.jpg" alt="The completed B1M engine on a bench, ready for static fire" />
+        <div className="stravox-photo-hero-shade" aria-hidden="true" />
         <div className="masthead-inner">
           <div>
             <p className="kicker">Student rocketry · Creswick, Victoria</p>
             <h1>Beyond Stage <span className="home-hero-accent">Zero.</span></h1>
             <p className="lede">
-              To lower the cost and the barrier to entry for others to follow. We design and build <span className="mono">STRAVOX</span> in-house — and the first <span className="mono">B1M</span> engine is complete.
+              To lower the cost and the barrier to entry for others to follow. We design and build STRAVOX in-house — and the first B1M engine is complete.
             </p>
             <div className="actions">
               <Link className="btn btn-ink" to="/stravox">Explore STRAVOX</Link>
@@ -82,9 +80,9 @@ export default function Home() {
         <B1mStaticFireNotice />
         <dl className="shed-hero-specs">
           <div><dt>Vehicles in production</dt><dd>{vehiclesInProduction.length}</dd></div>
-          <div><dt><Link to="/b1m">B1M-01</Link></dt><dd>Build complete</dd></div>
-          <div><dt><Link to="/b1m-engine">B1M engines</Link></dt><dd>1 complete · 2 in production</dd></div>
-          <div><dt><Link to="/nozzles">Ceramic nozzles</Link></dt><dd>3 complete · 5 in production</dd></div>
+          <div><dt>B1M-01</dt><dd>Build complete</dd></div>
+          <div><dt>B1M engines</dt><dd>1 complete · 2 in production</dd></div>
+          <div><dt>Ceramic nozzles</dt><dd>3 complete · 5 in production</dd></div>
         </dl>
       </header>
 
