@@ -18,7 +18,7 @@ const projects = [
   {
     title: 'Missions',
     to: '/missions',
-    body: 'Every flight we have planned: B1M to 3 km, a 100 m hop on drone motors, and eventually STRAVOX to 30 km.',
+    body: 'Every flight we have planned: B1M to 3 km, a 100 m hop on drone motors (on hold for now), and eventually STRAVOX to 30 km.',
   },
   {
     title: 'Engine tests',

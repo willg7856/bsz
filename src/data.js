@@ -99,7 +99,7 @@ export const programme = [
     action: 'View the mission pipeline',
     meta: [
       ['Next up', 'B1M-01 · 3 km'],
-      ['Hop test', '100 m · Q3–Q4 2026'],
+      ['Hop test', '100 m · on hold'],
       ['Full scale', 'STRAVOX · 30 km'],
     ],
   },
@@ -428,7 +428,7 @@ export const missions = [
 ]
 
 export const upcoming = [
-  { id: 'STRAVOX-HOP-01', name: 'STRAVOX — 100 m Hop Test', note: 'Low-altitude hop of STRAVOX to roughly 100 m under drone-engine power only — no main motor. Validates propulsive landing, drone-arm deployment, and vehicle handling before higher-energy flights. Target window Q3–Q4 2026.', year: 'Q3–Q4 2026' },
+  { id: 'STRAVOX-HOP-01', name: 'STRAVOX — 100 m Hop Test', note: 'Low-altitude hop of STRAVOX to roughly 100 m under drone-engine power only — no main motor. Validates propulsive landing, drone-arm deployment, and vehicle handling before higher-energy flights. Delayed indefinitely for now.', year: 'Delayed indefinitely' },
   { id: 'STRAVOX-B1M-02', name: 'STRAVOX B1M-02', note: 'Second B1M flight incorporating fixes and improvements from B1M-01. Objectives TBD based on B1M-01 data.', year: 'TBD' },
   { id: 'STRAVOX-01', name: 'STRAVOX — Full Scale', note: 'The main event. 30 km apogee, Mach 2.5, propulsive vertical landing. Timeline depends on B1M programme outcomes.', year: 'TBD' },
 ]
