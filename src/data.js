@@ -6,7 +6,7 @@ export const site = {
   starship: 'https://starship.beyondstagezero.com',
   place: 'Creswick, VIC · Australia',
   // Stripe Payment Link ("customer chooses what to pay"). Leave empty to show the email fallback.
-  stripeSupport: '',
+  stripeSupport: 'https://buy.stripe.com/14A7sKgPz2Nn8jRfWk9R601',
 }
 
 export const gallery = [
