@@ -92,6 +92,13 @@ export default function Tests() {
                   <div className="tests-upnext-id">{item.id}</div>
                   <div className="tests-upnext-label">{item.label}</div>
                   <p className="tests-upnext-note">{item.note}</p>
+                  {item.steps ? (
+                    <ol className="tests-upnext-steps">
+                      {item.steps.map((step) => (
+                        <li key={step}>{step}</li>
+                      ))}
+                    </ol>
+                  ) : null}
                   {item.id === 'C-03' ? (
                     <p style={{ marginTop: '1rem' }}>
                       <Link className="home-rocket-link" to="/b1m-engine">Engine development updates</Link>

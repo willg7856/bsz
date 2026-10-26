@@ -455,9 +455,10 @@ export const campaigns = [
 export const upNext = [
   {
     id: 'Next',
-    label: 'B1M engine pressure test',
+    label: 'B1M pressure test campaign',
     engine: 'B1M — 550 mm × 80 mm',
-    note: 'We are about to pressure test the first B1M engine. It needs to pass before its first static fire. Pressure testing was one of the main lessons from SF-04, where the Mk II case ruptured.',
+    note: 'We are about to pressure test the first B1M engine, stepping the pressure up in stages. Before pressurisation we run an igniter test, so the engine is tested the way it will fly. It needs to pass before its first static fire. Pressure testing was one of the main lessons from SF-04, where the Mk II case ruptured.',
+    steps: ['Igniter test', '100 psi', '150 psi', '500 psi', '1000 psi', '1200 psi'],
     status: 'Starting soon',
   },
   {

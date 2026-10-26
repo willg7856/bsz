@@ -571,3 +571,30 @@
 }
 
 .tests-upnext-list { display: grid; gap: 1rem; }
+.tests-upnext-steps {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  counter-reset: step;
+}
+.tests-upnext-steps li {
+  counter-increment: step;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--ink-600);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--paper-100);
+}
+.tests-upnext-steps li::before {
+  content: counter(step);
+  font-size: 0.72rem;
+  color: var(--ignition-400);
+}
+.tests-upnext-steps li + li::after { content: none; }
