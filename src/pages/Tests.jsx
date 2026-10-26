@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { campaigns, engineSummary, fires, nextCampaign, resultLabel } from '../data'
+import { campaigns, engineSummary, fires, resultLabel, upNext } from '../data'
 import { useTitle } from '../useTitle'
 import './Tests.css'
 
@@ -83,24 +83,37 @@ export default function Tests() {
         <div className="container">
           <div className="tests-upnext-head">
             <span className="eyebrow" style={{ color: 'var(--ink-400)' }}>[ Up next ]</span>
-            <h2 className="tests-upnext-title">Next test campaign.</h2>
+            <h2 className="tests-upnext-title">Next tests.</h2>
           </div>
-          <div className="tests-upnext-card">
-            <div className="tests-upnext-card-left">
-              <div className="tests-upnext-id">{nextCampaign.id}</div>
-              <div className="tests-upnext-label">{nextCampaign.label}</div>
-              <p className="tests-upnext-note">{nextCampaign.note}</p>
-              <p style={{ marginTop: '1rem' }}>
-                <Link className="home-rocket-link" to="/b1m-engine">Engine development updates</Link>
-              </p>
-            </div>
-            <div className="tests-upnext-card-right">
-              <div>
-                <div className="tests-upnext-engine-lbl">Engine</div>
-                <div className="tests-upnext-engine-val">{nextCampaign.engine}</div>
+          <div className="tests-upnext-list">
+            {upNext.map((item) => (
+              <div className="tests-upnext-card" key={item.id}>
+                <div className="tests-upnext-card-left">
+                  <div className="tests-upnext-id">{item.id}</div>
+                  <div className="tests-upnext-label">{item.label}</div>
+                  <p className="tests-upnext-note">{item.note}</p>
+                  {item.steps ? (
+                    <ol className="tests-upnext-steps">
+                      {item.steps.map((step) => (
+                        <li key={step}>{step}</li>
+                      ))}
+                    </ol>
+                  ) : null}
+                  {item.id === 'C-03' ? (
+                    <p style={{ marginTop: '1rem' }}>
+                      <Link className="home-rocket-link" to="/b1m-engine">Engine development updates</Link>
+                    </p>
+                  ) : null}
+                </div>
+                <div className="tests-upnext-card-right">
+                  <div>
+                    <div className="tests-upnext-engine-lbl">Engine</div>
+                    <div className="tests-upnext-engine-val">{item.engine}</div>
+                  </div>
+                  <div className="tests-upnext-status">{item.status}</div>
+                </div>
               </div>
-              <div className="tests-upnext-status">{nextCampaign.status}</div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
