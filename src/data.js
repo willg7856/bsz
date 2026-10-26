@@ -8,6 +8,7 @@ export const site = {
 }
 
 export const gallery = [
+  { src: '/sf01-burn.jpg', caption: 'SF-01 burning, 18 February 2026.', kind: 'photo' },
   { src: '/sf02-burn.jpg', caption: 'SF-02 burning, 18 February 2026.', kind: 'photo' },
   { src: '/sf04-burn.jpg', caption: 'The start of the SF-04 burn, 26 April 2026.', kind: 'photo' },
   { src: '/sf-c02-dawn-range.jpg', caption: 'Setting up the range before sunrise for SF-03 and SF-04.', kind: 'photo' },
@@ -471,6 +472,7 @@ export const fires = [
     burnTime: '28 s',
     peakThrust: '—',
     result: 'failure',
+    photo: { src: '/sf01-burn.jpg', caption: 'SF-01 burning, 18 February 2026.', portrait: true },
     observations: [
       'All thrust data lost — load cell issue.',
       'Nozzle ejected during burn.',
