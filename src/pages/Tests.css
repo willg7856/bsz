@@ -598,3 +598,29 @@
   color: var(--ignition-400);
 }
 .tests-upnext-steps li + li::after { content: none; }
+.tests-upnext-step-when {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--ignition-400);
+}
+
+.tests-upnext-list .tests-upnext-card { grid-template-columns: 1fr; }
+.tests-upnext-card-body { padding: 28px 32px; }
+.tests-upnext-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.tests-upnext-engine {
+  margin-top: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-400);
+}
+.tests-upnext-top .tests-upnext-status { flex-shrink: 0; }
+.tests-upnext-card-body .tests-upnext-note { max-width: 68ch; margin-top: 1rem; }
+@media (max-width: 600px) {
+  .tests-upnext-card-body { padding: 22px 20px; }
+  .tests-upnext-top { flex-direction: column-reverse; gap: 0.75rem; }
+}

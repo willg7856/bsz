@@ -1429,6 +1429,14 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 @media (min-width: 981px) {
   .b1m-hero .shed-hero-specs { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .b1m-hero .b1m-hero-figure {
+    z-index: 1;
+    top: 30%;
+    left: auto;
+    right: max(0px, calc((100% - var(--container-max)) / 2 - 3rem));
+    width: min(52vw, 780px);
+    transform: none;
+  }
 }
 .b1m-hero-shade {
   position: absolute;
@@ -2370,3 +2378,50 @@ textarea { min-height: 9rem; resize: vertical; }
 }
 .home-wordmark-bracket { color: var(--ignition-500); }
 .home-wordmark-line { display: block; white-space: nowrap; }
+
+/* B1M engine page photos */
+.b1m-photo-row,
+.b1m-render-row {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr 1.3fr;
+  gap: 1rem;
+}
+.b1m-render-row {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.5rem;
+}
+.b1m-photo-row figure,
+.b1m-render-row figure { margin: 0; min-width: 0; }
+.b1m-photo-row img {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 26vw, 360px);
+  object-fit: cover;
+}
+.b1m-render-panel {
+  height: clamp(200px, 22vw, 300px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+.b1m-render-panel img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.b1m-photo-row figure:nth-child(2) img { object-position: center top; }
+.b1m-photo-row figcaption,
+.b1m-render-row figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+}
+@media (max-width: 760px) {
+  .b1m-photo-row,
+  .b1m-render-row { grid-template-columns: 1fr; }
+  .b1m-photo-row img { height: 260px; }
+}

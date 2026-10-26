@@ -9,6 +9,7 @@ const engineSteps = [
   'Propellant characterisation',
   'B1M engine build',
   'Static fire stand construction',
+  'B1M pressure test campaign',
   'B1M engine static fires',
 ]
 
@@ -17,10 +18,15 @@ const engineBrief = [
   { title: '2.9 kg of propellant', desc: 'KNO₃/Sorbitol 65:35 in the 550 mm casing.' },
   { title: 'Prove it on the stand', desc: 'The first engine is done. The first static fire is pending regulatory approval. Two engines are still in production.' },
 ]
-const views = [
-  { src: '/b1m-external1.png', alt: 'Full external view of the B1M engine', caption: 'Engine', className: 'b1m-view-primary' },
-  { src: '/b1m-external2.png', alt: 'Side view of the B1M motor casing', caption: 'Side' },
-  { src: '/b1m-external3.png', alt: 'Angled view of the B1M motor casing', caption: 'External' },
+const photos = [
+  { src: '/b1m-engine-complete.jpg', alt: 'The completed B1M engine on a bench', caption: 'The first B1M engine, complete.' },
+  { src: '/b1m-engine-photo.jpg', alt: 'B1M engine casing standing on a workshop bench', caption: 'The casing.' },
+  { src: '/b1m-engine-disassembled.jpg', alt: 'B1M engine disassembled on a workshop bench', caption: 'Disassembled on the bench.' },
+]
+const renders = [
+  { src: '/b1m-cad.png', alt: 'Cutaway of the B1M motor casing, 550 mm by 80 mm', caption: 'CAD cutaway' },
+  { src: '/b1m-external3.png', alt: 'Angled view of the B1M motor casing', caption: 'External, angled' },
+  { src: '/b1m-external2.png', alt: 'Side view of the B1M motor casing', caption: 'Side view' },
 ]
 
 export default function B1mEngine() {
@@ -53,7 +59,7 @@ export default function B1mEngine() {
           <div><dt>In production</dt><dd>2 engines</dd></div>
           <div><dt>First engine</dt><dd>Done · pending regulatory approval</dd></div>
           <div><dt>Target</dt><dd>200 kgf · 3 s</dd></div>
-          <div><dt>Next</dt><dd>Static fires</dd></div>
+          <div><dt>Next</dt><dd>Pressure tests</dd></div>
         </dl>
       </header>
 
@@ -65,37 +71,27 @@ export default function B1mEngine() {
               <h2>550 mm by 80 mm.</h2>
             </div>
             <div className="b1m-casing-aside">
-              <p>Cutaway of the current B1M motor, the casing and the disassembled engine on the bench, and the external views of the same part.</p>
+              <p>The first engine, the casing and the parts laid out on the bench, then the CAD of the same motor.</p>
               <Link className="text-link b1m-all-photos" to="/gallery">All photos</Link>
             </div>
           </div>
-          <figure className="cad">
-            <img src="/b1m-cad.png" alt="Cutaway of the B1M motor casing, 550 mm by 80 mm" />
-            <figcaption>B1M motor · CAD cutaway · 550 mm × 80 mm</figcaption>
-          </figure>
-          <div className="b1m-hardware-layout">
-            <figure className="cad b1m-casing-photo">
-              <img src="/b1m-engine-photo.jpg" alt="B1M engine casing standing on a workshop bench" />
-              <figcaption>B1M engine casing.</figcaption>
-            </figure>
-            <figure className="cad b1m-disassembled-photo">
-              <img src="/b1m-engine-disassembled.jpg" alt="B1M engine disassembled on a workshop bench" />
-              <figcaption>B1M engine, disassembled.</figcaption>
-            </figure>
-            <div className="b1m-views">
-            {views.map((view) => (
-              <figure className={view.className ? `cad ${view.className}` : 'cad'} key={view.src}>
-                {view.className ? (
-                  <div className="b1m-render-frame">
-                    <img src={view.src} alt={view.alt} />
-                  </div>
-                ) : (
-                  <img src={view.src} alt={view.alt} />
-                )}
-                <figcaption>{view.caption}</figcaption>
+          <div className="b1m-photo-row">
+            {photos.map((photo) => (
+              <figure key={photo.src}>
+                <img src={photo.src} alt={photo.alt} loading="lazy" />
+                <figcaption>{photo.caption}</figcaption>
               </figure>
             ))}
-            </div>
+          </div>
+          <div className="b1m-render-row">
+            {renders.map((render) => (
+              <figure key={render.src}>
+                <div className="b1m-render-panel">
+                  <img src={render.src} alt={render.alt} loading="lazy" />
+                </div>
+                <figcaption>{render.caption}</figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>

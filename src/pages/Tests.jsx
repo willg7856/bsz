@@ -88,14 +88,23 @@ export default function Tests() {
           <div className="tests-upnext-list">
             {upNext.map((item) => (
               <div className="tests-upnext-card" key={item.id}>
-                <div className="tests-upnext-card-left">
-                  <div className="tests-upnext-id">{item.id}</div>
-                  <div className="tests-upnext-label">{item.label}</div>
+                <div className="tests-upnext-card-body">
+                  <div className="tests-upnext-top">
+                    <div>
+                      <div className="tests-upnext-id">{item.id}</div>
+                      <div className="tests-upnext-label">{item.label}</div>
+                      <div className="tests-upnext-engine">{item.engine}</div>
+                    </div>
+                    <div className="tests-upnext-status">{item.status}</div>
+                  </div>
                   <p className="tests-upnext-note">{item.note}</p>
                   {item.steps ? (
                     <ol className="tests-upnext-steps">
                       {item.steps.map((step) => (
-                        <li key={step}>{step}</li>
+                        <li key={step.label}>
+                          <span className="tests-upnext-step-label">{step.label}</span>
+                          {step.when ? <span className="tests-upnext-step-when">{step.when}</span> : null}
+                        </li>
                       ))}
                     </ol>
                   ) : null}
@@ -104,13 +113,6 @@ export default function Tests() {
                       <Link className="home-rocket-link" to="/b1m-engine">Engine development updates</Link>
                     </p>
                   ) : null}
-                </div>
-                <div className="tests-upnext-card-right">
-                  <div>
-                    <div className="tests-upnext-engine-lbl">Engine</div>
-                    <div className="tests-upnext-engine-val">{item.engine}</div>
-                  </div>
-                  <div className="tests-upnext-status">{item.status}</div>
                 </div>
               </div>
             ))}
