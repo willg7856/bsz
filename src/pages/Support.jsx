@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { site } from '../data'
+import { partners, site } from '../data'
 import { useTitle } from '../useTitle'
 
 const uses = [
@@ -88,6 +88,20 @@ export default function Support() {
               Want to help with materials, machining time or a test site instead, or sponsor the team?{' '}
               <Link to="/contact?reason=Sponsorship%20or%20partnership">Get in touch</Link>.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section home-partners">
+        <div className="wrap">
+          <p className="eyebrow">Already with us</p>
+          <div className="home-partners-logos">
+            {partners.map((partner) => (
+              <a className="home-partner" key={partner.name} href={partner.href} target="_blank" rel="noopener noreferrer">
+                <img src={partner.logo} alt="" />
+                <span>{partner.name}</span>
+              </a>
+            ))}
           </div>
         </div>
       </section>
