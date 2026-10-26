@@ -138,13 +138,19 @@ export default function Tests() {
                         </div>
                         <div className={`tests-badge tests-badge--${resultTone[fire.result]}`}>{resultLabel[fire.result]}</div>
                       </div>
-                      {fire.photo ? (
-                        <figure className={`tests-fire-photo${fire.photo.portrait ? ' tests-fire-photo--portrait' : ''}`}>
+                      {fire.photo && !fire.photo.portrait ? (
+                        <figure className="tests-fire-photo">
                           <img src={fire.photo.src} alt={fire.photo.caption} loading="lazy" />
                           <figcaption>{fire.photo.caption}</figcaption>
                         </figure>
                       ) : null}
-                      <div className="tests-fire-body">
+                      <div className={`tests-fire-body${fire.photo?.portrait ? ' tests-fire-body--portrait' : ''}`}>
+                        {fire.photo?.portrait ? (
+                          <figure className="tests-fire-photo tests-fire-photo--portrait">
+                            <img src={fire.photo.src} alt={fire.photo.caption} loading="lazy" />
+                            <figcaption>{fire.photo.caption}</figcaption>
+                          </figure>
+                        ) : null}
                         <div className="tests-fire-specs">
                           <div className="tests-spec-row"><span className="tests-spec-lbl">Engine</span><span className="tests-spec-val">{fire.engine}</span></div>
                           <div className="tests-spec-row"><span className="tests-spec-lbl">KNO₃ grade</span><span className="tests-spec-val">{fire.kno3Grade}</span></div>
