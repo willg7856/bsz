@@ -8,6 +8,11 @@ export const site = {
 }
 
 export const gallery = [
+  { src: '/sf04-burn.jpg', caption: 'The start of the SF-04 burn, 26 April 2026.', kind: 'photo' },
+  { src: '/sf-c02-dawn-range.jpg', caption: 'Setting up the range before sunrise for SF-03 and SF-04.', kind: 'photo' },
+  { src: '/sf-c02-dawn-pad.jpg', caption: 'The test stand on the pad, the morning of SF-03 and SF-04.', kind: 'photo' },
+  { src: '/sf-c02-dawn-sky.jpg', caption: 'Sunrise over the range, 26 April 2026.', kind: 'photo' },
+  { src: '/sf-c02-dawn-tall.jpg', caption: 'The range from behind the cameras, 26 April 2026.', kind: 'photo' },
   { src: '/b1m-engine-photo.jpg', caption: 'B1M engine casing.', kind: 'photo' },
   { src: '/b1m-engine-disassembled.jpg', caption: 'B1M engine, disassembled.', kind: 'photo' },
   { src: '/b1m-sealant-apply.jpg', caption: 'Applying sealant during B1M engine assembly.', kind: 'photo' },
@@ -431,7 +436,17 @@ export const engineSummary = [
 ]
 
 export const campaigns = [
-  { id: 'C-02', date: '26 Apr 2026', engine: 'Mk II', objective: 'Comparative KNO₃ grade test — technical vs fertiliser grade in redesigned Mk II casing.' },
+  {
+    id: 'C-02',
+    date: '26 Apr 2026',
+    engine: 'Mk II',
+    objective: 'Comparative KNO₃ grade test — technical vs fertiliser grade in redesigned Mk II casing.',
+    photos: [
+      { src: '/sf-c02-dawn-range.jpg', caption: 'Setting up the range before sunrise, 26 April.' },
+      { src: '/sf-c02-dawn-pad.jpg', caption: 'The test stand on the pad.' },
+      { src: '/sf-c02-dawn-sky.jpg', caption: 'Sunrise over the range, the morning of SF-03 and SF-04.' },
+    ],
+  },
   { id: 'C-01', date: '18 Feb 2026', engine: 'Mk I', objective: 'Comparative KNO₃ grade test — technical vs fertiliser grade at Mk I scale.' },
 ]
 
@@ -513,6 +528,7 @@ export const fires = [
     burnTime: '—',
     peakThrust: '—',
     result: 'failure',
+    photo: { src: '/sf04-burn.jpg', caption: 'The start of the SF-04 burn.' },
     observations: [
       'Case rupture — catastrophic failure.',
       'All ground test infrastructure destroyed.',
