@@ -23,7 +23,7 @@ const projects = [
   {
     title: 'Engine tests',
     to: '/tests',
-    body: 'Static fires, engine builds and propellant work. The Mk I and Mk II results are up. The first B1M static fire is waiting on regulatory approval, and we are still building the stand.',
+    body: 'Static fires, engine builds and propellant work. The Mk I and Mk II results are up. The first B1M static fire is pending regulatory approval, and we are still building the stand.',
   },
   {
     title: 'Ceramic nozzles',
@@ -53,7 +53,7 @@ export default function Home() {
         <div className="masthead-inner">
           <div>
             <p className="kicker">Creswick, Victoria</p>
-            <h1>Beyond Stage <span className="home-hero-accent">Zero</span></h1>
+            <h1 className="home-wordmark">Beyond <span className="home-wordmark-line"><span className="home-wordmark-bracket">[</span>Stage Zero<span className="home-wordmark-bracket">]</span></span></h1>
             <p className="lede">
               We are a student team building rockets from scratch. The goal is to lower the cost and the barrier to entry for whoever comes after us. Our first B1M engine is finished.
             </p>
@@ -106,7 +106,7 @@ export default function Home() {
             <p className="eyebrow accent">Flies first</p>
             <h2>STRAVOX B1M</h2>
             <p className="home-rocket-desc">
-              A smaller rocket that goes to 3 km on a KNSB motor we made ourselves. It is there to test the avionics, recovery and flight systems before we risk any of it on STRAVOX. The first engine is done and waiting on regulatory approval to fire. Two more are being built.
+              A smaller rocket that goes to 3 km on a KNSB motor we made ourselves. It is there to test the avionics, recovery and flight systems before we risk any of it on STRAVOX. The first engine is done, and its first static fire is pending regulatory approval. Two more are being built.
             </p>
             <Link className="home-project-link" to="/b1m">Read about B1M</Link>
           </div>

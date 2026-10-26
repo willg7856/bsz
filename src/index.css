@@ -2359,3 +2359,14 @@ textarea { min-height: 9rem; resize: vertical; }
   letter-spacing: 0;
   text-transform: none;
 }
+
+.app h1.home-wordmark {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+}
+.home-wordmark-bracket { color: var(--ignition-500); }
+.home-wordmark-line { display: block; white-space: nowrap; }

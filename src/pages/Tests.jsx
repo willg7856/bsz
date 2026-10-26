@@ -118,6 +118,16 @@ export default function Tests() {
                   </div>
                   <p className="tests-campaign-objective">{campaign.objective}</p>
                 </div>
+                {campaign.photos ? (
+                  <div className="tests-campaign-photos">
+                    {campaign.photos.map((photo) => (
+                      <figure key={photo.src}>
+                        <img src={photo.src} alt={photo.caption} loading="lazy" />
+                        <figcaption>{photo.caption}</figcaption>
+                      </figure>
+                    ))}
+                  </div>
+                ) : null}
                 <div className="tests-log">
                   {campaignFires.map((fire) => (
                     <article className="tests-fire" key={fire.id}>
@@ -128,7 +138,19 @@ export default function Tests() {
                         </div>
                         <div className={`tests-badge tests-badge--${resultTone[fire.result]}`}>{resultLabel[fire.result]}</div>
                       </div>
-                      <div className="tests-fire-body">
+                      {fire.photo && !fire.photo.portrait ? (
+                        <figure className="tests-fire-photo">
+                          <img src={fire.photo.src} alt={fire.photo.caption} loading="lazy" />
+                          <figcaption>{fire.photo.caption}</figcaption>
+                        </figure>
+                      ) : null}
+                      <div className={`tests-fire-body${fire.photo?.portrait ? ' tests-fire-body--portrait' : ''}`}>
+                        {fire.photo?.portrait ? (
+                          <figure className="tests-fire-photo tests-fire-photo--portrait">
+                            <img src={fire.photo.src} alt={fire.photo.caption} loading="lazy" />
+                            <figcaption>{fire.photo.caption}</figcaption>
+                          </figure>
+                        ) : null}
                         <div className="tests-fire-specs">
                           <div className="tests-spec-row"><span className="tests-spec-lbl">Engine</span><span className="tests-spec-val">{fire.engine}</span></div>
                           <div className="tests-spec-row"><span className="tests-spec-lbl">KNO₃ grade</span><span className="tests-spec-val">{fire.kno3Grade}</span></div>
