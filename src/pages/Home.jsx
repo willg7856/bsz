@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import B1mStaticFireNotice from '../components/B1mStaticFireNotice'
 import { useTitle } from '../useTitle'
 
 const ticks = Array.from({ length: 40 })
@@ -63,21 +64,11 @@ export default function Home() {
   return (
     <div className="home">
       <section className="home-hero">
-        <figure className="home-hero-engine">
-          <div className="home-hero-glow" aria-hidden="true" />
-          <img src="/b1m-engine-bench.png" alt="The completed B1M engine on a bench, ready for static fire" />
-          <figcaption className="home-hero-callout">
-            <Link to="/b1m-engine">
-              <span className="home-hero-callout-title">B1M engine</span>
-              <span className="home-hero-callout-body">Complete. First static fire pending regulatory approval.</span>
-            </Link>
-          </figcaption>
-        </figure>
         <div className="container home-hero-inner">
           <div className="home-hero-left">
             <p className="eyebrow home-hero-eyebrow">Student rocketry · Creswick, Victoria</p>
             <h1 className="home-hero-h1">
-              Beyond Stage <span className="home-hero-accent">Zero.</span>
+              Beyond<br />Stage <span className="home-hero-accent">Zero.</span>
               <span className="home-hero-h1-divider" aria-hidden="true" />
               <span className="home-hero-h1-sub">
                 To lower the cost<br />and the barrier to entry<br />for others to follow.
@@ -91,6 +82,12 @@ export default function Home() {
               <Link className="btn btn-ghost-dark" to="/about">About the team</Link>
             </div>
           </div>
+          <div className="home-hero-right">
+            <B1mStaticFireNotice />
+            <div className="home-hero-engine">
+              <div className="home-hero-glow" aria-hidden="true" />
+              <img src="/b1m-engine-bench.png" alt="The completed B1M engine on a bench, ready for static fire" />
+            </div>
           <div className="home-hero-spec" role="region" aria-labelledby="current-production">
             <p className="eyebrow" id="current-production">Current production</p>
             <div className="home-spec-group">
@@ -115,7 +112,6 @@ export default function Home() {
                   </span>
                   <span className="home-spec-val num">2</span>
                 </div>
-                <p className="home-spec-note">First engine done. First static fire pending regulatory approval.</p>
               </div>
             </div>
             <div className="home-spec-group">
@@ -126,6 +122,7 @@ export default function Home() {
                 <span className="home-spec-val num">5</span>
               </div>
             </div>
+          </div>
           </div>
         </div>
         <div className="tick-rule home-tick" aria-hidden="true">
