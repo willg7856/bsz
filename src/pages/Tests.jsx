@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import B1mStaticFireNotice from '../components/B1mStaticFireNotice'
 import { campaigns, engineSummary, fires, resultLabel, upNext } from '../data'
 import { useTitle } from '../useTitle'
 import './Tests.css'
@@ -35,6 +36,8 @@ export default function Tests() {
               Every ground test we have run — including the ones that didn&apos;t go to plan. We publish everything: results, anomalies, and what we learned.
             </p>
           </div>
+          <div className="tests-hero-side">
+            <B1mStaticFireNotice />
           <div className="tests-hero-stats">
             <div className="tests-hero-stat">
               <span className="tests-hero-stat-val">{fires.length}</span>
@@ -48,6 +51,7 @@ export default function Tests() {
               <span className="tests-hero-stat-val tests-hero-stat-val--red">{failures}</span>
               <span className="tests-hero-stat-lbl">Failures</span>
             </div>
+          </div>
           </div>
         </div>
         <div className="tick-rule tests-tick">
