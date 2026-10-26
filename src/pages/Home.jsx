@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import B1mStaticFireNotice from '../components/B1mStaticFireNotice'
 import { useTitle } from '../useTitle'
 
 const ticks = Array.from({ length: 40 })
@@ -62,46 +63,67 @@ export default function Home() {
 
   return (
     <div className="home">
-      <section className="hero">
-        <div className="hero-glow" aria-hidden="true" />
-        <div className="container hero-top">
-          <p className="hero-eyebrow">Student rocketry · Creswick, Victoria</p>
-          <h1 className="hero-title">Beyond Stage <span>Zero.</span></h1>
-          <p className="hero-mission">To lower the cost and the barrier to entry for others to follow.</p>
-          <div className="hero-actions">
-            <Link className="btn btn-primary" to="/stravox">Explore STRAVOX</Link>
-            <Link className="btn btn-ghost-dark" to="/about">About the team</Link>
+      <section className="home-hero">
+        <div className="container home-hero-inner">
+          <div className="home-hero-left">
+            <p className="eyebrow home-hero-eyebrow">Student rocketry · Creswick, Victoria</p>
+            <h1 className="home-hero-h1">
+              Beyond<br />Stage <span className="home-hero-accent">Zero.</span>
+              <span className="home-hero-h1-divider" aria-hidden="true" />
+              <span className="home-hero-h1-sub">
+                To lower the cost<br />and the barrier to entry<br />for others to follow.
+              </span>
+            </h1>
+            <p className="home-hero-sub">
+              A student team in Creswick, Victoria, designing and building <span className="mono">STRAVOX</span>. <span className="mono">B1M</span> is the 3 km vehicle that flies first, to prove the systems.
+            </p>
+            <div className="home-hero-actions">
+              <Link className="btn btn-primary" to="/stravox">Explore STRAVOX</Link>
+              <Link className="btn btn-ghost-dark" to="/about">About the team</Link>
+            </div>
           </div>
-        </div>
-        <figure className="hero-engine">
-          <img src="/b1m-engine-bench.png" alt="The completed B1M engine on a bench, ready for static fire" />
-          <figcaption className="hero-callout">
-            <Link to="/b1m-engine">
-              <span className="hero-callout-title">B1M engine</span>
-              <span className="hero-callout-body">Complete. First static fire pending regulatory approval.</span>
-            </Link>
-          </figcaption>
-        </figure>
-        <div className="container hero-stats-wrap">
-          <p className="hero-stats-label" id="current-production">Current production</p>
-          <dl className="hero-stats" aria-labelledby="current-production">
-            <div>
-              <dt>Vehicles in production</dt>
-              <dd className="accent">{vehiclesInProduction.length}</dd>
+          <div className="home-hero-right">
+            <B1mStaticFireNotice />
+            <div className="home-hero-engine">
+              <div className="home-hero-glow" aria-hidden="true" />
+              <img src="/b1m-engine-bench.png" alt="The completed B1M engine on a bench, ready for static fire" />
             </div>
-            <div>
-              <dt><Link to="/b1m">B1M-01</Link></dt>
-              <dd className="done">Build complete</dd>
+          <div className="home-hero-spec" role="region" aria-labelledby="current-production">
+            <p className="eyebrow" id="current-production">Current production</p>
+            <div className="home-spec-group">
+              <div className="home-spec-row">
+                <span className="home-spec-lbl">Vehicles in production</span>
+                <span className="home-spec-val num accent">{vehiclesInProduction.length}</span>
+              </div>
             </div>
-            <div>
-              <dt><Link to="/b1m-engine">B1M engines in production</Link></dt>
-              <dd className="accent">2</dd>
+            <div className="home-spec-group">
+              <div className="home-spec-row">
+                <span className="home-spec-lbl">
+                  <Link to="/b1m">B1M-01</Link>
+                </span>
+                <span className="home-spec-val done">Build complete</span>
+              </div>
             </div>
-            <div>
-              <dt><Link to="/nozzles">Ceramic nozzles in production</Link></dt>
-              <dd className="accent">5</dd>
+            <div className="home-spec-group">
+              <div className="home-spec-stack">
+                <div className="home-spec-row">
+                  <span className="home-spec-lbl">
+                    <Link to="/b1m-engine">B1M engines in production</Link>
+                  </span>
+                  <span className="home-spec-val num">2</span>
+                </div>
+              </div>
             </div>
-          </dl>
+            <div className="home-spec-group">
+              <div className="home-spec-row">
+                <span className="home-spec-lbl">
+                  <Link to="/nozzles">Ceramic nozzles in production</Link>
+                </span>
+                <span className="home-spec-val num">5</span>
+              </div>
+            </div>
+          </div>
+          </div>
         </div>
         <div className="tick-rule home-tick" aria-hidden="true">
           {ticks.map((_, index) => <span key={index} />)}
