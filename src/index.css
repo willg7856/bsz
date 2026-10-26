@@ -2296,7 +2296,7 @@ textarea { min-height: 9rem; resize: vertical; }
     font-family: var(--font-mono);
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--ink-400);
+    color: #9aa3ad;
     font-size: 0.68rem;
   }
   .nav-mobile-links { display: flex; flex-direction: column; }
@@ -2306,8 +2306,8 @@ textarea { min-height: 9rem; resize: vertical; }
     text-align: left;
     background: transparent;
     border: 0;
-    border-bottom: 1px solid var(--ink-800);
-    color: var(--ink-300);
+    border-bottom: 1px solid var(--ink-700);
+    color: var(--paper-100);
     font-family: var(--font-display);
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -2332,8 +2332,8 @@ textarea { min-height: 9rem; resize: vertical; }
     flex-direction: column;
     gap: 4px;
     padding: 12px;
-    border-left: 1px solid var(--ink-700);
-    color: var(--ink-300);
+    border-left: 1px solid var(--ink-600);
+    color: var(--paper-100);
   }
   .nav-mobile-project:hover,
   .nav-mobile-project.active {
@@ -2342,7 +2342,9 @@ textarea { min-height: 9rem; resize: vertical; }
     background: color-mix(in srgb, var(--ignition-500) 10%, transparent);
   }
   .nav-mobile-project-label { font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.85rem; }
-  .nav-mobile-project-note { color: var(--ink-400); font-size: 0.8rem; }
+  .nav-mobile-project-note { color: #b8bfc7; font-size: 0.8rem; }
+  .nav-mobile .nav-dropdown-caret { color: var(--paper-100); opacity: 0.85; }
+  .nav-mobile .nav-mobile-group.is-open .nav-dropdown-caret { color: var(--ignition-400); opacity: 1; }
   .nav-mobile-foot { display: flex; flex-direction: column; gap: 12px; margin-top: auto; }
   .nav-cta-mobile { width: 100%; padding: 14px 20px; }
   .programme-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
