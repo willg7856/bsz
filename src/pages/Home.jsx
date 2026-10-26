@@ -3,56 +3,42 @@ import B1mStaticFireNotice from '../components/B1mStaticFireNotice'
 import { useTitle } from '../useTitle'
 
 const vehiclesInProduction = [
-  { label: '100 m Hopper', status: 'Vehicle' },
-  { label: 'B1M-02', to: '/b1m', status: 'Vehicle' },
-  { label: 'B1M-03', to: '/b1m', status: 'Vehicle' },
+  { label: '100 m Hopper' },
+  { label: 'B1M-02', to: '/b1m' },
+  { label: 'B1M-03', to: '/b1m' },
 ]
 
-const alsoInProduction = [
-  { label: 'Ceramic nozzle engine', status: 'Engine' },
-  { label: 'B1M static fire stand', status: 'Ground test' },
+const onTheBench = [
+  ...vehiclesInProduction,
+  { label: 'Ceramic nozzle engine', to: '/nozzles' },
+  { label: 'B1M static fire stand', to: '/tests' },
 ]
 
-const programmes = [
+const projects = [
   {
-    kicker: 'Flight programme',
     title: 'Missions',
-    body: 'From the STRAVOX B1M 3 km sub-scale flight to the 100 m drone-powered hop and full-scale 30 km attempt — every planned flight, objective, and milestone in one place.',
     to: '/missions',
-    action: 'View the mission pipeline',
-    meta: [['Next up', 'B1M-01 · 3 km'], ['Hop test', '100 m · Q3–Q4 2026'], ['Full scale', 'STRAVOX · 30 km']],
+    body: 'Every flight we have planned: B1M to 3 km, a 100 m hop on drone motors, and eventually STRAVOX to 30 km.',
   },
   {
-    kicker: 'Propulsion · Ground test',
     title: 'Engine tests',
-    body: 'Static-fire campaigns, engine builds, and propellant work that feed every vehicle we fly. Mk I and Mk II results are public. The first B1M static fire is pending regulatory approval, and the stand is still in production.',
     to: '/tests',
-    action: 'See the test log',
-    meta: [['Static fires', '4 completed'], ['Engines built', '9 total'], ['Next campaign', 'B1M static fires']],
+    body: 'Static fires, engine builds and propellant work. The Mk I and Mk II results are up. The first B1M static fire is waiting on regulatory approval, and we are still building the stand.',
   },
   {
-    kicker: 'Propulsion · Materials',
     title: 'Ceramic nozzles',
-    body: 'To lower the cost of a nozzle compared to graphite. Mould v13 is the current tool: 3 nozzles are complete, and 5 are in production.',
     to: '/nozzles',
-    action: 'Explore the programme',
-    meta: [['Mould', 'v13'], ['Completed', '3'], ['In production', '5']],
+    body: 'We want nozzles that cost less than graphite ones. We are on mould v13, with 3 nozzles finished and 5 more being made.',
   },
   {
-    kicker: 'Data link · Mission control',
     title: 'Octopus',
-    body: 'The connection that gets pad data — and later vehicle data — into Goods Shed mission control during static fires and launches. Not the flight computer.',
     to: '/octopus',
-    action: 'Explore the programme',
-    meta: [['Status', 'Active'], ['Path', 'Pad → Goods Shed'], ['Also', 'Vehicle → MC']],
+    body: 'Our data link. It gets pad data (and later, vehicle data) back to mission control in the Goods Shed during static fires and launches. It is not the flight computer.',
   },
   {
-    kicker: 'Public tracker',
-    title: 'Starship',
-    body: 'An unofficial live tracker for SpaceX Starship, built by Beyond Stage Zero from SpaceX’s public telemetry. It passed 20,000 views in under 24 hours.',
+    title: 'Starship tracker',
     to: '/starship',
-    action: 'About the tracker',
-    meta: [['Views', '20,000'], ['Window', 'Under 24 hours'], ['Telemetry', 'SpaceX public']],
+    body: 'An unofficial live tracker for SpaceX Starship, built from SpaceX’s public telemetry. It passed 20,000 views in under 24 hours.',
   },
 ]
 
@@ -66,14 +52,14 @@ export default function Home() {
         <div className="stravox-photo-hero-shade" aria-hidden="true" />
         <div className="masthead-inner">
           <div>
-            <p className="kicker">Student rocketry · Creswick, Victoria</p>
-            <h1>Beyond Stage <span className="home-hero-accent">Zero.</span></h1>
+            <p className="kicker">Creswick, Victoria</p>
+            <h1>Beyond Stage <span className="home-hero-accent">Zero</span></h1>
             <p className="lede">
-              To lower the cost and the barrier to entry for others to follow. We design and build STRAVOX in-house — and the first B1M engine is complete.
+              We are a student team building rockets from scratch. The goal is to lower the cost and the barrier to entry for whoever comes after us. Our first B1M engine is finished.
             </p>
             <div className="actions">
-              <Link className="btn btn-ink" to="/stravox">Explore STRAVOX</Link>
-              <Link className="btn" to="/about">About the team</Link>
+              <Link className="btn btn-ink" to="/stravox">See STRAVOX</Link>
+              <Link className="btn" to="/about">Meet the team</Link>
             </div>
           </div>
         </div>
@@ -86,20 +72,16 @@ export default function Home() {
         </dl>
       </header>
 
-      <section className="section home-build" aria-labelledby="also-in-production">
-        <div className="container">
-          <p className="eyebrow accent" id="also-in-production">Also in production</p>
-          <ol className="home-build-list">
-            {[...vehiclesInProduction, ...alsoInProduction].map((item, index) => (
-              <li className="home-build-item" key={item.label}>
-                <span className="home-build-idx">{String(index + 1).padStart(2, '0')}</span>
-                <span className="home-build-lbl">
-                  {item.to ? <Link to={item.to}>{item.label}</Link> : item.label}
-                </span>
-                {item.status ? <span className="home-build-val">{item.status}</span> : null}
+      <section className="section home-build" aria-labelledby="on-the-bench">
+        <div className="container home-build-inner">
+          <h2 id="on-the-bench">On the bench right now</h2>
+          <ul className="home-build-list">
+            {onTheBench.map((item) => (
+              <li key={item.label}>
+                {item.to ? <Link to={item.to}>{item.label}</Link> : item.label}
               </li>
             ))}
-          </ol>
+          </ul>
         </div>
       </section>
 
@@ -108,12 +90,12 @@ export default function Home() {
         <div className="home-feature-shade" aria-hidden="true" />
         <div className="container home-feature-inner">
           <div className="home-feature-text">
-            <p className="eyebrow">Vehicle · Currently in development</p>
+            <p className="eyebrow">The big one</p>
             <h2 id="home-stravox">STRAVOX</h2>
             <p className="home-rocket-desc">
-              A 2,633 mm high-power rocket with a split nosecone airbrake and propulsive vertical landing on four folding drone arms. Designed and built from scratch by the Beyond Stage Zero team.
+              Our full-size rocket. It is 2,633 mm tall, the nosecone splits open to act as an airbrake, and it is meant to land itself on four folding drone arms. We are designing and building all of it ourselves.
             </p>
-            <Link className="home-rocket-link" to="/stravox">Explore the design</Link>
+            <Link className="home-rocket-link" to="/stravox">Read about STRAVOX</Link>
           </div>
         </div>
       </section>
@@ -121,12 +103,12 @@ export default function Home() {
       <section className="section home-rocket home-rocket--light">
         <div className="container home-rocket-inner">
           <div className="home-rocket-text">
-            <p className="eyebrow accent">Vehicle · Sub-scale</p>
+            <p className="eyebrow accent">Flies first</p>
             <h2>STRAVOX B1M</h2>
             <p className="home-rocket-desc">
-              Our 3 km systems-validation vehicle — flying a home-built KNSB motor to prove avionics, recovery, and flight systems before full-scale STRAVOX. Engine design complete. The first engine is done and pending regulatory approval; two are still in production, and propellant work continues.
+              A smaller rocket that goes to 3 km on a KNSB motor we made ourselves. It is there to test the avionics, recovery and flight systems before we risk any of it on STRAVOX. The first engine is done and waiting on regulatory approval to fire. Two more are being built.
             </p>
-            <Link className="home-project-link" to="/b1m">Explore B1M</Link>
+            <Link className="home-project-link" to="/b1m">Read about B1M</Link>
           </div>
           <div className="home-rocket-img-wrap">
             <img src="/b1m-engine-cutout.png" alt="B1M engine external render" className="home-rocket-img home-rocket-img--b1m" />
@@ -134,42 +116,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section home-programmes" aria-labelledby="home-programmes">
+      <section className="section home-projects" aria-labelledby="home-projects">
         <div className="container">
-          <p className="eyebrow accent">Across the team</p>
-          <h2 id="home-programmes">Programmes</h2>
-          <div className="programme-grid">
-            {programmes.map((item) => <Programme key={item.title} {...item} />)}
-            <Link className="programme-card programme-card--cta" to="/contact">
-              <p className="programme-kicker">Sponsors · Partners · Students</p>
-              <h3>Work with us</h3>
-              <p className="programme-body">
-                We build everything in-house in Creswick. If you can help with materials, machining, testing, or funding — or want to join the team — get in touch.
-              </p>
-              <span className="programme-action">Contact the team →</span>
-            </Link>
-          </div>
+          <h2 id="home-projects">Everything else we are working on</h2>
+          <ul className="project-list">
+            {projects.map((item) => (
+              <li key={item.title}>
+                <Link to={item.to}>{item.title}</Link>
+                <p>{item.body}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="home-help">
+            Want to help? We are always after materials, machining time, test sites and funding, and we are happy to hear from students who want to join. <Link to="/contact">Get in touch</Link>.
+          </p>
         </div>
       </section>
     </div>
-  )
-}
-
-function Programme({ kicker, title, body, to, action, meta }) {
-  return (
-    <Link className="programme-card" to={to}>
-      <p className="programme-kicker">{kicker}</p>
-      <h3>{title}</h3>
-      <p className="programme-body">{body}</p>
-      <dl className="programme-meta">
-        {meta.map(([label, value]) => (
-          <div key={label}>
-            <dt>{label}</dt>
-            <dd className={value === 'Active' ? 'status-active' : undefined}>{value}</dd>
-          </div>
-        ))}
-      </dl>
-      <span className="programme-action">{action} →</span>
-    </Link>
   )
 }
