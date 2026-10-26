@@ -16,7 +16,9 @@ export default function Missions() {
 
   return (
     <>
-      <header className="masthead">
+      <header className="masthead stravox-photo-hero missions-photo-hero">
+        <img className="stravox-photo-hero-img" src="/sf-c02-dawn-pad.jpg" alt="The test stand on the pad at sunrise, the morning of SF-03 and SF-04" />
+        <div className="stravox-photo-hero-shade" aria-hidden="true" />
         <div className="masthead-inner">
           <div>
             <p className="kicker">Programme</p>
@@ -25,21 +27,13 @@ export default function Missions() {
               Nothing has flown yet. Our first flight is STRAVOX B1M-01, to 3 km, some time between Q1 and Q2 2027. Everything below is what has to happen first.
             </p>
           </div>
-          <div className="masthead-side missions-hero-stat-row">
-            <div className="missions-hero-stat">
-              <span className="missions-hero-stat-val">B1M-01</span>
-              <span className="missions-hero-stat-lbl">First flight</span>
-            </div>
-            <div className="missions-hero-stat">
-              <span className="missions-hero-stat-val">3 km</span>
-              <span className="missions-hero-stat-lbl">Target apogee</span>
-            </div>
-            <div className="missions-hero-stat">
-              <span className="missions-hero-stat-val">Q1–Q2&apos;27</span>
-              <span className="missions-hero-stat-lbl">Launch window</span>
-            </div>
-          </div>
         </div>
+        <dl className="shed-hero-specs">
+          <div><dt>First flight</dt><dd>STRAVOX B1M-01</dd></div>
+          <div><dt>Target apogee</dt><dd>3 km</dd></div>
+          <div><dt>Launch window</dt><dd>Q1–Q2 2027</dd></div>
+          <div><dt>Flights so far</dt><dd>0</dd></div>
+        </dl>
       </header>
 
       {missions.map((mission) => (
