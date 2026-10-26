@@ -95,7 +95,10 @@ export default function Tests() {
                   {item.steps ? (
                     <ol className="tests-upnext-steps">
                       {item.steps.map((step) => (
-                        <li key={step}>{step}</li>
+                        <li key={step.label}>
+                          <span className="tests-upnext-step-label">{step.label}</span>
+                          {step.when ? <span className="tests-upnext-step-when">{step.when}</span> : null}
+                        </li>
                       ))}
                     </ol>
                   ) : null}

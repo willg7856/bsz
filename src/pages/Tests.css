@@ -598,3 +598,8 @@
   color: var(--ignition-400);
 }
 .tests-upnext-steps li + li::after { content: none; }
+.tests-upnext-step-when {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--ignition-400);
+}
