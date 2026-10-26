@@ -1,3 +1,4 @@
+// Not routed. Taken off the site for now; add the route back in App.jsx to restore it.
 import { news } from '../data'
 import { useTitle } from '../useTitle'
 

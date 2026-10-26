@@ -41,11 +41,6 @@ const company = [
     note: 'Team, base, and partners',
   },
   {
-    path: '/news',
-    label: 'News',
-    note: 'Programme updates and milestones',
-  },
-  {
     path: '/contact',
     label: 'Contact',
     note: 'Sponsorship, joining, and enquiries',

@@ -153,7 +153,7 @@ export default function About() {
             ))}
           </div>
           <div className="actions">
-            <Link className="btn" to="/news">Read the updates</Link>
+            <Link className="btn" to="/b1m-engine">Engine updates</Link>
             <Link className="btn" to="/tests">Test campaigns</Link>
           </div>
         </div>

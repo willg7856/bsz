@@ -13,7 +13,6 @@ const projects = [
 
 const company = [
   { path: '/about', label: 'About', note: 'Team, base, and partners' },
-  { path: '/news', label: 'News', note: 'Programme updates and milestones' },
   { path: '/gallery', label: 'Gallery', note: 'Build photos from the programme' },
   { path: '/contact', label: 'Contact', note: 'Sponsorship, joining, and enquiries' },
   { path: '/support', label: 'Support us', note: 'Help fund propellant, test gear and B1M' },
@@ -124,7 +123,7 @@ export default function Layout() {
             <NavLink className="nav-btn" to="/missions">Missions</NavLink>
             <NavLink className="nav-btn" to="/tests">Tests</NavLink>
             <Dropdown label="Company" items={company} pathname={location.pathname} />
-            <a className="nav-cta" href={site.space} target="_blank" rel="noopener noreferrer">.space</a>
+            <Link className="nav-cta" to="/support">Support us</Link>
           </nav>
           <button
             type="button"
@@ -153,7 +152,7 @@ export default function Layout() {
             <MobileGroup label="Company" items={company} pathname={location.pathname} onNavigate={closeMenu} />
           </nav>
           <div className="nav-mobile-foot">
-            <a className="nav-cta-mobile" href={site.space} target="_blank" rel="noopener noreferrer">Open .space</a>
+            <Link className="nav-cta-mobile" to="/support" onClick={closeMenu}>Support us</Link>
             <p className="nav-mobile-foot-note">{site.place}</p>
           </div>
         </div>
@@ -176,7 +175,6 @@ export default function Layout() {
             <Link to="/b1m-engine">B1M engine</Link>
             <Link to="/missions">Missions</Link>
             <Link to="/tests">Tests</Link>
-            <Link to="/news">News</Link>
             <Link to="/gallery">Gallery</Link>
             <Link to="/nozzles">Nozzles</Link>
             <Link to="/octopus">Octopus</Link>
