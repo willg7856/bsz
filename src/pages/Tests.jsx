@@ -139,7 +139,7 @@ export default function Tests() {
                         <div className={`tests-badge tests-badge--${resultTone[fire.result]}`}>{resultLabel[fire.result]}</div>
                       </div>
                       {fire.photo ? (
-                        <figure className="tests-fire-photo">
+                        <figure className={`tests-fire-photo${fire.photo.portrait ? ' tests-fire-photo--portrait' : ''}`}>
                           <img src={fire.photo.src} alt={fire.photo.caption} loading="lazy" />
                           <figcaption>{fire.photo.caption}</figcaption>
                         </figure>

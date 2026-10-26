@@ -8,6 +8,7 @@ export const site = {
 }
 
 export const gallery = [
+  { src: '/sf02-burn.jpg', caption: 'SF-02 burning, 18 February 2026.', kind: 'photo' },
   { src: '/sf04-burn.jpg', caption: 'The start of the SF-04 burn, 26 April 2026.', kind: 'photo' },
   { src: '/sf-c02-dawn-range.jpg', caption: 'Setting up the range before sunrise for SF-03 and SF-04.', kind: 'photo' },
   { src: '/sf-c02-dawn-pad.jpg', caption: 'The test stand on the pad, the morning of SF-03 and SF-04.', kind: 'photo' },
@@ -489,6 +490,7 @@ export const fires = [
     burnTime: '14 s',
     peakThrust: '4.6 kgf (10 kgf on nozzle ejection)',
     result: 'failure',
+    photo: { src: '/sf02-burn.jpg', caption: 'SF-02 burning, 18 February 2026.', portrait: true },
     observations: [
       'Fertiliser grade produced a significantly faster burn rate than technical grade SF-01 (14 s vs 28 s).',
       'Nozzle ejected again at pressure spike.',
