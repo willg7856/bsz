@@ -111,7 +111,7 @@ export const programme = [
     action: 'See the test log',
     meta: [
       ['Static fires', '4 completed'],
-      ['Engines built', '9 total'],
+      ['Engines built', '10 total'],
       ['Next campaign', 'B1M static fires'],
     ],
   },
@@ -206,7 +206,7 @@ export const disciplines = [
 
 export const record = [
   { val: '4', lbl: 'Static fires completed', note: 'Mk I & Mk II campaigns logged and published' },
-  { val: '9', lbl: 'Engines built', note: 'From early ground motors to B1M production' },
+  { val: '10', lbl: 'Engines built', note: 'From early ground motors to B1M production' },
   { val: '1', lbl: 'B1M engine complete', note: 'Static fire pending regulatory approval. Two engines still in production.' },
   { val: '5', lbl: 'Nozzles in production', note: '3 complete, on mould v13.' },
   { val: 'Apr 2025', lbl: 'Founded', note: 'Creswick, Victoria — programme start' },
@@ -436,7 +436,8 @@ export const upcoming = [
 export const engineSummary = [
   { label: 'Mk I engines built', val: '3', sub: '250 mm × 32 mm — 2 fired, 1 held' },
   { label: 'Mk II engines built', val: '6', sub: '300 mm × 30 mm — 2 fired, 4 remaining' },
-  { label: 'B1M engines in build', val: '2', sub: '550 mm × 80 mm · 2.9 kg KNO₃/Sorbitol 65:35 · 200 kgf for 3 s · first engine done, pending regulatory approval · two still in build with Federation University' },
+  { label: 'B1M engines built', val: '1', sub: '550 mm × 80 mm · 2.9 kg KNO₃/Sorbitol 65:35 · 200 kgf for 3 s · complete, pressure testing next' },
+  { label: 'B1M engines in build', val: '2', sub: '550 mm × 80 mm · still in build with Federation University' },
 ]
 
 export const campaigns = [
