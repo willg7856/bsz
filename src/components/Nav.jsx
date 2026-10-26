@@ -49,6 +49,10 @@ const company = [
     path: '/contact',
     label: 'Contact',
     note: 'Sponsorship, joining, and enquiries',
+  },  {
+    path: '/support',
+    label: 'Support us',
+    note: 'Help fund propellant, test gear and B1M',
   },
 ]
 

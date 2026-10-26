@@ -1,65 +1,93 @@
-// Not routed. Hold this page until there is a way to take payment.
 import { Link } from 'react-router-dom'
 import { partners, site } from '../data'
 import { useTitle } from '../useTitle'
 
-const paths = [
+const uses = [
   {
-    title: 'Donation',
-    body: 'A donation is a gift to the programme, with no partnership attached. Write to us and we will reply with how to give.',
-    to: '/contact?reason=Donation',
+    title: 'Propellant and casings',
+    body: 'Every static fire uses up propellant, and some use up the engine too. SF-04 ruptured its Mk II case.',
   },
   {
-    title: 'Sponsorship',
-    body: 'A sponsorship is a partnership with the team. Write to us, tell us who you are, and we will reply.',
-    to: '/contact?reason=Sponsorship%20or%20partnership',
+    title: 'Test equipment',
+    body: 'Load cells, pressure gear and the static fire stand. Two of our four static fires destroyed the ground equipment.',
+  },
+  {
+    title: 'Nozzles',
+    body: 'A graphite nozzle costs us about $300. We are trying to make ceramic ones for about $10, and every mould and test piece costs money.',
+  },
+  {
+    title: 'Getting B1M flying',
+    body: 'Airframe materials, avionics, recovery hardware and launch costs for B1M-01.',
   },
 ]
 
 export default function Support() {
-  useTitle('Support')
+  useTitle('Support us')
+  const hasStripe = Boolean(site.stripeSupport)
 
   return (
     <>
-      <header className="masthead">
+      <header className="masthead stravox-photo-hero support-hero">
+        <img className="stravox-photo-hero-img" src="/sf-c02-dawn-range.jpg" alt="The range set up before sunrise for SF-03 and SF-04" />
+        <div className="stravox-photo-hero-shade" aria-hidden="true" />
         <div className="masthead-inner">
           <div>
-            <p className="kicker">Support</p>
-            <h1>Donations and sponsorship.</h1>
+            <p className="kicker">Support us</p>
+            <h1>Help us build the next one</h1>
             <p className="lede">
-              Beyond Stage Zero is a student team in Creswick. We take donations and sponsorships. Send a message and we will reply with how to give.
+              We are a student team and we pay for most of this ourselves. Any amount helps us buy propellant, rebuild test gear and get B1M off the ground.
             </p>
             <div className="actions">
-              <Link className="btn btn-ink" to={paths[0].to}>Donate</Link>
-              <Link className="btn" to={paths[1].to}>Sponsor</Link>
+              {hasStripe ? (
+                <a className="btn btn-ink" href={site.stripeSupport} target="_blank" rel="noopener noreferrer">Support with Stripe</a>
+              ) : (
+                <a className="btn btn-ink" href={`mailto:${site.email}?subject=Supporting%20Beyond%20Stage%20Zero`}>Email us to support</a>
+              )}
+              <Link className="btn" to="/contact?reason=Sponsorship%20or%20partnership">Sponsor us</Link>
             </div>
-          </div>
-          <div className="masthead-side">
-            <div className="side-row"><span>Donations</span><span>By message</span></div>
-            <div className="side-row"><span>Sponsorships</span><span>By message</span></div>
-            <div className="side-row"><span>Email</span><a href={`mailto:${site.email}`}>{site.email}</a></div>
           </div>
         </div>
       </header>
 
       <section className="section">
-        <div className="wrap">
-          <div className="section-head">
-            <div>
-              <p className="kicker">How to give</p>
-              <h2>Two ways in.</h2>
-            </div>
-          </div>
-          <div className="two">
-            {paths.map((item) => (
-              <article className="cell" key={item.title} style={{ borderTop: '1px solid var(--line)', paddingTop: '1rem' }}>
-                <h3>{item.title}</h3>
+        <div className="container">
+          <p className="kicker accent">Where it goes</p>
+          <h2>What your money pays for</h2>
+          <ul className="project-list support-uses">
+            {uses.map((item) => (
+              <li key={item.title}>
+                <span className="support-use-title">{item.title}</span>
                 <p>{item.body}</p>
-                <p style={{ marginTop: '0.9rem' }}>
-                  <Link className="home-project-link" to={item.to}>Contact us</Link>
-                </p>
-              </article>
+              </li>
             ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section dark">
+        <div className="container support-how">
+          <div>
+            <p className="kicker">How it works</p>
+            <h2>Paying online</h2>
+          </div>
+          <div className="support-how-body">
+            {hasStripe ? (
+              <>
+                <p>
+                  The button takes you to a secure Stripe checkout, where you choose how much to give and pay by card, Apple Pay or Google Pay. Stripe handles the payment and emails you a receipt. We never see your card details.
+                </p>
+                <a className="btn btn-ink" href={site.stripeSupport} target="_blank" rel="noopener noreferrer">Support with Stripe</a>
+              </>
+            ) : (
+              <p>
+                Online payments are coming soon. Until then, email us at{' '}
+                <a href={`mailto:${site.email}`}>{site.email}</a> and we will sort it out.
+              </p>
+            )}
+            <p>
+              Want to help with materials, machining time or a test site instead, or sponsor the team?{' '}
+              <Link to="/contact?reason=Sponsorship%20or%20partnership">Get in touch</Link>.
+            </p>
           </div>
         </div>
       </section>

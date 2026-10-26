@@ -2425,3 +2425,30 @@ textarea { min-height: 9rem; resize: vertical; }
   .b1m-render-row { grid-template-columns: 1fr; }
   .b1m-photo-row img { height: 260px; }
 }
+
+/* Support page */
+.support-hero .stravox-photo-hero-img { object-position: 40% center; }
+.support-uses { margin-top: 1.5rem; }
+.support-use-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink-900);
+}
+.support-how {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 1.5rem 3rem;
+  align-items: start;
+}
+.support-how h2 { margin-top: 0; }
+.support-how-body p {
+  margin: 0 0 1.25rem;
+  max-width: 58ch;
+  color: #c9cfd5;
+  line-height: 1.65;
+}
+.support-how-body a:not(.btn) { color: var(--ignition-400); border-bottom: 1px solid currentColor; }
+.support-how-body .btn { margin-bottom: 1.5rem; }
+@media (max-width: 760px) {
+  .support-how { grid-template-columns: 1fr; }
+}

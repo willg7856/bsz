@@ -16,6 +16,7 @@ const company = [
   { path: '/news', label: 'News', note: 'Programme updates and milestones' },
   { path: '/gallery', label: 'Gallery', note: 'Build photos from the programme' },
   { path: '/contact', label: 'Contact', note: 'Sponsorship, joining, and enquiries' },
+  { path: '/support', label: 'Support us', note: 'Help fund propellant, test gear and B1M' },
 ]
 
 function Logo() {
@@ -181,6 +182,7 @@ export default function Layout() {
             <Link to="/octopus">Octopus</Link>
             <Link to="/starship">Starship tracker</Link>
             <Link to="/contact">Contact</Link>
+            <Link to="/support">Support us</Link>
           </div>
           <div className="footer-col">
             <h4>Contact</h4>
