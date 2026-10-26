@@ -440,3 +440,55 @@
   }
   .missions-upcoming-card:last-child { border-bottom: 0; }
 }
+
+.missions-milestones-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.missions-milestones-head .missions-milestones-label { margin: 0; }
+.missions-groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.missions-group-title {
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--line);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink-900);
+}
+.missions-group-title span {
+  margin-left: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+}
+.missions-group--done .missions-group-title { border-bottom-color: #2fbf86; }
+.missions-group--active .missions-group-title { border-bottom-color: var(--ignition-500); }
+.missions-group ul { list-style: none; margin: 0; padding: 0; }
+.missions-group li {
+  padding: 0.7rem 0;
+  border-bottom: 1px dashed var(--line);
+}
+.missions-group li:last-child { border-bottom: 0; }
+.missions-group-name {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink-900);
+}
+.missions-group-note {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--fg-muted);
+}
+@media (max-width: 900px) {
+  .missions-groups { grid-template-columns: 1fr; }
+}

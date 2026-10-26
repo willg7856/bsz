@@ -32,7 +32,7 @@ export default function B1m() {
             <p className="kicker">Sub-scale vehicle</p>
             <h1>STRAVOX B1M</h1>
             <p className="lede">
-              A 3 km vehicle that flies before full-scale STRAVOX. Vehicle design is complete. The first engine is done and pending regulatory approval, and two engines are still in production. First flight is aimed at Q4 2026 to Q1 2027.
+              A 3 km vehicle that flies before full-scale STRAVOX. Vehicle design is complete. The first engine is done and pending regulatory approval, and two engines are still in production. First flight is aimed at Q1 to Q2 2027.
             </p>
             <div className="actions">
               <Link className="btn btn-ink" to="/b1m-engine">B1M engine</Link>
@@ -43,7 +43,7 @@ export default function B1m() {
             <div className="side-row"><span>Apogee</span><span className="num">3.0 km</span></div>
             <div className="side-row"><span>Design</span><span className="done">Complete</span></div>
             <div className="side-row"><span>In production</span><span className="num">2 engines</span></div>
-            <div className="side-row"><span>First flight</span><span>Q4&apos;26–Q1&apos;27</span></div>
+            <div className="side-row"><span>First flight</span><span>Q1–Q2&apos;27</span></div>
           </div>
         </div>
         <B1mStaticFireNotice />

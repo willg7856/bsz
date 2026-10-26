@@ -3,51 +3,38 @@ import { missions, upcoming } from '../data'
 import { useTitle } from '../useTitle'
 import './Missions.css'
 
+const hiddenSpecs = new Set(['Role', 'Engines in production', 'First engine', 'Collaboration', 'Purpose', 'Status'])
+
+const milestoneGroups = [
+  { status: 'done', title: 'Done' },
+  { status: 'active', title: 'In progress' },
+  { status: 'upcoming', title: 'Still to do' },
+]
+
 export default function Missions() {
   useTitle('Missions')
 
   return (
     <>
-      <header className="masthead">
+      <header className="masthead stravox-photo-hero missions-photo-hero">
+        <img className="stravox-photo-hero-img" src="/sf-c02-dawn-pad.jpg" alt="The test stand on the pad at sunrise, the morning of SF-03 and SF-04" />
+        <div className="stravox-photo-hero-shade" aria-hidden="true" />
         <div className="masthead-inner">
           <div>
             <p className="kicker">Programme</p>
             <h1>Missions.</h1>
             <p className="lede">
-              Nothing has flown yet. The next flight is STRAVOX B1M-01, to 3 km, in Q4 2026 to Q1 2027.
+              Nothing has flown yet. Our first flight is STRAVOX B1M-01, to 3 km, some time between Q1 and Q2 2027. Everything below is what has to happen first.
             </p>
           </div>
-          <div className="masthead-side missions-hero-stat-row">
-            <div className="missions-hero-stat">
-              <span className="missions-hero-stat-val">0</span>
-              <span className="missions-hero-stat-lbl">Active missions</span>
-            </div>
-            <div className="missions-hero-stat">
-              <span className="missions-hero-stat-val">0</span>
-              <span className="missions-hero-stat-lbl">Flights completed</span>
-            </div>
-            <div className="missions-hero-stat">
-              <span className="missions-hero-stat-val">Q4&apos;26–Q1&apos;27</span>
-              <span className="missions-hero-stat-lbl">First launch</span>
-            </div>
-          </div>
         </div>
+        <dl className="shed-hero-specs">
+          <div><dt>First flight</dt><dd>STRAVOX B1M-01</dd></div>
+          <div><dt>Target apogee</dt><dd>3 km</dd></div>
+          <div><dt>Launch window</dt><dd>Q1–Q2 2027</dd></div>
+          <div><dt>Flights so far</dt><dd>0</dd></div>
+        </dl>
       </header>
-
-      <section className="section">
-        <div className="wrap split">
-          <div>
-            <p className="kicker">Before STRAVOX B1M-01</p>
-            <h2>Next milestone.</h2>
-          </div>
-          <div>
-            <p className="copy">
-              B1M engine development. Design is complete. The first engine is done and pending regulatory approval; two are still in build, and propellant characterisation is in progress. This is the update log for that work, ahead of the static fires and flight one.
-            </p>
-            <Link className="btn btn-ink" to="/b1m-engine">Engine updates</Link>
-          </div>
-        </div>
-      </section>
 
       {missions.map((mission) => (
         <section className="section missions-card-section" key={mission.id}>
@@ -76,7 +63,7 @@ export default function Missions() {
                   </div>
                 </div>
                 <div className="missions-card-specs">
-                  {mission.specs.map(([label, value]) => (
+                  {mission.specs.filter(([label]) => !hiddenSpecs.has(label)).map(([label, value]) => (
                     <div className="missions-spec-row" key={label}>
                       <span className="missions-spec-lbl">{label}</span>
                       <span className="missions-spec-val">{value}</span>
@@ -86,23 +73,29 @@ export default function Missions() {
               </div>
 
               <div className="missions-milestones">
-                <p className="missions-milestones-label">Pre-flight milestones</p>
-                <div className="missions-milestone-list">
-                  {mission.milestones.map((item, index) => (
-                    <div className={`missions-milestone missions-milestone--${item.status}`} key={item.label}>
-                      <div className="missions-milestone-marker">
-                        <span className="missions-milestone-dot" />
-                        {index < mission.milestones.length - 1 ? <span className="missions-milestone-line" /> : null}
+                <div className="missions-milestones-head">
+                  <p className="missions-milestones-label">Before launch</p>
+                  <Link className="text-link" to="/b1m-engine">Engine updates</Link>
+                </div>
+                <div className="missions-groups">
+                  {milestoneGroups.map((group) => {
+                    const items = mission.milestones.filter((item) => item.status === group.status)
+                    return (
+                      <div className={`missions-group missions-group--${group.status}`} key={group.status}>
+                        <p className="missions-group-title">
+                          {group.title} <span>{items.length}</span>
+                        </p>
+                        <ul>
+                          {items.map((item) => (
+                            <li key={item.label}>
+                              <span className="missions-group-name">{item.label}</span>
+                              <span className="missions-group-note">{item.note}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      <div className="missions-milestone-content">
-                        <div className="missions-milestone-head">
-                          <span className="missions-milestone-name">{item.label}</span>
-                          <span className="missions-milestone-tag">{item.status}</span>
-                        </div>
-                        <p className="missions-milestone-note">{item.note}</p>
-                      </div>
-                    </div>
-                  ))}
+                    )
+                  })}
                 </div>
               </div>
             </div>

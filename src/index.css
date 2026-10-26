@@ -1494,6 +1494,7 @@ h1, h2, h3, h4, p { margin: 0; }
 .stravox-photo-hero .lede { color: #d7dce1; }
 .stravox-photo-hero .shed-hero-specs { z-index: 2; }
 .home-photo-hero .stravox-photo-hero-img { object-position: 30% 35%; }
+.missions-photo-hero .stravox-photo-hero-img { object-position: 35% 100%; }
 .hero-notice {
   position: absolute;
   z-index: 4;
