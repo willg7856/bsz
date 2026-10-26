@@ -59,7 +59,7 @@ export default function Home() {
             </p>
             <div className="actions">
               <Link className="btn btn-ink" to="/stravox">See STRAVOX</Link>
-              <Link className="btn" to="/about">Meet the team</Link>
+              <Link className="btn" to="/support">Support us</Link>
             </div>
           </div>
         </div>
