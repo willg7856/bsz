@@ -12,7 +12,7 @@ const faq = [
   {
     q: 'When will it ship?',
     a: shipWindow
-      ? `We expect to ship pre-orders in ${shipWindow}. We will email you as production moves along.`
+      ? `We expect to ship pre-orders in the ${shipWindow}. We will email you as production moves along.`
       : 'We will confirm a ship date by email once your order is in production.',
   },
   {
@@ -166,11 +166,26 @@ export default function NozzlePreorder() {
           <div className="masthead-side">
             <div className="side-row"><span>Standard sizes</span><span className="num">{sizes.length}</span></div>
             <div className="side-row"><span>Custom designs</span><span>Quoted</span></div>
-            <div className="side-row"><span>Ships</span><span>{tbc(shipWindow)}</span></div>
+            <div className="side-row"><span>Ships</span><span>{shipWindow ? shipWindow[0].toUpperCase() + shipWindow.slice(1) : 'TBC'}</span></div>
             <div className="side-row"><span>Programme</span><Link to="/nozzles">Ceramic nozzles</Link></div>
           </div>
         </div>
       </header>
+
+      <section className="section dark preorder-video-section">
+        <div className="wrap">
+          <video
+            className="preorder-video"
+            src="/nozzle-release.mp4"
+            poster="/nozzle-release-poster.jpg"
+            controls
+            playsInline
+            preload="metadata"
+          >
+            <a href="/nozzle-release.mp4">Watch the ceramic nozzle release video</a>
+          </video>
+        </div>
+      </section>
 
       <section className="section" id="standard">
         <div className="wrap">

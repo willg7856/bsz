@@ -731,7 +731,7 @@ export const contactReasons = [
 // Payment Link and paste it into `stripeLink`. Anything left null shows "TBC";
 // an empty `stripeLink` shows an "Email to pre-order" button instead.
 export const nozzlePreorder = {
-  shipWindow: null, // e.g. 'Q1 2027' — null hides it
+  shipWindow: 'first half of 2027', // read as "ships in the …"; null hides it
   currency: 'AUD',
   // Overseas visitors also see an estimate in their own currency. Stripe
   // Adaptive Pricing sets the real price at checkout. `perAud` = how much of

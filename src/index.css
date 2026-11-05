@@ -2455,6 +2455,14 @@ textarea { min-height: 9rem; resize: vertical; }
 }
 
 /* ── Ceramic nozzle pre-order (/nozzles/preorder) ── */
+.section.preorder-video-section { padding-top: 0; border-top: 0; }
+.preorder-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  background: #000;
+}
 .preorder-sizes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
