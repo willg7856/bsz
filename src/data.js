@@ -733,6 +733,23 @@ export const contactReasons = [
 export const nozzlePreorder = {
   shipWindow: null, // e.g. 'Q1 2027' — null hides it
   currency: 'AUD',
+  // Overseas visitors also see an estimate in their own currency. Stripe
+  // Adaptive Pricing sets the real price at checkout. `perAud` = how much of
+  // that currency one AUD buys. Update these every so often.
+  localCurrencies: {
+    USD: { symbol: 'US$', perAud: 0.65 },
+    EUR: { symbol: '€', perAud: 0.60 },
+    GBP: { symbol: '£', perAud: 0.51 },
+    NZD: { symbol: 'NZ$', perAud: 1.10 },
+    CAD: { symbol: 'CA$', perAud: 0.90 },
+    JPY: { symbol: '¥', perAud: 98 },
+    SGD: { symbol: 'S$', perAud: 0.86 },
+    INR: { symbol: '₹', perAud: 55 },
+    CHF: { symbol: 'CHF ', perAud: 0.53 },
+    SEK: { symbol: 'kr ', perAud: 6.3 },
+    NOK: { symbol: 'kr ', perAud: 6.7 },
+    DKK: { symbol: 'kr ', perAud: 4.5 },
+  },
   sizes: [
     { id: 'cn-29', name: 'CN-29', motor: '29 mm motors', throat: null, exit: null, price: null, stripeLink: '' },
     { id: 'cn-38', name: 'CN-38', motor: '38 mm motors', throat: null, exit: null, price: null, stripeLink: '' },

@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { nozzlePreorder, site } from '../data'
+import { useLocalEstimate } from '../localCurrency'
 import { useTitle } from '../useTitle'
 
-const { sizes, currency, shipWindow } = nozzlePreorder
+const { sizes, currency, shipWindow, localCurrencies } = nozzlePreorder
 
 const tbc = (value) => value ?? 'TBC'
 
@@ -29,7 +30,7 @@ const faq = [
   },
 ]
 
-function SizeCard({ size }) {
+function SizeCard({ size, estimate }) {
   const price = size.price != null ? `$${size.price}` : 'TBC'
   return (
     <article className="preorder-size">
@@ -43,6 +44,9 @@ function SizeCard({ size }) {
         {price}
         {size.price != null ? <small>{currency}</small> : null}
       </p>
+      {estimate && size.price != null ? (
+        <p className="preorder-local">≈ {estimate(size.price)} · final price shown at checkout</p>
+      ) : null}
       {size.stripeLink ? (
         <a className="btn btn-ink" href={size.stripeLink} target="_blank" rel="noopener noreferrer">
           Pre-order {size.name}
@@ -142,6 +146,7 @@ function CustomForm() {
 
 export default function NozzlePreorder() {
   useTitle('Pre-order ceramic nozzles')
+  const estimate = useLocalEstimate(localCurrencies)
 
   return (
     <>
@@ -174,10 +179,10 @@ export default function NozzlePreorder() {
               <p className="kicker">Standard</p>
               <h2>Standard sizes.</h2>
             </div>
-            <p>Paid through a secure Stripe checkout. Stripe emails you a receipt, and we never see your card details.</p>
+            <p>Prices are in Australian dollars. Checkout is through Stripe, which shows and charges the price in your own currency. Stripe emails you a receipt, and we never see your card details.</p>
           </div>
           <div className="preorder-sizes">
-            {sizes.map((size) => <SizeCard key={size.id} size={size} />)}
+            {sizes.map((size) => <SizeCard key={size.id} size={size} estimate={estimate} />)}
           </div>
         </div>
       </section>

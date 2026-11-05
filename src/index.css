@@ -2508,6 +2508,13 @@ textarea { min-height: 9rem; resize: vertical; }
   color: var(--ignition-500);
 }
 .preorder-size .val small { margin-left: 6px; font-size: 0.9rem; font-weight: 500; color: var(--fg-muted); }
+.preorder-size .val:has(+ .preorder-local) { margin-bottom: 8px; }
+.preorder-local {
+  margin: 0 0 20px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--fg-muted);
+}
 .preorder-size .btn { align-self: stretch; text-align: center; justify-content: center; }
 
 .preorder-custom {
