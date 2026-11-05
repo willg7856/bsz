@@ -725,3 +725,17 @@ export const contactReasons = [
   'Ceramic nozzle enquiries',
   'General questions',
 ]
+
+// Ceramic nozzle pre-orders (/nozzles/preorder).
+// For each standard size: set the real throat/exit/price, then create a Stripe
+// Payment Link and paste it into `stripeLink`. Anything left null shows "TBC";
+// an empty `stripeLink` shows an "Email to pre-order" button instead.
+export const nozzlePreorder = {
+  shipWindow: null, // e.g. 'Q1 2027' — null hides it
+  currency: 'AUD',
+  sizes: [
+    { id: 'cn-29', name: 'CN-29', motor: '29 mm motors', throat: null, exit: null, price: null, stripeLink: '' },
+    { id: 'cn-38', name: 'CN-38', motor: '38 mm motors', throat: null, exit: null, price: null, stripeLink: '' },
+    { id: 'cn-54', name: 'CN-54', motor: '54 mm motors', throat: null, exit: null, price: null, stripeLink: '' },
+  ],
+}

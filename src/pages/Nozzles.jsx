@@ -79,7 +79,7 @@ export default function Nozzles() {
               To lower the cost of a nozzle compared to graphite. They still have to survive a burn before one flies on B1M.
             </p>
             <div className="actions">
-              <Link className="btn btn-ink" to="/contact?reason=Ceramic%20nozzle%20enquiries">Special orders</Link>
+              <Link className="btn btn-ink" to="/nozzles/preorder">Pre-order</Link>
               <Link className="btn" to="/tests">Read the fire logs</Link>
             </div>
           </div>
@@ -118,11 +118,11 @@ export default function Nozzles() {
       <section className="section dark nozzle-orders">
         <div className="wrap">
           <p className="kicker">Orders</p>
-          <h2>We are taking special orders.</h2>
+          <h2>We are taking pre-orders.</h2>
           <p className="copy">
-            Ceramic nozzles. For more information, contact us on the <Link to="/contact?reason=Ceramic%20nozzle%20enquiries">contact page</Link>.
+            Standard sizes, or your own design made in ceramic. Questions first? Use the <Link to="/contact?reason=Ceramic%20nozzle%20enquiries">contact page</Link>.
           </p>
-          <Link className="btn btn-ink" to="/contact?reason=Ceramic%20nozzle%20enquiries">Contact us</Link>
+          <Link className="btn btn-ink" to="/nozzles/preorder">Pre-order a nozzle</Link>
         </div>
       </section>
     </>
