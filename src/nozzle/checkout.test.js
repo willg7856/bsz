@@ -6,7 +6,7 @@ const FILE = 'https://abc123.private.blob.vercel-storage.com/nozzle-uploads/my-n
 const good = {
   name: 'Ada', email: 'ada@example.com', notes: 'KNSB, 38 mm case', fileUrl: FILE, fileName: 'my-nozzle.stl',
   units: 'mm', throatDiameter: 8, exitDiameter: 20, convergentHalfAngle: 30, divergentHalfAngle: 12,
-  estimate: { throatDiameter: 8.03, exitDiameter: 19.9, convergentHalfAngle: 30, divergentHalfAngle: 12 }, edited: true,
+  estimate: { throatDiameter: 8.03, exitDiameter: 19.9, convergentHalfAngle: 30, divergentHalfAngle: 12 }, edited: true, makeTo: 'numbers',
 }
 const req = (body) => new Request('https://beyondstagezero.com/api/nozzle-checkout', { method: 'POST', body: JSON.stringify(body) })
 
@@ -42,6 +42,7 @@ test('creates a $50 AUD Stripe checkout with the order on it', async () => {
   assert.equal(f.get('payment_intent_data[metadata][throat_mm]'), '8')
   assert.equal(f.get('payment_intent_data[metadata][divergent_half_angle_deg]'), '12')
   assert.equal(f.get('payment_intent_data[metadata][numbers_edited_by_customer]'), 'yes')
+  assert.match(f.get('metadata[make_to]'), /^numbers/)
   assert.match(f.get('payment_intent_data[metadata][estimated]'), /throat 8.03 mm/)
   assert.ok(f.getAll('shipping_address_collection[allowed_countries][]').includes('AU'))
   assert.equal(f.get('success_url'), 'https://beyondstagezero.com/nozzles/preorder?order=paid&id=BSZ-N-AAAAAA')
@@ -99,4 +100,18 @@ test('reports a Stripe failure without leaking it', async () => {
   console.error = orig
   assert.equal(res.status, 502)
   assert.doesNotMatch((await res.json()).error, /API Key/)
+})
+
+test('edited numbers need a make-to answer', async () => {
+  const d = deps()
+  const res = await createCheckout(req({ ...good, makeTo: undefined }), d)
+  assert.equal(res.status, 400)
+  assert.match((await res.json()).error, /your numbers or to your model/)
+  const ok = deps()
+  await createCheckout(req({ ...good, makeTo: 'model' }), ok)
+  assert.match(ok.calls[0].init.body.get('metadata[make_to]'), /^model \(customer says/)
+  assert.match(ok.calls[0].init.body.get('payment_intent_data[description]'), /make to the uploaded model/)
+  const unedited = deps()
+  await createCheckout(req({ ...good, edited: false, makeTo: 'match' }), unedited)
+  assert.match(unedited.calls[0].init.body.get('metadata[make_to]'), /numbers match/)
 })

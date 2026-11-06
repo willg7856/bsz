@@ -58,6 +58,7 @@ export default function NozzleConfigurator() {
   const [dragging, setDragging] = useState(false)
   const [submit, setSubmit] = useState({ state: 'idle', progress: 0, error: '' })
   const [returned] = useState(readOrderReturn)
+  const [makeTo, setMakeTo] = useState('')
   const inputRef = useRef(null)
   const workerRef = useRef(null)
 
@@ -131,6 +132,11 @@ export default function NozzleConfigurator() {
       document.getElementById(`nz-${bad.key}`)?.focus()
       return
     }
+    if (edited && !makeTo) {
+      setSubmit({ state: 'idle', progress: 0, error: 'Please tell us whether to make it to your numbers or to your model.' })
+      document.getElementById('nz-make-numbers')?.focus()
+      return
+    }
     if (nums.exit < nums.throat) {
       setSubmit({ state: 'idle', progress: 0, error: 'The exit diameter should be larger than the throat diameter.' })
       document.getElementById('nz-exit')?.focus()
@@ -164,6 +170,7 @@ export default function NozzleConfigurator() {
           convergentHalfAngle: nums.conv,
           divergentHalfAngle: nums.div,
           edited,
+          makeTo: edited ? makeTo : 'match',
           estimate: estValues
             ? { throatDiameter: estNums.throat, exitDiameter: estNums.exit, convergentHalfAngle: estNums.conv, divergentHalfAngle: estNums.div }
             : null,
@@ -308,7 +315,20 @@ export default function NozzleConfigurator() {
             {edited ? (
               <button type="button" className="text-link nozzle-reset" onClick={() => setValues(estValues)}>Reset to measured values</button>
             ) : null}
-            <p className="nozzle-help nozzle-help-gap">Half-angles are measured from the nozzle's centre line to the wall.</p>
+            <p className={`nozzle-help${edited ? '' : ' nozzle-help-gap'}`}>Half-angles are measured from the nozzle's centre line to the wall.</p>
+            {edited ? (
+              <fieldset className="nozzle-maketo">
+                <legend>Your numbers don&apos;t match what we measured from your model. Which should we make?</legend>
+                <label>
+                  <input id="nz-make-numbers" type="radio" name="make_to" value="numbers" checked={makeTo === 'numbers'} onChange={() => setMakeTo('numbers')} />
+                  <span><strong>My numbers.</strong> The model is out of date. Make it to the numbers I entered.</span>
+                </label>
+                <label>
+                  <input type="radio" name="make_to" value="model" checked={makeTo === 'model'} onChange={() => setMakeTo('model')} />
+                  <span><strong>My model.</strong> Your measurement was off. Make it exactly like the file.</span>
+                </label>
+              </fieldset>
+            ) : null}
 
             <h2 className="nozzle-form-h2">Your details</h2>
             <div className="form-row">

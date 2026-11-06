@@ -19,8 +19,8 @@ export default defineConfig([
     },
   },
   {
-    // Vercel functions run on Node.
-    files: ['api/**/*.js'],
+    // Vercel functions and tests run on Node.
+    files: ['api/**/*.js', '**/*.test.js'],
     languageOptions: { globals: globals.node },
   },
 ])
