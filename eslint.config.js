@@ -18,4 +18,9 @@ export default defineConfig([
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
   },
+  {
+    // Vercel functions and tests run on Node.
+    files: ['api/**/*.js', '**/*.test.js'],
+    languageOptions: { globals: globals.node },
+  },
 ])

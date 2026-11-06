@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" fill="none">
+  <!-- Main rocket body silhouette -->
+  <path
+    d="
+      M 60,100
+      L 185,52
+      L 305,52
+      L 320,20
+      L 345,6
+      L 455,6
+      L 470,20
+      L 485,52
+      L 635,52
+      L 660,28
+      L 718,28
+      L 745,100
+      L 718,172
+      L 660,172
+      L 635,148
+      L 485,148
+      L 470,180
+      L 455,194
+      L 345,194
+      L 320,180
+      L 305,148
+      L 185,148
+      Z
+    "
+    fill="white"
+  />
+  <!-- Text -->
+  <text
+    x="400"
+    y="115"
+    text-anchor="middle"
+    font-family="'JetBrains Mono', monospace"
+    font-weight="700"
+    font-size="62"
+    fill="black"
+    letter-spacing="-1"
+  >Beyond Stage Zero</text>
+</svg>
