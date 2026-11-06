@@ -52,9 +52,10 @@ const rememberSound = (on) => {
 
 const fullscreenElement = () => document.fullscreenElement || document.webkitFullscreenElement || null
 
-// Full-screen release video at the top of the Ceramic nozzles page: autoplays
-// muted and looped, with the pre-order button bottom-left, stats bottom-right
-// and play/pause, sound and full-screen controls.
+// Full-screen release video (Ceramic nozzles page and home page): autoplays
+// muted and looped, with the pre-order button bottom-left, stats (or an aside)
+// bottom-right, and play/pause, sound, full-screen and seek controls.
+// On portrait phones the video sits at full width and the rest stacks below.
 export default function NozzleHero({ showProgrammeLink = false, aside = null }) {
   const hero = useRef(null)
   const video = useRef(null)
@@ -195,20 +196,35 @@ export default function NozzleHero({ showProgrammeLink = false, aside = null }) 
 
   return (
     <section className={`nozzle-hero${isFull ? ' is-full' : ''}`} ref={hero} aria-label="Ceramic nozzle release video">
-      <video
-        ref={video}
-        className="nozzle-hero-video"
-        src="/nozzle-release.mp4"
-        poster="/nozzle-release-poster.jpg"
-        autoPlay={!reduceMotion}
-        muted
-        loop
-        playsInline
-        preload={reduceMotion ? 'metadata' : 'auto'}
-        onClick={togglePlay}
-      />
-      <div className="nozzle-hero-shade" aria-hidden="true" />
-
+      <div className="nozzle-hero-stage">
+        <video
+          ref={video}
+          className="nozzle-hero-video"
+          src="/nozzle-release.mp4"
+          poster="/nozzle-release-poster.jpg"
+          autoPlay={!reduceMotion}
+          muted
+          loop
+          playsInline
+          preload={reduceMotion ? 'metadata' : 'auto'}
+          onClick={togglePlay}
+        />
+        <div className="nozzle-hero-shade" aria-hidden="true" />
+        <div
+          ref={seekBar}
+          className="nozzle-hero-seek"
+          role="slider"
+          tabIndex={0}
+          aria-label="Video position"
+          aria-valuemin={0}
+          {...seekHandlers}
+        >
+          <div className="nozzle-hero-seek-track">
+            <div className="nozzle-hero-seek-fill" />
+            <div className="nozzle-hero-seek-thumb" />
+          </div>
+        </div>
+      </div>
 
       <div className="nozzle-hero-ui">
         <div className="nozzle-hero-left">
@@ -249,20 +265,6 @@ export default function NozzleHero({ showProgrammeLink = false, aside = null }) 
         </div>
       </div>
 
-      <div
-        ref={seekBar}
-        className="nozzle-hero-seek"
-        role="slider"
-        tabIndex={0}
-        aria-label="Video position"
-        aria-valuemin={0}
-        {...seekHandlers}
-      >
-        <div className="nozzle-hero-seek-track">
-          <div className="nozzle-hero-seek-fill" />
-          <div className="nozzle-hero-seek-thumb" />
-        </div>
-      </div>
     </section>
   )
 }
