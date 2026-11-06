@@ -1,5 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import './NozzleHero.css'
+
+const WIDE = { src: '/nozzle-release.mp4', poster: '/nozzle-release-poster.jpg' }
+const VERTICAL = { src: '/nozzle-release-vertical.mp4', poster: '/nozzle-release-vertical-poster.jpg' }
+const PORTRAIT = '(max-aspect-ratio: 1/1)'
 
 const stats = [
   { label: 'Mould', value: 'v15', tone: 'num' },
@@ -66,6 +71,31 @@ export default function NozzleHero({ showProgrammeLink = false, aside = null }) 
   const seekBar = useRef(null)
   const timeText = useRef(null)
   const dragging = useRef(false)
+  // Portrait phones get the 9:16 cut; keep the viewer's place when it switches.
+  const [portrait, setPortrait] = useState(() => window.matchMedia?.(PORTRAIT).matches ?? false)
+  const resume = useRef(null)
+  const clip = portrait ? VERTICAL : WIDE
+
+  useEffect(() => {
+    const mq = window.matchMedia?.(PORTRAIT)
+    if (!mq) return undefined
+    const onChange = () => {
+      const v = video.current
+      if (v && v.duration) resume.current = { at: v.currentTime / v.duration, paused: v.paused }
+      setPortrait(mq.matches)
+    }
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+
+  function onLoadedMetadata() {
+    const v = video.current
+    const r = resume.current
+    if (!r) return
+    resume.current = null
+    v.currentTime = r.at * v.duration
+    if (!r.paused) v.play().catch(() => {})
+  }
 
   useEffect(() => {
     const v = video.current
@@ -200,8 +230,9 @@ export default function NozzleHero({ showProgrammeLink = false, aside = null }) 
         <video
           ref={video}
           className="nozzle-hero-video"
-          src="/nozzle-release.mp4"
-          poster="/nozzle-release-poster.jpg"
+          src={clip.src}
+          poster={clip.poster}
+          onLoadedMetadata={onLoadedMetadata}
           autoPlay={!reduceMotion}
           muted
           loop
@@ -236,20 +267,6 @@ export default function NozzleHero({ showProgrammeLink = false, aside = null }) 
         </div>
 
         <div className="nozzle-hero-right">
-          {aside ? (
-            <div className="nozzle-hero-about">{aside}</div>
-          ) : (
-            <dl className="nozzle-hero-stats">
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <dt>{s.label}</dt>
-                  <dd className={s.tone || undefined}>
-                    {s.to ? <Link to={s.to}>{s.value}</Link> : s.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          )}
           <div className="nozzle-hero-controls">
             {muted ? (
               <button type="button" className="nozzle-hero-sound" onClick={watchWithSound}>
@@ -265,6 +282,23 @@ export default function NozzleHero({ showProgrammeLink = false, aside = null }) 
         </div>
       </div>
 
+
+      <div className="nozzle-hero-panel">
+        {aside ? (
+          <div className="nozzle-hero-about">{aside}</div>
+        ) : (
+          <dl className="nozzle-hero-stats">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <dt>{s.label}</dt>
+                <dd className={s.tone || undefined}>
+                  {s.to ? <Link to={s.to}>{s.value}</Link> : s.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        )}
+      </div>
     </section>
   )
 }
