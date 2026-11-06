@@ -38,6 +38,11 @@ function IconButton({ label, icon, onClick, pressed }) {
   )
 }
 
+const clock = (t) => {
+  const s = Math.max(0, Math.floor(t || 0))
+  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`
+}
+
 const fullscreenElement = () => document.fullscreenElement || document.webkitFullscreenElement || null
 
 // Full-screen release video at the top of the Ceramic nozzles page: autoplays
@@ -50,6 +55,9 @@ export default function NozzleHero() {
   const [playing, setPlaying] = useState(false)
   const [muted, setMuted] = useState(true)
   const [isFull, setIsFull] = useState(false)
+  const seekBar = useRef(null)
+  const timeText = useRef(null)
+  const dragging = useRef(false)
 
   useEffect(() => {
     const v = video.current
@@ -68,6 +76,68 @@ export default function NozzleHero() {
       document.removeEventListener('webkitfullscreenchange', onFull)
     }
   }, [])
+
+  useEffect(() => {
+    const v = video.current
+    let frame = 0
+    let shown = ''
+    const tick = () => {
+      frame = requestAnimationFrame(tick)
+      const d = v.duration
+      if (!d || !Number.isFinite(d)) return
+      const p = Math.min(1, v.currentTime / d)
+      seekBar.current?.style.setProperty('--p', p)
+      const label = `${clock(v.currentTime)} / ${clock(d)}`
+      if (label !== shown) {
+        shown = label
+        if (timeText.current) timeText.current.textContent = label
+        seekBar.current?.setAttribute('aria-valuenow', String(Math.floor(v.currentTime)))
+        seekBar.current?.setAttribute('aria-valuemax', String(Math.floor(d)))
+        seekBar.current?.setAttribute('aria-valuetext', label)
+      }
+    }
+    tick()
+    return () => cancelAnimationFrame(frame)
+  }, [])
+
+  function seekTo(clientX) {
+    const v = video.current
+    const bar = seekBar.current
+    if (!v.duration || !Number.isFinite(v.duration)) return
+    const r = bar.getBoundingClientRect()
+    const p = Math.min(1, Math.max(0, (clientX - r.left) / r.width))
+    v.currentTime = p * v.duration
+    bar.style.setProperty('--p', p)
+  }
+
+  const seekHandlers = {
+    onPointerDown(e) {
+      dragging.current = true
+      e.currentTarget.setPointerCapture(e.pointerId)
+      e.currentTarget.classList.add('is-dragging')
+      seekTo(e.clientX)
+    },
+    onPointerMove(e) {
+      if (dragging.current) seekTo(e.clientX)
+    },
+    onPointerUp(e) {
+      dragging.current = false
+      e.currentTarget.classList.remove('is-dragging')
+    },
+    onPointerCancel(e) {
+      dragging.current = false
+      e.currentTarget.classList.remove('is-dragging')
+    },
+    onKeyDown(e) {
+      const v = video.current
+      const step = { ArrowLeft: -5, ArrowDown: -5, ArrowRight: 5, ArrowUp: 5 }[e.key]
+      if (step) v.currentTime = Math.min(v.duration || 0, Math.max(0, v.currentTime + step))
+      else if (e.key === 'Home') v.currentTime = 0
+      else if (e.key === 'End') v.currentTime = Math.max(0, (v.duration || 0) - 0.1)
+      else return
+      e.preventDefault()
+    },
+  }
 
   function togglePlay() {
     const v = video.current
@@ -130,10 +200,26 @@ export default function NozzleHero() {
             ))}
           </dl>
           <div className="nozzle-hero-controls">
+            <span className="nozzle-hero-time" ref={timeText} aria-hidden="true">0:00</span>
             <IconButton label={playing ? 'Pause video' : 'Play video'} icon={playing ? 'pause' : 'play'} onClick={togglePlay} />
             <IconButton label={muted ? 'Turn sound on' : 'Turn sound off'} icon={muted ? 'muted' : 'sound'} onClick={toggleMute} pressed={!muted} />
             <IconButton label={isFull ? 'Exit full screen' : 'Full screen'} icon={isFull ? 'shrink' : 'expand'} onClick={toggleFullscreen} />
           </div>
+        </div>
+      </div>
+
+      <div
+        ref={seekBar}
+        className="nozzle-hero-seek"
+        role="slider"
+        tabIndex={0}
+        aria-label="Video position"
+        aria-valuemin={0}
+        {...seekHandlers}
+      >
+        <div className="nozzle-hero-seek-track">
+          <div className="nozzle-hero-seek-fill" />
+          <div className="nozzle-hero-seek-thumb" />
         </div>
       </div>
     </section>

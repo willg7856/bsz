@@ -2471,14 +2471,6 @@ textarea { min-height: 9rem; resize: vertical; }
 }
 
 /* ── Ceramic nozzle pre-order (/nozzles/preorder) ── */
-.section.preorder-video-section { padding-top: 0; border-top: 0; }
-.preorder-video {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  height: auto;
-  background: #000;
-}
 .preorder-sizes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
@@ -2848,11 +2840,17 @@ textarea { min-height: 9rem; resize: vertical; }
   .nozzle-hero-stats {
     order: -1;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     column-gap: 1rem;
     padding: 0.25rem 0.85rem;
   }
-  .nozzle-hero-stats div:nth-child(2) { border-top: 0; }
+  .nozzle-hero-stats div:nth-child(-n + 3) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    border-top: 0;
+  }
+  .nozzle-hero-stats div:nth-child(-n + 3) dd { text-align: left; }
   .nozzle-hero-stats div:nth-child(n + 4) { grid-column: 1 / -1; }
   .nozzle-hero-left { order: 1; margin-top: auto; }
   .nozzle-hero-controls { order: 2; justify-content: flex-start; }
@@ -2870,4 +2868,66 @@ textarea { min-height: 9rem; resize: vertical; }
   .nozzle-hero-stats dd.num,
   .nozzle-hero-stats dd.done { font-size: 0.95rem; }
   .nozzle-hero-btn { width: 38px; height: 38px; }
+}
+
+/* Scrubber along the bottom edge of the hero video. */
+.nozzle-hero-ui { padding-bottom: calc(clamp(16px, 3.5vw, 48px) + 18px); }
+.nozzle-hero-seek {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  touch-action: none;
+  outline: none;
+}
+.nozzle-hero-seek-track {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background: rgba(250, 250, 247, 0.28);
+  transition: height 0.15s ease;
+}
+.nozzle-hero-seek-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: calc(var(--p, 0) * 100%);
+  background: var(--ignition-500);
+}
+.nozzle-hero-seek-thumb {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--p, 0) * 100%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--ignition-500);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.35);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.15s ease;
+}
+.nozzle-hero-seek:hover .nozzle-hero-seek-track,
+.nozzle-hero-seek.is-dragging .nozzle-hero-seek-track,
+.nozzle-hero-seek:focus-visible .nozzle-hero-seek-track { height: 6px; }
+.nozzle-hero-seek:hover .nozzle-hero-seek-thumb,
+.nozzle-hero-seek.is-dragging .nozzle-hero-seek-thumb,
+.nozzle-hero-seek:focus-visible .nozzle-hero-seek-thumb { transform: translate(-50%, -50%) scale(1); }
+.nozzle-hero-seek:focus-visible .nozzle-hero-seek-track { outline: 2px solid var(--paper-100); outline-offset: 3px; }
+@media (hover: none) {
+  .nozzle-hero-seek { height: 32px; }
+  .nozzle-hero-seek-track { height: 5px; }
+  .nozzle-hero-seek-thumb { transform: translate(-50%, -50%) scale(1); }
+}
+.nozzle-hero-time {
+  align-self: center;
+  margin-right: auto;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--paper-100);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+  font-variant-numeric: tabular-nums;
 }
