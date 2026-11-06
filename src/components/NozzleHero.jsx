@@ -42,6 +42,14 @@ const clock = (t) => {
   return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`
 }
 
+const SOUND_KEY = 'bsz-video-sound'
+const soundWanted = () => {
+  try { return window.localStorage.getItem(SOUND_KEY) === 'on' } catch { return false }
+}
+const rememberSound = (on) => {
+  try { window.localStorage.setItem(SOUND_KEY, on ? 'on' : 'off') } catch { /* private mode etc. */ }
+}
+
 const fullscreenElement = () => document.fullscreenElement || document.webkitFullscreenElement || null
 
 // Full-screen release video at the top of the Ceramic nozzles page: autoplays
@@ -66,6 +74,13 @@ export default function NozzleHero({ showProgrammeLink = false, aside = null }) 
     }
     const onFull = () => setIsFull(fullscreenElement() === hero.current)
     for (const e of ['play', 'pause', 'volumechange']) v.addEventListener(e, sync)
+    if (!reduceMotion && soundWanted()) {
+      v.muted = false
+      v.play().catch(() => {
+        v.muted = true
+        v.play().catch(() => {})
+      })
+    }
     document.addEventListener('fullscreenchange', onFull)
     document.addEventListener('webkitfullscreenchange', onFull)
     sync()
@@ -74,7 +89,7 @@ export default function NozzleHero({ showProgrammeLink = false, aside = null }) 
       document.removeEventListener('fullscreenchange', onFull)
       document.removeEventListener('webkitfullscreenchange', onFull)
     }
-  }, [])
+  }, [reduceMotion])
 
   useEffect(() => {
     const v = video.current
@@ -147,7 +162,17 @@ export default function NozzleHero({ showProgrammeLink = false, aside = null }) 
   function toggleMute() {
     const v = video.current
     v.muted = !v.muted
+    rememberSound(!v.muted)
     if (!v.muted && v.paused) v.play().catch(() => {})
+  }
+
+  // The big prompt: sound on, from the start.
+  function watchWithSound() {
+    const v = video.current
+    v.muted = false
+    rememberSound(true)
+    v.currentTime = 0
+    v.play().catch(() => {})
   }
 
   function toggleFullscreen() {
@@ -162,6 +187,9 @@ export default function NozzleHero({ showProgrammeLink = false, aside = null }) 
     if (el.requestFullscreen) el.requestFullscreen().catch(() => v.webkitEnterFullscreen?.())
     else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen()
     else v.webkitEnterFullscreen?.()
+    // Going full screen means they want to watch it properly.
+    v.muted = false
+    rememberSound(true)
     if (v.paused) v.play().catch(() => {})
   }
 
@@ -180,6 +208,7 @@ export default function NozzleHero({ showProgrammeLink = false, aside = null }) 
         onClick={togglePlay}
       />
       <div className="nozzle-hero-shade" aria-hidden="true" />
+
 
       <div className="nozzle-hero-ui">
         <div className="nozzle-hero-left">
@@ -206,6 +235,12 @@ export default function NozzleHero({ showProgrammeLink = false, aside = null }) 
             </dl>
           )}
           <div className="nozzle-hero-controls">
+            {muted ? (
+              <button type="button" className="nozzle-hero-sound" onClick={watchWithSound}>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">{Icon.sound}</svg>
+                Watch with sound
+              </button>
+            ) : null}
             <span className="nozzle-hero-time" ref={timeText} aria-hidden="true">0:00</span>
             <IconButton label={playing ? 'Pause video' : 'Play video'} icon={playing ? 'pause' : 'play'} onClick={togglePlay} />
             <IconButton label={muted ? 'Turn sound on' : 'Turn sound off'} icon={muted ? 'muted' : 'sound'} onClick={toggleMute} pressed={!muted} />
