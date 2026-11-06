@@ -47,7 +47,7 @@ const fullscreenElement = () => document.fullscreenElement || document.webkitFul
 // Full-screen release video at the top of the Ceramic nozzles page: autoplays
 // muted and looped, with the pre-order button bottom-left, stats bottom-right
 // and play/pause, sound and full-screen controls.
-export default function NozzleHero() {
+export default function NozzleHero({ showProgrammeLink = false }) {
   const hero = useRef(null)
   const video = useRef(null)
   const [reduceMotion] = useState(() => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false)
@@ -184,7 +184,10 @@ export default function NozzleHero() {
       <div className="nozzle-hero-ui">
         <div className="nozzle-hero-left">
           <p className="nozzle-hero-kicker">Ceramic nozzles · pre-orders open</p>
-          <Link className="btn btn-ink nozzle-hero-cta" to="/nozzles/preorder">Pre-order a nozzle →</Link>
+          <div className="nozzle-hero-actions">
+            <Link className="btn btn-ink nozzle-hero-cta" to="/nozzles/preorder">Pre-order a nozzle →</Link>
+            {showProgrammeLink ? <Link className="btn nozzle-hero-more" to="/nozzles">About the nozzles</Link> : null}
+          </div>
         </div>
 
         <div className="nozzle-hero-right">

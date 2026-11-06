@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import B1mStaticFireNotice from '../components/B1mStaticFireNotice'
+import NozzleHero from '../components/NozzleHero'
 import { useTitle } from '../useTitle'
 
 const vehiclesInProduction = [
@@ -47,6 +48,8 @@ export default function Home() {
 
   return (
     <div className="home">
+      <NozzleHero showProgrammeLink />
+
       <header className="masthead stravox-photo-hero home-photo-hero">
         <img className="stravox-photo-hero-img" src="/b1m-engine-street.jpg" alt="The completed B1M engine on a bench, ready for static fire" />
         <div className="stravox-photo-hero-shade" aria-hidden="true" />
@@ -68,7 +71,7 @@ export default function Home() {
           <div><dt>Vehicles in production</dt><dd>{vehiclesInProduction.length}</dd></div>
           <div><dt>B1M-01</dt><dd>Build complete</dd></div>
           <div><dt>B1M engines</dt><dd>1 complete · 2 in production</dd></div>
-          <div><dt>Ceramic nozzles</dt><dd>3 complete · 5 in production</dd></div>
+          <div><dt>Ceramic nozzles</dt><dd>8 complete · next batch redesigned for ceramic</dd></div>
         </dl>
       </header>
 
