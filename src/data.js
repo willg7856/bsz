@@ -24,8 +24,8 @@ export const gallery = [
   { src: '/nozzle-duracast-1.jpg', caption: 'The first ceramic nozzle, in the current Duracast material.', kind: 'photo' },
   { src: '/nozzle-duracast-2.jpg', caption: 'Another view of the same nozzle.', kind: 'photo' },
   { src: '/nozzle-graphite.jpg', caption: 'A graphite nozzle being machined.', kind: 'photo' },
-  { src: '/mould-top.jpg', caption: 'Top-down view of the ceramic in the mould.', kind: 'photo' },
-  { src: '/mould-side.jpg', caption: 'Side view of the ceramic in the mould.', kind: 'photo' },
+  { src: '/mould-top.jpg', caption: 'Top-down view of the ceramic in the v13 mould.', kind: 'photo' },
+  { src: '/mould-side.jpg', caption: 'Side view of the ceramic in the v13 mould.', kind: 'photo' },
   { src: '/doherty-nozzles.jpg', caption: 'Five ceramic nozzles in their moulds.', kind: 'photo' },
   { src: '/crwa-station.jpg', caption: "The CRWA's railway station.", kind: 'photo' },
   { src: '/crwa-station-yard.jpg', caption: "Another view of the CRWA's railway station.", kind: 'photo' },
@@ -613,15 +613,15 @@ export const nozzleMould = {
   figures: [
     {
       id: 'mould-top',
-      title: 'Top-down view of the ceramic in the mould.',
+      title: 'Top-down view of the ceramic in the v13 mould.',
       src: '/mould-top.jpg',
-      alt: 'Top-down view of the ceramic in the mould.',
+      alt: 'Top-down view of the ceramic in the v13 mould.',
     },
     {
       id: 'mould-side',
-      title: 'Side view of the ceramic in the mould.',
+      title: 'Side view of the ceramic in the v13 mould.',
       src: '/mould-side.jpg',
-      alt: 'Side view of the ceramic in the mould.',
+      alt: 'Side view of the ceramic in the v13 mould.',
     },
   ],
 }
