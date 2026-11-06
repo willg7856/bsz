@@ -3121,3 +3121,36 @@ section[id] { scroll-margin-top: 72px; }
 @media (max-height: 520px) and (min-aspect-ratio: 1/1) {
   .nozzle-hero-sound { top: 12px; left: 16px; padding: 0.5rem 0.85rem; font-size: 0.85rem; }
 }
+
+/* ── Hero video: stage (video + shade + seek bar) ── */
+.nozzle-hero-stage { position: absolute; inset: 0; }
+
+/* Portrait phones: don't cram everything onto one screen. The video gets the
+   full width at 16:9 with nothing on top of it; controls, buttons and the
+   panel stack underneath and the page scrolls normally. */
+@media (max-aspect-ratio: 1/1) {
+  .nozzle-hero { height: auto; min-height: 0; }
+  .nozzle-hero-stage { position: relative; inset: auto; aspect-ratio: 16 / 9; }
+  .nozzle-hero-video { object-fit: cover; }
+  .nozzle-hero-ui {
+    position: static;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 1.25rem;
+    padding: 0.85rem 16px 2rem;
+    pointer-events: auto;
+  }
+  .nozzle-hero-controls { order: 0; }
+  .nozzle-hero-left { order: 1; margin-top: 0.25rem; }
+  .nozzle-hero-stats,
+  .nozzle-hero-about { order: 2; }
+  .nozzle-hero-btn { width: 40px; height: 40px; }
+  .nozzle-hero-sound { padding: 0.6rem 1rem 0.6rem 0.85rem; font-size: 0.9rem; }
+
+  /* Full screen on Android: back to video-only with the controls on top. */
+  .nozzle-hero.is-full { height: 100vh; }
+  .nozzle-hero.is-full .nozzle-hero-stage { position: absolute; inset: 0; aspect-ratio: auto; }
+  .nozzle-hero.is-full .nozzle-hero-video { object-fit: contain; }
+  .nozzle-hero.is-full .nozzle-hero-ui { position: absolute; inset: 0; justify-content: flex-end; pointer-events: none; }
+}
