@@ -15,7 +15,7 @@ function isStaticAsset(pathname) {
 function withCountry(request) {
   const { pathname } = new URL(request.url)
   const country = geolocation(request).country
-  if (isStaticAsset(pathname) || !country || !/^[A-Z]{2}$/.test(country)) {
+  if (pathname.startsWith('/api/') || isStaticAsset(pathname) || !country || !/^[A-Z]{2}$/.test(country)) {
     return next()
   }
   return next({

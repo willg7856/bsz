@@ -8,10 +8,16 @@
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!api/).*)",
       "missing": [
-        { "type": "host", "value": "beyondstagezero.space" },
-        { "type": "host", "value": "www.beyondstagezero.space" }
+        {
+          "type": "host",
+          "value": "beyondstagezero.space"
+        },
+        {
+          "type": "host",
+          "value": "www.beyondstagezero.space"
+        }
       ],
       "destination": "/index.html"
     }

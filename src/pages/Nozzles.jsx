@@ -120,7 +120,7 @@ export default function Nozzles() {
           <p className="kicker">Orders</p>
           <h2>We are taking pre-orders.</h2>
           <p className="copy">
-            Standard sizes, or your own design made in ceramic. Questions first? Use the <Link to="/contact?reason=Ceramic%20nozzle%20enquiries">contact page</Link>.
+            Send us your nozzle design and we will cast it in ceramic. Questions first? Use the <Link to="/contact?reason=Ceramic%20nozzle%20enquiries">contact page</Link>.
           </p>
           <Link className="btn btn-ink" to="/nozzles/preorder">Pre-order a nozzle</Link>
         </div>
