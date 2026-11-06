@@ -1,7 +1,8 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { nozzlePreorder, site } from '../data'
 import { useLocalEstimate } from '../localCurrency'
+import NozzleConfigurator from '../nozzle/NozzleConfigurator'
+import { NOZZLE_ORDER } from '../nozzle/order'
 import { useTitle } from '../useTitle'
 
 const { sizes, currency, shipWindow, localCurrencies } = nozzlePreorder
@@ -23,12 +24,17 @@ const faq = [
     link: { to: '/tests', label: 'Read the fire logs' },
   },
   {
-    q: 'How do custom designs work?',
-    a: 'Send us your nozzle geometry. We check it can be moulded, then reply with a price and lead time. You pay nothing until you approve the quote.',
+    q: 'What happens after I pay?',
+    a: `Your $${NOZZLE_ORDER.amount} ${NOZZLE_ORDER.currency} pre-order sends us your model and numbers. We check that it can be cast, then email you to confirm it, suggest changes, or give you a full refund if we can't make it.`,
   },
   {
-    q: 'Which files can I send?',
-    a: 'STEP is best. STL, or a drawing with the throat, exit and convergent/divergent angles, also works.',
+    q: 'Which files can I upload?',
+    a: 'STL files, exported as a closed solid of the whole nozzle (inside bore and outside). Most CAD programs can export one: File → Export → STL. No STL? Send us a drawing on the contact page.',
+    link: { to: '/contact?reason=Ceramic%20nozzle%20enquiries', label: 'Contact us' },
+  },
+  {
+    q: 'How accurate are the measured numbers?',
+    a: 'They are an automatic estimate from your mesh, usually within a few percent. Always check them against your design. Whatever you submit is what we review.',
   },
 ]
 
@@ -62,90 +68,6 @@ function SizeCard({ size, estimate }) {
   )
 }
 
-function CustomForm() {
-  const [status, setStatus] = useState('idle')
-
-  async function onSubmit(event) {
-    event.preventDefault()
-    setStatus('submitting')
-    try {
-      const response = await fetch('https://formspree.io/f/xaqvpver', {
-        method: 'POST',
-        body: new FormData(event.target),
-        headers: { Accept: 'application/json' },
-      })
-      setStatus(response.ok ? 'success' : 'error')
-    } catch {
-      setStatus('error')
-    }
-  }
-
-  if (status === 'success') {
-    return (
-      <div className="contact-success">
-        <span className="contact-success-icon" aria-hidden="true">✓</span>
-        <h2>Design received</h2>
-        <p>
-          Thanks. We will look over your design and email you a quote. If you have a file to send, email it to{' '}
-          <a href={`mailto:${site.email}`}>{site.email}</a>.
-        </p>
-        <button type="button" className="btn" onClick={() => setStatus('idle')}>Send another</button>
-      </div>
-    )
-  }
-
-  return (
-    <form className="contact-form" onSubmit={onSubmit}>
-      <input type="hidden" name="reason" value="Ceramic nozzle enquiries" />
-      <input type="hidden" name="subject" value="Ceramic nozzle pre-order: custom design" />
-      <div className="form-row">
-        <div className="form-group">
-          <label htmlFor="po-name">Name</label>
-          <input id="po-name" name="name" type="text" required autoComplete="name" />
-        </div>
-        <div className="form-group">
-          <label htmlFor="po-email">Email</label>
-          <input id="po-email" name="email" type="email" required autoComplete="email" />
-        </div>
-      </div>
-      <div className="form-group">
-        <label htmlFor="po-motor">Motor / case</label>
-        <input id="po-motor" name="motor" type="text" placeholder="e.g. 38 mm, 3-grain KNSB" />
-      </div>
-      <div className="form-row">
-        <div className="form-group">
-          <label htmlFor="po-throat">Throat Ø (mm)</label>
-          <input id="po-throat" name="throat" type="text" inputMode="decimal" />
-        </div>
-        <div className="form-group">
-          <label htmlFor="po-exit">Exit Ø (mm)</label>
-          <input id="po-exit" name="exit" type="text" inputMode="decimal" />
-        </div>
-      </div>
-      <div className="form-row">
-        <div className="form-group">
-          <label htmlFor="po-qty">Quantity</label>
-          <input id="po-qty" name="quantity" type="number" min="1" defaultValue="1" required />
-        </div>
-        <div className="form-group">
-          <label htmlFor="po-link">Design file link</label>
-          <input id="po-link" name="design_link" type="url" placeholder="Drive, Onshape, etc." />
-        </div>
-      </div>
-      <div className="form-group">
-        <label htmlFor="po-message">Notes</label>
-        <textarea id="po-message" name="message" rows={5} placeholder="Propellant, chamber pressure, angles, anything else we should know." />
-      </div>
-      {status === 'error' ? (
-        <p className="contact-error">Something went wrong. Please try again or email us at {site.email}.</p>
-      ) : null}
-      <button className="btn btn-primary" type="submit" disabled={status === 'submitting'}>
-        {status === 'submitting' ? 'Sending…' : 'Send design →'}
-      </button>
-    </form>
-  )
-}
-
 export default function NozzlePreorder() {
   useTitle('Pre-order ceramic nozzles')
   const estimate = useLocalEstimate(localCurrencies)
@@ -160,17 +82,17 @@ export default function NozzlePreorder() {
             <p className="lede">
               {hasSizes
                 ? 'Pick one of our standard sizes, or send us your own design and we will make it in ceramic.'
-                : 'Send us your nozzle design and we will cast it in ceramic, to the shape your motor needs. We quote every order before you pay anything.'}
+                : 'Upload your nozzle design, check the numbers we measure from it, and pre-order it cast in ceramic.'}
             </p>
             <div className="actions">
               {hasSizes ? <a className="btn btn-ink" href="#standard">Standard sizes</a> : null}
-              <a className={hasSizes ? 'btn' : 'btn btn-ink'} href="#custom">{hasSizes ? 'Your own design' : 'Send your design'}</a>
+              <a className={hasSizes ? 'btn' : 'btn btn-ink'} href="#custom">{hasSizes ? 'Your own design' : 'Upload your design'}</a>
             </div>
           </div>
           <div className="masthead-side">
             {hasSizes ? <div className="side-row"><span>Standard sizes</span><span className="num">{sizes.length}</span></div> : null}
-            <div className="side-row"><span>Custom designs</span><span>Quoted</span></div>
-            <div className="side-row"><span>Payment</span><span>After you approve</span></div>
+            <div className="side-row"><span>Custom pre-order</span><span className="num">${NOZZLE_ORDER.amount} {NOZZLE_ORDER.currency}</span></div>
+            <div className="side-row"><span>If we can&apos;t make it</span><span>Full refund</span></div>
             <div className="side-row"><span>Ships</span><span>{shipWindow ? shipWindow[0].toUpperCase() + shipWindow.slice(1) : 'TBC'}</span></div>
             <div className="side-row"><span>Programme</span><Link to="/nozzles">Ceramic nozzles</Link></div>
           </div>
@@ -210,27 +132,28 @@ export default function NozzlePreorder() {
       ) : null}
 
       <section className="section dark" id="custom">
-        <div className="wrap preorder-custom">
-          <div>
-            <p className="kicker">{hasSizes ? 'Custom' : 'How it works'}</p>
-            <h2>Your design, in ceramic.</h2>
-            <div className="rows">
-              {[
-                ['Send your design', 'Dimensions below, plus a link to your STEP, STL or drawing.'],
-                ['We check it', 'Can it be moulded? We will suggest changes if needed.'],
-                ['You get a quote', 'Price and lead time. Nothing to pay until you approve.'],
-              ].map(([title, body], index) => (
-                <article className="vehicle-row" key={title}>
-                  <span className="idx">{String(index + 1).padStart(2, '0')}</span>
-                  <div>
-                    <strong>{title}</strong>
-                    <span className="path-note">{body}</span>
-                  </div>
-                </article>
-              ))}
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <p className="kicker">{hasSizes ? 'Custom' : 'How it works'}</p>
+              <h2>Your design, in ceramic.</h2>
             </div>
           </div>
-          <CustomForm />
+          <ol className="nozzle-steps">
+            {[
+              ['Upload your STL', 'It opens in a 3D viewer, right here in your browser.'],
+              ['Check the numbers', 'We measure the throat, exit and cone angles. Fix anything we got wrong.'],
+              [`Pre-order for $${NOZZLE_ORDER.amount}`, 'Pay securely with Stripe. Your model and numbers come to us.'],
+              ['We email you', 'To confirm it, suggest changes, or refund you in full.'],
+            ].map(([title, body], index) => (
+              <li key={title}>
+                <span className="idx">{String(index + 1).padStart(2, '0')}</span>
+                <strong>{title}</strong>
+                <span>{body}</span>
+              </li>
+            ))}
+          </ol>
+          <NozzleConfigurator />
         </div>
       </section>
 
