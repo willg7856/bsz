@@ -118,11 +118,11 @@ export const programme = [
   {
     kicker: 'Propulsion · Materials',
     title: 'Ceramic nozzles',
-    body: 'To lower the cost of a nozzle compared to graphite. Mould v13 is the current tool: 3 nozzles are complete, and 5 are in production.',
+    body: 'To lower the cost of a nozzle compared to graphite. Mould v15 is the current design: 3 nozzles are complete, and 5 are in production.',
     to: '/nozzles',
     action: 'Explore the programme',
     meta: [
-      ['Mould', 'v13'],
+      ['Mould', 'v15'],
       ['Completed', '3'],
       ['In production', '5'],
     ],
@@ -208,7 +208,7 @@ export const record = [
   { val: '4', lbl: 'Static fires completed', note: 'Mk I & Mk II campaigns logged and published' },
   { val: '10', lbl: 'Engines built', note: 'From early ground motors to B1M production' },
   { val: '1', lbl: 'B1M engine complete', note: 'Static fire pending regulatory approval. Two engines still in production.' },
-  { val: '5', lbl: 'Nozzles in production', note: '3 complete, on mould v13.' },
+  { val: '5', lbl: 'Nozzles in production', note: '3 complete. Current mould: v15.' },
   { val: 'Apr 2025', lbl: 'Founded', note: 'Creswick, Victoria — programme start' },
   { val: "Q1–Q2'27", lbl: 'First flight window', note: 'STRAVOX B1M-01 · 3 km systems validation' },
 ]
@@ -608,7 +608,7 @@ export const nozzleDesign = {
 
 export const nozzleMould = {
   kicker: 'Current mould',
-  title: 'Mould v13.',
+  title: 'Mould v15.',
   body: 'Four pieces: two halves for the outer diameter, a converging piece, and a throat piece.',
   figures: [
     {
@@ -758,6 +758,7 @@ export const nozzlePreorder = {
 // Doherty Science Award poster. Files live in public/research/.
 export const nozzleResearch = {
   question: 'Can an AI agent controlling CAD improve a basic mould until it casts an accurate ceramic rocket nozzle?',
+  asOf: 'Poster results as of 2 November 2026. Since then we have made mould v15, our current design.',
   authors: 'Katie Newton and Will Grant',
   poster: {
     image: '/research/doherty-poster.jpg',
@@ -765,12 +766,12 @@ export const nozzleResearch = {
     alt: 'Our Peter Doherty Science Award poster: Can an AI agent controlling CAD improve a basic mould until it casts an accurate ceramic rocket nozzle?',
   },
   headline: [
-    { label: 'Nozzle cost', value: '~$300 → ~$4.50', note: 'Machined graphite vs cast ceramic' },
+    { label: 'Nozzle cost', value: '~$300 → ~$4.50', note: 'Graphite vs our competition nozzles' },
     { label: 'Best score /10', value: '6 → 9', note: 'v1 to v14' },
-    { label: 'Moulds', value: '14', note: '12 developed by the AI agent' },
+    { label: 'Moulds', value: '14', note: '12 developed by the AI agent (v15 since)' },
   ],
   howItStarted:
-    "The team's first quote for a full graphite nozzle showed how expensive it would be. The team has made one, but when lots of them are needed, the cost goes up very quickly. A search for heat-resistant materials showed ceramic near the top of the list. Ceramic could be moulded and fired in a kiln: cheap, durable, no machining, less time and money per nozzle, and a lower barrier to entry for others to try the same thing at a really affordable price.",
+    "The team's first quote for a full graphite nozzle showed how expensive it would be. The team has made one, but when lots of them are needed, the cost goes up very quickly. A search for heat-resistant materials showed ceramic near the top of the list. Ceramic could be moulded and fired in the team's kiln: cheap, durable, no machining, less time and money per nozzle, and a lower barrier to entry for others to try the same thing at a really affordable price.",
   introduction:
     "Claude Opus 5.5 (an AI agent) operated Onshape to develop the team's basic starting mould (v0), one version at a time. v1–v2 were cast in air-dry clay, v3–v11 were test-fitted only, and v12 onwards were cast in Duracast.",
   aim: 'To test whether an AI agent controlling CAD can improve a basic mould until it casts an accurate, complete Duracast nozzle.',
@@ -801,7 +802,7 @@ export const nozzleResearch = {
   results: [
     { label: 'Human fixes', value: '12', note: 'Changes the team made by hand' },
     { label: 'Throat error', value: '±0.5 mm', note: 'Final nozzle vs 16 mm' },
-    { label: 'Cost per nozzle', value: '~$4.50', note: 'Ceramic vs ~$300 graphite' },
+    { label: 'Cost per nozzle', value: '~$4.50', note: 'The nozzles we made for the competition, vs ~$300 graphite. Future nozzles are projected to cost more.' },
   ],
   table: [
     ['v0', '–', 'Not cast', 'Not cast', '0', 'Starting design'],

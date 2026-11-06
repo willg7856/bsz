@@ -28,7 +28,7 @@ const projects = [
   {
     title: 'Ceramic nozzles',
     to: '/nozzles',
-    body: 'We want nozzles that cost less than graphite ones. We are on mould v13, with 3 nozzles finished and 5 more being made.',
+    body: 'We want nozzles that cost less than graphite ones. We are on mould v15, with 3 nozzles finished and 5 more being made.',
   },
   {
     title: 'Octopus',

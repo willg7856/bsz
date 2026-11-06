@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const stats = [
-  { label: 'Mould', value: 'v13', tone: 'num' },
+  { label: 'Mould', value: 'v15', tone: 'num' },
   { label: 'Completed', value: '3', tone: 'done' },
   { label: 'In production', value: '5', tone: 'num' },
   { label: 'Target', value: 'B1M motor stack' },

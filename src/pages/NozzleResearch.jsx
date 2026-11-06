@@ -51,6 +51,7 @@ export default function NozzleResearch() {
             <h1>The research.</h1>
             <p className="lede">{R.question}</p>
             <p className="research-byline">By {R.authors} · {R.doherty.year} Peter Doherty Science Award entry</p>
+            <p className="research-byline">{R.asOf}</p>
             <div className="actions">
               <a className="btn btn-ink" href="#poster">See the poster</a>
               <a className="btn" href={R.poster.pdf} download>Download PDF</a>
@@ -61,6 +62,7 @@ export default function NozzleResearch() {
               <div className="side-row" key={h.label}><span>{h.label}</span><span>{h.value}</span></div>
             ))}
             <div className="side-row"><span>Throat error</span><span>±0.5 mm</span></div>
+            <div className="side-row"><span>Current mould</span><span>v15</span></div>
           </div>
         </div>
       </header>
