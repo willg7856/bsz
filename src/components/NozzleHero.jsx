@@ -47,7 +47,7 @@ const fullscreenElement = () => document.fullscreenElement || document.webkitFul
 // Full-screen release video at the top of the Ceramic nozzles page: autoplays
 // muted and looped, with the pre-order button bottom-left, stats bottom-right
 // and play/pause, sound and full-screen controls.
-export default function NozzleHero({ showProgrammeLink = false }) {
+export default function NozzleHero({ showProgrammeLink = false, aside = null }) {
   const hero = useRef(null)
   const video = useRef(null)
   const [reduceMotion] = useState(() => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false)
@@ -191,16 +191,20 @@ export default function NozzleHero({ showProgrammeLink = false }) {
         </div>
 
         <div className="nozzle-hero-right">
-          <dl className="nozzle-hero-stats">
-            {stats.map((s) => (
-              <div key={s.label}>
-                <dt>{s.label}</dt>
-                <dd className={s.tone || undefined}>
-                  {s.to ? <Link to={s.to}>{s.value}</Link> : s.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
+          {aside ? (
+            <div className="nozzle-hero-about">{aside}</div>
+          ) : (
+            <dl className="nozzle-hero-stats">
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <dt>{s.label}</dt>
+                  <dd className={s.tone || undefined}>
+                    {s.to ? <Link to={s.to}>{s.value}</Link> : s.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          )}
           <div className="nozzle-hero-controls">
             <span className="nozzle-hero-time" ref={timeText} aria-hidden="true">0:00</span>
             <IconButton label={playing ? 'Pause video' : 'Play video'} icon={playing ? 'pause' : 'play'} onClick={togglePlay} />

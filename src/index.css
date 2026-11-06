@@ -3045,3 +3045,37 @@ section[id] { scroll-margin-top: 72px; }
 @media (max-height: 520px) and (min-aspect-ratio: 1/1) {
   .nozzle-hero-more { padding: 12px 18px; font-size: 0.95rem; }
 }
+
+/* Home: 'who we are' panel in place of the nozzle stats. */
+.nozzle-hero-about {
+  padding: 1.1rem 1.25rem;
+  background: rgba(11, 13, 15, 0.72);
+  border: 1px solid var(--ink-700);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.app h1.nozzle-hero-wordmark { font-size: clamp(1.35rem, 2.2vw, 1.9rem); margin: 0 0 0.75rem; color: var(--paper-100); }
+.nozzle-hero-about p { margin: 0; font-size: 0.9rem; line-height: 1.55; color: #d7dce1; }
+.nozzle-hero-about-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; margin-top: 0.85rem !important; }
+.nozzle-hero-about-links a {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--paper-100);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.nozzle-hero-about-links a:hover { color: var(--ignition-400); }
+.app .home-hero-h2 { font-size: clamp(1.9rem, 4.2vw, 3.2rem); line-height: 1.08; letter-spacing: -0.03em; margin: 0 0 0.5rem; color: var(--paper-100); }
+.nozzle-hero.is-full .nozzle-hero-about { display: none; }
+@media (max-aspect-ratio: 1/1) {
+  .nozzle-hero-about { order: -1; }
+  .app h1.nozzle-hero-wordmark { font-size: 1.5rem; }
+}
+@media (max-height: 520px) and (min-aspect-ratio: 1/1) {
+  .nozzle-hero-about { padding: 0.6rem 0.8rem; }
+  .app h1.nozzle-hero-wordmark { font-size: 1.1rem; margin-bottom: 0.35rem; }
+  .nozzle-hero-about p { font-size: 0.75rem; line-height: 1.4; }
+  .nozzle-hero-about-links { margin-top: 0.4rem !important; }
+}
