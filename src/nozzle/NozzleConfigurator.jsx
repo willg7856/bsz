@@ -6,13 +6,20 @@ import NozzleProfile from './NozzleProfile'
 const NozzleViewer = lazy(() => import('./NozzleViewer'))
 
 const FIELDS = [
-  { key: 'throat', label: 'Throat Ø', unit: 'mm', step: '0.01' },
-  { key: 'exit', label: 'Exit Ø', unit: 'mm', step: '0.01' },
-  { key: 'conv', label: 'Convergent half-angle', unit: '°', step: '0.1' },
-  { key: 'div', label: 'Divergent half-angle', unit: '°', step: '0.1' },
+  { key: 'throat', label: 'Throat Ø', unit: 'mm', max: 1000 },
+  { key: 'exit', label: 'Exit Ø', unit: 'mm', max: 1000 },
+  { key: 'conv', label: 'Convergent half-angle', unit: '°', max: 90 },
+  { key: 'div', label: 'Divergent half-angle', unit: '°', max: 90 },
 ]
 
 const round = (n, dp) => Math.round(n * 10 ** dp) / 10 ** dp
+
+// Accepts "8.2", "8,2" and " 8.2 ". Returns NaN for anything else.
+const parseNum = (text) => {
+  const t = String(text ?? '').trim().replace(',', '.')
+  return /^\d*\.?\d+$|^\d+\.$/.test(t) ? Number(t) : NaN
+}
+const toNumbers = (v) => Object.fromEntries(Object.entries(v).map(([k, t]) => [k, parseNum(t)]))
 
 function guessUnits(outerDiameter) {
   if (outerDiameter < 0.3) return 'm'
@@ -22,10 +29,10 @@ function guessUnits(outerDiameter) {
 
 function valuesFrom(est, toMm) {
   return {
-    throat: round(est.throatDiameter * toMm, 2),
-    exit: round(est.exitDiameter * toMm, 2),
-    conv: round(est.convergentHalfAngle, 1),
-    div: round(est.divergentHalfAngle, 1),
+    throat: String(round(est.throatDiameter * toMm, 2)),
+    exit: String(round(est.exitDiameter * toMm, 2)),
+    conv: String(round(est.convergentHalfAngle, 1)),
+    div: String(round(est.divergentHalfAngle, 1)),
   }
 }
 
@@ -60,7 +67,10 @@ export default function NozzleConfigurator() {
   const toMm = UNITS[units]
   const estimate = analysis ? (flipped ? analysis.swapped : analysis.estimate) : null
   const estValues = useMemo(() => (estimate ? valuesFrom(estimate, toMm) : null), [estimate, toMm])
-  const edited = Boolean(values && estValues && FIELDS.some(({ key }) => Math.abs(values[key] - estValues[key]) > 1e-9))
+  const nums = values ? toNumbers(values) : null
+  const estNums = estValues ? toNumbers(estValues) : null
+  const differs = (key) => Boolean(nums && estNums) && !(Math.abs(nums[key] - estNums[key]) < 1e-9)
+  const edited = FIELDS.some(({ key }) => differs(key))
 
   function openFile(f) {
     if (!f) return
@@ -115,6 +125,17 @@ export default function NozzleConfigurator() {
   async function onSubmit(event) {
     event.preventDefault()
     const form = new FormData(event.currentTarget)
+    const bad = FIELDS.find(({ key, max }) => !(nums[key] > 0 && nums[key] <= max))
+    if (bad) {
+      setSubmit({ state: 'idle', progress: 0, error: `Please enter a number for ${bad.label.toLowerCase()} (up to ${bad.max}${bad.unit === '°' ? '°' : ' mm'}).` })
+      document.getElementById(`nz-${bad.key}`)?.focus()
+      return
+    }
+    if (nums.exit < nums.throat) {
+      setSubmit({ state: 'idle', progress: 0, error: 'The exit diameter should be larger than the throat diameter.' })
+      document.getElementById('nz-exit')?.focus()
+      return
+    }
     setSubmit({ state: 'uploading', progress: 0, error: '' })
     try {
       const { upload } = await import('@vercel/blob/client')
@@ -138,13 +159,13 @@ export default function NozzleConfigurator() {
           fileName: file.name,
           units: 'mm',
           fileUnits: units,
-          throatDiameter: values.throat,
-          exitDiameter: values.exit,
-          convergentHalfAngle: values.conv,
-          divergentHalfAngle: values.div,
+          throatDiameter: nums.throat,
+          exitDiameter: nums.exit,
+          convergentHalfAngle: nums.conv,
+          divergentHalfAngle: nums.div,
           edited,
           estimate: estValues
-            ? { throatDiameter: estValues.throat, exitDiameter: estValues.exit, convergentHalfAngle: estValues.conv, divergentHalfAngle: estValues.div }
+            ? { throatDiameter: estNums.throat, exitDiameter: estNums.exit, convergentHalfAngle: estNums.conv, divergentHalfAngle: estNums.div }
             : null,
         }),
       })
@@ -222,7 +243,7 @@ export default function NozzleConfigurator() {
                 profile={analysis.profile.map((p) => ({ z: p.z * toMm, rIn: p.rIn * toMm, rOut: p.rOut * toMm }))}
                 length={analysis.length * toMm}
                 throatPosition={analysis.throatPosition * toMm}
-                values={{ throat: Number(values.throat) || 0, exit: Number(values.exit) || 0 }}
+                values={{ throat: nums.throat || 0, exit: nums.exit || 0 }}
                 flipped={flipped}
               />
             ) : null}
@@ -261,21 +282,24 @@ export default function NozzleConfigurator() {
             {unitsGuessed ? <p className="nozzle-warning">Your model is small in millimetres, so we guessed {units === 'in' ? 'inches' : 'metres'}. Change this if it is wrong.</p> : null}
 
             <div className="nozzle-numbers">
-              {FIELDS.map(({ key, label, unit, step }) => (
+              {FIELDS.map(({ key, label, unit }) => (
                 <div className="form-group" key={key}>
                   <label htmlFor={`nz-${key}`}>{label} <span className="nozzle-unit">({unit})</span></label>
                   <input
                     id={`nz-${key}`}
-                    type="number"
+                    type="text"
                     inputMode="decimal"
-                    min="0"
-                    step={step}
-                    max={unit === '°' ? 90 : 1000}
+                    autoComplete="off"
+                    spellCheck={false}
                     required
+                    aria-invalid={values[key] !== '' && Number.isNaN(nums[key])}
                     value={values[key]}
-                    onChange={(e) => setValues((v) => ({ ...v, [key]: e.target.value === '' ? '' : Number(e.target.value) }))}
+                    onChange={(e) => {
+                      const text = e.target.value
+                      setValues((v) => ({ ...v, [key]: text }))
+                    }}
                   />
-                  {estValues && values[key] !== estValues[key] ? (
+                  {estValues && differs(key) ? (
                     <span className="nozzle-was">Measured {estValues[key]}{unit === '°' ? '°' : ' mm'}</span>
                   ) : null}
                 </div>

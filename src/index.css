@@ -2687,3 +2687,4 @@ textarea { min-height: 9rem; resize: vertical; }
   .nozzle-drop.is-compact { flex-direction: column; align-items: flex-start; }
   .nozzle-drop .text-link { margin-left: 0; }
 }
+.nozzle-numbers input[aria-invalid='true'] { border-color: var(--danger) !important; }
