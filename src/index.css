@@ -1933,6 +1933,22 @@ textarea { min-height: 9rem; resize: vertical; }
   outline: none;
 }
 
+.section.dark .contact-form input:focus,
+.section.dark .contact-form textarea:focus,
+.section.dark .contact-form select:focus {
+  background: var(--bg);
+}
+
+/* Autofilled name/email: keep the field's own colours instead of the browser's. */
+.contact-form input:-webkit-autofill,
+.contact-form input:-webkit-autofill:hover,
+.contact-form input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--fg);
+  caret-color: var(--fg);
+  box-shadow: 0 0 0 100px var(--bg-elev) inset;
+  transition: background-color 9999s ease-out 0s;
+}
+
 .contact-error {
   color: var(--danger);
   margin: 0 0 16px;
