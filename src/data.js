@@ -753,3 +753,105 @@ export const nozzlePreorder = {
   // { id: 'cn-30', name: 'CN-30', motor: '30 mm motors', throat: '8 mm', exit: '18 mm', price: 45, stripeLink: 'https://buy.stripe.com/...' },
   sizes: [],
 }
+
+// Ceramic nozzle research page (/nozzles/research), from the 2026 Peter
+// Doherty Science Award poster. Files live in public/research/.
+export const nozzleResearch = {
+  question: 'Can an AI agent controlling CAD improve a basic mould until it casts an accurate ceramic rocket nozzle?',
+  authors: 'Katie Newton and Will Grant',
+  poster: {
+    image: '/research/doherty-poster.jpg',
+    pdf: '/research/beyond-stage-zero-peter-doherty-poster.pdf',
+    alt: 'Our Peter Doherty Science Award poster: Can an AI agent controlling CAD improve a basic mould until it casts an accurate ceramic rocket nozzle?',
+  },
+  headline: [
+    { label: 'Nozzle cost', value: '~$300 → ~$4.50', note: 'Machined graphite vs cast ceramic' },
+    { label: 'Best score /10', value: '6 → 9', note: 'v1 to v14' },
+    { label: 'Moulds', value: '14', note: '12 developed by the AI agent' },
+  ],
+  howItStarted:
+    "The team's first quote for a full graphite nozzle showed how expensive it would be. The team has made one, but when lots of them are needed, the cost goes up very quickly. A search for heat-resistant materials showed ceramic near the top of the list. Ceramic could be moulded and fired in a kiln: cheap, durable, no machining, less time and money per nozzle, and a lower barrier to entry for others to try the same thing at a really affordable price.",
+  introduction:
+    "Claude Opus 5.5 (an AI agent) operated Onshape to develop the team's basic starting mould (v0), one version at a time. v1–v2 were cast in air-dry clay, v3–v11 were test-fitted only, and v12 onwards were cast in Duracast.",
+  aim: 'To test whether an AI agent controlling CAD can improve a basic mould until it casts an accurate, complete Duracast nozzle.',
+  variables: [
+    ['Independent', 'Mould version'],
+    ['Dependent', 'Score /10 (converging and diverging), human fixes, final throat vs 16 mm'],
+    ['Controlled', 'Nozzle geometry, release, drying, printer, PLA'],
+  ],
+  hypothesis:
+    "If Claude Opus 5.5 redesigns the mould in Onshape after each test-fit or cast using the team's feedback, then later versions will score higher for both the converging and diverging sections and need fewer human fixes, because each version corrects the last one's faults.",
+  moulds: [
+    { src: '/research/mould-v0.jpg', caption: 'v0: the starting mould' },
+    { src: '/research/mould-v14.jpg', caption: "v14: Claude's final" },
+  ],
+  method: [
+    { src: '/research/method-1-onshape.jpg', alt: 'Claude designing the mould in Onshape', text: 'Design a basic mould (v0); Claude develops it in Onshape.' },
+    { src: '/research/method-2-print.jpg', alt: 'The 3D printer used for the moulds', text: '3D print the PLA mould and coat it with release.' },
+    { src: '/research/method-3-cast.jpg', alt: 'A cast nozzle in its mould pieces', text: 'Pour the clay or Duracast, demould, then fire Duracast in the kiln.' },
+    { src: '/research/method-4-measure.jpg', alt: 'Measuring a nozzle with callipers', text: 'Test-fit or cast, then score each section /10; the team or Claude fixes the mould.' },
+  ],
+  scoring: [
+    'Materials: clay (v1–v2), Duracast (v12+), PLA/PETG printer, release, scales, kiln.',
+    'Score /10 per section: 3 checks (0–3) + 1 if throat and exit are within 0.5 mm.',
+    'Throat and cone angles: custom measuring rod.',
+    'Air bubbles: real mass vs mass from density × volume.',
+    'Layer lines and cracks: judged by eye.',
+  ],
+  results: [
+    { label: 'Human fixes', value: '12', note: 'Changes the team made by hand' },
+    { label: 'Throat error', value: '±0.5 mm', note: 'Final nozzle vs 16 mm' },
+    { label: 'Cost per nozzle', value: '~$4.50', note: 'Ceramic vs ~$300 graphite' },
+  ],
+  table: [
+    ['v0', '–', 'Not cast', 'Not cast', '0', 'Starting design'],
+    ['v1', 'Air-dry clay', '4', '6', '3', 'Close to accurate'],
+    ['v2', 'Air-dry clay', '1', '1', '1', 'Clay design; failed'],
+    ['v3–v11', '–', 'Not cast', 'Not cast', '3', 'Test-fit only'],
+    ['v12', 'Duracast', '3', '5', '1', 'Throat off'],
+    ['v13', 'Duracast', '5', '6', '4', 'Throat fixed'],
+    ['v14 #1', 'Duracast', '7', '9', '0', '0% rocks, 40 g water, PLA'],
+    ['v14 #2', 'Duracast', '7', '9', '0', '20% rocks, 40 g water, PLA'],
+  ],
+  figures: [
+    { src: '/research/best-nozzle.jpg', caption: 'Best nozzle' },
+    { src: '/research/split-cast.jpg', caption: 'Split cast' },
+  ],
+  discussion: [
+    ['Mould material', 'Cooled PLA released easily; PETG bonded to the cast and broke the nozzle.'],
+    ['Mix', 'Disk break tests showed 0% rocks was stronger than 20% (40 g water). Both v14 nozzles scored 7 and 9, so the mould cast consistently.'],
+    ['Score dips', 'v2 and v12 scored below v1. From v2, Claude took steps back and got confused; test-fits showed v3–v11 would do worse, so they were not cast.'],
+    ['Errors and improvements', 'Mostly one nozzle per version; cracks judged by eye. Next: 3 casts per version, 2 scorers, log fixes live.'],
+  ],
+  otherNozzles:
+    'Graphite must be machined (~$300), steel is heavy and erodes, phenolics burn away, copper and tungsten cost far more. Cast ceramic: ~$4.50, no machining, but brittle.',
+  conclusion:
+    "An AI agent controlling Onshape developed the team's basic mould into a v14 mould that cast a complete Duracast nozzle. Scores rose from 4/10 and 6/10 (v1) to 7/10 and 9/10 (v14), and the team made 12 hand fixes, peaking at 4 on v13, so the hypothesis was partly supported. Casting removed all machining and cut nozzle cost from ~$300 to ~$4.50. Converging scores stayed lower because the B1M nozzle's converging section tapers to a thin point that ceramic cannot form, so instead of fixing v14, the team is redesigning the nozzle for ceramic and running new B1M simulations.",
+  roadmap: [
+    ['Now', 'Cast in AI-developed moulds (this poster)'],
+    ['Next', 'Redesign the nozzle + new B1M simulations'],
+    ['Then', 'Static fire test the new nozzle'],
+    ['Then', 'Integrate into B1M + launch STRAVOX'],
+  ],
+  risks: [
+    'Refractory dust is harmful to breathe in: wear a P2 mask when mixing.',
+    'Wet castable is caustic: gloves and safety glasses.',
+    'Burns from the kiln and hot nozzles.',
+    'Trapped moisture can flash to steam and burst the nozzle: dry fully before heating.',
+    'A nozzle can crack from thermal shock and throw fragments: test remotely behind a barrier.',
+  ],
+  references: [
+    'Anthropic (2026) Claude Opus 5.5 [AI model]. Available at: claude.ai.',
+    'Artisan Supplies (n.d.) Duracast Castable Refractory 25kg. Available at: artisansupplies.com.au.',
+    'Graphite Australia (2026) Quote for a machined graphite rocket nozzle [personal communication].',
+    'PTC (2026) Onshape [CAD software]. Available at: onshape.com.',
+  ],
+  acknowledgements:
+    'Claude designed the moulds in Onshape. Thanks to the Creswick Railway Workshops Association for letting us use their kilns and FED Uni for making the test hardware.',
+  doherty: {
+    year: '2026',
+    body: 'Our entry this year, through Ballarat Tech School.',
+    href: 'https://ballarattechschool.vic.edu.au/programs/peter-doherty-science-award',
+    photo: { src: '/doherty-nozzles.jpg', alt: 'Five ceramic nozzles in their moulds', caption: 'Five ceramic nozzles in their moulds.' },
+  },
+}

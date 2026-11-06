@@ -3,8 +3,6 @@ import NozzleHero from '../components/NozzleHero'
 import { nozzleDesign, nozzleMould } from '../data'
 import { useTitle } from '../useTitle'
 
-const DOHERTY = 'https://ballarattechschool.vic.edu.au/programs/peter-doherty-science-award'
-
 function Photos({ figures }) {
   if (!figures?.length) return null
   return (
@@ -79,18 +77,14 @@ export default function Nozzles() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section nozzle-research-band">
         <div className="wrap">
-          <SectionHead kicker="2026" title="Peter Doherty Science Award.">
+          <SectionHead kicker="Research" title="The research behind the nozzle.">
             <p>
-              Our entry this year, through Ballarat Tech School.
-              <a className="home-project-link" href={DOHERTY} target="_blank" rel="noopener noreferrer">About the award</a>
+              How we make them, what we have found so far, and our 2026 Peter Doherty Science Award entry.
             </p>
           </SectionHead>
-          <figure className="doherty-photo">
-            <img src="/doherty-nozzles.jpg" alt="Five ceramic nozzles in their moulds" loading="lazy" />
-            <figcaption>Five ceramic nozzles in their moulds.</figcaption>
-          </figure>
+          <Link className="btn btn-ink" to="/nozzles/research">Read the research →</Link>
         </div>
       </section>
 
