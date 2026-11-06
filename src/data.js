@@ -118,13 +118,13 @@ export const programme = [
   {
     kicker: 'Propulsion · Materials',
     title: 'Ceramic nozzles',
-    body: 'To lower the cost of a nozzle compared to graphite. Mould v15 is the current design: 3 nozzles are complete, and 5 are in production.',
+    body: 'To lower the cost of a nozzle compared to graphite. Mould v15 is the current design and 8 nozzles are complete. The next batch is a nozzle redesigned to suit ceramic casting, waiting on the ceramic.',
     to: '/nozzles',
     action: 'Explore the programme',
     meta: [
       ['Mould', 'v15'],
-      ['Completed', '3'],
-      ['In production', '5'],
+      ['Completed', '8'],
+      ['Next batch', 'Redesigned for ceramic'],
     ],
   },
   {
@@ -208,7 +208,7 @@ export const record = [
   { val: '4', lbl: 'Static fires completed', note: 'Mk I & Mk II campaigns logged and published' },
   { val: '10', lbl: 'Engines built', note: 'From early ground motors to B1M production' },
   { val: '1', lbl: 'B1M engine complete', note: 'Static fire pending regulatory approval. Two engines still in production.' },
-  { val: '5', lbl: 'Nozzles in production', note: '3 complete. Current mould: v15.' },
+  { val: '8', lbl: 'Ceramic nozzles completed', note: 'Current mould: v15. Next batch: a nozzle redesigned for ceramic.' },
   { val: 'Apr 2025', lbl: 'Founded', note: 'Creswick, Victoria — programme start' },
   { val: "Q1–Q2'27", lbl: 'First flight window', note: 'STRAVOX B1M-01 · 3 km systems validation' },
 ]

@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 
 const stats = [
   { label: 'Mould', value: 'v15', tone: 'num' },
-  { label: 'Completed', value: '3', tone: 'done' },
-  { label: 'In production', value: '5', tone: 'num' },
+  { label: 'Completed', value: '8', tone: 'done' },
+  { label: 'In production', value: '0', tone: 'num' },
+  { label: 'Next batch', value: 'Redesigned for ceramic' },
   { label: 'Target', value: 'B1M motor stack' },
   { label: '2026', value: 'Doherty Award', to: '/nozzles/research#doherty' },
 ]
