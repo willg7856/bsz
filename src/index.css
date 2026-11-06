@@ -3027,3 +3027,97 @@ section[id] { scroll-margin-top: 72px; }
   .research-stats .spec-cell + .spec-cell { border-left: 0; border-top: 1px solid var(--line); }
   .research-page .masthead-inner { grid-template-columns: 1fr; }
 }
+
+/* Optional second hero button (home page). */
+.nozzle-hero-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.nozzle-hero-more {
+  padding: 16px 22px;
+  background: rgba(11, 13, 15, 0.6) !important;
+  border-color: rgba(250, 250, 247, 0.35) !important;
+  color: var(--paper-100) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+@media (max-aspect-ratio: 1/1) {
+  .nozzle-hero-actions { flex-direction: column; }
+  .nozzle-hero-more { width: 100%; justify-content: center; }
+}
+@media (max-height: 520px) and (min-aspect-ratio: 1/1) {
+  .nozzle-hero-more { padding: 12px 18px; font-size: 0.95rem; }
+}
+
+/* Home: 'who we are' panel in place of the nozzle stats. */
+.nozzle-hero-about {
+  padding: 1.1rem 1.25rem;
+  background: rgba(11, 13, 15, 0.72);
+  border: 1px solid var(--ink-700);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.app h1.nozzle-hero-wordmark { font-size: clamp(1.35rem, 2.2vw, 1.9rem); margin: 0 0 0.75rem; color: var(--paper-100); }
+.nozzle-hero-about p { margin: 0; font-size: 0.9rem; line-height: 1.55; color: #d7dce1; }
+.nozzle-hero-about-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; margin-top: 0.85rem !important; }
+.nozzle-hero-about-links a {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--paper-100);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.nozzle-hero-about-links a:hover { color: var(--ignition-400); }
+.app .home-hero-h2 { font-size: clamp(1.9rem, 4.2vw, 3.2rem); line-height: 1.08; letter-spacing: -0.03em; margin: 0 0 0.5rem; color: var(--paper-100); }
+.nozzle-hero.is-full .nozzle-hero-about { display: none; }
+@media (max-aspect-ratio: 1/1) {
+  .nozzle-hero-about { order: -1; }
+  .app h1.nozzle-hero-wordmark { font-size: 1.5rem; }
+}
+@media (max-height: 520px) and (min-aspect-ratio: 1/1) {
+  .nozzle-hero-about { padding: 0.6rem 0.8rem; }
+  .app h1.nozzle-hero-wordmark { font-size: 1.1rem; margin-bottom: 0.35rem; }
+  .nozzle-hero-about p { font-size: 0.75rem; line-height: 1.4; }
+  .nozzle-hero-about-links { margin-top: 0.4rem !important; }
+}
+
+/* 'Watch with sound' prompt while the hero video is muted. */
+.nozzle-hero-sound {
+  position: absolute;
+  z-index: 3;
+  top: clamp(16px, 3.5vw, 48px);
+  left: clamp(16px, 3.5vw, 48px);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.15rem 0.75rem 0.95rem;
+  border: 1px solid rgba(250, 250, 247, 0.55);
+  border-radius: 999px;
+  background: rgba(11, 13, 15, 0.7);
+  color: var(--paper-100);
+  font: 600 0.95rem/1 var(--font-body);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 0 0 rgba(255, 90, 31, 0.55);
+  animation: nozzle-sound-pulse 2.4s ease-out infinite;
+  transition: background var(--dur-fast), border-color var(--dur-fast);
+}
+.nozzle-hero-sound:hover { background: rgba(11, 13, 15, 0.9); border-color: var(--ignition-500); }
+.nozzle-hero-sound:focus-visible { outline: 2px solid var(--ignition-500); outline-offset: 3px; }
+.nozzle-hero-sound svg { color: var(--ignition-500); }
+@keyframes nozzle-sound-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 90, 31, 0.55); }
+  70% { box-shadow: 0 0 0 14px rgba(255, 90, 31, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 90, 31, 0); }
+}
+@media (prefers-reduced-motion: reduce) { .nozzle-hero-sound { animation: none; } }
+.nozzle-hero.is-full .nozzle-hero-sound { display: none; }
+/* Portrait: no free space over the video, so the prompt joins the controls row
+   (in place of the time readout while muted). */
+@media (max-aspect-ratio: 1/1) {
+  .nozzle-hero-sound { position: static; margin-right: auto; }
+  .nozzle-hero-controls:has(.nozzle-hero-sound) .nozzle-hero-time { display: none; }
+}
+@media (max-height: 520px) and (min-aspect-ratio: 1/1) {
+  .nozzle-hero-sound { top: 12px; left: 16px; padding: 0.5rem 0.85rem; font-size: 0.85rem; }
+}

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import B1mStaticFireNotice from '../components/B1mStaticFireNotice'
+import NozzleHero from '../components/NozzleHero'
 import { useTitle } from '../useTitle'
 
 const vehiclesInProduction = [
@@ -47,16 +48,32 @@ export default function Home() {
 
   return (
     <div className="home">
+      <NozzleHero
+        showProgrammeLink
+        aside={
+          <>
+            <h1 className="home-wordmark nozzle-hero-wordmark">
+              Beyond <span className="home-wordmark-line"><span className="home-wordmark-bracket">[</span>Stage Zero<span className="home-wordmark-bracket">]</span></span>
+            </h1>
+            <p>
+              We are a student team building rockets from scratch. The goal is to lower the cost and the barrier to entry for whoever comes after us.
+            </p>
+            <p className="nozzle-hero-about-links">
+              <Link to="/about">About us</Link>
+              <Link to="/stravox">STRAVOX</Link>
+              <Link to="/support">Support us</Link>
+            </p>
+          </>
+        }
+      />
+
       <header className="masthead stravox-photo-hero home-photo-hero">
         <img className="stravox-photo-hero-img" src="/b1m-engine-street.jpg" alt="The completed B1M engine on a bench, ready for static fire" />
         <div className="stravox-photo-hero-shade" aria-hidden="true" />
         <div className="masthead-inner">
           <div>
             <p className="kicker">Creswick, Victoria</p>
-            <h1 className="home-wordmark">Beyond <span className="home-wordmark-line"><span className="home-wordmark-bracket">[</span>Stage Zero<span className="home-wordmark-bracket">]</span></span></h1>
-            <p className="lede">
-              We are a student team building rockets from scratch. The goal is to lower the cost and the barrier to entry for whoever comes after us. Our first B1M engine is finished.
-            </p>
+            <h2 className="home-hero-h2">Our first B1M engine is finished.</h2>
             <div className="actions">
               <Link className="btn btn-ink" to="/stravox">See STRAVOX</Link>
               <Link className="btn" to="/support">Support us</Link>
@@ -68,7 +85,7 @@ export default function Home() {
           <div><dt>Vehicles in production</dt><dd>{vehiclesInProduction.length}</dd></div>
           <div><dt>B1M-01</dt><dd>Build complete</dd></div>
           <div><dt>B1M engines</dt><dd>1 complete · 2 in production</dd></div>
-          <div><dt>Ceramic nozzles</dt><dd>3 complete · 5 in production</dd></div>
+          <div><dt>Ceramic nozzles</dt><dd>8 complete · next batch redesigned for ceramic</dd></div>
         </dl>
       </header>
 
