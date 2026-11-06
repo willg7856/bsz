@@ -1,14 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const DOHERTY = 'https://ballarattechschool.vic.edu.au/programs/peter-doherty-science-award'
-
 const stats = [
-  { label: 'Mould', value: 'v13', tone: 'num' },
-  { label: 'Completed', value: '3', tone: 'done' },
-  { label: 'In production', value: '5', tone: 'num' },
+  { label: 'Mould', value: 'v15', tone: 'num' },
+  { label: 'Completed', value: '8', tone: 'done' },
+  { label: 'In production', value: '0', tone: 'num' },
+  { label: 'Next batch', value: 'Redesigned for ceramic' },
   { label: 'Target', value: 'B1M motor stack' },
-  { label: '2026', value: 'Doherty Award', href: DOHERTY },
+  { label: '2026', value: 'Doherty Award', to: '/nozzles/research#doherty' },
 ]
 
 const Icon = {
@@ -194,7 +193,7 @@ export default function NozzleHero() {
               <div key={s.label}>
                 <dt>{s.label}</dt>
                 <dd className={s.tone || undefined}>
-                  {s.href ? <a href={s.href} target="_blank" rel="noopener noreferrer">{s.value}</a> : s.value}
+                  {s.to ? <Link to={s.to}>{s.value}</Link> : s.value}
                 </dd>
               </div>
             ))}

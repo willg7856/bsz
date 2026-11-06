@@ -20,8 +20,8 @@ const faq = [
   },
   {
     q: 'Have these nozzles been fire-tested?',
-    a: 'Not yet in flight. Our ceramic nozzles still have to survive a static fire before one flies on B1M, and we post every result on the Tests page.',
-    link: { to: '/tests', label: 'Read the fire logs' },
+    a: 'Not yet. Our ceramic nozzles still have to survive a static fire before one flies on B1M. We post every result on the Tests page, and how we make them is on our research page.',
+    link: { to: '/nozzles/research', label: 'Read the research' },
   },
   {
     q: 'What happens after I pay?',

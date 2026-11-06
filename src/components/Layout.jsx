@@ -95,9 +95,12 @@ export default function Layout() {
   const [menuPath, setMenuPath] = useState(null)
   const menuOpen = menuPath === location.pathname
 
+  // New page: jump to the #section in the link if there is one, else the top.
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [location.pathname])
+    const target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)))
+    if (target) target.scrollIntoView()
+    else window.scrollTo(0, 0)
+  }, [location.pathname, location.hash])
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
