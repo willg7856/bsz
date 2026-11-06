@@ -750,9 +750,7 @@ export const nozzlePreorder = {
     NOK: { symbol: 'kr ', perAud: 6.7 },
     DKK: { symbol: 'kr ', perAud: 4.5 },
   },
-  sizes: [
-    { id: 'cn-29', name: 'CN-29', motor: '29 mm motors', throat: null, exit: null, price: null, stripeLink: '' },
-    { id: 'cn-38', name: 'CN-38', motor: '38 mm motors', throat: null, exit: null, price: null, stripeLink: '' },
-    { id: 'cn-54', name: 'CN-54', motor: '54 mm motors', throat: null, exit: null, price: null, stripeLink: '' },
-  ],
+  // Empty = custom orders only; the standard-sizes section is hidden. To add one:
+  // { id: 'cn-30', name: 'CN-30', motor: '30 mm motors', throat: '8 mm', exit: '18 mm', price: 45, stripeLink: 'https://buy.stripe.com/...' },
+  sizes: [],
 }

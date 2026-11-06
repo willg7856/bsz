@@ -7,6 +7,8 @@ import { useTitle } from '../useTitle'
 const { sizes, currency, shipWindow, localCurrencies } = nozzlePreorder
 
 const tbc = (value) => value ?? 'TBC'
+// Standard sizes only appear when nozzlePreorder.sizes in data.js has entries.
+const hasSizes = sizes.length > 0
 
 const faq = [
   {
@@ -156,16 +158,19 @@ export default function NozzlePreorder() {
             <p className="kicker">Ceramic nozzles · Pre-order</p>
             <h1>Pre-order a nozzle.</h1>
             <p className="lede">
-              Pick one of our standard sizes, or send us your own design and we will make it in ceramic.
+              {hasSizes
+                ? 'Pick one of our standard sizes, or send us your own design and we will make it in ceramic.'
+                : 'Send us your nozzle design and we will cast it in ceramic, to the shape your motor needs. We quote every order before you pay anything.'}
             </p>
             <div className="actions">
-              <a className="btn btn-ink" href="#standard">Standard sizes</a>
-              <a className="btn" href="#custom">Your own design</a>
+              {hasSizes ? <a className="btn btn-ink" href="#standard">Standard sizes</a> : null}
+              <a className={hasSizes ? 'btn' : 'btn btn-ink'} href="#custom">{hasSizes ? 'Your own design' : 'Send your design'}</a>
             </div>
           </div>
           <div className="masthead-side">
-            <div className="side-row"><span>Standard sizes</span><span className="num">{sizes.length}</span></div>
+            {hasSizes ? <div className="side-row"><span>Standard sizes</span><span className="num">{sizes.length}</span></div> : null}
             <div className="side-row"><span>Custom designs</span><span>Quoted</span></div>
+            <div className="side-row"><span>Payment</span><span>After you approve</span></div>
             <div className="side-row"><span>Ships</span><span>{shipWindow ? shipWindow[0].toUpperCase() + shipWindow.slice(1) : 'TBC'}</span></div>
             <div className="side-row"><span>Programme</span><Link to="/nozzles">Ceramic nozzles</Link></div>
           </div>
@@ -187,6 +192,7 @@ export default function NozzlePreorder() {
         </div>
       </section>
 
+      {hasSizes ? (
       <section className="section" id="standard">
         <div className="wrap">
           <div className="section-head">
@@ -201,11 +207,12 @@ export default function NozzlePreorder() {
           </div>
         </div>
       </section>
+      ) : null}
 
       <section className="section dark" id="custom">
         <div className="wrap preorder-custom">
           <div>
-            <p className="kicker">Custom</p>
+            <p className="kicker">{hasSizes ? 'Custom' : 'How it works'}</p>
             <h2>Your design, in ceramic.</h2>
             <div className="rows">
               {[
