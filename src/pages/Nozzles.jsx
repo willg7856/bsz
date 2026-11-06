@@ -1,67 +1,33 @@
 import { Link } from 'react-router-dom'
+import NozzleHero from '../components/NozzleHero'
 import { nozzleDesign, nozzleMould } from '../data'
 import { useTitle } from '../useTitle'
 
-function NoteSection({ note, dark = false }) {
+const DOHERTY = 'https://ballarattechschool.vic.edu.au/programs/peter-doherty-science-award'
+
+function Photos({ figures }) {
+  if (!figures?.length) return null
   return (
-    <section className={dark ? 'section dark' : 'section'}>
-      <div className="wrap">
-        <div className="section-head">
-          <div>
-            <p className="kicker">{note.kicker}</p>
-            <h2>{note.title}</h2>
-          </div>
-          {note.body ? <p>{note.body}</p> : null}
-        </div>
-        {note.figures?.length ? (
-          <div className={`nozzle-figures count-${note.figures.length}`}>
-            {note.figures.map((figure) => (
-              <figure key={figure.id}>
-                {figure.src ? (
-                  <img src={figure.src} alt={figure.alt || figure.title} />
-                ) : (
-                  <div className="nozzle-figure-frame" />
-                )}
-                {figure.title ? <figcaption>{figure.title}</figcaption> : null}
-              </figure>
-            ))}
-          </div>
-        ) : null}
-        {note.costs?.length ? (
-          <div className="nozzle-costs">
-            {note.costs.map((item) => (
-              <div className="spec-cell" key={item.label}>
-                <p className="lbl">{item.label}</p>
-                <p className="val">{item.value}</p>
-                <p className="note">{item.note}</p>
-                {item.figure ? (
-                  <figure>
-                    <img src={item.figure.src} alt={item.figure.alt || item.figure.title} />
-                    {item.figure.title ? <figcaption>{item.figure.title}</figcaption> : null}
-                  </figure>
-                ) : null}
-              </div>
-            ))}
-          </div>
-        ) : null}
-        {note.more ? (
-          <Link className="text-link b1m-all-photos" to={note.more.to}>{note.more.label}</Link>
-        ) : null}
-        {note.points?.length ? (
-          <div className="rows">
-            {note.points.map((item, index) => (
-              <article className="vehicle-row" key={item.title}>
-                <span className="idx">{String(index + 1).padStart(2, '0')}</span>
-                <div>
-                  <strong>{item.title}</strong>
-                  {item.body ? <span className="path-note">{item.body}</span> : null}
-                </div>
-              </article>
-            ))}
-          </div>
-        ) : null}
+    <div className={`nozzle-figures count-${figures.length}`}>
+      {figures.map((figure) => (
+        <figure key={figure.id}>
+          <img src={figure.src} alt={figure.alt || figure.title} loading="lazy" />
+          {figure.title ? <figcaption>{figure.title}</figcaption> : null}
+        </figure>
+      ))}
+    </div>
+  )
+}
+
+function SectionHead({ kicker, title, children }) {
+  return (
+    <div className="section-head">
+      <div>
+        <p className="kicker">{kicker}</p>
+        <h2>{title}</h2>
       </div>
-    </section>
+      {children}
+    </div>
   )
 }
 
@@ -69,47 +35,60 @@ export default function Nozzles() {
   useTitle('Ceramic nozzles')
 
   return (
-    <>
-      <header className="masthead">
+    <div className="nozzles-page">
+      <NozzleHero />
+
+      <header className="masthead nozzles-intro">
         <div className="masthead-inner">
           <div>
             <p className="kicker">Propulsion</p>
             <h1>Ceramic nozzles.</h1>
             <p className="lede">
-              To lower the cost of a nozzle compared to graphite. They still have to survive a burn before one flies on B1M.
+              To lower the cost of a nozzle compared to graphite. They still have to survive a burn before one flies on B1M.{' '}
+              <Link className="text-link" to="/tests">Read the fire logs</Link>
             </p>
-            <div className="actions">
-              <Link className="btn btn-ink" to="/nozzles/preorder">Pre-order</Link>
-              <Link className="btn" to="/tests">Read the fire logs</Link>
-            </div>
-          </div>
-          <div className="masthead-side">
-            <div className="side-row"><span>Mould</span><span className="num">v13</span></div>
-            <div className="side-row"><span>Completed</span><span className="done">3</span></div>
-            <div className="side-row"><span>In production</span><span className="num">5</span></div>
-            <div className="side-row"><span>Target</span><span>B1M motor stack</span></div>
-            <div className="side-row"><span>2026</span><a href="https://ballarattechschool.vic.edu.au/programs/peter-doherty-science-award" target="_blank" rel="noopener noreferrer">Doherty Award</a></div>
           </div>
         </div>
       </header>
 
-      <NoteSection note={nozzleDesign} />
-      <NoteSection note={nozzleMould} dark />
+      <section className="section">
+        <div className="wrap">
+          <SectionHead kicker={nozzleDesign.kicker} title={nozzleDesign.title}>
+            <p>{nozzleDesign.body}</p>
+          </SectionHead>
+          <div className="nozzle-costs">
+            {nozzleDesign.costs.map((item) => (
+              <div className="spec-cell" key={item.label}>
+                <p className="lbl">{item.label}</p>
+                <p className="val">{item.value}</p>
+                <p className="note">{item.note}</p>
+              </div>
+            ))}
+          </div>
+          <Photos figures={nozzleDesign.figures} />
+          <Link className="text-link b1m-all-photos" to={nozzleDesign.more.to}>{nozzleDesign.more.label}</Link>
+        </div>
+      </section>
+
+      <section className="section dark">
+        <div className="wrap">
+          <SectionHead kicker={nozzleMould.kicker} title={nozzleMould.title}>
+            <p>{nozzleMould.body}</p>
+          </SectionHead>
+          <Photos figures={nozzleMould.figures} />
+        </div>
+      </section>
 
       <section className="section">
         <div className="wrap">
-          <div className="section-head">
-            <div>
-              <p className="kicker">2026</p>
-              <h2>Peter Doherty Science Award.</h2>
-            </div>
+          <SectionHead kicker="2026" title="Peter Doherty Science Award.">
             <p>
               Our entry this year, through Ballarat Tech School.
-              <a className="home-project-link" href="https://ballarattechschool.vic.edu.au/programs/peter-doherty-science-award" target="_blank" rel="noopener noreferrer">About the award</a>
+              <a className="home-project-link" href={DOHERTY} target="_blank" rel="noopener noreferrer">About the award</a>
             </p>
-          </div>
+          </SectionHead>
           <figure className="doherty-photo">
-            <img src="/doherty-nozzles.jpg" alt="Five ceramic nozzles in their moulds" />
+            <img src="/doherty-nozzles.jpg" alt="Five ceramic nozzles in their moulds" loading="lazy" />
             <figcaption>Five ceramic nozzles in their moulds.</figcaption>
           </figure>
         </div>
@@ -117,14 +96,15 @@ export default function Nozzles() {
 
       <section className="section dark nozzle-orders">
         <div className="wrap">
-          <p className="kicker">Orders</p>
-          <h2>We are taking pre-orders.</h2>
+          <p className="kicker">Pre-orders</p>
+          <h2>Your design, cast in ceramic.</h2>
           <p className="copy">
-            Send us your nozzle design and we will cast it in ceramic. Questions first? Use the <Link to="/contact?reason=Ceramic%20nozzle%20enquiries">contact page</Link>.
+            Upload your nozzle, check the numbers we measure from it, and pre-order. Questions first? Use the{' '}
+            <Link to="/contact?reason=Ceramic%20nozzle%20enquiries">contact page</Link>.
           </p>
           <Link className="btn btn-ink" to="/nozzles/preorder">Pre-order a nozzle</Link>
         </div>
       </section>
-    </>
+    </div>
   )
 }

@@ -571,17 +571,11 @@ export const nozzleDesign = {
   kicker: 'Aim',
   title: 'The nozzle.',
   body: 'Moulding a ceramic nozzle removes buying graphite stock and having it machined.',
-  points: [],
   costs: [
     {
       label: 'Graphite',
       value: '~$300',
       note: 'Average for a B1M-sized engine. Bought as stock, then machined.',
-      figure: {
-        src: '/nozzle-graphite.jpg',
-        alt: 'A graphite nozzle being machined on a lathe.',
-        title: 'A graphite nozzle being machined.',
-      },
     },
     {
       label: 'Ceramic',
@@ -602,6 +596,12 @@ export const nozzleDesign = {
       src: '/nozzle-duracast-2.jpg',
       alt: 'Another view of the first ceramic nozzle, in the current Duracast material.',
     },
+    {
+      id: 'graphite',
+      title: 'A graphite nozzle being machined.',
+      src: '/nozzle-graphite.jpg',
+      alt: 'A graphite nozzle being machined on a lathe.',
+    },
   ],
   more: { to: '/gallery', label: 'All photos' },
 }
@@ -610,7 +610,6 @@ export const nozzleMould = {
   kicker: 'Current mould',
   title: 'Mould v13.',
   body: 'Four pieces: two halves for the outer diameter, a converging piece, and a throat piece.',
-  points: [],
   figures: [
     {
       id: 'mould-top',

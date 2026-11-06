@@ -87,6 +87,7 @@ export default function NozzlePreorder() {
             <div className="actions">
               {hasSizes ? <a className="btn btn-ink" href="#standard">Standard sizes</a> : null}
               <a className={hasSizes ? 'btn' : 'btn btn-ink'} href="#custom">{hasSizes ? 'Your own design' : 'Upload your design'}</a>
+              <Link className="btn" to="/nozzles">▶ Watch the video</Link>
             </div>
           </div>
           <div className="masthead-side">
@@ -98,21 +99,6 @@ export default function NozzlePreorder() {
           </div>
         </div>
       </header>
-
-      <section className="section dark preorder-video-section">
-        <div className="wrap">
-          <video
-            className="preorder-video"
-            src="/nozzle-release.mp4"
-            poster="/nozzle-release-poster.jpg"
-            controls
-            playsInline
-            preload="metadata"
-          >
-            <a href="/nozzle-release.mp4">Watch the ceramic nozzle release video</a>
-          </video>
-        </div>
-      </section>
 
       {hasSizes ? (
       <section className="section" id="standard">
