@@ -2931,3 +2931,28 @@ textarea { min-height: 9rem; resize: vertical; }
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
   font-variant-numeric: tabular-nums;
 }
+
+/* ── Ceramic nozzles page (/nozzles) ── */
+.nozzles-page .nozzles-intro .masthead-inner { padding-top: 56px; padding-bottom: 48px; }
+.nozzles-page .nozzles-intro .lede .text-link { white-space: nowrap; }
+.nozzles-page .nozzle-costs { margin-bottom: 2rem; }
+.nozzles-page .nozzle-figures { margin-top: 0; }
+.nozzles-page .nozzle-figures.count-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.nozzles-page .nozzle-figures img,
+.nozzles-page .doherty-photo img {
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  background: var(--bg-elev);
+}
+.nozzles-page .doherty-photo img { aspect-ratio: 16 / 9; }
+@media (max-width: 760px) {
+  .nozzles-page .nozzle-figures.count-3 { grid-template-columns: 1fr 1fr; }
+  .nozzles-page .nozzle-figures.count-3 figure:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 760px) {
+  .nozzles-page .nozzle-costs { grid-template-columns: 1fr 1fr; }
+  .nozzles-page .nozzle-costs .spec-cell { padding: 20px 14px; }
+  .nozzles-page .nozzle-costs .spec-cell + .spec-cell { border-left: 1px solid var(--line); border-top: 0; }
+  .nozzles-page .nozzle-costs .val { font-size: 2.1rem; }
+}
