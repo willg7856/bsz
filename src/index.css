@@ -2688,3 +2688,35 @@ textarea { min-height: 9rem; resize: vertical; }
   .nozzle-drop .text-link { margin-left: 0; }
 }
 .nozzle-numbers input[aria-invalid='true'] { border-color: var(--danger) !important; }
+.nozzle-maketo {
+  margin: 1.25rem 0 2.25rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--ignition-500);
+  background: var(--bg-elev);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.nozzle-maketo legend { padding: 0 0.4rem; font-weight: 600; line-height: 1.45; }
+.nozzle-maketo label {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 0.65rem;
+  align-items: flex-start;
+  cursor: pointer;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-family: var(--font-body) !important;
+  font-size: 0.9rem !important;
+  line-height: 1.5;
+  color: var(--fg) !important;
+}
+.nozzle-maketo input[type='radio'] {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  min-height: 0;
+  margin: 0.2rem 0 0;
+  padding: 0;
+  accent-color: var(--ignition-500);
+}

@@ -49,6 +49,23 @@ Vercel project setup:
    key with write access to Checkout Sessions is enough). Use a `sk_test_…` key
    on Preview to try it without real payments.
 
+3. **Order emails** (team gets the order with the STL attached; customer gets
+   a confirmation):
+   - Create a [Resend](https://resend.com) account, add the domain
+     `beyondstagezero.com` and add the DNS records it shows. Create an API key
+     and add it in Vercel as `RESEND_API_KEY`.
+   - Stripe Dashboard → **Developers → Webhooks → Add destination**:
+     endpoint `https://beyondstagezero.com/api/stripe-webhook`, events
+     `checkout.session.completed` and `checkout.session.async_payment_succeeded`.
+     Copy its signing secret (`whsec_…`) into Vercel as `STRIPE_WEBHOOK_SECRET`.
+   - Optional: `ORDER_EMAIL_TO` (default `contact@beyondstagezero.com`, comma
+     separated for several) and `ORDER_EMAIL_FROM` (default
+     `Beyond Stage Zero <orders@beyondstagezero.com>`).
+
+   If an email fails, the webhook returns an error and Stripe retries; each
+   email is sent with an idempotency key, so retries don't send duplicates.
+   Files over 15 MB are linked, not attached.
+
 Each paid order appears in the Stripe Dashboard under **Payments**. The order
 number, measured and submitted numbers, notes and the uploaded file's path are
 in the payment's **Metadata**. Download the file from Vercel → Storage → the

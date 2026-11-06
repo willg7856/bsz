@@ -4,6 +4,12 @@ import { NOZZLE_ORDER, UNITS } from './order.js'
 
 export class OrderError extends Error {}
 
+export const MAKE_TO_LABEL = {
+  numbers: 'numbers (customer says the model is out of date)',
+  model: 'model (customer says the measurement was off)',
+  match: 'model (numbers match the measurement)',
+}
+
 const num = (value, label, min, max) => {
   const n = Number(value)
   if (!Number.isFinite(n) || n < min || n > max) throw new OrderError(`${label} must be between ${min} and ${max}.`)
@@ -36,6 +42,9 @@ export function validateOrder(body) {
   const div = num(body.divergentHalfAngle, 'Divergent half-angle', 0, 90)
   if (exit < throat) throw new OrderError('The exit diameter should be larger than the throat.')
 
+  if (body.edited && !['numbers', 'model'].includes(body.makeTo)) {
+    throw new OrderError('Please tell us whether to make it to your numbers or to your model.')
+  }
   const est = body.estimate && typeof body.estimate === 'object' ? body.estimate : null
   return {
     name,
@@ -54,6 +63,7 @@ export function validateOrder(body) {
         }
       : null,
     edited: Boolean(body.edited),
+    makeTo: ['numbers', 'model', 'match'].includes(body.makeTo) ? body.makeTo : null,
     fileUnits: body.fileUnits in UNITS ? body.fileUnits : units,
   }
 }
@@ -68,7 +78,7 @@ export function newOrderId(random = Math.random) {
 export function checkoutForm(order, { orderId, origin }) {
   const f = new URLSearchParams()
   const add = (k, v) => f.append(k, v)
-  const summary = `Throat ${fmt(order.throat)} mm · exit ${fmt(order.exit)} mm · conv ${fmt(order.conv)}° · div ${fmt(order.div)}°`
+  const summary = `Throat ${fmt(order.throat)} mm · exit ${fmt(order.exit)} mm · conv ${fmt(order.conv)}° · div ${fmt(order.div)}°${order.makeTo === 'model' ? ' · make to the uploaded model' : ''}`
   const meta = {
     order_id: orderId,
     name: order.name,
@@ -81,6 +91,7 @@ export function checkoutForm(order, { orderId, origin }) {
     convergent_half_angle_deg: fmt(order.conv),
     divergent_half_angle_deg: fmt(order.div),
     numbers_edited_by_customer: order.edited ? 'yes' : 'no',
+    make_to: MAKE_TO_LABEL[order.makeTo ?? 'match'],
     ...(order.estimate
       ? {
           estimated: `throat ${fmt(order.estimate.throat)} mm, exit ${fmt(order.estimate.exit)} mm, conv ${fmt(order.estimate.conv)}°, div ${fmt(order.estimate.div)}°`,
