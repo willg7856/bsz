@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import B1mStaticFireNotice from '../components/B1mStaticFireNotice'
 import { campaigns, engineSummary, fires, resultLabel, upNext } from '../data'
@@ -14,6 +15,15 @@ const resultTone = {
 
 export default function Tests() {
   useTitle('Tests')
+
+  // The site-wide description names the town, so swap it out on this page.
+  useEffect(() => {
+    const meta = document.querySelector('meta[name="description"]')
+    if (!meta) return undefined
+    const previous = meta.getAttribute('content')
+    meta.setAttribute('content', 'Every static fire Beyond Stage Zero has run: results, anomalies, and what we learned.')
+    return () => meta.setAttribute('content', previous)
+  }, [])
 
   const built = engineSummary
     .filter((item) => item.label.includes('built'))
