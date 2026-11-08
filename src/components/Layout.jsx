@@ -28,7 +28,7 @@ function Logo() {
         <line x1="88.3" y1="82" x2="108.3" y2="38" stroke="currentColor" strokeWidth="9" />
       </svg>
       <span className="brand-logo-text">
-        Beyond <span className="brand-logo-bracket">[Stage Zero]</span>
+        Beyond <span className="brand-logo-bracket"><span className="brand-logo-bracket-mark">[</span>Stage Zero<span className="brand-logo-bracket-mark">]</span></span>
       </span>
     </span>
   )

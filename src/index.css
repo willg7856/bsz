@@ -154,8 +154,7 @@ h1, h2, h3, h4, p { margin: 0; }
   top: 0;
   border-bottom: 1px solid var(--ink-700);
   color: var(--paper-100);
-  background: color-mix(in srgb, var(--ink-900) 94%, transparent);
-  backdrop-filter: blur(12px);
+  background: var(--ink-900);
 }
 
 .nav-inner {
@@ -180,8 +179,8 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 
 .brand-logo-mark {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   color: var(--paper-50);
   flex-shrink: 0;
   display: block;
@@ -193,12 +192,13 @@ h1, h2, h3, h4, p { margin: 0; }
   text-transform: uppercase;
   color: var(--paper-50);
   white-space: nowrap;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 500;
   line-height: 1;
 }
 
-.brand-logo-bracket { letter-spacing: 0.06em; font-weight: 400; opacity: 0.9; }
+.brand-logo-bracket { letter-spacing: 0.06em; font-weight: 400; }
+.brand-logo-bracket-mark { color: var(--ignition-500); }
 
 .nav-links {
   position: relative;
@@ -411,9 +411,8 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 
 /* Once the page scrolls, the bar goes solid and casts a soft shadow. */
-.nav { transition: background var(--dur-fast), box-shadow 0.2s ease; }
+.nav { transition: box-shadow 0.2s ease; }
 .nav.is-scrolled {
-  background: color-mix(in srgb, var(--ink-900) 98%, transparent);
   box-shadow: 0 8px 24px -12px #000000cc;
 }
 
