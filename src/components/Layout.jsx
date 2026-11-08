@@ -28,21 +28,21 @@ function Logo() {
         <line x1="88.3" y1="82" x2="108.3" y2="38" stroke="currentColor" strokeWidth="9" />
       </svg>
       <span className="brand-logo-text">
-        Beyond <span className="brand-logo-bracket">[Stage Zero]</span>
+        Beyond <span className="brand-logo-bracket"><span className="brand-logo-bracket-mark">[</span>Stage Zero<span className="brand-logo-bracket-mark">]</span></span>
       </span>
     </span>
   )
 }
 
-function Dropdown({ label, items, pathname }) {
+function Dropdown({ label, items, pathname, wide = false, end = false }) {
   const active = items.some((item) => item.path === pathname)
   return (
-    <div className={`nav-dropdown${active ? ' active' : ''}`}>
+    <div className={`nav-dropdown${wide ? ' nav-dropdown--wide' : ''}${active ? ' active' : ''}`}>
       <button type="button" className={`nav-btn${active ? ' active' : ''}`} aria-haspopup="true">
         {label}
         <span className="nav-dropdown-caret" aria-hidden="true" />
       </button>
-      <div className="nav-dropdown-menu" role="menu">
+      <div className={`nav-dropdown-menu${wide ? ' nav-dropdown-menu--wide' : ''}${end ? ' nav-dropdown-menu--end' : ''}`} role="menu">
         {items.map((item) => (
           <NavLink
             key={item.path}
@@ -94,6 +94,7 @@ export default function Layout() {
   const location = useLocation()
   const [menuPath, setMenuPath] = useState(null)
   const menuOpen = menuPath === location.pathname
+  const [scrolled, setScrolled] = useState(false)
   // The Tests page doesn't say where the tests were run, so leave the location off it.
   const showPlace = location.pathname.replace(/\/+$/, '') !== '/tests'
 
@@ -103,6 +104,19 @@ export default function Layout() {
     if (target) target.scrollIntoView()
     else window.scrollTo(0, 0)
   }, [location.pathname, location.hash])
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // A dropdown link keeps focus after it's clicked, which would hold its menu open on the new page.
+  useEffect(() => {
+    const focused = document.activeElement
+    if (focused instanceof HTMLElement && focused.closest('.nav-dropdown')) focused.blur()
+  }, [location.pathname])
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
@@ -118,16 +132,17 @@ export default function Layout() {
   return (
     <div className="app">
       <a className="skip" href="#content">Skip to content</a>
-      <header className="nav">
+      <header className={`nav${scrolled ? ' is-scrolled' : ''}`}>
         <div className="container nav-inner">
           <Link className="nav-brand" to="/" aria-label="Beyond Stage Zero home" onClick={closeMenu}>
             <Logo />
           </Link>
           <nav className="nav-links" aria-label="Primary">
-            <Dropdown label="Projects" items={projects} pathname={location.pathname} />
+            <Dropdown label="Projects" items={projects} pathname={location.pathname} wide />
             <NavLink className="nav-btn" to="/missions">Missions</NavLink>
             <NavLink className="nav-btn" to="/tests">Tests</NavLink>
-            <Dropdown label="Company" items={company} pathname={location.pathname} />
+            <Dropdown label="Company" items={company} pathname={location.pathname} end />
+            <span className="nav-divider" aria-hidden="true" />
             <Link className="nav-cta" to="/support">Support us</Link>
           </nav>
           <button
