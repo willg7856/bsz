@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { NOZZLE_ORDER } from '../nozzle/order'
 import NozzleHero from '../components/NozzleHero'
 import { nozzleDesign, nozzleMould } from '../data'
 import { useTitle } from '../useTitle'
@@ -96,7 +97,7 @@ export default function Nozzles() {
             Upload your nozzle, check the numbers we measure from it, and pre-order. Questions first? Use the{' '}
             <Link to="/contact?reason=Ceramic%20nozzle%20enquiries">contact page</Link>.
           </p>
-          <Link className="btn btn-ink" to="/nozzles/preorder">Pre-order a nozzle</Link>
+          <Link className="btn btn-ink" to="/nozzles/preorder">{NOZZLE_ORDER.takingPayment ? 'Pre-order a nozzle' : 'Register interest'}</Link>
         </div>
       </section>
     </div>

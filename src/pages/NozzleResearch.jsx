@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { NOZZLE_ORDER } from '../nozzle/order'
 import { nozzleResearch as R } from '../data'
 import { useTitle } from '../useTitle'
 
@@ -229,7 +230,7 @@ export default function NozzleResearch() {
           <p className="kicker">Pre-orders</p>
           <h2>Your design, cast in ceramic.</h2>
           <p className="copy">Upload your nozzle, check the numbers we measure from it, and pre-order.</p>
-          <Link className="btn btn-ink" to="/nozzles/preorder">Pre-order a nozzle</Link>
+          <Link className="btn btn-ink" to="/nozzles/preorder">{NOZZLE_ORDER.takingPayment ? 'Pre-order a nozzle' : 'Register interest'}</Link>
         </div>
       </section>
     </div>
