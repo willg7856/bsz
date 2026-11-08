@@ -379,7 +379,7 @@ export const b1mMilestones = [
   { label: 'Propellant characterisation', status: 'active', note: 'In progress — refining burn behaviour and propellant performance ahead of B1M static fires.' },
   { label: 'B1M engine build', status: 'done', note: 'Done — the first B1M engine is complete. Two more are still in production with Federation University.' },
   { label: 'Static fire stand construction', status: 'active', note: 'In progress — the stand is being built for the B1M static fires.' },
-  { label: 'B1M pressure test campaign', status: 'upcoming', note: 'Starting soon — 100, 150, 500 and 1000 psi, then 1200 psi with the igniter lit first, to test like we fly.' },
+  { label: 'B1M pressure test campaign', status: 'active', note: 'In progress — the first test at 50 psi on 2 November found leaks, which we are fixing now. Next: 100, 150, 500 and 1000 psi, then 1200 psi with the igniter lit first, to test like we fly.' },
   { label: 'B1M engine static fires', status: 'upcoming', note: 'Ground firing campaign to validate the motor before flight (200 kgf, 3 s burn).' },
   { label: 'Vehicle design', status: 'done', note: 'Design complete — airframe, fins, and recovery bay sized for the B1M engine.' },
   { label: 'Vehicle fabrication', status: 'upcoming', note: 'Airframe construction and component manufacture.' },
@@ -413,7 +413,7 @@ export const missions = [
       { label: 'B1M engine build', status: 'done', note: 'Done — the first B1M engine is complete. Two more are still in production with Federation University.' },
       { label: 'Static fire stand construction', status: 'active', note: 'In progress — the stand is being built for the B1M static fires.' },
       { label: 'Launch pad design', status: 'active', note: 'In progress — the pad for STRAVOX B1M-01.' },
-      { label: 'B1M pressure test campaign', status: 'upcoming', note: 'Starting soon — 100, 150, 500 and 1000 psi, then 1200 psi with the igniter lit first, to test like we fly.' },
+      { label: 'B1M pressure test campaign', status: 'active', note: 'In progress — the first test at 50 psi on 2 November found leaks, which we are fixing now. Next: 100, 150, 500 and 1000 psi, then 1200 psi with the igniter lit first, to test like we fly.' },
       { label: 'B1M engine static fires', status: 'upcoming', note: 'Ground firing campaign to validate B1M motor before flight (200 kgf, 3 s burn).' },
       { label: 'Vehicle design', status: 'done', note: 'Design complete — airframe, fins, and recovery bay sized for the B1M engine.' },
       { label: 'Vehicle fabrication', status: 'upcoming', note: 'Airframe construction and component manufacture.' },
@@ -435,7 +435,7 @@ export const upcoming = [
 export const engineSummary = [
   { label: 'Mk I engines built', val: '3', sub: '250 mm × 32 mm — 2 fired, 1 held' },
   { label: 'Mk II engines built', val: '6', sub: '300 mm × 30 mm — 2 fired, 4 remaining' },
-  { label: 'B1M engines built', val: '1', sub: '550 mm × 80 mm · 2.9 kg KNO₃/Sorbitol 65:35 · 200 kgf for 3 s · complete, pressure testing next' },
+  { label: 'B1M engines built', val: '1', sub: '550 mm × 80 mm · 2.9 kg KNO₃/Sorbitol 65:35 · 200 kgf for 3 s · complete, fixing leaks found in its first pressure test' },
   { label: 'B1M engines in build', val: '2', sub: '550 mm × 80 mm · still in build with Federation University' },
 ]
 
@@ -459,15 +459,16 @@ export const upNext = [
     id: 'Next',
     label: 'B1M pressure test campaign',
     engine: 'B1M — 550 mm × 80 mm',
-    note: 'We are about to pressure test the first B1M engine, stepping the pressure up in stages. The final 1200 psi test is run like a real firing: we light the igniter as if it were lighting the propellant grain, then straight away pressurise the engine to 1200 psi, so it is tested the way it will fly. It needs to pass before its first static fire. Pressure testing was one of the main lessons from SF-04, where the Mk II case ruptured.',
+    note: 'We are pressure testing the first B1M engine, stepping the pressure up in stages. The first test, at 50 psi on 2 November, found leaks, and we are fixing them before going to 100 psi. The final 1200 psi test is run like a real firing: we light the igniter as if it were lighting the propellant grain, then straight away pressurise the engine to 1200 psi, so it is tested the way it will fly. It needs to pass before its first static fire. Pressure testing was one of the main lessons from SF-04, where the Mk II case ruptured.',
     steps: [
-      { label: '100 psi', when: 'Week of 14 Nov' },
-      { label: '150 psi', when: 'Week of 21 Nov' },
+      { label: '50 psi', when: '2 Nov · leaks found' },
+      { label: '100 psi', when: 'NET 14 Nov' },
+      { label: '150 psi', when: 'NET 21 Nov' },
       { label: '500 psi' },
       { label: '1000 psi' },
       { label: '1200 psi + igniter' },
     ],
-    status: 'Starting soon',
+    status: 'Fixing leaks',
   },
   {
     id: 'C-03',
@@ -651,6 +652,12 @@ export const octopusMilestones = [
 
 export const b1mEngineUpdates = [
   {
+    date: '2026-11-02',
+    display: '2 November 2026',
+    title: 'First pressure test: leaks at 50 psi',
+    body: 'We pressure tested the first B1M engine at 50 psi, the first step of the campaign. It leaked, so we are fixing the leaks before stepping up to 100 psi, no earlier than 14 November. Finding problems at low pressure, on the ground, is exactly what this campaign is for.',
+  },
+  {
     date: '2026-10-20',
     display: '20 October 2026',
     title: 'First B1M engine complete',
@@ -665,6 +672,13 @@ export const b1mEngineUpdates = [
 ]
 
 export const news = [
+  {
+    date: '2026-11-02',
+    display: '2 November 2026',
+    tag: 'Testing',
+    title: 'First B1M pressure test: leaks at 50 psi',
+    body: 'We pressure tested the first B1M engine at 50 psi, the first step of the campaign. It leaked, so we are fixing the leaks before stepping up to 100 psi, no earlier than 14 November.',
+  },
   {
     date: '2026-10-20',
     display: '20 October 2026',
