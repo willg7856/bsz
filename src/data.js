@@ -197,7 +197,7 @@ export const team = [
 
 export const disciplines = [
   { code: 'PROP', title: 'Propulsion', desc: 'Home-built KNSB motors — casing design, propellant casting, nozzle work, and static-fire campaigns from Mk I through B1M.' },
-  { code: 'STRU', title: 'Structures', desc: 'Airframe, fins, and recovery bay design for B1M and full-scale STRAVOX.' },
+  { code: 'STRU', title: 'Structures', desc: 'Airframe, fins, and recovery bay design for B1M and full-scale STRAVOX — machined and assembled in Creswick.' },
   { code: 'AVIO', title: 'Avionics', desc: 'Flight computer, altimeter, GPS, and recovery electronics sized for sub-scale flight before the 30 km vehicle.' },
   { code: 'LINK', title: 'Range data', desc: 'Octopus — the pad and vehicle data link into Goods Shed mission control for live static fires and launches.' },
   { code: 'RECO', title: 'Recovery & landing', desc: 'Parachute recovery for B1M. Propulsive vertical landing, on folding drone arms, for full-scale STRAVOX.' },
