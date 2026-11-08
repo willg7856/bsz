@@ -461,8 +461,8 @@ export const upNext = [
     engine: 'B1M — 550 mm × 80 mm',
     note: 'We are about to pressure test the first B1M engine, stepping the pressure up in stages. The final 1200 psi test is run like a real firing: we light the igniter as if it were lighting the propellant grain, then straight away pressurise the engine to 1200 psi, so it is tested the way it will fly. It needs to pass before its first static fire. Pressure testing was one of the main lessons from SF-04, where the Mk II case ruptured.',
     steps: [
-      { label: '100 psi', when: 'Week of 2 Nov' },
-      { label: '150 psi', when: 'Week of 9 Nov' },
+      { label: '100 psi', when: 'Week of 14 Nov' },
+      { label: '150 psi', when: 'Week of 21 Nov' },
       { label: '500 psi' },
       { label: '1000 psi' },
       { label: '1200 psi + igniter' },
