@@ -1,5 +1,9 @@
 // Shared by the pre-order page and the /api functions.
 export const NOZZLE_ORDER = {
+  // false = pre-orders are free: the form registers the order and emails the
+  // team and customer, and nothing is charged. true = the form goes to Stripe
+  // Checkout for `amount` below.
+  takingPayment: false,
   // Charged at Stripe checkout. Stripe Adaptive Pricing shows it in the
   // buyer's currency. Change both values together.
   amount: 50,

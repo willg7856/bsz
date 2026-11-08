@@ -17,7 +17,7 @@ const num = (value, label, min, max) => {
 }
 // eslint-disable-next-line no-control-regex -- strip control characters from customer text
 const text = (value, max) => String(value ?? '').replace(/[\u0000-\u001f\u007f]/g, ' ').trim().slice(0, max)
-const fmt = (n) => String(Math.round(n * 1000) / 1000)
+export const fmt = (n) => String(Math.round(n * 1000) / 1000)
 
 export function validateOrder(body) {
   if (!body || typeof body !== 'object') throw new OrderError('Missing order details.')

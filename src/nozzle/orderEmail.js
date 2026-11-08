@@ -86,12 +86,13 @@ function numberRows(o) {
 
 export function teamEmail(o, { attached, fileSize }) {
   const makeToNumbers = o.makeTo.startsWith('numbers')
-  const subject = `New nozzle pre-order ${o.orderId}: ${o.paid} paid${makeToNumbers ? ' · make to their numbers' : ''}`
+  const status = o.paid ? `${o.paid} paid` : 'free, no payment taken'
+  const subject = `New nozzle pre-order ${o.orderId}: ${status}${makeToNumbers ? ' · make to their numbers' : ''}`
   const fileLine = attached
     ? `${esc(o.fileName)} is attached.`
     : `${esc(o.fileName)} is ${fileSize ? `${(fileSize / 1024 / 1024).toFixed(1)} MB, ` : ''}too big to attach. Download it from Vercel → Storage → the Blob store → <code>${esc(o.filePath)}</code>.`
   const html = `
-<p style="font:16px -apple-system,Segoe UI,Roboto,sans-serif"><strong>${esc(o.orderId)}</strong> · ${esc(o.paid)} paid</p>
+<p style="font:16px -apple-system,Segoe UI,Roboto,sans-serif"><strong>${esc(o.orderId)}</strong> · ${esc(status)}</p>
 ${table([
   ['Customer', `${esc(o.name)} · <a href="mailto:${esc(o.email)}">${esc(o.email)}</a>${o.phone ? ` · ${esc(o.phone)}` : ''}`],
   ['Ship to', o.address.map(esc).join('<br>')],
@@ -105,7 +106,7 @@ ${table([
 ])}
 <p style="font:13px -apple-system,Segoe UI,Roboto,sans-serif;color:#4a535d">Reply to this email to contact the customer.</p>`
   const text = [
-    `${o.orderId} · ${o.paid} paid`,
+    `${o.orderId} · ${status}`,
     `Customer: ${o.name} <${o.email}>${o.phone ? ` · ${o.phone}` : ''}`,
     o.address.length ? `Ship to: ${o.address.join(', ')}` : '',
     `Throat Ø ${o.throat} mm · Exit Ø ${o.exit} mm · Conv ${o.conv}° · Div ${o.div}°`,
@@ -122,26 +123,31 @@ export function customerEmail(o, { teamEmail: team }) {
   const first = o.name.split(' ')[0] || 'there'
   const subject = `We've got your nozzle design (${o.orderId})`
   const makeTo = o.makeTo.startsWith('numbers') ? 'the numbers you entered' : 'your uploaded model'
+  const nextStep = o.paid
+    ? "we'll check your design can be cast, then email you to confirm it, suggest changes, or refund you in full if we can't make it."
+    : "we'll check your design can be cast, then email you to confirm it or suggest changes."
   const html = `
 <div style="font:15px/1.55 -apple-system,Segoe UI,Roboto,sans-serif;color:#0b0d0f">
 <p>Hi ${esc(first)},</p>
-<p>Thanks for pre-ordering a custom ceramic nozzle. Your order number is <strong>${esc(o.orderId)}</strong> and we've received ${esc(o.paid)}.</p>
+<p>Thanks for pre-ordering a custom ceramic nozzle. Your order number is <strong>${esc(o.orderId)}</strong>${o.paid ? ` and we've received ${esc(o.paid)}` : ''}.</p>
+${o.paid ? '' : "<p>Pre-orders are free for now, so nothing has been charged. We'll email you with the price before we take any payment, and you can change your mind then.</p>"}
 <p>Here's what you sent us:</p>
 ${table([...numberRows(o), ['We will make it to', esc(makeTo)], ['File', esc(o.fileName)], ['Notes', esc(o.notes)]])}
-<p><strong>What happens next:</strong> we'll check your design can be cast, then email you to confirm it, suggest changes, or refund you in full if we can't make it.</p>
+<p><strong>What happens next:</strong> ${esc(nextStep)}</p>
 <p>Spotted a mistake? Just reply to this email.</p>
 <p>Beyond Stage Zero<br><a href="https://beyondstagezero.com">beyondstagezero.com</a> · ${esc(team)}</p>
 </div>`
   const text = [
     `Hi ${first},`,
     '',
-    `Thanks for pre-ordering a custom ceramic nozzle. Your order number is ${o.orderId} and we've received ${o.paid}.`,
+    `Thanks for pre-ordering a custom ceramic nozzle. Your order number is ${o.orderId}${o.paid ? ` and we've received ${o.paid}` : ''}.`,
+    o.paid ? '' : "Pre-orders are free for now, so nothing has been charged. We'll email you with the price before we take any payment, and you can change your mind then.",
     '',
     `Throat Ø ${o.throat} mm · Exit Ø ${o.exit} mm · Conv ${o.conv}° · Div ${o.div}°`,
     `We will make it to ${makeTo}. File: ${o.fileName}`,
     o.notes ? `Notes: ${o.notes}` : '',
     '',
-    "What happens next: we'll check your design can be cast, then email you to confirm it, suggest changes, or refund you in full if we can't make it.",
+    `What happens next: ${nextStep}`,
     '',
     'Spotted a mistake? Just reply to this email.',
     '',
@@ -150,13 +156,13 @@ ${table([...numberRows(o), ['We will make it to', esc(makeTo)], ['File', esc(o.f
   return { subject, html, text }
 }
 
-function toBase64(bytes) {
+export function toBase64(bytes) {
   let bin = ''
   for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode(...bytes.subarray(i, i + 0x8000))
   return btoa(bin)
 }
 
-async function sendEmail(deps, idempotencyKey, message) {
+export async function sendEmail(deps, idempotencyKey, message) {
   const res = await deps.fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
