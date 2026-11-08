@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { NOZZLE_ORDER } from '../nozzle/order'
 import './NozzleHero.css'
 
 const WIDE = { src: '/nozzle-release.mp4', poster: '/nozzle-release-poster.jpg' }
@@ -259,9 +260,9 @@ export default function NozzleHero({ showProgrammeLink = false, aside = null }) 
 
       <div className="nozzle-hero-ui">
         <div className="nozzle-hero-left">
-          <p className="nozzle-hero-kicker">Ceramic nozzles · pre-orders open</p>
+          <p className="nozzle-hero-kicker">Ceramic nozzles · pre-orders {NOZZLE_ORDER.open ? 'open' : 'open soon'}</p>
           <div className="nozzle-hero-actions">
-            <Link className="btn btn-ink nozzle-hero-cta" to="/nozzles/preorder">Pre-order a nozzle →</Link>
+            <Link className="btn btn-ink nozzle-hero-cta" to="/nozzles/preorder">{NOZZLE_ORDER.open ? 'Pre-order a nozzle' : 'Pre-orders open soon'} →</Link>
             {showProgrammeLink ? <Link className="btn nozzle-hero-more" to="/nozzles">About the nozzles</Link> : null}
           </div>
         </div>

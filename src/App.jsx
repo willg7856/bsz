@@ -10,6 +10,8 @@ import Missions from './pages/Missions'
 import NotFound from './pages/NotFound'
 import Nozzles from './pages/Nozzles'
 import NozzlePreorder from './pages/NozzlePreorder'
+import NozzleCountdown from './pages/NozzleCountdown'
+import { NOZZLE_ORDER } from './nozzle/order'
 import NozzleResearch from './pages/NozzleResearch'
 import Octopus from './pages/Octopus'
 import Starship from './pages/Starship'
@@ -30,7 +32,7 @@ export default function App() {
           <Route path="missions" element={<Missions />} />
           <Route path="tests" element={<Tests />} />
           <Route path="nozzles" element={<Nozzles />} />
-          <Route path="nozzles/preorder" element={<NozzlePreorder />} />
+          <Route path="nozzles/preorder" element={NOZZLE_ORDER.open ? <NozzlePreorder /> : <NozzleCountdown />} />
           <Route path="nozzles/research" element={<NozzleResearch />} />
           <Route path="octopus" element={<Octopus />} />
           <Route path="starship" element={<Starship />} />
