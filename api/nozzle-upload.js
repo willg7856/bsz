@@ -5,6 +5,7 @@ import { NOZZLE_ORDER } from '../src/nozzle/order.js'
 // to Vercel Blob (avoids the 4.5 MB request limit on functions).
 // Needs BLOB_READ_WRITE_TOKEN (added when a Blob store is connected).
 export async function POST(request) {
+  if (!NOZZLE_ORDER.open) return Response.json({ error: 'Pre-orders are not open yet.' }, { status: 403 })
   try {
     const body = await request.json()
     const result = await handleUpload({

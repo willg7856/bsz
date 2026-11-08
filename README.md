@@ -40,6 +40,11 @@ browser (`src/nozzle/analyzeNozzle.js`), and pay a fixed pre-order price through
 Stripe Checkout. Price, currency, ship-to countries and the upload limit live in
 `src/nozzle/order.js`.
 
+**Opening and closing pre-orders:** `open` in `src/nozzle/order.js`. While it
+is `false`, `/nozzles/preorder` shows a countdown to `opensAt`, every
+pre-order button reads "Pre-orders open soon", and the checkout and upload APIs
+refuse orders. Set it to `true` and deploy to open pre-orders.
+
 Vercel project setup:
 
 1. **Storage → Create → Blob**, choose **Private** access, and connect it to this

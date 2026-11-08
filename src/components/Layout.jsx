@@ -98,6 +98,8 @@ export default function Layout() {
   const [scrolled, setScrolled] = useState(false)
   // The Tests page doesn't say where the tests were run, so leave the location off it.
   const showPlace = location.pathname.replace(/\/+$/, '') !== '/tests'
+  // The nozzle countdown page has its own sign-up box, so skip the footer one there.
+  const showSignup = location.pathname.replace(/\/+$/, '') !== '/nozzles/preorder'
 
   // New page: jump to the #section in the link if there is one, else the top.
   useEffect(() => {
@@ -182,9 +184,11 @@ export default function Layout() {
         <Outlet />
       </main>
       <footer className="footer">
-        <div className="container">
-          <NewsletterSignup />
-        </div>
+        {showSignup ? (
+          <div className="container">
+            <NewsletterSignup />
+          </div>
+        ) : null}
         <div className="container footer-inner">
           <div className="footer-brand">
             <Link to="/" className="footer-logo" aria-label="Beyond Stage Zero home"><Logo /></Link>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { NOZZLE_ORDER, formatOpensAt } from '../nozzle/order'
 import { nozzleResearch as R } from '../data'
 import { useTitle } from '../useTitle'
 
@@ -228,8 +229,8 @@ export default function NozzleResearch() {
         <div className="wrap">
           <p className="kicker">Pre-orders</p>
           <h2>Your design, cast in ceramic.</h2>
-          <p className="copy">Upload your nozzle, check the numbers we measure from it, and pre-order.</p>
-          <Link className="btn btn-ink" to="/nozzles/preorder">Pre-order a nozzle</Link>
+          <p className="copy">{NOZZLE_ORDER.open ? '' : `Pre-orders open ${formatOpensAt()}. `}Upload your nozzle, check the numbers we measure from it, and pre-order.</p>
+          <Link className="btn btn-ink" to="/nozzles/preorder">{NOZZLE_ORDER.open ? 'Pre-order a nozzle' : 'Pre-orders open soon'}</Link>
         </div>
       </section>
     </div>
