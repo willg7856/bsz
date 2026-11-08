@@ -94,6 +94,8 @@ export default function Layout() {
   const location = useLocation()
   const [menuPath, setMenuPath] = useState(null)
   const menuOpen = menuPath === location.pathname
+  // The Tests page doesn't say where the tests were run, so leave the location off it.
+  const showPlace = location.pathname.replace(/\/+$/, '') !== '/tests'
 
   // New page: jump to the #section in the link if there is one, else the top.
   useEffect(() => {
@@ -156,7 +158,7 @@ export default function Layout() {
           </nav>
           <div className="nav-mobile-foot">
             <Link className="nav-cta-mobile" to="/support" onClick={closeMenu}>Support us</Link>
-            <p className="nav-mobile-foot-note">{site.place}</p>
+            {showPlace ? <p className="nav-mobile-foot-note">{site.place}</p> : null}
           </div>
         </div>
       </div>
@@ -167,7 +169,7 @@ export default function Layout() {
         <div className="container footer-inner">
           <div className="footer-brand">
             <Link to="/" className="footer-logo" aria-label="Beyond Stage Zero home"><Logo /></Link>
-            <p>A student team in Creswick, Victoria, working to lower the cost and the barrier to entry for others to follow.</p>
+            <p>{showPlace ? 'A student team in Creswick, Victoria, working' : 'A student team working'} to lower the cost and the barrier to entry for others to follow.</p>
           </div>
           <div className="footer-col">
             <h4>Pages</h4>
@@ -189,7 +191,7 @@ export default function Layout() {
             <h4>Contact</h4>
             <a href={`mailto:${site.email}`}>{site.email}</a>
             <a href={site.x}>X · @beyondstagezero</a>
-            <span className="footer-location">{site.place}</span>
+            {showPlace ? <span className="footer-location">{site.place}</span> : null}
           </div>
         </div>
         <div className="container footer-sites">

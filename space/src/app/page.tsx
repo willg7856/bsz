@@ -55,7 +55,7 @@ function MissionControlBackdrop() {
             <div className="mc-rows">
               <div className="mc-row">
                 <span>Range</span>
-                <span>VIC · CASA</span>
+                <span>TBC</span>
               </div>
               <div className="mc-row">
                 <span>Pad bus</span>

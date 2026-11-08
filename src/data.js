@@ -201,7 +201,7 @@ export const disciplines = [
   { code: 'AVIO', title: 'Avionics', desc: 'Flight computer, altimeter, GPS, and recovery electronics sized for sub-scale flight before the 30 km vehicle.' },
   { code: 'LINK', title: 'Range data', desc: 'Octopus — the pad and vehicle data link into Goods Shed mission control for live static fires and launches.' },
   { code: 'RECO', title: 'Recovery & landing', desc: 'Parachute recovery for B1M. Propulsive vertical landing, on folding drone arms, for full-scale STRAVOX.' },
-  { code: 'OPS', title: 'Mission ops', desc: 'CASA range path, Victorian launch planning, and Goods Shed operations for the flight programme.' },
+  { code: 'OPS', title: 'Mission ops', desc: 'Range clearance, launch planning, and Goods Shed operations for the flight programme.' },
 ]
 
 export const record = [
@@ -326,7 +326,7 @@ export const stages = [
     when: '2027-Q1',
     state: 'next',
     headline: 'Integrated full stack testing.',
-    body: 'Full vehicle systems review with all hardware integrated. Landing system deployment tests, end-to-end avionics check, and launch readiness review before CASA range clearance is sought.',
+    body: 'Full vehicle systems review with all hardware integrated. Landing system deployment tests, end-to-end avionics check, and launch readiness review before range clearance is sought.',
     readout: [['Systems review', 'Pending'], ['Range clearance', 'Pending'], ['Status', 'Upcoming']],
   },
   {
@@ -335,7 +335,7 @@ export const stages = [
     when: '2027-Q2',
     state: 'next',
     headline: 'Full scale 30 km flight.',
-    body: 'Vertical propulsive landing demonstration at a CASA-cleared range in Victoria. A full mission — boost to 30 km, airbrake descent, and controlled touchdown on four landing legs.',
+    body: 'Vertical propulsive landing demonstration at a cleared range. A full mission — boost to 30 km, airbrake descent, and controlled touchdown on four landing legs.',
     readout: [['Target apogee', '30 km'], ['Peak velocity', 'Mach 2.5'], ['Status', 'Planning']],
   },
 ]
@@ -360,7 +360,6 @@ export const b1mSpecs = [
   ['First engine', 'Done — pending regulatory approval'],
   ['Collaboration', 'Federation University'],
   ['Purpose', 'Systems validation for STRAVOX'],
-  ['Launch site', 'Victoria, AUS'],
   ['Status', 'In development'],
   ['First flight', 'Q1 – Q2 2027 — B1M-01'],
 ]
@@ -385,7 +384,7 @@ export const b1mMilestones = [
   { label: 'Vehicle design', status: 'done', note: 'Design complete — airframe, fins, and recovery bay sized for the B1M engine.' },
   { label: 'Vehicle fabrication', status: 'upcoming', note: 'Airframe construction and component manufacture.' },
   { label: 'Avionics integration', status: 'upcoming', note: 'Flight computer, altimeter, GPS, and recovery electronics — with Octopus linking pad/vehicle data to Goods Shed mission control.' },
-  { label: 'CASA range clearance', status: 'upcoming', note: 'Regulatory approval for launch at a CASA-cleared site in Victoria.' },
+  { label: 'Range clearance', status: 'upcoming', note: 'Regulatory approval for launch at a cleared site.' },
   { label: 'STRAVOX B1M-01 launch', status: 'upcoming', note: 'Target window Q1 – Q2 2027. 3 km apogee. Full flight telemetry. Recover and review.' },
 ]
 
@@ -404,7 +403,7 @@ export const missions = [
       'Avionics and flight computer in real conditions',
       'Recovery system deployment',
       'Collect full flight telemetry',
-      'CASA range clearance',
+      'Range clearance',
     ],
     specs: b1mSpecs,
     milestones: [
@@ -420,7 +419,7 @@ export const missions = [
       { label: 'Vehicle fabrication', status: 'upcoming', note: 'Airframe construction and component manufacture.' },
       { label: 'Avionics integration', status: 'upcoming', note: 'Flight computer, altimeter, GPS, and recovery electronics — with Octopus linking pad/vehicle data to Goods Shed mission control.' },
       { label: 'Ground systems test', status: 'upcoming', note: 'Full vehicle systems check on the pad before flight.' },
-      { label: 'CASA range clearance', status: 'upcoming', note: 'Regulatory approval for launch at a CASA-cleared site in Victoria.' },
+      { label: 'Range clearance', status: 'upcoming', note: 'Regulatory approval for launch at a cleared site.' },
       { label: 'Launch readiness review', status: 'upcoming', note: 'Final internal review before committing to launch day.' },
       { label: 'STRAVOX B1M-01 launch', status: 'upcoming', note: 'Target window Q1 – Q2 2027. 3 km apogee. Full flight telemetry. Recover and review.' },
     ],
@@ -692,7 +691,7 @@ export const news = [
     display: 'May 2026',
     tag: 'Programme',
     title: 'STRAVOX B1M-01 announced',
-    body: 'Our first planned mission is STRAVOX B1M-01 — a sub-scale flight to 3 km apogee on a BSZ-built KNSB engine. B1M is our systems validation vehicle: it lets us test avionics, recovery, and propulsion in real flight conditions before committing to the full 30 km STRAVOX programme. We are targeting launch in Q4 2026 to Q1 2027 from a CASA-cleared site in Victoria.',
+    body: 'Our first planned mission is STRAVOX B1M-01 — a sub-scale flight to 3 km apogee on a BSZ-built KNSB engine. B1M is our systems validation vehicle: it lets us test avionics, recovery, and propulsion in real flight conditions before committing to the full 30 km STRAVOX programme. We are targeting launch in Q4 2026 to Q1 2027 from a cleared launch site.',
   },
   {
     date: '2026-04-26',
