@@ -125,7 +125,6 @@ export function checkoutForm(order, { orderId, origin }) {
  */
 export async function createCheckout(request, deps) {
   const json = (data, status = 200) => Response.json(data, { status })
-  if (deps.open === false) return json({ error: 'Pre-orders are not open yet.' }, 403)
   if (!deps.stripeKey) return json({ error: 'Online ordering is not set up yet. Please email us instead.' }, 503)
   let order
   try {
