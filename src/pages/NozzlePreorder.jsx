@@ -149,7 +149,7 @@ export default function NozzlePreorder() {
                     ['We email you', 'To confirm it, suggest changes, or refund you in full.'],
                   ]
                 : [
-                    ['Pre-order for free', 'No payment now. Your model and numbers come to us.'],
+                    ['Register interest', 'Free, no payment now. Your model and numbers come to us.'],
                     ['We email you', 'To confirm it or suggest changes, and with the price before anything is charged.'],
                   ]),
             ].map(([title, body], index) => (

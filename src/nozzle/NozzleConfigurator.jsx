@@ -205,7 +205,7 @@ export default function NozzleConfigurator() {
           Thanks{registered ? <> — your order number is <strong className="mono">{registered}</strong></> : null}. Nothing has been
           charged. We&apos;ve emailed you a confirmation, and we&apos;ll review your design and be in touch before we take any payment.
         </p>
-        <a className="btn" href="/nozzles/preorder">Pre-order another</a>
+        <a className="btn" href="/nozzles/preorder">{free ? 'Register another design' : 'Pre-order another'}</a>
       </div>
     )
   }
@@ -383,7 +383,7 @@ export default function NozzleConfigurator() {
                 ? `Uploading your model… ${Math.round(submit.progress)}%`
                 : submit.state === 'paying'
                   ? (free ? 'Sending your pre-order…' : 'Opening secure checkout…')
-                  : (free ? 'Pre-order for free →' : `Pre-order for ${price} →`)}
+                  : (free ? 'Register interest →' : `Pre-order for ${price} →`)}
             </button>
             <p className="nozzle-help">
               {free
