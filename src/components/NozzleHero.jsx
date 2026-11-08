@@ -260,7 +260,7 @@ export default function NozzleHero({ showProgrammeLink = false, aside = null }) 
 
       <div className="nozzle-hero-ui">
         <div className="nozzle-hero-left">
-          <p className="nozzle-hero-kicker">Ceramic nozzles · pre-orders open</p>
+          <p className="nozzle-hero-kicker">Ceramic nozzles · {NOZZLE_ORDER.takingPayment ? 'pre-orders open' : 'register your interest'}</p>
           <div className="nozzle-hero-actions">
             <Link className="btn btn-ink nozzle-hero-cta" to="/nozzles/preorder">{NOZZLE_ORDER.takingPayment ? 'Pre-order a nozzle' : 'Register interest'} →</Link>
             {showProgrammeLink ? <Link className="btn nozzle-hero-more" to="/nozzles">About the nozzles</Link> : null}

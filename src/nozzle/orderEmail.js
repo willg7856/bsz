@@ -87,7 +87,8 @@ function numberRows(o) {
 export function teamEmail(o, { attached, fileSize }) {
   const makeToNumbers = o.makeTo.startsWith('numbers')
   const status = o.paid ? `${o.paid} paid` : 'free, no payment taken'
-  const subject = `New nozzle pre-order ${o.orderId}: ${status}${makeToNumbers ? ' · make to their numbers' : ''}`
+  const kind = o.paid ? 'pre-order' : 'registration of interest'
+  const subject = `New nozzle ${kind} ${o.orderId}: ${status}${makeToNumbers ? ' · make to their numbers' : ''}`
   const fileLine = attached
     ? `${esc(o.fileName)} is attached.`
     : `${esc(o.fileName)} is ${fileSize ? `${(fileSize / 1024 / 1024).toFixed(1)} MB, ` : ''}too big to attach. Download it from Vercel → Storage → the Blob store → <code>${esc(o.filePath)}</code>.`
@@ -119,18 +120,23 @@ ${table([
   return { subject, html, text }
 }
 
+const FREE_NOTE = "Registering is free, so nothing has been charged. We'll email you with the price before we take any payment, and you can change your mind then."
+
 export function customerEmail(o, { teamEmail: team }) {
   const first = o.name.split(' ')[0] || 'there'
   const subject = `We've got your nozzle design (${o.orderId})`
   const makeTo = o.makeTo.startsWith('numbers') ? 'the numbers you entered' : 'your uploaded model'
+  const thanks = o.paid
+    ? `Thanks for pre-ordering a custom ceramic nozzle. Your order number is ${o.orderId} and we've received ${o.paid}.`
+    : `Thanks for registering your interest in a custom ceramic nozzle. Your reference number is ${o.orderId}.`
   const nextStep = o.paid
     ? "we'll check your design can be cast, then email you to confirm it, suggest changes, or refund you in full if we can't make it."
     : "we'll check your design can be cast, then email you to confirm it or suggest changes."
   const html = `
 <div style="font:15px/1.55 -apple-system,Segoe UI,Roboto,sans-serif;color:#0b0d0f">
 <p>Hi ${esc(first)},</p>
-<p>Thanks for pre-ordering a custom ceramic nozzle. Your order number is <strong>${esc(o.orderId)}</strong>${o.paid ? ` and we've received ${esc(o.paid)}` : ''}.</p>
-${o.paid ? '' : "<p>Pre-orders are free for now, so nothing has been charged. We'll email you with the price before we take any payment, and you can change your mind then.</p>"}
+<p>${esc(thanks)}</p>
+${o.paid ? '' : `<p>${esc(FREE_NOTE)}</p>`}
 <p>Here's what you sent us:</p>
 ${table([...numberRows(o), ['We will make it to', esc(makeTo)], ['File', esc(o.fileName)], ['Notes', esc(o.notes)]])}
 <p><strong>What happens next:</strong> ${esc(nextStep)}</p>
@@ -140,8 +146,8 @@ ${table([...numberRows(o), ['We will make it to', esc(makeTo)], ['File', esc(o.f
   const text = [
     `Hi ${first},`,
     '',
-    `Thanks for pre-ordering a custom ceramic nozzle. Your order number is ${o.orderId}${o.paid ? ` and we've received ${o.paid}` : ''}.`,
-    o.paid ? '' : "Pre-orders are free for now, so nothing has been charged. We'll email you with the price before we take any payment, and you can change your mind then.",
+    thanks,
+    o.paid ? '' : FREE_NOTE,
     '',
     `Throat Ø ${o.throat} mm · Exit Ø ${o.exit} mm · Conv ${o.conv}° · Div ${o.div}°`,
     `We will make it to ${makeTo}. File: ${o.fileName}`,

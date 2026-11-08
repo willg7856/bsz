@@ -44,7 +44,7 @@ test('emails the team (with the STL) and the customer, and charges nothing', asy
   const [team, customer] = d.sent
   assert.deepEqual(team.body.to, ['team@example.com', 'second@example.com'])
   assert.equal(team.body.reply_to, 'ada@example.com')
-  assert.match(team.body.subject, /free, no payment taken · make to their numbers/)
+  assert.match(team.body.subject, /^New nozzle registration of interest BSZ-N-\w+: free, no payment taken · make to their numbers$/)
   assert.doesNotMatch(team.body.html, /Stripe|Ship to/)
   assert.equal(team.body.attachments[0].filename, 'my-nozzle.stl')
   assert.equal(team.body.attachments[0].content, 'AQIDBA==')
@@ -52,6 +52,8 @@ test('emails the team (with the STL) and the customer, and charges nothing', asy
 
   assert.deepEqual(customer.body.to, ['ada@example.com'])
   assert.match(customer.body.text, /nothing has been charged/)
+  assert.match(customer.body.text, /Thanks for registering your interest/)
+  assert.doesNotMatch(customer.body.text + team.body.subject, /pre-?order/i)
   assert.doesNotMatch(customer.body.text, /refund|received \d/)
 })
 

@@ -183,7 +183,7 @@ export default function NozzleConfigurator() {
         window.location.assign(data.url)
         return
       }
-      if (!res.ok || !data.ok) throw new Error(data.error || 'We could not send your pre-order. Please try again.')
+      if (!res.ok || !data.ok) throw new Error(data.error || 'We could not send your registration. Please try again.')
       setRegistered(data.orderId || '')
       setSubmit({ state: 'idle', progress: 0, error: '' })
       document.getElementById('custom')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -200,9 +200,9 @@ export default function NozzleConfigurator() {
     return (
       <div className="contact-success nozzle-paid">
         <span className="contact-success-icon" aria-hidden="true">✓</span>
-        <h2>Pre-order received</h2>
+        <h2>Interest registered</h2>
         <p>
-          Thanks{registered ? <> — your order number is <strong className="mono">{registered}</strong></> : null}. Nothing has been
+          Thanks{registered ? <> — your reference number is <strong className="mono">{registered}</strong></> : null}. Nothing has been
           charged. We&apos;ve emailed you a confirmation, and we&apos;ll review your design and be in touch before we take any payment.
         </p>
         <a className="btn" href="/nozzles/preorder">{free ? 'Register another design' : 'Pre-order another'}</a>
@@ -247,7 +247,7 @@ export default function NozzleConfigurator() {
         ) : (
           <>
             <p className="nozzle-drop-title">Drop your nozzle STL here</p>
-            <p className="nozzle-drop-sub">The model stays on your computer until you pre-order. Max {NOZZLE_ORDER.maxFileBytes / 1024 / 1024} MB.</p>
+            <p className="nozzle-drop-sub">The model stays on your computer until you {NOZZLE_ORDER.takingPayment ? 'pre-order' : 'register'}. Max {NOZZLE_ORDER.maxFileBytes / 1024 / 1024} MB.</p>
             <button type="button" className="btn btn-ink" onClick={() => inputRef.current.click()}>Choose STL file</button>
           </>
         )}
@@ -372,7 +372,7 @@ export default function NozzleConfigurator() {
               <input type="checkbox" required />
               <span>
                 {free
-                  ? <>I understand this is a free pre-order. Nothing is charged now. Beyond Stage Zero will review my design, may suggest changes, and will email me with the price before taking any payment.</>
+                  ? <>I understand registering my interest is free and nothing is charged now. Beyond Stage Zero will review my design, may suggest changes, and will email me with the price before taking any payment.</>
                   : <>I understand this is a pre-order. Beyond Stage Zero will review my design and may suggest changes. If it can&apos;t be made, I get a full refund.</>}
               </span>
             </label>
@@ -382,7 +382,7 @@ export default function NozzleConfigurator() {
               {submit.state === 'uploading'
                 ? `Uploading your model… ${Math.round(submit.progress)}%`
                 : submit.state === 'paying'
-                  ? (free ? 'Sending your pre-order…' : 'Opening secure checkout…')
+                  ? (free ? 'Sending your registration…' : 'Opening secure checkout…')
                   : (free ? 'Register interest →' : `Pre-order for ${price} →`)}
             </button>
             <p className="nozzle-help">
