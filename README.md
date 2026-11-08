@@ -36,14 +36,16 @@ The Next.js app under [`space/`](./space) remains available if you later want a 
 ## Custom nozzle pre-orders (`/nozzles/preorder`)
 
 Customers upload an STL, check the throat/exit/angle numbers measured in the
-browser (`src/nozzle/analyzeNozzle.js`), and pay a fixed pre-order price through
-Stripe Checkout. Price, currency, ship-to countries and the upload limit live in
-`src/nozzle/order.js`.
+browser (`src/nozzle/analyzeNozzle.js`), and pre-order.
 
-**Opening and closing pre-orders:** `open` in `src/nozzle/order.js`. While it
-is `false`, `/nozzles/preorder` shows a countdown to `opensAt`, every
-pre-order button reads "Pre-orders open soon", and the checkout and upload APIs
-refuse orders. Set it to `true` and deploy to open pre-orders.
+**Free or paid:** `takingPayment` in `src/nozzle/order.js`.
+- `false` (now): pre-orders are free. The form posts to `/api/nozzle-register`,
+  which emails the team the order with the STL attached and the customer a
+  confirmation that nothing has been charged. Needs `RESEND_API_KEY` and
+  `BLOB_READ_WRITE_TOKEN`. Every pre-order is in the team inbox
+  (`ORDER_EMAIL_TO`), with an order number.
+- `true`: the form goes to Stripe Checkout for a fixed price (setup below). Price, currency, ship-to countries and the upload limit live in
+`src/nozzle/order.js`.
 
 Vercel project setup:
 

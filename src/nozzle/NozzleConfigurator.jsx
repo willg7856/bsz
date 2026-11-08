@@ -58,6 +58,7 @@ export default function NozzleConfigurator() {
   const [dragging, setDragging] = useState(false)
   const [submit, setSubmit] = useState({ state: 'idle', progress: 0, error: '' })
   const [returned] = useState(readOrderReturn)
+  const [registered, setRegistered] = useState(null) // order id of a free pre-order
   const [makeTo, setMakeTo] = useState('')
   const inputRef = useRef(null)
   const workerRef = useRef(null)
@@ -154,7 +155,7 @@ export default function NozzleConfigurator() {
         onUploadProgress: ({ percentage }) => setSubmit((s) => ({ ...s, progress: percentage })),
       })
       setSubmit({ state: 'paying', progress: 100, error: '' })
-      const res = await fetch('/api/nozzle-checkout', {
+      const res = await fetch(NOZZLE_ORDER.takingPayment ? '/api/nozzle-checkout' : '/api/nozzle-register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -177,8 +178,15 @@ export default function NozzleConfigurator() {
         }),
       })
       const data = await res.json().catch(() => ({}))
-      if (!res.ok || !data.url) throw new Error(data.error || 'We could not start the payment.')
-      window.location.assign(data.url)
+      if (NOZZLE_ORDER.takingPayment) {
+        if (!res.ok || !data.url) throw new Error(data.error || 'We could not start the payment.')
+        window.location.assign(data.url)
+        return
+      }
+      if (!res.ok || !data.ok) throw new Error(data.error || 'We could not send your pre-order. Please try again.')
+      setRegistered(data.orderId || '')
+      setSubmit({ state: 'idle', progress: 0, error: '' })
+      document.getElementById('custom')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     } catch (error) {
       setSubmit({ state: 'idle', progress: 0, error: error?.message || 'Something went wrong. Please try again.' })
     }
@@ -186,6 +194,21 @@ export default function NozzleConfigurator() {
 
   const price = `$${NOZZLE_ORDER.amount} ${NOZZLE_ORDER.currency}`
   const working = submit.state !== 'idle'
+  const free = !NOZZLE_ORDER.takingPayment
+
+  if (registered !== null) {
+    return (
+      <div className="contact-success nozzle-paid">
+        <span className="contact-success-icon" aria-hidden="true">✓</span>
+        <h2>Pre-order received</h2>
+        <p>
+          Thanks{registered ? <> — your order number is <strong className="mono">{registered}</strong></> : null}. Nothing has been
+          charged. We&apos;ve emailed you a confirmation, and we&apos;ll review your design and be in touch before we take any payment.
+        </p>
+        <a className="btn" href="/nozzles/preorder">Pre-order another</a>
+      </div>
+    )
+  }
 
   if (returned.status === 'paid') {
     return (
@@ -348,7 +371,9 @@ export default function NozzleConfigurator() {
             <label className="nozzle-agree">
               <input type="checkbox" required />
               <span>
-                I understand this is a pre-order. Beyond Stage Zero will review my design and may suggest changes. If it can&apos;t be made, I get a full refund.
+                {free
+                  ? <>I understand this is a free pre-order. Nothing is charged now. Beyond Stage Zero will review my design, may suggest changes, and will email me with the price before taking any payment.</>
+                  : <>I understand this is a pre-order. Beyond Stage Zero will review my design and may suggest changes. If it can&apos;t be made, I get a full refund.</>}
               </span>
             </label>
 
@@ -357,11 +382,13 @@ export default function NozzleConfigurator() {
               {submit.state === 'uploading'
                 ? `Uploading your model… ${Math.round(submit.progress)}%`
                 : submit.state === 'paying'
-                  ? 'Opening secure checkout…'
-                  : `Pre-order for ${price} →`}
+                  ? (free ? 'Sending your pre-order…' : 'Opening secure checkout…')
+                  : (free ? 'Pre-order for free →' : `Pre-order for ${price} →`)}
             </button>
             <p className="nozzle-help">
-              Payment and your shipping address are taken by Stripe. Stripe shows the price in your own currency.
+              {free
+                ? 'No payment now. We email you the price before anything is charged.'
+                : 'Payment and your shipping address are taken by Stripe. Stripe shows the price in your own currency.'}
             </p>
           </form>
         </div>

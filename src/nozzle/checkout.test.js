@@ -115,10 +115,3 @@ test('edited numbers need a make-to answer', async () => {
   await createCheckout(req({ ...good, edited: false, makeTo: 'match' }), unedited)
   assert.match(unedited.calls[0].init.body.get('metadata[make_to]'), /numbers match/)
 })
-
-test('refuses orders while pre-orders are closed', async () => {
-  const d = deps({ open: false })
-  const res = await createCheckout(req(good), d)
-  assert.equal(res.status, 403)
-  assert.equal(d.calls.length, 0)
-})

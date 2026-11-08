@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { NOZZLE_ORDER, formatOpensAt } from '../nozzle/order'
 import NozzleHero from '../components/NozzleHero'
 import { nozzleDesign, nozzleMould } from '../data'
 import { useTitle } from '../useTitle'
@@ -94,11 +93,10 @@ export default function Nozzles() {
           <p className="kicker">Pre-orders</p>
           <h2>Your design, cast in ceramic.</h2>
           <p className="copy">
-            {NOZZLE_ORDER.open ? '' : `Pre-orders open ${formatOpensAt()}. `}
             Upload your nozzle, check the numbers we measure from it, and pre-order. Questions first? Use the{' '}
             <Link to="/contact?reason=Ceramic%20nozzle%20enquiries">contact page</Link>.
           </p>
-          <Link className="btn btn-ink" to="/nozzles/preorder">{NOZZLE_ORDER.open ? 'Pre-order a nozzle' : 'Pre-orders open soon'}</Link>
+          <Link className="btn btn-ink" to="/nozzles/preorder">Pre-order a nozzle</Link>
         </div>
       </section>
     </div>

@@ -17,7 +17,7 @@ const num = (value, label, min, max) => {
 }
 // eslint-disable-next-line no-control-regex -- strip control characters from customer text
 const text = (value, max) => String(value ?? '').replace(/[\u0000-\u001f\u007f]/g, ' ').trim().slice(0, max)
-const fmt = (n) => String(Math.round(n * 1000) / 1000)
+export const fmt = (n) => String(Math.round(n * 1000) / 1000)
 
 export function validateOrder(body) {
   if (!body || typeof body !== 'object') throw new OrderError('Missing order details.')
@@ -125,7 +125,6 @@ export function checkoutForm(order, { orderId, origin }) {
  */
 export async function createCheckout(request, deps) {
   const json = (data, status = 200) => Response.json(data, { status })
-  if (deps.open === false) return json({ error: 'Pre-orders are not open yet.' }, 403)
   if (!deps.stripeKey) return json({ error: 'Online ordering is not set up yet. Please email us instead.' }, 503)
   let order
   try {
