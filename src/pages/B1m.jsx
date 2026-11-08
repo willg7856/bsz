@@ -7,7 +7,7 @@ const flightPath = [
   'Vehicle design',
   'Vehicle fabrication',
   'Avionics integration',
-  'CASA range clearance',
+  'Range clearance',
   'STRAVOX B1M-01 launch',
 ]
 

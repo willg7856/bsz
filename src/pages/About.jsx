@@ -38,7 +38,7 @@ export default function About() {
           <div><dt>Location</dt><dd>Creswick, Victoria · Australia</dd></div>
           <div><dt>Workshop</dt><dd>Machining, assembly, propellant work</dd></div>
           <div><dt>Mission control</dt><dd>Goods Shed ops via Octopus data link</dd></div>
-          <div><dt>Launch path</dt><dd>CASA-cleared Victorian range planning</dd></div>
+          <div><dt>Launch path</dt><dd>Range clearance in planning</dd></div>
         </dl>
       </section>
 
