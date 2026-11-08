@@ -201,43 +201,60 @@ h1, h2, h3, h4, p { margin: 0; }
 .brand-logo-bracket { letter-spacing: 0.06em; font-weight: 400; opacity: 0.9; }
 
 .nav-links {
-  align-items: center;
-  gap: 6px;
+  position: relative;
+  align-self: stretch;
+  align-items: stretch;
+  gap: 4px;
   display: flex;
 }
 
+/* Plain text links; the current page gets an orange bar sitting on the bar's bottom edge. */
 .nav-btn {
   appearance: none;
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 2rem;
-  padding: 0.35rem 0.75rem;
-  border: 1px solid transparent;
+  height: 100%;
+  padding: 0 0.85rem;
+  border: 0;
   background: transparent;
-  color: var(--ink-400);
+  color: #9aa3ad;
   font-family: var(--font-display);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.nav-btn::after {
+  content: '';
+  position: absolute;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: -1px;
+  height: 2px;
+  background: var(--ignition-500);
+  transform: scaleX(0);
+  transition: transform 0.2s var(--ease-out);
 }
 
 .nav-btn:hover,
-.nav-btn.active,
 .nav-dropdown:hover > .nav-btn,
 .nav-dropdown:focus-within > .nav-btn {
-  border-color: color-mix(in srgb, var(--ignition-400) 75%, transparent);
-  background: color-mix(in srgb, var(--ignition-500) 18%, transparent);
-  color: var(--ignition-400);
+  color: var(--paper-50);
 }
 
+.nav-btn.active { color: var(--paper-50); }
+.nav-btn.active::after { transform: scaleX(1); }
+.nav-dropdown:hover > .nav-btn::after,
+.nav-dropdown:focus-within > .nav-btn::after { transform: scaleX(1); opacity: 0.45; }
+.nav-dropdown.active > .nav-btn::after { opacity: 1; }
+
 .nav-dropdown {
-  align-items: center;
-  height: 64px;
   display: flex;
   position: relative;
 }
@@ -258,20 +275,39 @@ h1, h2, h3, h4, p { margin: 0; }
   transform: rotate(180deg);
 }
 
+/* The panel hangs from the bar's bottom edge, with an orange top rule. */
 .nav-dropdown-menu {
+  display: grid;
+  gap: 2px;
   background: var(--ink-900);
   border: 1px solid var(--ink-700);
+  border-top: 2px solid var(--ignition-500);
+  box-shadow: 0 24px 48px -16px #000000b3;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  min-width: 280px;
+  width: 300px;
   z-index: 50;
   padding: 8px;
   position: absolute;
-  top: calc(100% - 6px);
-  left: 50%;
-  transform: translate(-50%, 6px);
+  top: 100%;
+  left: 0;
+  transform: translateY(-4px);
   transition: opacity var(--dur-fast), transform var(--dur-fast), visibility var(--dur-fast);
+}
+
+/* The wide panel lines up with the right end of the link row, so it never runs off-screen. */
+.nav-dropdown--wide { position: static; }
+.nav-dropdown-menu--wide {
+  grid-template-columns: 1fr 1fr;
+  width: 560px;
+  left: auto;
+  right: 0;
+}
+
+.nav-dropdown-menu--end {
+  left: auto;
+  right: 0;
 }
 
 .nav-dropdown:hover .nav-dropdown-menu,
@@ -279,45 +315,75 @@ h1, h2, h3, h4, p { margin: 0; }
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translate(-50%, 0);
+  transform: translateY(0);
 }
 
 .nav-dropdown-item {
-  color: var(--ink-400);
+  position: relative;
+  color: var(--paper-100);
   flex-direction: column;
   gap: 4px;
-  padding: 12px 14px;
+  padding: 12px 14px 12px 16px;
   display: flex;
-  border: 1px solid transparent;
-  transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
+  transition: background var(--dur-fast), color var(--dur-fast);
+}
+
+.nav-dropdown-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  background: var(--ignition-500);
+  opacity: 0;
+  transition: opacity var(--dur-fast);
 }
 
 .nav-dropdown-item:hover,
+.nav-dropdown-item:focus-visible,
 .nav-dropdown-item.active {
   background: var(--ink-800);
-  border-color: transparent;
-  color: var(--paper-100);
 }
+
+.nav-dropdown-item:hover::before,
+.nav-dropdown-item:focus-visible::before,
+.nav-dropdown-item.active::before { opacity: 1; }
+
+.nav-dropdown-item.active .nav-dropdown-item-label { color: var(--ignition-400); }
 
 .nav-dropdown-item-label {
   font-family: var(--font-display);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .nav-dropdown-item-note {
   font-family: var(--font-body);
   letter-spacing: 0;
   text-transform: none;
-  color: var(--ink-400);
+  color: #8b949e;
   font-size: 0.75rem;
   line-height: 1.4;
 }
 
 .nav-dropdown-item:hover .nav-dropdown-item-note,
-.nav-dropdown-item.active .nav-dropdown-item-note { color: var(--ink-300); }
+.nav-dropdown-item.active .nav-dropdown-item-note { color: #b8bfc7; }
+
+/* Thin rule that separates the page links from the Support button. */
+.nav-divider {
+  align-self: center;
+  width: 1px;
+  height: 20px;
+  margin: 0 10px 0 6px;
+  background: var(--ink-600);
+}
+
+.nav-cta {
+  align-self: center;
+}
 
 .nav-cta,
 .nav-cta-mobile {
@@ -342,6 +408,13 @@ h1, h2, h3, h4, p { margin: 0; }
   background: var(--paper-50);
   border-color: var(--paper-50);
   color: var(--ink-900);
+}
+
+/* Once the page scrolls, the bar goes solid and casts a soft shadow. */
+.nav { transition: background var(--dur-fast), box-shadow 0.2s ease; }
+.nav.is-scrolled {
+  background: color-mix(in srgb, var(--ink-900) 98%, transparent);
+  box-shadow: 0 8px 24px -12px #000000cc;
 }
 
 .nav-burger {
