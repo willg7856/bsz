@@ -11,11 +11,13 @@ const tbc = (value) => value ?? 'TBC'
 // Standard sizes only appear when nozzlePreorder.sizes in data.js has entries.
 const hasSizes = sizes.length > 0
 
+const free = !NOZZLE_ORDER.takingPayment
+
 const faq = [
   {
     q: 'When will it ship?',
     a: shipWindow
-      ? `We expect to ship pre-orders in the ${shipWindow}. We will email you as production moves along.`
+      ? `We expect to ship ${free ? 'the first nozzles' : 'pre-orders'} in the ${shipWindow}. We will email you as production moves along.`
       : 'We will confirm a ship date by email once your order is in production.',
   },
   {
@@ -30,7 +32,7 @@ const faq = [
       }
     : {
         q: 'Do I pay anything now?',
-        a: "No. Pre-orders are free for now. Your pre-order sends us your model and numbers, we check that it can be cast, and we email you to confirm it or suggest changes. We'll email you the price before we take any payment, and you can change your mind then.",
+        a: "No. Registering your interest is free. It sends us your model and numbers, we check that it can be cast, and we email you to confirm it or suggest changes. We'll email you the price before we take any payment, and you can change your mind then.",
       },
   {
     q: 'Which files can I upload?',
@@ -74,7 +76,7 @@ function SizeCard({ size, estimate }) {
 }
 
 export default function NozzlePreorder() {
-  useTitle('Pre-order ceramic nozzles')
+  useTitle(free ? 'Register interest in ceramic nozzles' : 'Pre-order ceramic nozzles')
   const estimate = useLocalEstimate(localCurrencies)
 
   return (
@@ -82,12 +84,14 @@ export default function NozzlePreorder() {
       <header className="masthead">
         <div className="masthead-inner">
           <div>
-            <p className="kicker">Ceramic nozzles · Pre-order</p>
-            <h1>Pre-order a nozzle.</h1>
+            <p className="kicker">Ceramic nozzles · {free ? 'Register interest' : 'Pre-order'}</p>
+            <h1>{free ? 'Register your interest.' : 'Pre-order a nozzle.'}</h1>
             <p className="lede">
               {hasSizes
                 ? 'Pick one of our standard sizes, or send us your own design and we will make it in ceramic.'
-                : `Upload your nozzle design, check the numbers we measure from it, and pre-order it cast in ceramic.${NOZZLE_ORDER.takingPayment ? '' : ' Pre-orders are free for now.'}`}
+                : free
+                  ? 'Upload your nozzle design, check the numbers we measure from it, and register your interest in having it cast in ceramic. It’s free.'
+                  : 'Upload your nozzle design, check the numbers we measure from it, and pre-order it cast in ceramic.'}
             </p>
             <div className="actions">
               {hasSizes ? <a className="btn btn-ink" href="#standard">Standard sizes</a> : null}
@@ -104,7 +108,7 @@ export default function NozzlePreorder() {
               </>
             ) : (
               <>
-                <div className="side-row"><span>Custom pre-order</span><span>Free for now</span></div>
+                <div className="side-row"><span>Custom nozzle</span><span>Free to register</span></div>
                 <div className="side-row"><span>Payment</span><span>Not taken yet</span></div>
               </>
             )}

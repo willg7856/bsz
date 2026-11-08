@@ -227,9 +227,9 @@ export default function NozzleResearch() {
 
       <section className="section dark nozzle-orders">
         <div className="wrap">
-          <p className="kicker">Pre-orders</p>
+          <p className="kicker">{NOZZLE_ORDER.takingPayment ? 'Pre-orders' : 'Register interest'}</p>
           <h2>Your design, cast in ceramic.</h2>
-          <p className="copy">Upload your nozzle, check the numbers we measure from it, and pre-order.</p>
+          <p className="copy">Upload your nozzle, check the numbers we measure from it, and {NOZZLE_ORDER.takingPayment ? 'pre-order' : 'register your interest. It\u2019s free'}.</p>
           <Link className="btn btn-ink" to="/nozzles/preorder">{NOZZLE_ORDER.takingPayment ? 'Pre-order a nozzle' : 'Register interest'}</Link>
         </div>
       </section>

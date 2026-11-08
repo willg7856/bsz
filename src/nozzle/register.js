@@ -42,7 +42,7 @@ export async function registerPreorder(request, deps) {
   const json = (data, status = 200) => Response.json(data, { status, headers: { 'Cache-Control': 'no-store' } })
   if (!deps.resendKey) {
     log('Nozzle pre-order received but RESEND_API_KEY is not set')
-    return json({ error: 'Pre-orders are not working right now. Please email us instead.' }, 503)
+    return json({ error: 'Registrations are not working right now. Please email us instead.' }, 503)
   }
 
   let order
@@ -84,7 +84,7 @@ export async function registerPreorder(request, deps) {
     })
   } catch (e) {
     log('Nozzle pre-order team email failed', orderId, e?.message)
-    return json({ error: 'We could not send your pre-order. Please try again, or email us.' }, 502)
+    return json({ error: 'We could not send your registration. Please try again, or email us.' }, 502)
   }
 
   // The team has the order now; a failed confirmation shouldn't make the customer submit it twice.
