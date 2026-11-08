@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { site } from '../data'
+import NewsletterSignup from './NewsletterSignup'
 
 const projects = [
   { path: '/stravox', label: 'STRAVOX', note: 'Full-scale reusable launch vehicle' },
@@ -181,6 +182,9 @@ export default function Layout() {
         <Outlet />
       </main>
       <footer className="footer">
+        <div className="container">
+          <NewsletterSignup />
+        </div>
         <div className="container footer-inner">
           <div className="footer-brand">
             <Link to="/" className="footer-logo" aria-label="Beyond Stage Zero home"><Logo /></Link>

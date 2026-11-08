@@ -71,4 +71,23 @@ number, measured and submitted numbers, notes and the uploaded file's path are
 in the payment's **Metadata**. Download the file from Vercel → Storage → the
 Blob store → `nozzle-uploads/`. Refund from the payment page in Stripe.
 
-`npm test` runs the geometry and checkout tests.
+## Email updates sign-up (footer, every page)
+
+People enter their email in the footer; `api/subscribe.js` adds them to the
+Resend contact list. Logic and tests: `src/newsletter/subscribe.js`.
+
+Setup (uses the same Resend account as the order emails):
+
+1. Resend → **API Keys → Create**, permission **Full access** (a sending-only
+   key can't add contacts). Add it in Vercel as `RESEND_CONTACTS_KEY`, then
+   redeploy. (If `RESEND_API_KEY` is already full access, that is used instead.)
+2. Optional: to collect sign-ups into one specific audience, put its id in
+   `RESEND_AUDIENCE_ID`.
+
+Sign-ups appear in Resend under **Audience / Contacts**. To email everyone,
+use Resend → **Broadcasts**: write the update, choose the contacts, send.
+Broadcasts add an unsubscribe link and skip anyone who has unsubscribed.
+
+Until the key is set, the form shows "Sign-ups are not working right now".
+
+`npm test` runs the geometry, checkout and sign-up tests.
