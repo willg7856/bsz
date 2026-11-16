@@ -7,11 +7,11 @@ export default function Footer() {
         <div className="footer-cta">
           <h2>Ready to Build Something Great?</h2>
           <p>Let's talk about your next project. No pressure, just a conversation.</p>
-          <a href="mailto:hello@apexagency.com" className="btn btn-white">hello@apexagency.com</a>
+          <a href="mailto:hello@beyondstagezero.com" className="btn btn-white">hello@beyondstagezero.com</a>
         </div>
         <div className="footer-bottom">
-          <span className="footer-logo">Apex Agency</span>
-          <span>© {new Date().getFullYear()} Apex Agency. All rights reserved.</span>
+          <span className="footer-logo">Beyond Stage Zero</span>
+          <span>© {new Date().getFullYear()} Beyond Stage Zero. All rights reserved.</span>
         </div>
       </div>
     </footer>

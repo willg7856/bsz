@@ -9,7 +9,7 @@ export default function Hero() {
           We Build <span className="highlight">Digital Experiences</span> That Drive Growth
         </h1>
         <p className="hero-sub">
-          Apex Agency is a full-service digital agency helping brands stand out, convert visitors,
+          Beyond Stage Zero is a full-service digital agency helping brands stand out, convert visitors,
           and scale with strategy-led design and development.
         </p>
         <div className="hero-actions">
