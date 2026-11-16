@@ -7,6 +7,8 @@ import { isTest, isTestPost } from '../testing'
 import useNow from '../useNow'
 import CountdownClock from './CountdownClock'
 
+const SPACE = 'https://beyondstagezero.space'
+
 /**
  * The first thing on the home page: the next test (from Octopus countdowns of type Test) with a
  * live T-minus clock, and the latest test update (news tagged Testing). Hidden if there's neither.
@@ -19,7 +21,7 @@ export default function TestingStrip() {
   const ref = useRef(null)
 
   const next = (feed?.countdowns || [])
-    .filter(isTest)
+    .filter((c) => isTest(c) && c.status !== 'done' && c.status !== 'scrubbed')
     .map((c) => ({ ...c, at: countdownTarget(c) }))
     .filter((c) => c.at > now - 60 * 60 * 1000) // keep T+ up for an hour
     .sort((a, b) => a.at - b.at)
@@ -45,6 +47,8 @@ export default function TestingStrip() {
 
   if (!show) return null
   const first = next[0]
+  // On test day people follow along on beyondstagezero.space.
+  const live = first && (first.status === 'live' || first.status === 'hold' || Math.abs(first.at - now) < 60 * 60 * 1000)
 
   return (
     <section className="testing-strip" ref={ref} aria-label="Testing">
@@ -52,7 +56,9 @@ export default function TestingStrip() {
         <p className="testing-strip-label">Testing</p>
         {first && (
           <div className="testing-strip-next">
-            <p className="testing-strip-kicker">{first.at > now ? 'Next test' : 'Test under way'}</p>
+            <p className="testing-strip-kicker">
+              {first.status === 'live' ? 'Live now' : first.status === 'hold' ? 'Holding' : first.at > now ? 'Next test' : 'Test under way'}
+            </p>
             <p className="testing-strip-name">{first.name}</p>
             <CountdownClock target={first.at} now={now} className="testing-strip-clock" />
             <p className="testing-strip-when">
@@ -68,7 +74,13 @@ export default function TestingStrip() {
             <span className="testing-strip-more">Read the update →</span>
           </Link>
         )}
-        <Link className="testing-strip-log" to="/tests">Full test log →</Link>
+        {live ? (
+          <a className="testing-strip-watch" href={SPACE}>
+            <span className="testing-strip-watch-dot" aria-hidden="true" /> Watch live
+          </a>
+        ) : (
+          <a className="testing-strip-log" href={SPACE}>Live on test day →</a>
+        )}
       </div>
     </section>
   )
