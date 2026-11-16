@@ -5,7 +5,7 @@ Monorepo for both public sites:
 | Domain | App | Folder | Stack |
 |--------|-----|--------|-------|
 | [beyondstagezero.com](https://beyondstagezero.com) | Main site | repo root | Vite + React |
-| [beyondstagezero.space](https://beyondstagezero.space) | Minimal brand page | [`space/`](./space) | Next.js |
+| [beyondstagezero.space](https://beyondstagezero.space) | Live test page | separate repo [`willg7856/bsz-space`](https://github.com/willg7856/bsz-space) | static HTML |
 
 ## beyondstagezero.com (root)
 
@@ -21,17 +21,9 @@ Vercel project settings:
 
 ## beyondstagezero.space
 
-Served from this same Vercel project (`beyondstagezero/bsz`). Edge middleware rewrites `.space` hosts to `public/space-landing.html` while keeping the URL as `https://beyondstagezero.space/` (static `index.html` would otherwise win before `vercel.json` rewrites).
-
-In Vercel → Project **bsz** → Settings → Domains, add:
-
-- `beyondstagezero.space`
-- `www.beyondstagezero.space` (optional)
-
-If the domain is still on an old/deleted project, remove it there first, then add it here. After that, every production deploy of this repo updates `.space` automatically.
-
-The Next.js app under [`space/`](./space) remains available if you later want a separate Vercel project with Root Directory = `space`.
-
+The live test page now has its own repo, [`willg7856/bsz-space`](https://github.com/willg7856/bsz-space), and its own
+Vercel project (`.space`), which serves `beyondstagezero.space` and `www.beyondstagezero.space`. It's run from
+Octopus's Test day page. The `space/` folder here is an older, unused Next.js version.
 
 ## Custom nozzle pre-orders (`/nozzles/preorder`)
 
