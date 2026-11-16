@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import B1mStaticFireNotice from '../components/B1mStaticFireNotice'
 import Countdowns from '../components/Countdowns'
+import TestingStrip from '../components/TestingStrip'
 import NozzleHero from '../components/NozzleHero'
 import { useTitle } from '../useTitle'
 
@@ -49,6 +50,7 @@ export default function Home() {
 
   return (
     <div className="home">
+      <TestingStrip />
       <NozzleHero
         showProgrammeLink
         aside={

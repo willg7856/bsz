@@ -11,6 +11,8 @@
   --seek: 26px;
   --screen: calc(100vh - 65px);
   --screen: calc(100svh - 65px);
+  /* Leave room for the testing strip above it on the home page */
+  --screen: calc(100svh - 65px - var(--test-strip-h, 0px));
   position: relative;
   height: var(--screen);
   min-height: 16rem;
