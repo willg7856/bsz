@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import B1mStaticFireNotice from '../components/B1mStaticFireNotice'
+import Countdowns from '../components/Countdowns'
 import NozzleHero from '../components/NozzleHero'
 import { useTitle } from '../useTitle'
 
@@ -88,6 +89,8 @@ export default function Home() {
           <div><dt>Ceramic nozzles</dt><dd>8 complete · next batch redesigned for ceramic</dd></div>
         </dl>
       </header>
+
+      <Countdowns />
 
       <section className="section home-build" aria-labelledby="on-the-bench">
         <div className="container home-build-inner">
