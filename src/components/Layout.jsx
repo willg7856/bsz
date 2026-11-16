@@ -194,6 +194,7 @@ export default function Layout() {
             <h4>Pages</h4>
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>
+            <Link to="/news">News</Link>
             <Link to="/stravox">STRAVOX</Link>
             <Link to="/b1m">B1M</Link>
             <Link to="/b1m-engine">B1M engine</Link>

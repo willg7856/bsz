@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
-import { disciplines, partners, record, team, values } from '../data'
+import { disciplines, partners, record as builtInRecord, team, values } from '../data'
+import { liveRecord, useOctopus } from '../octopus'
 import { useTitle } from '../useTitle'
 
 export default function About() {
+  const record = liveRecord(useOctopus(), builtInRecord)
   useTitle('About')
 
   return (

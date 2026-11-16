@@ -1,10 +1,13 @@
-// Not routed. Taken off the site for now; add the route back in App.jsx to restore it.
-import { news } from '../data'
+import { news as builtInNews } from '../data'
+import { liveNews, useOctopus } from '../octopus'
 import { useTitle } from '../useTitle'
 
+/** News posts are written in Octopus (BSZ site → News); data.js is the fallback. */
 export default function News() {
   useTitle('News')
+  const news = liveNews(useOctopus(), builtInNews)
   const [featured, ...rest] = news
+  if (!featured) return null
 
   return (
     <>
@@ -30,18 +33,36 @@ export default function News() {
           <article className="post">
             <p className="kicker"><span className="tag">{featured.tag}</span> · {featured.display}</p>
             <h2>{featured.title}</h2>
-            <p>{featured.body}</p>
+            <Body text={featured.body} />
+            {featured.link && <ReadMore href={featured.link} />}
           </article>
           <p className="kicker" style={{ marginTop: '1.5rem' }}>Previous updates</p>
           {rest.map((post) => (
             <article className="post" key={post.title}>
               <p className="kicker"><span className="tag">{post.tag}</span> · {post.display}</p>
               <h3>{post.title}</h3>
-              <p>{post.body}</p>
+              <Body text={post.body} />
+              {post.link && <ReadMore href={post.link} />}
             </article>
           ))}
         </div>
       </section>
     </>
+  )
+}
+
+/** Blank lines in a post become paragraphs. */
+function Body({ text }) {
+  return String(text || '')
+    .split(/\n\s*\n/)
+    .map((para, i) => <p key={i}>{para}</p>)
+}
+
+function ReadMore({ href }) {
+  const external = /^https?:/.test(href) && !href.includes('beyondstagezero.com')
+  return (
+    <p>
+      <a className="post-link" href={href} {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}>Read more →</a>
+    </p>
   )
 }

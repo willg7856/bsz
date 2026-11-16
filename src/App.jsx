@@ -7,6 +7,7 @@ import Contact from './pages/Contact'
 import Gallery from './pages/Gallery'
 import Home from './pages/Home'
 import Missions from './pages/Missions'
+import News from './pages/News'
 import NotFound from './pages/NotFound'
 import Nozzles from './pages/Nozzles'
 import NozzlePreorder from './pages/NozzlePreorder'
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="b1m" element={<B1m />} />
           <Route path="b1m-engine" element={<B1mEngine />} />
           <Route path="missions" element={<Missions />} />
+          <Route path="news" element={<News />} />
           <Route path="tests" element={<Tests />} />
           <Route path="nozzles" element={<Nozzles />} />
           <Route path="nozzles/preorder" element={<NozzlePreorder />} />
