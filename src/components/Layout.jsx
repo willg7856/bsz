@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
+import UpdateWatcher from './UpdateWatcher'
 import { site } from '../data'
 import NewsletterSignup from './NewsletterSignup'
 
@@ -133,6 +134,7 @@ export default function Layout() {
 
   return (
     <div className="app">
+      <UpdateWatcher />
       <a className="skip" href="#content">Skip to content</a>
       <header className={`nav${scrolled ? ' is-scrolled' : ''}`}>
         <div className="container nav-inner">

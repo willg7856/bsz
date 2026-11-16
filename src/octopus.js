@@ -1,19 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
 
 /**
  * Live site content from Octopus (ops.beyondstagezero.com) — the notice banner, track-record
- * numbers and news, edited on Octopus's "BSZ site" page.
+ * numbers, news and countdowns, edited on Octopus's "BSZ site" page.
  *
- * The feed is fetched once per visit and remembered for the session. If Octopus can't be
- * reached (or is slow), pages keep showing the built-in content from data.js, so the site
- * never breaks because of it.
+ * One shared copy of the feed for the whole page. It's refreshed every minute while the tab is
+ * visible (and straight away when someone comes back to the tab), so open pages pick up edits
+ * without a reload. If Octopus can't be reached, pages keep showing what they had — or the
+ * built-in content from data.js — so the site never breaks because of it.
  */
 
 const FEED = (import.meta.env.VITE_OCTOPUS_URL || 'https://ops.beyondstagezero.com') + '/api/public/stats'
 const CACHE_KEY = 'bsz-octopus-feed'
 const TIMEOUT_MS = 4000
-
-let pending = null
+const REFRESH_MS = 60_000
 
 function readCache() {
   try {
@@ -24,42 +24,78 @@ function readCache() {
   }
 }
 
-function load() {
-  if (!pending) {
-    const ctrl = new AbortController()
-    const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS)
-    pending = fetch(FEED, { signal: ctrl.signal })
-      .then((r) => (r.ok ? r.json() : null))
-      .then((feed) => {
-        if (feed && feed.managed) {
-          try {
-            sessionStorage.setItem(CACHE_KEY, JSON.stringify(feed))
-          } catch {
-            /* private mode — fine */
-          }
-          return feed
-        }
-        return null
-      })
-      .catch(() => null)
-      .finally(() => clearTimeout(timer))
-  }
-  return pending
+let current = readCache()
+let inflight = null
+let timer = null
+const listeners = new Set()
+
+function fetchFeed() {
+  if (inflight) return inflight
+  const ctrl = new AbortController()
+  const t = setTimeout(() => ctrl.abort(), TIMEOUT_MS)
+  inflight = fetch(FEED, { signal: ctrl.signal, cache: 'no-store' })
+    .then((r) => (r.ok ? r.json() : null))
+    .then((feed) => {
+      if (!feed || !feed.managed) return
+      // Only notify when something actually changed, so pages don't re-render every minute.
+      if (JSON.stringify(stripVolatile(feed)) === JSON.stringify(stripVolatile(current))) return
+      current = feed
+      try {
+        sessionStorage.setItem(CACHE_KEY, JSON.stringify(feed))
+      } catch {
+        /* private mode — fine */
+      }
+      listeners.forEach((fn) => fn())
+    })
+    .catch(() => {})
+    .finally(() => {
+      clearTimeout(t)
+      inflight = null
+    })
+  return inflight
 }
 
-/** The Octopus feed, or null while loading / if unreachable. */
+/** updatedAt changes on every request; ignore it when comparing. */
+function stripVolatile(feed) {
+  if (!feed) return null
+  const rest = { ...feed }
+  delete rest.updatedAt
+  return rest
+}
+
+function onVisible() {
+  if (document.visibilityState === 'visible') fetchFeed()
+}
+
+function start() {
+  if (timer) return
+  fetchFeed()
+  timer = setInterval(() => {
+    if (document.visibilityState === 'visible') fetchFeed()
+  }, REFRESH_MS)
+  document.addEventListener('visibilitychange', onVisible)
+}
+
+function stop() {
+  clearInterval(timer)
+  timer = null
+  document.removeEventListener('visibilitychange', onVisible)
+}
+
+function subscribe(onChange) {
+  listeners.add(onChange)
+  start()
+  return () => {
+    listeners.delete(onChange)
+    if (listeners.size === 0) stop()
+  }
+}
+
+const getSnapshot = () => current
+
+/** The Octopus feed (kept up to date), or null while loading / if unreachable. */
 export function useOctopus() {
-  const [feed, setFeed] = useState(readCache)
-  useEffect(() => {
-    let live = true
-    load().then((f) => {
-      if (live && f) setFeed(f)
-    })
-    return () => {
-      live = false
-    }
-  }, [])
-  return feed
+  return useSyncExternalStore(subscribe, getSnapshot, () => null)
 }
 
 /** Track-record numbers in data.js's shape ({ val, lbl, note }), from Octopus when it manages them. */
