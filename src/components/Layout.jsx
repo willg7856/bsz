@@ -14,6 +14,7 @@ const projects = [
 
 const company = [
   { path: '/about', label: 'About', note: 'Team, base, and partners' },
+  { path: '/news', label: 'News', note: 'Latest updates from the programme' },
   { path: '/gallery', label: 'Gallery', note: 'Build photos from the programme' },
   { path: '/contact', label: 'Contact', note: 'Sponsorship, joining, and enquiries' },
   { path: '/support', label: 'Support us', note: 'Help fund propellant, test gear and B1M' },
