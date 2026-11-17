@@ -58,7 +58,7 @@ export default function TestingStrip() {
         {first && (
           <div className="testing-strip-next">
             <p className="testing-strip-kicker">
-              {first.status === 'live' ? 'Live now' : first.status === 'hold' ? 'Holding' : first.at > now ? 'Next test' : 'Test under way'}
+              {first.status === 'live' ? 'In progress' : first.status === 'hold' ? 'Holding' : first.at > now ? 'Next test' : 'Test under way'}
             </p>
             <p className="testing-strip-name">{first.name}</p>
             <CountdownClock target={first.at} now={clockNow(first, now)} held={isHeld(first)} className="testing-strip-clock" />
