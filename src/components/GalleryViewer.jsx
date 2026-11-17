@@ -37,7 +37,7 @@ export default function GalleryViewer({ items, index, onIndex, onClose }) {
   // Fetch the neighbours so the next photo is already there.
   useEffect(() => {
     for (const i of [prev, next]) {
-      if (i === null) continue
+      if (i === null || items[i].videoId) continue
       const img = new Image()
       img.src = items[i].src
     }
@@ -71,7 +71,7 @@ export default function GalleryViewer({ items, index, onIndex, onClose }) {
         </span>
         <div className="viewer-actions">
           <a className="viewer-link" href={item.src} target="_blank" rel="noopener noreferrer">
-            Original ↗
+            {item.videoId ? 'YouTube ↗' : 'Original ↗'}
           </a>
           <button ref={closeRef} type="button" className="viewer-close" onClick={onClose} aria-label="Close">
             ✕
@@ -85,15 +85,28 @@ export default function GalleryViewer({ items, index, onIndex, onClose }) {
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        {small && <img className={`viewer-img viewer-img-small${loaded ? ' is-hidden' : ''}`} src={small} alt="" aria-hidden="true" />}
-        <img
-          key={item.src}
-          className={`viewer-img${loaded ? ' is-loaded' : ''}`}
-          src={item.src}
-          alt={item.caption}
-          onLoad={() => setLoadedSrc(item.src)}
-        />
-        {!loaded && !small && <span className="viewer-loading" aria-hidden="true" />}
+        {item.videoId ? (
+          <iframe
+            key={item.videoId}
+            className={`viewer-video${item.vertical ? ' is-vertical' : ''}`}
+            src={`https://www.youtube-nocookie.com/embed/${item.videoId}?autoplay=1&rel=0&playsinline=1`}
+            title={item.caption || 'Video'}
+            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+            allowFullScreen
+          />
+        ) : (
+          <>
+            {small && <img className={`viewer-img viewer-img-small${loaded ? ' is-hidden' : ''}`} src={small} alt="" aria-hidden="true" />}
+            <img
+              key={item.src}
+              className={`viewer-img${loaded ? ' is-loaded' : ''}`}
+              src={item.src}
+              alt={item.caption}
+              onLoad={() => setLoadedSrc(item.src)}
+            />
+            {!loaded && !small && <span className="viewer-loading" aria-hidden="true" />}
+          </>
+        )}
       </div>
 
       <button type="button" className="viewer-nav viewer-prev" onClick={() => prev !== null && onIndex(prev)} disabled={prev === null} aria-label="Previous photo">
@@ -104,7 +117,7 @@ export default function GalleryViewer({ items, index, onIndex, onClose }) {
       </button>
 
       <div className="viewer-caption">
-        {item.kind !== 'photo' && <span className="viewer-kind">{item.kind === 'render' ? 'Render' : 'Team'}</span>}
+        {item.kind !== 'photo' && <span className="viewer-kind">{item.kind === 'render' ? 'Render' : item.kind === 'video' ? 'Video' : 'Team'}</span>}
         <p>{item.caption}</p>
       </div>
     </div>

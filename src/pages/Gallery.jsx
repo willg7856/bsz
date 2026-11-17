@@ -10,11 +10,16 @@ const FILTERS = [
   { id: 'photo', label: 'Photos' },
   { id: 'render', label: 'Renders' },
   { id: 'team', label: 'Team' },
+  { id: 'video', label: 'Videos' },
 ]
 
 /** How many masonry columns fit, from the page width. */
 function useColumns() {
-  const pick = () => (typeof window === 'undefined' ? 3 : window.innerWidth >= 1100 ? 3 : window.innerWidth >= 560 ? 2 : 1)
+  const pick = () => {
+    if (typeof window === 'undefined') return 3
+    const w = window.innerWidth
+    return w >= 2000 ? 5 : w >= 1500 ? 4 : w >= 1000 ? 3 : w >= 560 ? 2 : 1
+  }
   const [cols, setCols] = useState(pick)
   useEffect(() => {
     const on = () => setCols(pick())
@@ -55,7 +60,7 @@ export default function Gallery() {
   )
 
   const counts = useMemo(() => {
-    const c = { all: photos.length, photo: 0, render: 0, team: 0 }
+    const c = { all: photos.length, photo: 0, render: 0, team: 0, video: 0 }
     for (const p of photos) c[p.kind] = (c[p.kind] || 0) + 1
     return c
   }, [photos])
@@ -75,7 +80,8 @@ export default function Gallery() {
   }, [open])
 
   const renders = counts.render || 0
-  const pics = photos.length - renders
+  const videos = counts.video || 0
+  const pics = photos.length - renders - videos
 
   return (
     <>
@@ -93,6 +99,12 @@ export default function Gallery() {
               <dt>Photos</dt>
               <dd>{pics}</dd>
             </div>
+            {videos > 0 && (
+              <div>
+                <dt>Videos</dt>
+                <dd>{videos}</dd>
+              </div>
+            )}
             {renders > 0 && (
               <div>
                 <dt>Renders</dt>
@@ -103,8 +115,9 @@ export default function Gallery() {
         </div>
       </header>
 
+      {/* Full width: the photos use the whole screen, with a slim edge. */}
       <section className="section gallery-section">
-        <div className="wrap">
+        <div className="gallery-full">
           <div className="gallery-bar">
             <div className="gallery-filter" role="group" aria-label="Filter gallery">
               {FILTERS.filter((f) => f.id === 'all' || counts[f.id] > 0).map((f) => (
@@ -114,7 +127,7 @@ export default function Gallery() {
                 </button>
               ))}
             </div>
-            <p className="gallery-hint">Click a photo to see it full size.</p>
+            <p className="gallery-hint">Click a photo to see it full size{counts.video ? ', or a video to play it' : ''}.</p>
           </div>
 
           {shown.length === 0 ? (
@@ -158,12 +171,12 @@ function GalleryTile({ item, index, ratio, onOpen, onMeasure }) {
         className={`gallery-tile-img${loaded ? ' is-loaded' : ''}`}
         style={{ aspectRatio: `1 / ${ratio}` }}
         onClick={onOpen}
-        aria-label={`Open photo ${index + 1}${item.caption ? `: ${item.caption}` : ''}`}
+        aria-label={`${item.videoId ? 'Play video' : 'Open photo'} ${index + 1}${item.caption ? `: ${item.caption}` : ''}`}
       >
         <img
           src={item.src}
           srcSet={small ? `${item.thumb} 640w, ${item.src} 2000w` : undefined}
-          sizes="(max-width: 560px) 100vw, (max-width: 1100px) 50vw, 400px"
+          sizes="(max-width: 560px) 100vw, (max-width: 1000px) 50vw, (max-width: 1500px) 33vw, 25vw"
           alt={item.caption}
           loading={index < 6 ? 'eager' : 'lazy'}
           decoding="async"
@@ -176,7 +189,10 @@ function GalleryTile({ item, index, ratio, onOpen, onMeasure }) {
           }}
         />
         <span className="gallery-tile-no" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-        {item.kind !== 'photo' && <span className="gallery-tile-kind">{item.kind === 'render' ? 'Render' : 'Team'}</span>}
+        {item.videoId && <span className="gallery-tile-play" aria-hidden="true" />}
+        {item.kind !== 'photo' && (
+          <span className="gallery-tile-kind">{item.kind === 'render' ? 'Render' : item.kind === 'video' ? 'Video' : 'Team'}</span>
+        )}
       </button>
       {item.caption && <figcaption>{item.caption}</figcaption>}
     </figure>

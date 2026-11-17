@@ -153,6 +153,8 @@ export function liveGallery(feed, fallback) {
       kind: g.kind || 'photo',
       width: g.width || known?.width || undefined,
       height: g.height || known?.height || undefined,
+      videoId: g.videoId || null, // YouTube video
+      vertical: !!g.vertical,
     }
   })
 }
