@@ -10,7 +10,6 @@ const projects = [
   { path: '/b1m-engine', label: 'B1M engine', note: 'Motor casing, figures, and build log' },
   { path: '/nozzles', label: 'Ceramic Nozzles', note: 'Ceramic nozzle development programme' },
   { path: '/octopus', label: 'Octopus', note: 'Pad and vehicle data link to mission control' },
-  { path: '/starship', label: 'Starship tracker', note: 'Live public tracker · 20,000 views in under 24 hours' },
 ]
 
 const company = [
