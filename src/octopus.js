@@ -141,14 +141,20 @@ export function liveRecord(feed, fallback) {
  */
 export function liveGallery(feed, fallback) {
   if (!feed?.managed?.gallery) return fallback
-  return (feed.gallery || []).map((g) => ({
-    src: g.src,
-    thumb: g.thumb || g.src,
-    caption: g.caption || '',
-    kind: g.kind || 'photo',
-    width: g.width || undefined,
-    height: g.height || undefined,
-  }))
+  // Photos brought in from this site have no saved size in Octopus: borrow it from the built-in list.
+  const path = (u) => String(u || '').replace(/^https?:\/\/(www\.)?beyondstagezero\.com/, '')
+  const builtIn = new Map(fallback.map((g) => [path(g.src), g]))
+  return (feed.gallery || []).map((g) => {
+    const known = builtIn.get(path(g.src))
+    return {
+      src: g.src,
+      thumb: g.thumb || g.src,
+      caption: g.caption || '',
+      kind: g.kind || 'photo',
+      width: g.width || known?.width || undefined,
+      height: g.height || known?.height || undefined,
+    }
+  })
 }
 
 /**

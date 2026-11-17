@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import UpdateWatcher from './UpdateWatcher'
 import { site } from '../data'
@@ -100,8 +100,14 @@ export default function Layout() {
   // The Tests page doesn't say where the tests were run, so leave the location off it.
   const showPlace = location.pathname.replace(/\/+$/, '') !== '/tests'
 
-  // New page: jump to the #section in the link if there is one, else the top.
+  // New page: jump to the #section in the link if there is one, else the top. Opening or closing a
+  // photo in the gallery (#photo-4) only changes the hash, so the page stays where it is.
+  const lastPlace = useRef({ path: null, hash: '' })
   useEffect(() => {
+    const viewer = (h) => /^#photo-\d+$/.test(h)
+    const was = lastPlace.current
+    lastPlace.current = { path: location.pathname, hash: location.hash }
+    if (was.path === location.pathname && (viewer(location.hash) || viewer(was.hash))) return
     const target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)))
     if (target) target.scrollIntoView()
     else window.scrollTo(0, 0)
