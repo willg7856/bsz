@@ -24,8 +24,15 @@ export function parseTime(t) {
   return [Math.min(h, 23), Math.min(min, 59)]
 }
 
-/** The countdown's moment as a UTC timestamp, treating date + time as Melbourne time. */
+/**
+ * The countdown's moment as a UTC timestamp, treating date + time as Melbourne time.
+ * Octopus also sends the exact moment as `at` (it moves to the second when a hold ends), so use that when present.
+ */
 export function countdownTarget(c) {
+  if (typeof c.at === 'string') {
+    const exact = Date.parse(c.at)
+    if (Number.isFinite(exact)) return exact
+  }
   const [y, mo, d] = c.date.split('-').map(Number)
   const [h, mi] = parseTime(c.time)
   const wall = Date.UTC(y, mo - 1, d, h, mi)
@@ -44,3 +51,8 @@ export function whenLabel(t, hasTime) {
   return `${day} · ${time}`
 }
 
+
+/** While a test is on Hold, the time left on its stopped clock (ms); otherwise undefined. */
+export function heldTime(c) {
+  return c.status === 'hold' && typeof c.held === 'number' ? c.held : undefined
+}

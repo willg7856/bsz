@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { countdownTarget, whenLabel } from '../countdownTime'
+import { countdownTarget, heldTime, whenLabel } from '../countdownTime'
 import { news as builtInNews } from '../data'
 import { liveNews, useOctopus } from '../octopus'
 import { isTest, isTestPost } from '../testing'
@@ -23,7 +23,7 @@ export default function TestingStrip() {
   const next = (feed?.countdowns || [])
     .filter((c) => isTest(c) && c.status !== 'done' && c.status !== 'scrubbed')
     .map((c) => ({ ...c, at: countdownTarget(c) }))
-    .filter((c) => c.at > now - 60 * 60 * 1000) // keep T+ up for an hour
+    .filter((c) => c.at > now - 60 * 60 * 1000 || heldTime(c) !== undefined) // keep T+ up for an hour, and any test on Hold
     .sort((a, b) => a.at - b.at)
   const latest = liveNews(feed, builtInNews).find(isTestPost)
   const show = next.length > 0 || !!latest
@@ -60,7 +60,7 @@ export default function TestingStrip() {
               {first.status === 'live' ? 'Live now' : first.status === 'hold' ? 'Holding' : first.at > now ? 'Next test' : 'Test under way'}
             </p>
             <p className="testing-strip-name">{first.name}</p>
-            <CountdownClock target={first.at} now={now} className="testing-strip-clock" />
+            <CountdownClock target={first.at} now={now} held={heldTime(first)} className="testing-strip-clock" />
             <p className="testing-strip-when">
               {whenLabel(first.at, !!first.time)}
               {next.length > 1 && ` · then ${next[1].name}`}

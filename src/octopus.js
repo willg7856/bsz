@@ -5,7 +5,7 @@ import { useSyncExternalStore } from 'react'
  * numbers, news and countdowns, edited on Octopus's "BSZ site" page.
  *
  * One shared copy of the feed for the whole page. It's refreshed every minute while the tab is
- * visible (and straight away when someone comes back to the tab), so open pages pick up edits
+ * visible (every 5 seconds on test day) (and straight away when someone comes back to the tab), so open pages pick up edits
  * without a reload. If Octopus can't be reached, pages keep showing what they had — or the
  * built-in content from data.js — so the site never breaks because of it.
  */
@@ -14,6 +14,19 @@ const FEED = (import.meta.env.VITE_OCTOPUS_URL || 'https://ops.beyondstagezero.c
 const CACHE_KEY = 'bsz-octopus-feed'
 const TIMEOUT_MS = 4000
 const REFRESH_MS = 60_000
+// On test day (a test on Hold or Live, or within 2 hours of T-0) check far more often, so a hold
+// freezes the clock here within seconds of being called in Octopus.
+const TEST_DAY_REFRESH_MS = 5_000
+
+function testDay(feed) {
+  const now = Date.now()
+  return (feed?.countdowns || []).some((c) => {
+    if (c.category !== 'test' && c.category !== 'launch') return false
+    if (c.status === 'hold' || c.status === 'live') return true
+    const at = typeof c.at === 'string' ? Date.parse(c.at) : NaN
+    return c.status !== 'done' && c.status !== 'scrubbed' && Math.abs(at - now) < 2 * 3600_000
+  })
+}
 
 function readCache() {
   try {
@@ -67,17 +80,24 @@ function onVisible() {
   if (document.visibilityState === 'visible') fetchFeed()
 }
 
+function schedule() {
+  timer = setTimeout(() => {
+    const go = document.visibilityState === 'visible' ? fetchFeed() : Promise.resolve()
+    go.finally(() => {
+      if (timer) schedule()
+    })
+  }, testDay(current) ? TEST_DAY_REFRESH_MS : REFRESH_MS)
+}
+
 function start() {
   if (timer) return
   fetchFeed()
-  timer = setInterval(() => {
-    if (document.visibilityState === 'visible') fetchFeed()
-  }, REFRESH_MS)
+  schedule()
   document.addEventListener('visibilitychange', onVisible)
 }
 
 function stop() {
-  clearInterval(timer)
+  clearTimeout(timer)
   timer = null
   document.removeEventListener('visibilitychange', onVisible)
 }
