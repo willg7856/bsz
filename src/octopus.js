@@ -136,6 +136,22 @@ export function liveRecord(feed, fallback) {
 
 /** News posts in data.js's shape ({ date, display, tag, title, body, link }), newest first. */
 /**
+ * Gallery photos: Octopus's list once it manages the gallery (photos uploaded, captioned and
+ * ordered there), otherwise the built-in list from data.js. `thumb` is a small version for the grid.
+ */
+export function liveGallery(feed, fallback) {
+  if (!feed?.managed?.gallery) return fallback
+  return (feed.gallery || []).map((g) => ({
+    src: g.src,
+    thumb: g.thumb || g.src,
+    caption: g.caption || '',
+    kind: g.kind || 'photo',
+    width: g.width || undefined,
+    height: g.height || undefined,
+  }))
+}
+
+/**
  * The "Next tests" cards on the Tests page: Octopus's list once it manages them (even if every
  * card is hidden), otherwise the built-in list from data.js. Same shape either way.
  */

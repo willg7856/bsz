@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { gallery } from '../data'
+import { liveGallery, useOctopus } from '../octopus'
 import { useTitle } from '../useTitle'
 
 const filters = [
@@ -12,7 +13,9 @@ const filters = [
 export default function Gallery() {
   useTitle('Gallery')
   const [filter, setFilter] = useState('all')
-  const shown = filter === 'all' ? gallery : gallery.filter((item) => item.kind === filter)
+  // Managed in Octopus (Gallery page there); the built-in photos until then.
+  const photos = liveGallery(useOctopus(), gallery)
+  const shown = filter === 'all' ? photos : photos.filter((item) => item.kind === filter)
 
   return (
     <>
@@ -42,14 +45,22 @@ export default function Gallery() {
               </button>
             ))}
           </div>
-          {filter === 'team' && shown.length === 0 ? (
-            <p className="gallery-empty">No team photos yet.</p>
+          {shown.length === 0 ? (
+            <p className="gallery-empty">{filter === 'team' ? 'No team photos yet.' : 'No photos here yet.'}</p>
           ) : (
             <div className="gallery-grid">
               {shown.map((item) => (
                 <figure className="gallery-item" key={item.src}>
                   <a href={item.src} target="_blank" rel="noopener noreferrer">
-                    <img src={item.src} alt={item.caption} />
+                    <img
+                      src={item.src}
+                      srcSet={item.thumb && item.thumb !== item.src ? `${item.thumb} 640w, ${item.src} 2000w` : undefined}
+                      sizes="(max-width: 700px) 50vw, 1100px"
+                      alt={item.caption}
+                      loading="lazy"
+                      width={item.width}
+                      height={item.height}
+                    />
                   </a>
                   <figcaption>{item.caption}</figcaption>
                 </figure>
