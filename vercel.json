@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/contacts",
+      "destination": "/contact",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+/* ── Hero ─────────────────────────────────────────── */
+.stravox-hero {
+  background: var(--ink-900);
+  color: var(--paper-100);
+  padding: 80px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.stravox-hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--ink-700) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ink-700) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.22;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse at 70% 40%, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at 70% 40%, #000 30%, transparent 75%);
+}
+
+.stravox-hero-inner {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 64px;
+  align-items: end;
+  padding-bottom: 72px;
+  position: relative;
+}
+
+.stravox-hero-h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin: 0 0 28px;
+  color: var(--paper-100);
+}
+
+.stravox-hero-sub {
+  font-size: 1.0625rem;
+  color: var(--ink-400);
+  line-height: 1.65;
+  max-width: 52ch;
+}
+
+.stravox-hero-spec {
+  border-top: 1px solid var(--ink-700);
+  border-bottom: 1px solid var(--ink-700);
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.stravox-tick { margin: 0; }
+
+/* ── Living design notice ─────────────────────────── */
+.stravox-living {
+  background: var(--ignition-100);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(36px, 6vw, 56px) 0;
+}
+
+.stravox-living-inner {
+  max-width: 52rem;
+}
+
+.stravox-living-label {
+  margin: 0 0 14px;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ignition-600);
+}
+
+.stravox-living-title {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3.6vw, 2.35rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: var(--fg);
+  border-left: 4px solid var(--ignition-500);
+  padding-left: 18px;
+}
+
+.stravox-living-body {
+  margin: 0;
+  padding-left: 22px;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.65;
+  color: var(--fg-muted);
+  max-width: 48ch;
+}
+
+/* ── Breakdown ────────────────────────────────────── */
+.stravox-split {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.stravox-img-col {
+  position: sticky;
+  top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.stravox-model-img {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 32px rgba(255, 255, 255, 0.15));
+}
+
+.stravox-descriptions { display: flex; flex-direction: column; }
+
+.stravox-desc {
+  padding: 32px 0 32px 28px;
+  border-left: 2px solid var(--line);
+  transition: border-color var(--dur-fast);
+}
+.stravox-desc:hover { border-left-color: var(--ignition-500); }
+
+.stravox-desc-num {
+  display: block;
+  font-size: 0.6875rem;
+  color: var(--ignition-500);
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+
+.stravox-desc h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+  color: var(--fg);
+}
+
+.stravox-desc p {
+  font-size: 0.9375rem;
+  color: var(--fg-muted);
+  line-height: 1.75;
+  max-width: 52ch;
+}
+
+/* ── Specs ────────────────────────────────────────── */
+.stravox-numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border: 1px solid var(--line);
+}
+
+.stravox-numbers-grid .spec-cell { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.stravox-numbers-grid .spec-cell:nth-child(5n) { border-right: 0; }
+.stravox-numbers-grid .spec-cell:nth-last-child(-n+5) { border-bottom: 0; }
+
+/* ── CTA ──────────────────────────────────────────── */
+.stravox-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.stravox-cta-inner h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  margin: 16px 0 0;
+  color: var(--fg);
+}
+
+/* ── Mobile ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .stravox-hero-inner { grid-template-columns: 1fr; gap: 40px; padding-bottom: 48px; }
+  .stravox-split { grid-template-columns: 1fr; gap: 40px; }
+  .stravox-img-col { position: static; }
+  .stravox-model-img { max-width: 160px; margin: 0 auto; }
+  .stravox-numbers-grid { grid-template-columns: repeat(2, 1fr); }
+  .stravox-numbers-grid .spec-cell:nth-child(5n) { border-right: 1px solid var(--line); }
+  .stravox-numbers-grid .spec-cell:nth-child(2n) { border-right: 0; }
+  .stravox-numbers-grid .spec-cell:nth-last-child(-n+5) { border-bottom: 1px solid var(--line); }
+  .stravox-numbers-grid .spec-cell:nth-last-child(-n+2) { border-bottom: 0; }
+  .section-head { grid-template-columns: 1fr; }
+  .stravox-cta-inner { flex-direction: column; align-items: flex-start; }
+}
