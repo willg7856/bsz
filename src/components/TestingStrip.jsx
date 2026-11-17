@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { countdownTarget, whenLabel } from '../countdownTime'
 import { news as builtInNews } from '../data'
 import { liveNews, useOctopus } from '../octopus'
-import { isTest, isTestPost } from '../testing'
+import { isTest, isTestPost, testHappening } from '../testing'
 import { clockNow, isHeld } from '../hold'
 import useNow from '../useNow'
 import CountdownClock from './CountdownClock'
@@ -21,13 +21,15 @@ export default function TestingStrip() {
   const now = useNow()
   const ref = useRef(null)
 
+  // Only while testing is actually happening: a test In progress or on Hold, or T-0 within the
+  // next 3 days (kept up for an hour after). Otherwise the site has no banner at all.
   const next = (feed?.countdowns || [])
-    .filter((c) => isTest(c) && c.status !== 'done' && c.status !== 'scrubbed')
+    .filter(isTest)
     .map((c) => ({ ...c, at: countdownTarget(c) }))
-    .filter((c) => isHeld(c) || c.at > now - 60 * 60 * 1000) // keep T+ up for an hour; holds stay up
+    .filter((c) => testHappening(c, now))
     .sort((a, b) => a.at - b.at)
   const latest = liveNews(feed, builtInNews).find(isTestPost)
-  const show = next.length > 0 || !!latest
+  const show = next.length > 0
 
   useEffect(() => {
     const root = document.documentElement
