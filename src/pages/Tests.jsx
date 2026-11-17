@@ -93,7 +93,7 @@ export default function Tests() {
         </div>
       </section>
 
-      <section className="section dark">
+      <section className="section dark" id="next-tests" style={{ scrollMarginTop: 'var(--nav-h, 64px)' }}>
         <div className="container">
           <div className="tests-upnext-head">
             <span className="eyebrow" style={{ color: 'var(--ink-400)' }}>[ Up next ]</span>
