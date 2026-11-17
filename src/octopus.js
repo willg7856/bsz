@@ -5,8 +5,8 @@ import { useSyncExternalStore } from 'react'
  * numbers, news and countdowns, edited on Octopus's "BSZ site" page.
  *
  * One shared copy of the feed for the whole page. It's refreshed every minute while the tab is
- * visible (every 5 seconds on test day) (and straight away when someone comes back to the tab), so open pages pick up edits
- * without a reload. If Octopus can't be reached, pages keep showing what they had — or the
+ * visible, every 5 seconds on test day, and straight away when someone comes back to the tab, so
+ * open pages pick up edits without a reload. If Octopus can't be reached, pages keep showing what they had — or the
  * built-in content from data.js — so the site never breaks because of it.
  */
 
@@ -44,6 +44,7 @@ const listeners = new Set()
 
 function fetchFeed() {
   if (inflight) return inflight
+  lastFetch = Date.now()
   const ctrl = new AbortController()
   const t = setTimeout(() => ctrl.abort(), TIMEOUT_MS)
   inflight = fetch(FEED, { signal: ctrl.signal, cache: 'no-store' })
@@ -80,13 +81,18 @@ function onVisible() {
   if (document.visibilityState === 'visible') fetchFeed()
 }
 
+let lastFetch = 0
+
+// Ticks every 5 s; fetches on every tick on test day, otherwise once a minute. Deciding on each
+// tick (not when scheduling) means the faster pace starts as soon as the feed says it's test day.
 function schedule() {
   timer = setTimeout(() => {
-    const go = document.visibilityState === 'visible' ? fetchFeed() : Promise.resolve()
+    const due = Date.now() - lastFetch >= (testDay(current) ? TEST_DAY_REFRESH_MS : REFRESH_MS) - 250
+    const go = due && document.visibilityState === 'visible' ? fetchFeed() : Promise.resolve()
     go.finally(() => {
       if (timer) schedule()
     })
-  }, testDay(current) ? TEST_DAY_REFRESH_MS : REFRESH_MS)
+  }, TEST_DAY_REFRESH_MS)
 }
 
 function start() {

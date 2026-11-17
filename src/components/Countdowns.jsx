@@ -1,5 +1,6 @@
-import { countdownTarget, heldTime, whenLabel } from '../countdownTime'
+import { countdownTarget, whenLabel } from '../countdownTime'
 import { isTest } from '../testing'
+import { clockNow, isHeld } from '../hold'
 import useNow from '../useNow'
 import CountdownClock from './CountdownClock'
 import { useOctopus } from '../octopus'
@@ -21,7 +22,7 @@ export default function Countdowns() {
   const upcoming = (feed?.countdowns || [])
     .filter((c) => !isTest(c))
     .map((c) => ({ ...c, at: countdownTarget(c) }))
-    .filter((c) => c.at > now - 60 * 60 * 1000 || heldTime(c) !== undefined) // keep T+ showing for an hour
+    .filter((c) => isHeld(c) || c.at > now - 60 * 60 * 1000) // keep T+ showing for an hour; holds stay up
     .sort((a, b) => a.at - b.at)
     .slice(0, 3)
 
@@ -36,7 +37,7 @@ export default function Countdowns() {
             <li key={`${c.name}-${c.date}`}>
               <p className="countdowns-kind">{KIND[c.category] || 'Next'}</p>
               <h3>{c.name}</h3>
-              <CountdownClock target={c.at} now={now} held={heldTime(c)} />
+              <CountdownClock target={c.at} now={clockNow(c, now)} held={isHeld(c)} />
               <p className="countdowns-when">{whenLabel(c.at, !!c.time)}</p>
             </li>
           ))}

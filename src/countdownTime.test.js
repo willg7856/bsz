@@ -36,9 +36,3 @@ test('uses the exact moment from Octopus when it sends one (after a hold)', () =
   assert.equal(new Date(t).toISOString(), '2026-11-17T02:41:07.000Z')
 })
 
-test('a test on Hold reports its stopped time', async () => {
-  const { heldTime } = await import('./countdownTime.js')
-  assert.equal(heldTime({ status: 'hold', held: 600000 }), 600000)
-  assert.equal(heldTime({ status: 'live', held: 600000 }), undefined)
-  assert.equal(heldTime({ status: 'hold' }), undefined)
-})

@@ -52,7 +52,3 @@ export function whenLabel(t, hasTime) {
 }
 
 
-/** While a test is on Hold, the time left on its stopped clock (ms); otherwise undefined. */
-export function heldTime(c) {
-  return c.status === 'hold' && typeof c.held === 'number' ? c.held : undefined
-}

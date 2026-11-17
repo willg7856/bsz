@@ -38,11 +38,6 @@ const projects = [
     to: '/octopus',
     body: 'Our data link. It gets pad data (and later, vehicle data) back to mission control in the Goods Shed during static fires and launches. It is not the flight computer.',
   },
-  {
-    title: 'Starship tracker',
-    to: '/starship',
-    body: 'An unofficial live tracker for SpaceX Starship, built from SpaceX’s public telemetry. It passed 20,000 views in under 24 hours.',
-  },
 ]
 
 export default function Home() {
