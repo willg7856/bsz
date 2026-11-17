@@ -205,7 +205,6 @@ export default function Layout() {
             <Link to="/gallery">Gallery</Link>
             <Link to="/nozzles">Nozzles</Link>
             <Link to="/octopus">Octopus</Link>
-            <Link to="/starship">Starship tracker</Link>
             <Link to="/contact">Contact</Link>
             <Link to="/support">Support us</Link>
           </div>

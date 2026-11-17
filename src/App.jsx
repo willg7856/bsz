@@ -13,7 +13,6 @@ import Nozzles from './pages/Nozzles'
 import NozzlePreorder from './pages/NozzlePreorder'
 import NozzleResearch from './pages/NozzleResearch'
 import Octopus from './pages/Octopus'
-import Starship from './pages/Starship'
 import Stravox from './pages/Stravox'
 import Support from './pages/Support'
 import Tests from './pages/Tests'
@@ -35,7 +34,6 @@ export default function App() {
           <Route path="nozzles/preorder" element={<NozzlePreorder />} />
           <Route path="nozzles/research" element={<NozzleResearch />} />
           <Route path="octopus" element={<Octopus />} />
-          <Route path="starship" element={<Starship />} />
           <Route path="gallery" element={<Gallery />} />
           <Route path="contact" element={<Contact />} />
           <Route path="support" element={<Support />} />

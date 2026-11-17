@@ -55,7 +55,6 @@ export const footerNav = [
   { to: '/tests', label: 'Tests' },
   { to: '/nozzles', label: 'Nozzles' },
   { to: '/octopus', label: 'Octopus' },
-  { to: '/starship', label: 'Starship tracker' },
   { to: '/contact', label: 'Contact' },
 ]
 
