@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import B1mStaticFireNotice from '../components/B1mStaticFireNotice'
-import { campaigns, engineSummary, fires, resultLabel, upNext } from '../data'
-import { liveUpNext, useOctopus } from '../octopus'
+import { campaigns as builtInCampaigns, engineSummary, fires as builtInFires, resultLabel, upNext } from '../data'
+import { liveTestLog, liveUpNext, useOctopus } from '../octopus'
 import { useTitle } from '../useTitle'
 import './Tests.css'
 
@@ -19,6 +19,8 @@ export default function Tests() {
   const feed = useOctopus()
   // Edited in Octopus (BSZ site → Upcoming tests); the built-in list until then.
   const nextTests = liveUpNext(feed, upNext)
+  // The test log: edited in Octopus (Test log page) once it's been brought in there.
+  const { campaigns, fires } = liveTestLog(feed, { campaigns: builtInCampaigns, fires: builtInFires })
 
   // The site-wide description names the town, so swap it out on this page.
   useEffect(() => {
@@ -174,7 +176,7 @@ export default function Tests() {
                       <div className="tests-fire-head">
                         <div className="tests-fire-id-block">
                           <span className="tests-fire-id">{fire.id}</span>
-                          <span className="tests-fire-grade">{fire.kno3Grade}</span>
+                          {fire.kno3Grade && fire.kno3Grade !== '—' ? <span className="tests-fire-grade">{fire.kno3Grade}</span> : null}
                         </div>
                         <div className={`tests-badge tests-badge--${resultTone[fire.result]}`}>{resultLabel[fire.result]}</div>
                       </div>
@@ -198,6 +200,14 @@ export default function Tests() {
                           <div className="tests-spec-row"><span className="tests-spec-lbl">Prop. mass</span><span className="tests-spec-val">{fire.mass}</span></div>
                           <div className="tests-spec-row"><span className="tests-spec-lbl">Burn time</span><span className="tests-spec-val">{fire.burnTime}</span></div>
                           <div className="tests-spec-row"><span className="tests-spec-lbl">Peak thrust</span><span className="tests-spec-val">{fire.peakThrust}</span></div>
+                          {fire.impulse ? <div className="tests-spec-row"><span className="tests-spec-lbl">Total impulse</span><span className="tests-spec-val">{fire.impulse}</span></div> : null}
+                          {fire.peakPressure ? <div className="tests-spec-row"><span className="tests-spec-lbl">Peak pressure</span><span className="tests-spec-val">{fire.peakPressure}</span></div> : null}
+                          {fire.videoId ? (
+                            <div className="tests-spec-row">
+                              <span className="tests-spec-lbl">Video</span>
+                              <a className="tests-spec-val home-rocket-link" href={`https://www.youtube.com/watch?v=${fire.videoId}`} target="_blank" rel="noopener noreferrer">Watch the firing ↗</a>
+                            </div>
+                          ) : null}
                         </div>
                         <div className="tests-fire-notes">
                           <div>
@@ -208,10 +218,12 @@ export default function Tests() {
                               ))}
                             </ul>
                           </div>
-                          <div>
-                            <p className="tests-notes-label">What we learned</p>
-                            <p className="tests-learned">{fire.learned}</p>
-                          </div>
+                          {fire.learned ? (
+                            <div>
+                              <p className="tests-notes-label">What we learned</p>
+                              <p className="tests-learned">{fire.learned}</p>
+                            </div>
+                          ) : null}
                         </div>
                       </div>
                     </article>

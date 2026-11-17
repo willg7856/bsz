@@ -136,6 +136,43 @@ export function liveRecord(feed, fallback) {
 
 /** News posts in data.js's shape ({ date, display, tag, title, body, link }), newest first. */
 /**
+ * The test log on the Tests page (campaigns and their static fires): Octopus's once it manages
+ * them, otherwise the built-in list from data.js.
+ */
+export function liveTestLog(feed, fallback) {
+  if (!feed?.managed?.testLog || !feed.testLog) return fallback
+  const dash = (v) => (v == null || v === '' ? '—' : v)
+  const known = new Set((feed.testLog.campaigns || []).map((c) => c.id))
+  // Published tests not in any campaign still show, under "Other tests".
+  const orphans = (feed.testLog.fires || []).some((f) => !known.has(f.campaign))
+  return {
+    campaigns: [
+      ...(feed.testLog.campaigns || []),
+      ...(orphans ? [{ id: 'Other tests', engine: 'Various', date: '', objective: '' }] : []),
+    ].map((c) => ({
+      id: c.id,
+      date: c.date || '',
+      engine: c.engine || '',
+      objective: c.objective || '',
+      photos: c.photos && c.photos.length ? c.photos : undefined,
+    })),
+    fires: (feed.testLog.fires || []).map((f) => ({
+      ...f,
+      campaign: known.has(f.campaign) ? f.campaign : 'Other tests',
+      engine: dash(f.engine),
+      kno3Grade: dash(f.kno3Grade),
+      propellant: dash(f.propellant),
+      mass: dash(f.mass),
+      burnTime: dash(f.burnTime),
+      peakThrust: dash(f.peakThrust),
+      photo: f.photo || undefined,
+      observations: f.observations || [],
+      learned: f.learned || '',
+    })),
+  }
+}
+
+/**
  * Gallery photos: Octopus's list once it manages the gallery (photos uploaded, captioned and
  * ordered there), otherwise the built-in list from data.js. `thumb` is a small version for the grid.
  */
