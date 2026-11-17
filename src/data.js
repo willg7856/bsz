@@ -475,6 +475,8 @@ export const upNext = [
     engine: 'B1M — 550 mm × 80 mm',
     note: 'First firing of the B1M engine series, once the pressure test is done. The first static fire is pending regulatory approval; two more engines are still in production with Federation University. Targeting 200 kgf for a 3 s burn, with each casing aimed at ≥2 firings before flight.',
     status: 'Pending approval',
+    link: '/b1m-engine',
+    linkText: 'Engine development updates',
   },
 ]
 

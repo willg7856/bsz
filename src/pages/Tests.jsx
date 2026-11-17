@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import B1mStaticFireNotice from '../components/B1mStaticFireNotice'
 import { campaigns, engineSummary, fires, resultLabel, upNext } from '../data'
+import { liveUpNext, useOctopus } from '../octopus'
 import { useTitle } from '../useTitle'
 import './Tests.css'
 
@@ -15,6 +16,9 @@ const resultTone = {
 
 export default function Tests() {
   useTitle('Tests')
+  const feed = useOctopus()
+  // Edited in Octopus (BSZ site → Upcoming tests); the built-in list until then.
+  const nextTests = liveUpNext(feed, upNext)
 
   // The site-wide description names the town, so swap it out on this page.
   useEffect(() => {
@@ -99,9 +103,12 @@ export default function Tests() {
             <span className="eyebrow" style={{ color: 'var(--ink-400)' }}>[ Up next ]</span>
             <h2 className="tests-upnext-title">Next tests.</h2>
           </div>
+          {nextTests.length === 0 ? (
+            <p className="tests-upnext-note" style={{ color: 'var(--ink-300)' }}>No tests scheduled right now. Check back soon.</p>
+          ) : null}
           <div className="tests-upnext-list">
-            {upNext.map((item) => (
-              <div className="tests-upnext-card" key={item.id}>
+            {nextTests.map((item) => (
+              <div className="tests-upnext-card" key={item.key || item.id}>
                 <div className="tests-upnext-card-body">
                   <div className="tests-upnext-top">
                     <div>
@@ -122,9 +129,13 @@ export default function Tests() {
                       ))}
                     </ol>
                   ) : null}
-                  {item.id === 'C-03' ? (
+                  {item.link ? (
                     <p style={{ marginTop: '1rem' }}>
-                      <Link className="home-rocket-link" to="/b1m-engine">Engine development updates</Link>
+                      {item.link.startsWith('/') ? (
+                        <Link className="home-rocket-link" to={item.link}>{item.linkText || 'Read more'}</Link>
+                      ) : (
+                        <a className="home-rocket-link" href={item.link} target="_blank" rel="noopener noreferrer">{item.linkText || 'Read more'}</a>
+                      )}
                     </p>
                   ) : null}
                 </div>

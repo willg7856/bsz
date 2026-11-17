@@ -135,6 +135,25 @@ export function liveRecord(feed, fallback) {
 }
 
 /** News posts in data.js's shape ({ date, display, tag, title, body, link }), newest first. */
+/**
+ * The "Next tests" cards on the Tests page: Octopus's list once it manages them (even if every
+ * card is hidden), otherwise the built-in list from data.js. Same shape either way.
+ */
+export function liveUpNext(feed, fallback) {
+  if (!feed?.managed?.upnext) return fallback
+  return (feed.upnext || []).map((u, i) => ({
+    id: u.code || '',
+    key: `${u.code || ''}-${u.title}-${i}`,
+    label: u.title,
+    engine: u.engine || '',
+    status: u.status || '',
+    note: u.note || '',
+    steps: u.steps && u.steps.length ? u.steps : null,
+    link: u.link || null,
+    linkText: u.linkText || null,
+  }))
+}
+
 export function liveNews(feed, fallback) {
   if (!feed?.managed?.news) return fallback
   return feed.news.map((p) => ({
