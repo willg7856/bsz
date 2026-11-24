@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { missions, upcoming } from '../data'
+import { missions as builtInMissions, upcoming as builtInUpcoming } from '../data'
+import useLaunchWindow from '../useLaunchWindow'
 import { useTitle } from '../useTitle'
 import './Missions.css'
 
@@ -13,6 +14,10 @@ const milestoneGroups = [
 
 export default function Missions() {
   useTitle('Missions')
+  // The launch window comes from Octopus (First flight window), so it's the same everywhere.
+  const { f, fix } = useLaunchWindow()
+  const missions = fix(builtInMissions)
+  const upcoming = fix(builtInUpcoming)
 
   return (
     <>
@@ -24,14 +29,14 @@ export default function Missions() {
             <p className="kicker">Programme</p>
             <h1>Missions.</h1>
             <p className="lede">
-              Nothing has flown yet. Our first flight is STRAVOX B1M-01, to 3 km, some time between Q1 and Q2 2027. Everything below is what has to happen first.
+              Nothing has flown yet. Our first flight is STRAVOX B1M-01, to 3 km, some time {f.between}. Everything below is what has to happen first.
             </p>
           </div>
         </div>
         <dl className="shed-hero-specs">
           <div><dt>First flight</dt><dd>STRAVOX B1M-01</dd></div>
           <div><dt>Target apogee</dt><dd>3 km</dd></div>
-          <div><dt>Launch window</dt><dd>Q1–Q2 2027</dd></div>
+          <div><dt>Launch window</dt><dd>{f.tight}</dd></div>
           <div><dt>Flights so far</dt><dd>0</dd></div>
         </dl>
       </header>

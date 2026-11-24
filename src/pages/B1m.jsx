@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import B1mStaticFireNotice from '../components/B1mStaticFireNotice'
-import { b1mMilestones, b1mObjectives, b1mSpecs } from '../data'
+import { b1mMilestones as builtInMilestones, b1mObjectives as builtInObjectives, b1mSpecs as builtInSpecs } from '../data'
+import useLaunchWindow from '../useLaunchWindow'
 import { useTitle } from '../useTitle'
 
 const flightPath = [
@@ -22,6 +23,11 @@ const motorSpecLabels = new Set([
 
 export default function B1m() {
   useTitle('B1M')
+  // The launch window comes from Octopus (First flight window), so it's the same everywhere.
+  const { f, fix } = useLaunchWindow()
+  const b1mMilestones = fix(builtInMilestones)
+  const b1mObjectives = fix(builtInObjectives)
+  const b1mSpecs = fix(builtInSpecs)
   const path = b1mMilestones.filter((item) => flightPath.includes(item.label))
 
   return (
@@ -32,7 +38,7 @@ export default function B1m() {
             <p className="kicker">Sub-scale vehicle</p>
             <h1>STRAVOX B1M</h1>
             <p className="lede">
-              A 3 km vehicle that flies before full-scale STRAVOX. Vehicle design is complete. The first engine is done and pending regulatory approval, and two engines are still in production. First flight is aimed at Q1 to Q2 2027.
+              A 3 km vehicle that flies before full-scale STRAVOX. Vehicle design is complete. The first engine is done and pending regulatory approval, and two engines are still in production. First flight is aimed at {f.to}.
             </p>
             <div className="actions">
               <Link className="btn btn-ink" to="/b1m-engine">B1M engine</Link>
@@ -43,7 +49,7 @@ export default function B1m() {
             <div className="side-row"><span>Apogee</span><span className="num">3.0 km</span></div>
             <div className="side-row"><span>Design</span><span className="done">Complete</span></div>
             <div className="side-row"><span>In production</span><span className="num">2 engines</span></div>
-            <div className="side-row"><span>First flight</span><span>Q1–Q2&apos;27</span></div>
+            <div className="side-row"><span>First flight</span><span>{f.short}</span></div>
           </div>
         </div>
         <B1mStaticFireNotice />

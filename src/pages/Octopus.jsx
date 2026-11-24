@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
-import { octopusHops, octopusMilestones } from '../data'
+import { octopusHops, octopusMilestones as builtInMilestones } from '../data'
+import useLaunchWindow from '../useLaunchWindow'
 import { useTitle } from '../useTitle'
 
 export default function Octopus() {
   useTitle('Octopus')
+  const octopusMilestones = useLaunchWindow().fix(builtInMilestones)
 
   return (
     <>
