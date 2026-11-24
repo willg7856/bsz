@@ -19,7 +19,7 @@ function deps(overrides = {}) {
     head: async () => ({ pathname: 'nozzle-uploads/my-nozzle-x1y2.stl', size: 1234 }),
     fetch: async (url, init) => {
       calls.push({ url, init })
-      return Response.json({ url: 'https://checkout.stripe.com/c/pay/cs_test_1' })
+      return Response.json({ id: 'cs_test_1', client_secret: 'cs_test_1_secret_abc' })
     },
     ...overrides,
   }
@@ -29,12 +29,20 @@ test('creates a $50 AUD Stripe checkout with the order on it', async () => {
   const d = deps()
   const res = await createCheckout(req(good), d)
   assert.equal(res.status, 200)
-  assert.deepEqual(await res.json(), { url: 'https://checkout.stripe.com/c/pay/cs_test_1', orderId: 'BSZ-N-AAAAAA' })
+  assert.deepEqual(await res.json(), { client_secret: 'cs_test_1_secret_abc', orderId: 'BSZ-N-AAAAAA' })
   const { url, init } = d.calls[0]
   assert.equal(url, 'https://api.stripe.com/v1/checkout/sessions')
   assert.equal(init.headers.Authorization, 'Bearer sk_test_123')
+  assert.equal(init.headers['Stripe-Version'], '2026-03-25.dahlia')
   const f = init.body
+  assert.equal(f.get('ui_mode'), 'form')
   assert.equal(f.get('mode'), 'payment')
+  assert.equal(f.get('billing_address_collection'), 'auto')
+  assert.equal(f.get('phone_number_collection[enabled]'), 'false')
+  assert.equal(f.get('automatic_tax[enabled]'), 'false')
+  assert.equal(f.get('submit_type'), 'auto')
+  assert.equal(f.get('integration_identifier'), 'custom_embedded_web_0002')
+  assert.equal(f.get('payment_method_collection'), null)
   assert.equal(f.get('line_items[0][price_data][unit_amount]'), '5000')
   assert.equal(f.get('line_items[0][price_data][currency]'), 'aud')
   assert.equal(f.get('customer_email'), 'ada@example.com')
@@ -45,7 +53,9 @@ test('creates a $50 AUD Stripe checkout with the order on it', async () => {
   assert.match(f.get('metadata[make_to]'), /^numbers/)
   assert.match(f.get('payment_intent_data[metadata][estimated]'), /throat 8.03 mm/)
   assert.ok(f.getAll('shipping_address_collection[allowed_countries][]').includes('AU'))
-  assert.equal(f.get('success_url'), 'https://beyondstagezero.com/nozzles/preorder?order=paid&id=BSZ-N-AAAAAA')
+  assert.equal(f.get('return_url'), 'https://beyondstagezero.com/nozzles/preorder?order=paid&id=BSZ-N-AAAAAA&session_id={CHECKOUT_SESSION_ID}')
+  assert.equal(f.get('success_url'), null)
+  assert.equal(f.get('cancel_url'), null)
 })
 
 test('the price cannot be set by the customer', async () => {
