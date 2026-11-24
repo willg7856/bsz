@@ -1,0 +1,49 @@
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  overflow: visible;
+  line-height: 0;
+}
+
+.brand-logo-mark {
+  height: 28px;
+  width: 28px;
+  display: block;
+  flex-shrink: 0;
+  overflow: visible;
+  color: var(--paper-100);
+}
+
+.brand-logo-text {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--paper-100);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.brand-logo-bracket {
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  opacity: 0.9;
+}
+
+@media (max-width: 640px) {
+  .brand-logo {
+    gap: 9px;
+  }
+
+  .brand-logo-text {
+    font-size: 0.75rem;
+    letter-spacing: 0.07em;
+  }
+
+  .brand-logo-mark {
+    height: 24px;
+    width: 24px;
+  }
+}
