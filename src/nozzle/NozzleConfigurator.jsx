@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { NOZZLE_ORDER, UNITS } from './order'
 import NozzleProfile from './NozzleProfile'
+import StripeCheckoutForm from './StripeCheckoutForm'
 
 const NozzleViewer = lazy(() => import('./NozzleViewer'))
 
@@ -59,6 +60,7 @@ export default function NozzleConfigurator() {
   const [submit, setSubmit] = useState({ state: 'idle', progress: 0, error: '' })
   const [returned] = useState(readOrderReturn)
   const [registered, setRegistered] = useState(null) // order id of a free pre-order
+  const [clientSecret, setClientSecret] = useState('') // Stripe payment form for a paid pre-order
   const [makeTo, setMakeTo] = useState('')
   const inputRef = useRef(null)
   const workerRef = useRef(null)
@@ -179,8 +181,9 @@ export default function NozzleConfigurator() {
       })
       const data = await res.json().catch(() => ({}))
       if (NOZZLE_ORDER.takingPayment) {
-        if (!res.ok || !data.url) throw new Error(data.error || 'We could not start the payment.')
-        window.location.assign(data.url)
+        if (!res.ok || !data.client_secret) throw new Error(data.error || 'We could not start the payment.')
+        setClientSecret(data.client_secret)
+        setSubmit({ state: 'idle', progress: 0, error: '' })
         return
       }
       if (!res.ok || !data.ok) throw new Error(data.error || 'We could not send your registration. Please try again.')
@@ -220,6 +223,16 @@ export default function NozzleConfigurator() {
           emailed you a receipt. We will review your design and email you to confirm it, suggest changes, or refund you in full.
         </p>
         <a className="btn" href="/nozzles/preorder">Order another</a>
+      </div>
+    )
+  }
+
+  if (clientSecret) {
+    return (
+      <div className="nozzle-config">
+        <p className="nozzle-help">Pay {price} to place your pre-order. Your design is uploaded and waiting.</p>
+        <StripeCheckoutForm clientSecret={clientSecret} />
+        <button className="btn" type="button" onClick={() => setClientSecret('')}>← Back to your design</button>
       </div>
     )
   }
@@ -382,7 +395,7 @@ export default function NozzleConfigurator() {
               {submit.state === 'uploading'
                 ? `Uploading your model… ${Math.round(submit.progress)}%`
                 : submit.state === 'paying'
-                  ? (free ? 'Sending your registration…' : 'Opening secure checkout…')
+                  ? (free ? 'Sending your registration…' : 'Loading secure payment…')
                   : (free ? 'Register interest →' : `Pre-order for ${price} →`)}
             </button>
             <p className="nozzle-help">

@@ -36,7 +36,7 @@ browser (`src/nozzle/analyzeNozzle.js`), and pre-order.
   confirmation that nothing has been charged. Needs `RESEND_API_KEY` and
   `BLOB_READ_WRITE_TOKEN`. Every pre-order is in the team inbox
   (`ORDER_EMAIL_TO`), with an order number.
-- `true`: the form goes to Stripe Checkout for a fixed price (setup below). Price, currency, ship-to countries and the upload limit live in
+- `true`: the customer pays a fixed price in Stripe's payment form on our own page (setup below, plus `VITE_STRIPE_PUBLISHABLE_KEY`; see [STRIPE_INTEGRATION_TODO.md](STRIPE_INTEGRATION_TODO.md)). Price, currency, ship-to countries and the upload limit live in
 `src/nozzle/order.js`.
 
 Vercel project setup:

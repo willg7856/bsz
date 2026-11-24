@@ -1,6 +1,10 @@
-// Creates the Stripe Checkout Session for a custom nozzle pre-order.
+// Creates the Stripe Checkout Session for a custom nozzle pre-order. The
+// payment form is shown on our own page (ui_mode "form").
 // Kept free of Vercel/Stripe SDKs so it can be tested with fakes.
 import { NOZZLE_ORDER, UNITS } from './order.js'
+
+// ui_mode "form" needs the Dahlia API version or later.
+export const STRIPE_API_VERSION = '2026-03-25.dahlia'
 
 export class OrderError extends Error {}
 
@@ -100,7 +104,13 @@ export function checkoutForm(order, { orderId, origin }) {
     ...(order.notes ? { notes: order.notes } : {}),
   }
 
+  add('ui_mode', 'form')
   add('mode', 'payment')
+  add('billing_address_collection', 'auto')
+  add('phone_number_collection[enabled]', 'false')
+  add('automatic_tax[enabled]', 'false')
+  add('submit_type', 'auto')
+  add('integration_identifier', 'custom_embedded_web_0002')
   add('customer_email', order.email)
   add('client_reference_id', orderId)
   add('line_items[0][quantity]', '1')
@@ -114,8 +124,7 @@ export function checkoutForm(order, { orderId, origin }) {
     add(`metadata[${k}]`, String(v).slice(0, 500))
     add(`payment_intent_data[metadata][${k}]`, String(v).slice(0, 500))
   }
-  add('success_url', `${origin}/nozzles/preorder?order=paid&id=${orderId}`)
-  add('cancel_url', `${origin}/nozzles/preorder?order=cancelled`)
+  add('return_url', `${origin}/nozzles/preorder?order=paid&id=${orderId}&session_id={CHECKOUT_SESSION_ID}`)
   return f
 }
 
@@ -142,13 +151,13 @@ export async function createCheckout(request, deps) {
   const origin = new URL(request.url).origin
   const res = await deps.fetch('https://api.stripe.com/v1/checkout/sessions', {
     method: 'POST',
-    headers: { Authorization: `Bearer ${deps.stripeKey}`, 'Content-Type': 'application/x-www-form-urlencoded' },
+    headers: { Authorization: `Bearer ${deps.stripeKey}`, 'Content-Type': 'application/x-www-form-urlencoded', 'Stripe-Version': STRIPE_API_VERSION },
     body: checkoutForm(order, { orderId, origin }),
   })
   const data = await res.json().catch(() => ({}))
-  if (!res.ok || !data.url) {
+  if (!res.ok || !data.client_secret) {
     console.error('Stripe checkout failed', res.status, data?.error?.message)
     return json({ error: 'We could not start the payment. Please try again, or email us.' }, 502)
   }
-  return json({ url: data.url, orderId })
+  return json({ client_secret: data.client_secret, orderId })
 }

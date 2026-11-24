@@ -15,6 +15,8 @@
       rel="stylesheet"
     />
     <title>Beyond Stage Zero</title>
+    <!-- Stripe.js must load from js.stripe.com, never bundled (PCI). Used by the nozzle pre-order payment form. -->
+    <script src="https://js.stripe.com/dahlia/stripe.js"></script>
     <script>
       ;(function () {
         try {
