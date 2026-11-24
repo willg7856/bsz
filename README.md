@@ -31,12 +31,12 @@ Customers upload an STL, check the throat/exit/angle numbers measured in the
 browser (`src/nozzle/analyzeNozzle.js`), and pre-order.
 
 **Free or paid:** `takingPayment` in `src/nozzle/order.js`.
-- `false` (now): pre-orders are free. The form posts to `/api/nozzle-register`,
+- `false`: pre-orders are free. The form posts to `/api/nozzle-register`,
   which emails the team the order with the STL attached and the customer a
   confirmation that nothing has been charged. Needs `RESEND_API_KEY` and
   `BLOB_READ_WRITE_TOKEN`. Every pre-order is in the team inbox
   (`ORDER_EMAIL_TO`), with an order number.
-- `true`: the customer pays a fixed price in Stripe's payment form on our own page (setup below, plus `VITE_STRIPE_PUBLISHABLE_KEY`; see [STRIPE_INTEGRATION_TODO.md](STRIPE_INTEGRATION_TODO.md)). Price, currency, ship-to countries and the upload limit live in
+- `true` (now): the customer pays a fixed price in Stripe's payment form on our own page (setup below, plus `VITE_STRIPE_PUBLISHABLE_KEY`; see [STRIPE_INTEGRATION_TODO.md](STRIPE_INTEGRATION_TODO.md)). Price, currency, ship-to countries and the upload limit live in
 `src/nozzle/order.js`.
 
 Vercel project setup:
