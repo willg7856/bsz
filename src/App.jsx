@@ -11,6 +11,7 @@ export default function App() {
           <span className="logo">Apex Agency</span>
           <nav>
             <a href="#features">Services</a>
+            <a href="/apply.html">Apply</a>
             <a href="#contact" className="btn-primary">Get in Touch</a>
           </nav>
         </div>
